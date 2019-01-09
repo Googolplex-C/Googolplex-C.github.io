@@ -408,29 +408,107 @@
       
         
           
-            <p>已知 $n$ 个黑盒子中装有若干个可相互区分的元素，从这些盒子中取出所有元素装进 $n+1$ 个白盒子中，并使得所有白盒子非空。 试证明：存在两个元素，其中每一个元素原先所在的黑盒子元素数目大于其现处的白盒子元素数目。</p>
+            <p>已知 <span class="math inline">\(n\)</span> 个黑盒子中装有若干个可相互区分的元素，从这些盒子中取出所有元素装进 <span class="math inline">\(n+1\)</span> 个白盒子中，并使得所有白盒子非空。 试证明：存在两个元素，其中每一个元素原先所在的黑盒子元素数目大于其现处的白盒子元素数目。</p>
 <p><em>Proof :</em></p>
-<p>记元素的总数目为 $ N$，注意到由于所有的白盒子非空，因此 $ N \geq n+1$ .记新盒子为 $A_i$ ，其中 $1 \leq i \leq n+1$ ；记旧盒子为 $B_i$ ，其中 $1 \leq i \leq n$ .记盒子 $A$, $B$ 的元素数目为 $\lvert A \rvert$,  $\lvert B \rvert$.</p>
-<p>不失其一般性，假定新盒子和旧盒子分别根据其元素数目按照非递增顺序排列，于是可知：<br>$$<br>\begin{equation}<br>\lvert A_1 \rvert \geq \lvert A_2 \rvert \geq \lvert A_3 \rvert \geq \cdots \geq \lvert A_{n+1} \rvert &gt; 0<br>\label{one}<br>\end{equation}<br>$$</p>
-<p>$$<br>\begin{equation}<br>\lvert B_1 \rvert \geq \lvert B_2 \rvert \geq \lvert B_3 \rvert \geq \cdots \geq \lvert B_{n} \rvert<br>\label{two}<br>\end{equation}<br>$$</p>
-<p>分别定义有限长的集合列 ${R}<em>{k=1}^{n+1}$ , ${S}</em>{k=1}^{n}$ 如下：<br>$$<br>\begin{gather}<br>R_k = \bigcup_{i=1}^k A_i \qquad \text{where} \quad 1 \leq k \leq n+1\<br>S_k = \bigcup_{i=1}^k B_i \qquad \text{where} \quad 1 \leq k \leq n<br>\label{three}<br>\end{gather}<br>$$<br>注意到 $A_i \cap A_j = \varnothing$  ,  $B_i \cap B_j = \varnothing$ （其中 $i \neq j$  ），因此有：<br>$$<br>\begin{gather}<br>\lvert R_k \rvert = \sum_{i=1}^k \, \lvert A_i \rvert \qquad \text{where} \quad 1 \leq k \leq n+1\<br>\lvert S_k \rvert = \sum_{i=1}^k \, \lvert B_i \rvert \qquad \text{where} \quad 1 \leq k \leq n<br>\label{four}<br>\end{gather}<br>$$<br>不难得知：<br>$$<br>\begin{gather}<br>0 &lt; \lvert R_1 \rvert &lt; \lvert R_2 \rvert &lt; \cdots &lt; \lvert R_n \rvert &lt; \lvert R_{n+1} \rvert \<br>\<br>0 &lt; \lvert S_1 \rvert \leq \lvert S_2 \rvert \leq \cdots \leq \lvert S_n \rvert<br>\label{five}<br>\end{gather}<br>$$<br>注意到，因为白盒子全部非空，所以集合序列 ${R}$ 严格递增.</p>
-<p>对${R}$ , ${S}$ 两个集合序列根据其基数大小按照非递减顺序进行归并排序，并且作如下规定：</p>
+<p>记元素的总数目为 $ N$，注意到由于所有的白盒子非空，因此 $ N n+1$ .记新盒子为 <span class="math inline">\(A_i\)</span> ，其中 <span class="math inline">\(1 \leq i \leq n+1\)</span> ；记旧盒子为 <span class="math inline">\(B_i\)</span> ，其中 <span class="math inline">\(1 \leq i \leq n\)</span> .记盒子 <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span> 的元素数目为 <span class="math inline">\(\lvert A \rvert\)</span>, <span class="math inline">\(\lvert B \rvert\)</span>.</p>
+<p>不失其一般性，假定新盒子和旧盒子分别根据其元素数目按照非递增顺序排列，于是可知： <span class="math display">\[
+\begin{equation}
+\lvert A_1 \rvert \geq \lvert A_2 \rvert \geq \lvert A_3 \rvert \geq \cdots \geq \lvert A_{n+1} \rvert &gt; 0
+\label{one}
+\end{equation}
+\]</span></p>
+<p><span class="math display">\[
+\begin{equation}
+\lvert B_1 \rvert \geq \lvert B_2 \rvert \geq \lvert B_3 \rvert \geq \cdots \geq \lvert B_{n} \rvert
+\label{two}
+\end{equation}
+\]</span></p>
+<p>分别定义有限长的集合列 <span class="math inline">\(\{R\}_{k=1}^{n+1}\)</span> , <span class="math inline">\(\{S\}_{k=1}^{n}\)</span> 如下： <span class="math display">\[
+\begin{gather}
+R_k = \bigcup_{i=1}^k A_i \qquad \text{where} \quad 1 \leq k \leq n+1\\
+S_k = \bigcup_{i=1}^k B_i \qquad \text{where} \quad 1 \leq k \leq n
+\label{three}
+\end{gather}
+\]</span> 注意到 <span class="math inline">\(A_i \cap A_j = \varnothing\)</span> , <span class="math inline">\(B_i \cap B_j = \varnothing\)</span> （其中 <span class="math inline">\(i \neq j\)</span> ），因此有： <span class="math display">\[
+\begin{gather}
+\lvert R_k \rvert = \sum_{i=1}^k \, \lvert A_i \rvert \qquad \text{where} \quad 1 \leq k \leq n+1\\
+\lvert S_k \rvert = \sum_{i=1}^k \, \lvert B_i \rvert \qquad \text{where} \quad 1 \leq k \leq n
+\label{four}
+\end{gather}
+\]</span> 不难得知： <span class="math display">\[
+\begin{gather}
+0 &lt; \lvert R_1 \rvert &lt; \lvert R_2 \rvert &lt; \cdots &lt; \lvert R_n \rvert &lt; \lvert R_{n+1} \rvert \\
+\\
+0 &lt; \lvert S_1 \rvert \leq \lvert S_2 \rvert \leq \cdots \leq \lvert S_n \rvert 
+\label{five}
+\end{gather}
+\]</span> 注意到，因为白盒子全部非空，所以集合序列 <span class="math inline">\(\{R\}\)</span> 严格递增.</p>
+<p>对<span class="math inline">\(\{R\}\)</span> , <span class="math inline">\(\{S\}\)</span> 两个集合序列根据其基数大小按照非递减顺序进行归并排序，并且作如下规定：</p>
 <ul>
-<li>约束条件：若存在 $i, j$ 使得$\lvert R_i \rvert = \lvert S_j \rvert$ ，则在归并得到的新序列中 $S_j$ 排在 $R_i$ 之前.</li>
+<li>约束条件：若存在 <span class="math inline">\(i, j\)</span> 使得<span class="math inline">\(\lvert R_i \rvert = \lvert S_j \rvert\)</span> ，则在归并得到的新序列中 <span class="math inline">\(S_j\)</span> 排在 <span class="math inline">\(R_i\)</span> 之前.</li>
 </ul>
-<p>易知按此方式构造得到的新序列唯一，且序列的最后一项为 $R_{n+1}$ ，倒数第二项为 $S_n$ .</p>
-<ol>
-<li><p>若第一项为 $R_1$：</p>
-<p>于是归并得到的序列具有如下的形式：<br>$$<br>\begin{equation}<br>R_1, \  \cdots, \  S_n, \  R_{n+1}<br>\label{six}<br>\end{equation}<br>$$<br>由约束条件和${R}$ , ${S}$ 的定义可知：<br>$$<br>\begin{equation}<br>\lvert S_1 \rvert = \lvert B_1 \rvert &gt; \rvert R_1 \rvert= \lvert A_1 \rvert  &gt;0<br>\label{seven}<br>\end{equation}<br>$$<br>进而<br>$$<br>\begin{equation}<br>\lvert S_1 \rvert = \lvert B_1 \rvert \geq 2<br>\label{eight}<br>\end{equation}<br>$$<br>即 $B_1$ 中至少有两个元素，显见这两个元素满足本题所欲证命题所述性质.</p>
-</li>
-<li><p>若第一项为 $S_1$：</p>
-<p>于是归并得到的新序列具有如下的形式：<br>$$<br>\begin{equation}<br>S_1, \  \cdots, \  S_n, \  R_{n+1}<br>\label{nine}<br>\end{equation}<br>$$<br>注意到序列中省略号部分为 $n$ 个来自序列 ${R}$ 的项以及  $n-2$ 个来自序列 ${ S }$ 的项.<br>由抽屉原理可知，存在 $1 \leq i \leq n-1, \ 1 \leq j \leq n-1,\  k \geq 1$ 使得：<br>$$<br>\begin{equation}<br>\lvert S_i \rvert \leq \underbrace{\lvert R_j \rvert &lt; \cdots &lt; \lvert R_{j+k} \rvert}<em>{存在至少\,2\,项(k\geq1)} &lt; \lvert S</em>{i+1} \rvert<br>\label{ten}<br>\end{equation}<br>$$<br>即存在至少 $2$ 个来自序列 ${R}$ 的项，夹在来自序列 ${S }$ 的某相邻两项之间.<br>固定下标 $i,j,k$ ，进而有：<br>$$<br>\begin{align}<br>\lvert B_{i+1} \rvert &amp;= \lvert S_{i+1} \rvert - \lvert S_{i} \rvert </p>
-<blockquote>
-<p>\lvert R_{j+k} \rvert - \lvert R_{j} \rvert \<br>&amp;= \sum_{l=1}^{k}\lvert A_{j+l} \rvert<br>\geq \lvert A_{j+1} \rvert<br>\label{eleven}<br>\end{align}<br>$$<br>于是：<br>$$<br>\begin{equation}<br>\lvert B_1 \rvert \geq \cdots \geq \lvert B_{i+1} \rvert &gt; \lvert A_{j+1} \rvert \geq \cdots \geq \lvert A_{n+1} \rvert &gt;0<br>\label{twelve}<br>\end{equation}<br>$$<br>另外，可知：<br>$$<br>\begin{equation}<br>\lvert S_{i+1} \rvert \geq \lvert R_{j} \rvert + 2<br>\label{thirteen}<br>\end{equation}<br>$$<br>从而<br>$$<br>\begin{equation}<br>\lvert S_{i+1} \rvert + (N - \lvert R_j \rvert) \geq N+2 \quad \Longrightarrow \quad \left| \bigcup_{p=j+1}^{n+1} A_p\right| +\left| \bigcup_{q=1}^{i+1} B_q\right| \geq N+2<br>\label{fourteen}<br>\end{equation}<br>$$<br>注意到 $\left| (\bigcup_{p=j+1}^{n+1} A_p) \ \bigcup \   (\bigcup_{q=1}^{i+1} B_q) \right| \leq N$ 必然成立，由容斥原理可知：<br>$$<br>\begin{equation}<br>\left| (\bigcup_{p=j+1}^{n+1} A_p) \ \bigcap \ (\bigcup_{q=1}^{i+1} B_q) \right| \geq 2<br>\label{fifteen}<br>\end{equation}<br>$$<br>直观而言，前 $i+1$ 个黑盒子的元素总数比前 $j$ 个白盒子的元素总数多 $2$ ，因此在重新装配的过程中，在前 $i+1$ 个黑盒子中必定存在至少两个元素，它们被 “抽补” 到第 $j+1$ 个白盒子及其（在序列 ${A }$ 中）之后的盒子中去；而这前 $i+1$ 个黑盒子中元素数最小的盒子的元素数 $\lvert B_{i+1} \rvert$ 比白盒子中具有最大元素数的白盒子的元素数目 $\lvert A_{j+1} \rvert $都大，于是这两个元素满足欲证命题所述性质.</p>
-</blockquote>
-</li>
+<p>易知按此方式构造得到的新序列唯一，且序列的最后一项为 <span class="math inline">\(R_{n+1}\)</span> ，倒数第二项为 <span class="math inline">\(S_n\)</span> .</p>
+<ol type="1">
+<li><p>若第一项为 <span class="math inline">\(R_1\)</span>：</p>
+<p>于是归并得到的序列具有如下的形式： <span class="math display">\[
+\begin{equation}
+R_1, \  \cdots, \  S_n, \  R_{n+1}
+\label{six}
+\end{equation}
+\]</span> 由约束条件和<span class="math inline">\(\{R\}\)</span> , <span class="math inline">\(\{S\}\)</span> 的定义可知： <span class="math display">\[
+\begin{equation}
+\lvert S_1 \rvert = \lvert B_1 \rvert &gt; \rvert R_1 \rvert= \lvert A_1 \rvert  &gt;0
+\label{seven}
+\end{equation}
+\]</span> 进而 <span class="math display">\[
+\begin{equation}
+\lvert S_1 \rvert = \lvert B_1 \rvert \geq 2
+\label{eight}
+\end{equation}
+\]</span> 即 <span class="math inline">\(B_1\)</span> 中至少有两个元素，显见这两个元素满足本题所欲证命题所述性质.</p></li>
+<li><p>若第一项为 <span class="math inline">\(S_1\)</span>：</p>
+<p>于是归并得到的新序列具有如下的形式： <span class="math display">\[
+\begin{equation}
+S_1, \  \cdots, \  S_n, \  R_{n+1}
+\label{nine}
+\end{equation}
+\]</span> 注意到序列中省略号部分为 <span class="math inline">\(n\)</span> 个来自序列 <span class="math inline">\(\{R\}\)</span> 的项以及 <span class="math inline">\(n-2\)</span> 个来自序列 <span class="math inline">\(\{ S \}\)</span> 的项. 由抽屉原理可知，存在 <span class="math inline">\(1 \leq i \leq n-1, \ 1 \leq j \leq n-1,\  k \geq 1\)</span> 使得： <span class="math display">\[
+\begin{equation}
+\lvert S_i \rvert \leq \underbrace{\lvert R_j \rvert &lt; \cdots &lt; \lvert R_{j+k} \rvert}_{存在至少\,2\,项(k\geq1)} &lt; \lvert S_{i+1} \rvert
+\label{ten}
+\end{equation}
+\]</span> 即存在至少 <span class="math inline">\(2\)</span> 个来自序列 <span class="math inline">\(\{R\}\)</span> 的项，夹在来自序列 <span class="math inline">\(\{S \}\)</span> 的某相邻两项之间. 固定下标 <span class="math inline">\(i,j,k\)</span> ，进而有： <span class="math display">\[
+\begin{align}
+\lvert B_{i+1} \rvert &amp;= \lvert S_{i+1} \rvert - \lvert S_{i} \rvert 
+&gt; \lvert R_{j+k} \rvert - \lvert R_{j} \rvert \\
+&amp;= \sum_{l=1}^{k}\lvert A_{j+l} \rvert
+\geq \lvert A_{j+1} \rvert
+\label{eleven}
+\end{align}
+\]</span> 于是： <span class="math display">\[
+\begin{equation}
+\lvert B_1 \rvert \geq \cdots \geq \lvert B_{i+1} \rvert &gt; \lvert A_{j+1} \rvert \geq \cdots \geq \lvert A_{n+1} \rvert &gt;0
+\label{twelve}
+\end{equation}
+\]</span> 另外，可知： <span class="math display">\[
+\begin{equation}
+\lvert S_{i+1} \rvert \geq \lvert R_{j} \rvert + 2
+\label{thirteen}
+\end{equation}
+\]</span> 从而 <span class="math display">\[
+\begin{equation}
+\lvert S_{i+1} \rvert + (N - \lvert R_j \rvert) \geq N+2 \quad \Longrightarrow \quad \left| \bigcup_{p=j+1}^{n+1} A_p\right| +\left| \bigcup_{q=1}^{i+1} B_q\right| \geq N+2
+\label{fourteen}
+\end{equation}
+\]</span> 注意到 <span class="math inline">\(\left| (\bigcup_{p=j+1}^{n+1} A_p) \ \bigcup \  (\bigcup_{q=1}^{i+1} B_q) \right| \leq N\)</span> 必然成立，由容斥原理可知： <span class="math display">\[
+\begin{equation}
+\left| (\bigcup_{p=j+1}^{n+1} A_p) \ \bigcap \ (\bigcup_{q=1}^{i+1} B_q) \right| \geq 2
+\label{fifteen}
+\end{equation}
+\]</span> 直观而言，前 <span class="math inline">\(i+1\)</span> 个黑盒子的元素总数比前 <span class="math inline">\(j\)</span> 个白盒子的元素总数多 <span class="math inline">\(2\)</span> ，因此在重新装配的过程中，在前 <span class="math inline">\(i+1\)</span> 个黑盒子中必定存在至少两个元素，它们被 “抽补” 到第 <span class="math inline">\(j+1\)</span> 个白盒子及其（在序列 <span class="math inline">\(\{A \}\)</span> 中）之后的盒子中去；而这前 <span class="math inline">\(i+1\)</span> 个黑盒子中元素数最小的盒子的元素数 <span class="math inline">\(\lvert B_{i+1} \rvert\)</span> 比白盒子中具有最大元素数的白盒子的元素数目 $A_{j+1} $都大，于是这两个元素满足欲证命题所述性质.</p></li>
 </ol>
-<p>综上所述，命题成立.<br>Q.E.D.</p>
+<p>综上所述，命题成立.<br>
+Q.E.D.</p>
 
           
         
@@ -572,9 +650,10 @@
       
         
           
-            <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>​    这是我的第一个博客。</p>
-<p>​    testing.</p>
-<p>​    testing.</p>
+            <h1 id="introduction">Introduction</h1>
+<p>​ 这是我的第一个博客。</p>
+<p>​ testing.</p>
+<p>​ testing.</p>
 
           
         
@@ -713,13 +792,18 @@
         
           
             <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 
           
