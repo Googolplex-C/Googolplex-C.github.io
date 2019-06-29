@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Googolplex&#39;s blog</title>
   
-  
+  <subtitle>10^googol=googolplex</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
