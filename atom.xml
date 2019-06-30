@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Googolplex&#39;s blog</title>
+  <title>Googolplex-C</title>
   
-  <subtitle>10^googol=googolplex</subtitle>
+  <subtitle>10^googol</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>

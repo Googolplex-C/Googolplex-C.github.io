@@ -1,0 +1,739 @@
+<!DOCTYPE html><html><head>
+      <title>&#x82F1;&#x8BED; &#x8BED;&#x6599;&#x79EF;&#x7D2F; &#x201C;&#x66F4;&#x522B;&#x8BF4;&#x201D;&#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p>&#x672C;&#x6587;&#x7565;&#x8BB0;&#x4E00;&#x4E0B;&#x82F1;&#x8BED;&#x4E2D; &#x201C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#xFF1B;&#x66F4;&#x522B;&#x8BF4;&#x201D; &#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#xFF0C;&#x5E76;&#x5199;&#x4E00;&#x70B9;&#x7B14;&#x8005;&#x81EA;&#x5DF1;&#x7684;&#x5F52;&#x7EB3;&#x4E0E;&#x7406;&#x89E3;&#xFF0C;&#x662F;&#x4E3A;&#x7B14;&#x8BB0;&#x3002;</p>
+<h4 class="mume-header" id="%E6%9B%B4%E4%B8%8D%E7%94%A8%E8%AF%B4-%E7%9A%84%E8%8B%A5%E5%B9%B2%E7%A7%8D%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F">&#x201C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x201D; &#x7684;&#x82E5;&#x5E72;&#x79CD;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;</h4>
+
+<ol>
+<li>&#x80AF;&#x5B9A;&#x8FFD;&#x52A0;
+<ul>
+<li>even more so</li>
+<li>still more</li>
+<li>much more</li>
+<li>most of all</li>
+</ul>
+</li>
+<li>&#x5426;&#x5B9A;&#x8FFD;&#x52A0;
+<ul>
+<li>still less</li>
+<li>much less</li>
+<li>even less</li>
+<li>least of all</li>
+</ul>
+</li>
+<li>&#x81EA;&#x7531;&#x8FFD;&#x52A0;
+<ul>
+<li>let alone</li>
+<li>not to mention</li>
+<li>not to speak of</li>
+<li>to say nothing of</li>
+<li>without mentioning</li>
+</ul>
+</li>
+</ol>
+<h4 class="mume-header" id="%E8%82%AF%E5%AE%9A%E8%BF%BD%E5%8A%A0">&#x80AF;&#x5B9A;&#x8FFD;&#x52A0;</h4>
+
+<ol>
+<li>
+<p>even more so / still more / much more</p>
+<p>&#x8FD9;&#x4E09;&#x4E2A;&#x77ED;&#x8BED;&#x5728;&#x5F62;&#x5F0F;&#x4E0A;&#x4ECD;&#x7136;&#x662F;&#x526F;&#x8BCD;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x8D77;&#x8FDE;&#x8BCD;&#x7684;&#x4F5C;&#x7528;&#x2014;&#x2014;&#x4F46;&#x662F;&#x540E;&#x4E24;&#x8005;&#x8F83;&#x5C11;&#x7528;&#x4F5C;&#x8FDE;&#x8BCD;&#x77ED;&#x8BED;&#xFF0C;&#x800C;&#x524D;&#x8005;&#x8F83;&#x591A;&#xFF1B;</p>
+<blockquote>
+<ul>
+<li>This is something that will be enjoyed by younger audiences, but even more so with older audiences.</li>
+<li>&#x8BD1;&#xFF1A;&#x8FD9;&#x662F;&#x5E74;&#x8F7B;&#x89C2;&#x4F17;&#x4F1A;&#x6B23;&#x8D4F;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8001;&#x5E74;&#x89C2;&#x4F17;&#x4F1A;&#x66F4;&#x52A0;&#x6B23;&#x8D4F;&#x3002;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>This strategy makes a great deal of sense, even more so when considered from a long-term perspective.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x8FD9;&#x79CD;&#x6218;&#x7565;&#x662F;&#x5F88;&#x80FD;&#x8D77;&#x4F5C;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x4ECE;&#x957F;&#x8FDC;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#xFF0C;&#x4F5C;&#x7528;&#x5C31;&#x66F4;&#x5927;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>most of all</p>
+<p>&#x8FD9;&#x4E2A;&#x77ED;&#x8BED;&#x7684;&#x610F;&#x601D;&#x662F; &#x201C;&#x5C24;&#x5176;&#x662F;&#x201D;&#x3002;</p>
+<blockquote>
+<ul>
+<li>Recent decades, and the 1990s most of all, drove these points home with terrible clarity.</li>
+<li>&#x8BD1;&#xFF1A;&#x6700;&#x8FD1;&#x51E0;&#x5341;&#x5E74;&#xFF0C;&#x5C24;&#x5176;&#x662F; 20 &#x4E16;&#x7EAA; 90 &#x5E74;&#x4EE3;&#xFF0C;&#x5DF2;&#x7ECF;&#x628A;&#x8FD9;&#x51E0;&#x70B9;&#x8868;&#x73B0;&#x5F97;&#x89E6;&#x76EE;&#x60CA;&#x5FC3;&#x3002;</li>
+</ul>
+</blockquote>
+<p>&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x8868;&#x9762;&#x4E0A;&#x662F;&#x5426;&#x5B9A;&#xFF0C;&#x4F46;&#x5176;&#x5B9E;&#x662F;&#x4ECE;&#x53CD;&#x9762;&#x8868;&#x793A;&#x80AF;&#x5B9A;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7528; most of all</p>
+<blockquote>
+<ul>
+<li>Flushed with money and power, they didn&apos;t and would never have enough. There was never enough of either for men like this, but power most of all.</li>
+<li>&#x8BD1;&#xFF1A;&#x4ED6;&#x4EEC;&#x8170;&#x7F20;&#x4E07;&#x8D2F;&#xFF0C;&#x5927;&#x6743;&#x5728;&#x63E1;&#xFF0C;&#x4E0D;&#x77E5;&#x990D;&#x8DB3;&#xFF0C;&#x4E5F;&#x6C38;&#x4E0D;&#x990D;&#x8DB3;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x4EBA;&#xFF0C;&#x591A;&#x5C11;&#x91D1;&#x94B1;&#x548C;&#x6743;&#x529B;&#x90FD;&#x4E0D;&#x591F;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x6743;&#x529B;&#x3002;</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<p><span style="color:blue"><strong>&#x7B14;&#x8005;&#x6CE8;&#x89E3;&#xFF1A;</strong></span></p>
+<p><span style="color:blue"><strong>&#x4E0A;&#x9762;&#x6240;&#x5217;&#x4E3E;&#x7684;&#x8868;&#x793A; &#x80AF;&#x5B9A;&#x8FFD;&#x52A0; &#x7684;&#x77ED;&#x8BED;&#xFF0C;&#x57FA;&#x672C;&#x4E0A;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x6B67;&#x4E49;&#xFF0C;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;&#xFF1A;</strong></span></p>
+<p><span style="color:blue"><strong>1. &#x8FD9;&#x4E9B;&#x77ED;&#x8BED;&#x7FFB;&#x8BD1;&#x6210;&#x4E2D;&#x6587;&#xFF0C;&#x5E94;&#x8BE5;&#x8BD1;&#x4F5C; &#x201C;&#x66F4;&#x52A0;&#x201D; &#x4F1A;&#x8F83;&#x4E3A;&#x8D34;&#x5207;&#xFF0C;&#x548C; &#x201C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x201D; &#x8FD8;&#x662F;&#x6709;&#x4E00;&#x70B9;&#x5C0F;&#x7684;&#x533A;&#x522B;&#x7684;&#x2014;&#x2014;&#x81F3;&#x5C11;&#x5728;&#x7B14;&#x8005;&#x770B;&#x6765;&#x5982;&#x6B64;</strong></span></p>
+<p><span style="color:blue"><strong>2. &quot;most of all&quot; &#x7684;&#x610F;&#x601D;&#x597D;&#x50CF;&#x504F;&#x79BB;&#x5F97;&#x66F4;&#x8FDC;</strong></span></p>
+<h4 class="mume-header" id="%E5%90%A6%E5%AE%9A%E8%BF%BD%E5%8A%A0">&#x5426;&#x5B9A;&#x8FFD;&#x52A0;</h4>
+
+<ol>
+<li>
+<p>still less / much less / even less</p>
+<p>&#x5B83;&#x4EEC;&#x662F;&#x8FDE;&#x8BCD;&#x77ED;&#x8BED;&#xFF0C;&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x63A5;&#x4E00;&#x4E2A;&#x540D;&#x8BCD;&#x6210;&#x5206;&#x6216;&#x8005;&#x72B6;&#x8BED;&#x6210;&#x5206;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x63A5;&#x4E0A;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#xFF1B;&#x5982;&#x679C;&#x540E;&#x9762;&#x8FDE;&#x63A5;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#xFF0C;&#x5E94;&#x8BE5;&#x8FDB;&#x884C;<strong>&#x4E3B;&#x8C13;&#x98A0;&#x5012;</strong>&#xFF1A;</p>
+<blockquote>
+<ul>
+<li>It is far away from my thought to cast a veil over these misdeeds, which are such as to make the conscience of mankind shudder with horror for ever; still less will I endeavor to minimise the degree of guilt of the actors in the great drama.</li>
+<li>&#x8BD1;&#xFF1A;&#x6211;&#x7EDD;&#x4E0D;&#x6253;&#x7B97;&#x62FF;&#x4E00;&#x5757;&#x7EB1;&#x5E03;&#x63A9;&#x76D6;&#x8FD9;&#x4E9B;&#x8DB3;&#x4EE5;&#x4EE4;&#x5168;&#x4EBA;&#x7C7B;&#x7684;&#x826F;&#x77E5;&#x6C38;&#x8FDC;&#x4E3A;&#x4E4B;&#x98A4;&#x6296;&#x7684;&#x6076;&#x884C;&#xFF0C;&#x5BF9;&#x4E8E;&#x90A3;&#x4E9B;&#x53C2;&#x4E0E;&#x8FD9;&#x573A;&#x5927;&#x89C4;&#x6A21;&#x60E8;&#x5267;&#x7684;&#x64CD;&#x7EB5;&#x8005;&#xFF0C;&#x6211;&#x66F4;&#x4E0D;&#x4F1A;&#x8BBE;&#x6CD5;&#x51CF;&#x8F7B;&#x4ED6;&#x4EEC;&#x7684;&#x7F6A;&#x8D23;&#xFF1B;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x4E00;&#x4E2A;&#x5012;&#x88C5;&#x7684;&#x6574;&#x53E5;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>I can not go far in my analysis without drawing on interpretations that have not yet been adequately published, still less widely discussed or rigorously criticized and evaluated.</li>
+<li>&#x8BD1;&#xFF1A;&#x6211;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x8FDB;&#x884C;&#x5206;&#x6790;&#xFF0C;&#x5C31;&#x65E0;&#x6CD5;&#x4E0D;&#x5F15;&#x7528;&#x4E00;&#x4E9B;&#x5C1A;&#x672A;&#x6B63;&#x5F0F;&#x53D1;&#x8868;&#x3001;&#x66F4;&#x672A;&#x7ECF;&#x8FC7;&#x5E7F;&#x6CDB;&#x8BA8;&#x8BBA;&#x6216;&#x4E25;&#x683C;&#x6279;&#x5224;&#x4E0E;&#x8BC4;&#x4EF7;&#x7684;&#x89E3;&#x8BFB;&#x8BBA;&#x8FF0;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x8FC7;&#x53BB;&#x5206;&#x8BCD;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>I would not belittle, still less deny, the many admirable products this technology has brought forth, products that a self-regulating economy would make good use of.</li>
+<li>&#x8BD1;&#xFF1A;&#x6211;&#x4E0D;&#x6253;&#x7B97;&#x8D2C;&#x4F4E;&#xFF0C;&#x66F4;&#x4E0D;&#x6253;&#x7B97;&#x5426;&#x5B9A;&#x8FD9;&#x79CD;&#x6280;&#x672F;&#x6240;&#x5DF2;&#x7ECF;&#x4EA7;&#x751F;&#x7684;&#x8BB8;&#x591A;&#x4E86;&#x4E0D;&#x8D77;&#x7684;&#x4EA7;&#x54C1;&#xFF0C;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x4EA7;&#x54C1;&#xFF0C;&#x51E1;&#x662F;&#x81EA;&#x6211;&#x8C03;&#x8282;&#x7684;&#x7ECF;&#x6D4E;&#xFF0C;&#x90FD;&#x4F1A;&#x597D;&#x597D;&#x52A0;&#x4EE5;&#x5229;&#x7528;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>The cloud of treason hanging over him was enough to guarantee that no one ever trusted, much less listened to him ever again.</li>
+<li>&#x8BD1;&#xFF1A;&#x60AC;&#x5728;&#x4ED6;&#x5934;&#x4E0A;&#x7684;&#x80CC;&#x53DB;&#x4E4C;&#x4E91;&#xFF0C;&#x5DF2;&#x7ECF;&#x786E;&#x4FDD;&#x4E86;&#x4EFB;&#x4F55;&#x4EBA;&#x90FD;&#x4E0D;&#x4F1A;&#x76F8;&#x4FE1;&#x4ED6;&#xFF0C;&#x66F4;&#x4E0D;&#x4F1A;&#x518D;&#x542C;&#x4ED6;&#x7684;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>I&apos; m not blaming anyone, much less you.</li>
+<li>&#x8BD1;&#xFF1A;&#x6211;&#x6CA1;&#x6709;&#x6307;&#x8D23;&#x4EFB;&#x4F55;&#x4EBA;&#xFF0C;&#x66F4;&#x6CA1;&#x6709;&#x6307;&#x8D23;&#x4F60;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x4F5C;&#x4E3A;&#x5BBE;&#x8BED;&#x7684;&#x4EE3;&#x8BCD;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Such large questions are never easy to approach, much less to answer.</li>
+<li>&#x8BD1;&#xFF1A;&#x8FD9;&#x6837;&#x7684;&#x5927;&#x95EE;&#x9898;&#xFF0C;&#x4ECE;&#x6765;&#x90FD;&#x662F;&#x4E0D;&#x5BB9;&#x6613;&#x5BF9;&#x5F85;&#x7684;&#xFF0C;&#x8981;&#x56DE;&#x7B54;&#x5C31;&#x66F4;&#x4E0D;&#x5BB9;&#x6613;&#x4E86;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x52A8;&#x8BCD;&#x4E0D;&#x5B9A;&#x5F0F;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>When our headlights flashed, the deer barely blinked, still less moved.</li>
+<li>&#x8BD1;&#xFF1A;&#x6211;&#x4EEC;&#x7684;&#x8F66;&#x524D;&#x706F;&#x95EA;&#x4EAE;&#x65F6;&#xFF0C;&#x90A3;&#x53EA;&#x9E7F;&#x773C;&#x775B;&#x90FD;&#x4E0D;&#x7728;&#x4E00;&#x4E0B;&#xFF0C;&#x66F4;&#x4E0D;&#x8981;&#x8BF4;&#x52A8;&#x4E00;&#x4E0B;&#x4E86;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x4E2D; much less &#x524D;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x662F; &#x201C;&#x51C6;&#x5426;&#x5B9A;&#x201D; &#x7684;&#x5206;&#x53E5;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>In America memory President Coolidge is, to put it midly, hardly an object of pride or admiration,  still less of veneration.</li>
+<li>&#x8BD1;&#xFF1A;&#x5728;&#x7F8E;&#x56FD;&#x4EBA;&#x7684;&#x56DE;&#x5FC6;&#x4E2D;&#xFF0C;&#x67EF;&#x7ACB;&#x829D;&#x603B;&#x7EDF;&#xFF0C;&#x8BF4;&#x5F97;&#x5BA2;&#x6C14;&#x70B9;&#xFF0C;&#x5F88;&#x96BE;&#x4F7F;&#x4EBA;&#x4EE5;&#x4ED6;&#x4E3A;&#x8363;&#x6216;&#x8005;&#x5BF9;&#x4ED6;&#x611F;&#x5230;&#x94A6;&#x4F69;&#xFF0C;&#x54CF;&#x4E0D;&#x8981;&#x8BF4;&#x5D07;&#x656C;&#x4E86;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FDE;&#x63A5;&#x4F5C;&#x4E3A;&#x5B9A;&#x8BED;&#x7684;&#x4ECB;&#x8BCD;&#x77ED;&#x8BED;&#xFF0C;&#x524D;&#x9762;&#x7684;&#x5206;&#x53E5;&#x662F; &#x201C;&#x51C6;&#x5426;&#x5B9A;&#x201D; &#x5F0F;&#x7684;</li>
+</ul>
+</blockquote>
+</li>
+<li>
+<p>least of all</p>
+<p>&#x4E0E; &quot;most of all&quot; &#x76F8;&#x5BF9;&#xFF0C;&#x4ECD;&#x53EF;&#x8BD1;&#x4E3A; &#x201C;&#x5C24;&#x5176;&#x662F;&#x201D;&#xFF0C;&#x4F46;&#x662F;&#x8868;&#x8FBE;&#x7684;&#x662F;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5426;&#x5B9A;</p>
+<blockquote>
+<ul>
+<li>The American Empire simply could not tolerate an anti-imperialist and anti-capitalist government, least of all in the Western hemisphere, the US&apos;s &quot;backyard&quot;.</li>
+<li>&#x8BD1;&#xFF1A;&#x7F8E;&#x5229;&#x575A;&#x5E1D;&#x56FD;&#x4E0D;&#x53EF;&#x80FD;&#x5BB9;&#x5FCD;&#x4E00;&#x4E2A; &#x201C;&#x53CD;&#x5E1D;&#x56FD;&#x4E3B;&#x4E49;&#x201D; &#x548C; &#x201C;&#x53CD;&#x8D44;&#x672C;&#x4E3B;&#x4E49;&#x201D; &#x7684;&#x653F;&#x5E9C;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x662F;&#x5728;&#x5176; &#x201C;&#x540E;&#x9662;&#x201D; &#x897F;&#x534A;&#x7403;&#x3002;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Under what circumstances does the CEO owe the employee anything, least of all an explanation for his actions?</li>
+<li>&#x8BD1;&#xFF1A;&#x8EAB;&#x4E3A;&#x603B;&#x7ECF;&#x7406;&#xFF0C;&#x54EA;&#x80FD;&#x6B20;&#x533A;&#x533A;&#x4E00;&#x4E2A;&#x96C7;&#x5458;&#x4EC0;&#x4E48;&#x4E1C;&#x897F;&#xFF0C;&#x66F4;&#x4F55;&#x51B5;&#x662F;&#x8981;&#x5C31;&#x81EA;&#x5DF1;&#x7684;&#x884C;&#x52A8;&#x8BF4;&#x660E;&#x7406;&#x7531;&#x3002;</li>
+<li>&#x6CE8;&#xFF1A;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x524D;&#x534A;&#x90E8;&#x5206;&#x662F;&#x4E00;&#x79CD; &#x201C;&#x7591;&#x95EE;&#x53CD;&#x8BD8;&#x201D; &#x8BED;&#x6C14;&#xFF0C;&#x56E0;&#x6B64;&#x4E5F;&#x53EF;&#x4EE5;&#x8FFD;&#x52A0;&#x5426;&#x5B9A;</li>
+</ul>
+</blockquote>
+</li>
+</ol>
+<h4 class="mume-header" id="%E8%87%AA%E7%94%B1%E8%BF%BD%E5%8A%A0">&#x81EA;&#x7531;&#x8FFD;&#x52A0;</h4>
+
+<ol>
+<li>
+<p>*let alone</p>
+<p>let alone &#x540E;&#x9762;&#x53EF;&#x4EE5;&#x8FDE;&#x63A5;&#x540D;&#x8BCD;&#x3001;&#x526F;&#x8BCD;&#x3001;&#x52A8;&#x540D;&#x8BCD;&#x3001;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x3001;&#x8FC7;&#x53BB;&#x5206;&#x8BCD;&#x6216;&#x4ECB;&#x8BCD;&#x77ED;&#x8BED;&#x7B49;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x63D2;&#x5165;&#x5230;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x8BCD;&#x7FA4;&#x4E2D;</p>
+<ul>
+<li>let alone &#x53EF;&#x7528;&#x4E8E;&#x8FDB;&#x4E00;&#x6B65;&#x80AF;&#x5B9A;&#xFF1A;</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>It was folly to have thought of going in the first place, let alone staying.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x672C;&#x6765;&#x60F3;&#x5230;&#x8981;&#x53BB;&#xFF0C;&#x5C31;&#x5DF2;&#x7ECF;&#x591F;&#x611A;&#x8822;&#x7684;&#x4E86;&#xFF0C;&#x66F4;&#x4F55;&#x51B5;&#x60F3;&#x5230;&#x8981;&#x7559;&#x5728;&#x90A3;&#x91CC;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>He knows every cabbage stump in the gardens, let alone the people.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x4ED6;&#x5BF9;&#x83DC;&#x56ED;&#x91CC;&#x7684;&#x6BCF;&#x4E00;&#x68F5;&#x767D;&#x83DC;&#x832C;&#x90FD;&#x719F;&#x6089;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x5BF9;&#x4EBA;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>He will, sir, for the hatred and malice that he bears to you; let alone the pleasure of doing a bad action, which to him is its own reward.</li>
+<li>&#x8BD1;&#xFF1A;&#x5148;&#x751F;&#xFF0C;&#x4ED6;&#x4F1A;&#x8FD9;&#x6837;&#x505A;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x6068;&#x60A8;&#xFF0C;&#x5BF9;&#x60A8;&#x62B1;&#x6709;&#x6076;&#x610F;&#xFF1B;&#x66F4;&#x4F55;&#x51B5;&#x4ED6;&#x53C8;&#x4EE5;&#x5E72;&#x574F;&#x4E8B;&#x4E3A;&#x4E50;&#xFF0C;&#x574F;&#x4E8B;&#x5BF9;&#x4E8E;&#x4ED6;&#xFF0C;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x5956;&#x8D4F;&#x3002;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>The striking victory over a menacing combination of Turks and Arabs in the north, won by troops under the command of Lord Hastings, the veteran of so many striking victories, was already spread by the newspapers all over the Empire, let alone to this small garrison so near to the battlefield.</li>
+<li>&#x8BD1;&#xFF1A;&#x90A3;&#x4F4D;&#x8EAB;&#x7ECF;&#x767E;&#x6218;&#x519B;&#x529F;&#x5F6A;&#x70B3;&#x7684;&#x54C8;&#x65AF;&#x6C40;&#x65AF;&#x7235;&#x58EB;&#x6240;&#x7387;&#x7684;&#x5927;&#x519B;&#xFF0C;&#x51FB;&#x8D25;&#x571F;&#x8033;&#x5176;&#x4EBA;&#x548C;&#x963F;&#x62C9;&#x4F2F;&#x4EBA;&#x58F0;&#x52BF;&#x6C79;&#x6C79;&#x7684;&#x8054;&#x519B;&#xFF0C;&#x5927;&#x6377;&#x7684;&#x6D88;&#x606F;&#xFF0C;&#x5DF2;&#x7ECF;&#x4F20;&#x904D;&#x4E86;&#x5E1D;&#x56FD;&#x5404;&#x5730;&#x7684;&#x62A5;&#x7EB8;&#xFF0C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x4F20;&#x5230;&#x4E86;&#x5982;&#x6B64;&#x9760;&#x8FD1;&#x6218;&#x573A;&#x7684;&#x8FD9;&#x4E2A;&#x5C0F;&#x5C0F;&#x9A7B;&#x5175;&#x70B9;&#x3002;</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>She was, on the contrary, inclined to be silent; she shrank from expressing herself even in talk, let alone in writing.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x5979;&#x5219;&#x76F8;&#x53CD;&#xFF0C;&#x503E;&#x5411;&#x4E8E;&#x6C89;&#x9ED8;&#x5BE1;&#x8A00;&#xFF1B;&#x5979;&#x751A;&#x81F3;&#x5728;&#x8A00;&#x8C08;&#x4E2D;&#x4E5F;&#x5C3D;&#x91CF;&#x5C11;&#x8BF4;&#x8BDD;&#xFF0C;&#x4E66;&#x9762;&#x4E0A;&#x5C31;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>I would have you to know, clerk, that I am a free English burgher, and that I dare say my mind to our father the Pope himself, let alone such a lacquey&apos;s lacquey as you.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x6211;&#x8981;&#x8BA9;&#x4F60;&#x8FD9;&#x4E2A;&#x529E;&#x4E8B;&#x5458;&#x660E;&#x767D;&#xFF0C;&#x6211;&#x662F;&#x4E2A;&#x81EA;&#x7531;&#x7684;&#x82F1;&#x683C;&#x5170;&#x5E02;&#x6C11;&#xFF0C;&#x5FC3;&#x91CC;&#x6709;&#x4EC0;&#x4E48;&#x8BDD;&#xFF0C;&#x6211;&#x5728;&#x6559;&#x7687;&#x4ED6;&#x8001;&#x4EBA;&#x5BB6;&#x9762;&#x524D;&#x4E5F;&#x6562;&#x4E00;&#x53E4;&#x8111;&#x513F;&#x8BF4;&#x51FA;&#x6765;&#xFF0C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x5728;&#x4F60;&#x8FD9;&#x4E2A;&#x5974;&#x624D;&#x7684;&#x5974;&#x624D;&#x9762;&#x524D;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<p><strong>&#x4F46;&#x662F;&#x5173;&#x4E8E; let alone &#x7684;&#x80AF;&#x5B9A;&#x8FFD;&#x52A0;&#xFF0C;&#x9648;&#x7528;&#x4EEA;&#x5148;&#x751F;&#x5728;&#x5176;&#x8457;&#x4F5C;&#x4E2D;&#x8FD9;&#x6837;&#x5199;&#x9053;&#xFF1A;</strong></p>
+<blockquote>
+<p>&#x4F46;&#x662F;&#xFF0C;&#x4ECE;&#x4E0A;&#x9762;&#x7528;&#x4E8E;&#x8FDB;&#x4E00;&#x6B65;&#x80AF;&#x5B9A;&#x7684;&#x4F8B;&#x53E5;&#x6765;&#x770B;&#xFF0C;let alone &#x603B;&#x662F;&#x5E26;&#x6709; &#x201C;&#x4ECE;&#x9AD8;&#x5F80;&#x4F4E;&#x5904;&#x8BF4;&#x201D; &#x7684; &#x201C;&#x964D;&#x7EA7;&#x201D; &#x610F;&#x4E49;&#xFF0C;&#x800C;&#x4E0D;&#x662F; &#x201C;&#x66F4;&#x4E0A;&#x4E00;&#x5C42;&#x697C;&#x201D; &#x90A3;&#x4E2A;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x80AF;&#x5B9A;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4E5F;&#x6709;&#x4EBA;&#xFF08;&#x4F8B;&#x5982;&#x52A0;&#x5DDE;&#x5927;&#x5B66;&#x4F2F;&#x514B;&#x5229;&#x5206;&#x6821;&#x7684;Maziar Toosarvandani&#xFF09;&#x4E3B;&#x5F20; let alone &#x4ECD;&#x7136;&#x5E94;&#x8BE5;&#x5217;&#x5165; &#x201C;&#x5426;&#x5B9A;&#x6781;&#x6027;&#x9879;&#x201D;&#xFF08;Negative Polarity Items, NPIs&#xFF09;&#x7684;&#x8303;&#x7574;&#x3002;</p>
+</blockquote>
+<ul>
+<li>let alone &#x53EF;&#x7528;&#x4E8E;&#x8FDB;&#x4E00;&#x6B65;&#x5426;&#x5B9A;&#xFF1A;</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>I wouldn&apos;t go out with him, let alone marry him.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x6211;&#x4E0D;&#x4F1A;&#x8DDF;&#x4ED6;&#x4E00;&#x8D77;&#x51FA;&#x53BB;&#xFF0C;&#x66F4;&#x4E0D;&#x4F1A;&#x5AC1;&#x7ED9;&#x4ED6;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>She&apos;s too good and holy for any man, let alone me.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x5979;&#x592A;&#x7F8E;&#x597D;&#xFF0C;&#x592A;&#x795E;&#x5723;&#x4E86;&#xFF0C;&#x54EA;&#x4E2A;&#x7537;&#x4EBA;&#x90FD;&#x914D;&#x5979;&#x4E0D;&#x4E0A;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x6211;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>The human animal is a strange spectacle to behold, let alone comprehend.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x4EBA;&#x7C7B;&#x8FD9;&#x79CD;&#x52A8;&#x7269;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x4E0D;&#x5BB9;&#x6613;&#x5BDF;&#x770B;&#xFF0C;&#x66F4;&#x4E0D;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x7684;&#x5947;&#x666F;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>But when we neared the coast we discovered no indication of any human habitations  whatever, let alone a city.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x6211;&#x4EEC;&#x9760;&#x8FD1;&#x6D77;&#x5CB8;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53D1;&#x73B0;&#x90A3;&#x91CC;&#x6E3A;&#x65E0;&#x4EBA;&#x70DF;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x6709;&#x4EC0;&#x4E48;&#x57CE;&#x5E02;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>The Moors have a small opinion of  England, France, and America, and put their representatives to a deal of  red-tape circumlocution before they grant them their common rights, let  alone a favor.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x6469;&#x5C14;&#x4EBA;&#x77A7;&#x4E0D;&#x8D77;&#x82F1;&#x56FD;&#x3001;&#x6CD5;&#x56FD;&#x548C;&#x7F8E;&#x56FD;&#xFF0C;&#x5C31;&#x91C7;&#x53D6;&#x7E41;&#x6587;&#x7F1B;&#x8282;&#x548C;&#x8FC2;&#x56DE;&#x7684;&#x529E;&#x6CD5;&#x6765;&#x6298;&#x817E;&#x8FD9;&#x4E9B;&#x56FD;&#x5BB6;&#x7684;&#x4EE3;&#x8868;&#x4EEC;&#xFF0C;&#x4E0D;&#x7ED9;&#x4E0E;&#x4ED6;&#x4EEC;&#x4EE5;&#x901A;&#x5E38;&#x7684;&#x6743;&#x5229;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x7ED9;&#x4ED6;&#x4EEC;&#x4F18;&#x5F85;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>When he  looked straight at you, you didn&apos;t know where you were yourself, let alone what he was looking at.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x5F53;&#x4ED6;&#x76F4;&#x77A7;&#x7740;&#x4F60;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x7B80;&#x76F4;&#x4E0D;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x8EAB;&#x5728;&#x4F55;&#x5904;&#xFF0C;&#x66F4;&#x522B;&#x8BF4;&#x77E5;&#x9053;&#x4ED6;&#x5728;&#x77A7;&#x7740;&#x4EC0;&#x4E48;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5E26;&#x5426;&#x5B9A;&#x8BED;&#x6C14;&#x7684;&#x53CD;&#x95EE;&#x3002;</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>Think ye (=Do you think) that your beggarly feast was worth three pounds, let alone three  hundred?</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x4F60;&#x4EEC;&#x4EE5;&#x4E3A;&#x4F60;&#x4EEC;&#x90A3;&#x987F;&#x53EB;&#x5316;&#x5B50;&#x822C;&#x7684;&#x9910;&#x5BB4;&#x503C;&#x4E09;&#x82F1;&#x9551;&#x5417;&#xFF1F;&#x66F4;&#x522B;&#x8BF4;&#x4E09;&#x767E;&#x82F1;&#x9551;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>&#x6709;&#x65F6;&#x5019;&#x524D;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x5426;&#x5B9A;&#x53EA;&#x662F;&#x51C6;&#x5426;&#x5B9A;&#xFF0C;&#x4F46;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;let alone&#x6765;&#x8868;&#x793A;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5426;&#x5B9A;&#x3002;</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>Little attention was paid to it, and 10 years passed before the existence, let alone the exact  functions of these receptors, non-committally named alpha and beta, was recognized.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x4EBA;&#x4EEC;&#x4E0D;&#x600E;&#x4E48;&#x6CE8;&#x610F;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;&#x8FD9;&#x4E9B;&#x4E0D;&#x660E;&#x4E0D;&#x767D;&#x5730;&#x53EB;&#x505A;&#x3B1;&#x4E0E;&#x3B2;&#x7684;&#x63A5;&#x6536;&#x5668;&#xFF0C;&#x7ECF;&#x8FC7;&#x4E86;&#x5341;&#x5E74;&#x4E4B;&#x540E;&#xFF0C;&#x5176;&#x5B58;&#x5728;&#x624D;&#x88AB;&#x627F;&#x8BA4;&#xFF0C;&#x81F3;&#x4E8E;&#x5176;&#x51C6;&#x786E;&#x7684;&#x529F;&#x7528;&#xFF0C;&#x90A3;&#x5C31;&#x66F4;&#x4E0D;&#x90A3;&#x4E48;&#x5BB9;&#x6613;&#x627F;&#x8BA4;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>On what the boss pays us, we are lucky to be able (= we are lucky if we are  able) to keep body and soul together, let alone feed a family.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x9760;&#x8001;&#x677F;&#x4ED8;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x94B1;&#xFF0C;&#x6211;&#x4EEC;&#x80FD;&#x81EA;&#x5DF1;&#x7CCA;&#x53E3;&#x5C31;&#x7B97;&#x8FD0;&#x6C14;&#x7684;&#x4E86;&#xFF0C;&#x54EA;&#x8FD8;&#x8C08;&#x5F97;&#x4E0A;&#x517B;&#x5BB6;&#x3002;&#x8FD9;&#x91CC;&#x7684;are lucky to be able  to&#x5E26;&#x6709; &#x201C;&#x80FD;&#x5982;&#x4F55;&#x5982;&#x4F55;&#x5C31;&#x7B97;&#x8FD0;&#x6C14;&#xFF0C;&#x4E0D;&#x4E00;&#x5B9A;&#x80FD;&#x505A;&#x5230;&#x201D; &#x7684;&#x51C6;&#x5426;&#x5B9A;&#x8BED;&#x6C14;&#xFF08;&#x5173;&#x4E8E;we are lucky to be able = we are lucky if  we are able&#xFF0C;&#x53C2;&#x89C1;lucky&#x6761;&#xFF09;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<ul>
+<li>&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A; let alone &#x5DF2;&#x7ECF;&#x9010;&#x6E10;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x6BD4; not &#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5426;&#x5B9A;&#x7684;&#x526F;&#x8BCD;&#x77ED;&#x8BED;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x653E;&#x5728;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;&#x4E4B;&#x5185;&#x3002;</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>Country A still has not signed a peace treaty with country B, let alone established full diplomatic relations.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x7532;&#x56FD;&#x5C1A;&#x672A;&#x540C;&#x4E59;&#x56FD;&#x7B7E;&#x8BA2;&#x548C;&#x7EA6;&#xFF0C;&#x66F4;&#x6CA1;&#x6709;&#x5EFA;&#x7ACB;&#x5B8C;&#x5168;&#x7684;&#x5916;&#x4EA4;&#x5173;&#x7CFB;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>I&apos;ve not even read the first Chapter, let alone finished the book.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x7B2C;&#x4E00;&#x7AE0;&#x6211;&#x8FD8;&#x6CA1;&#x6709;&#x770B;&#xFF0C;&#x66F4;&#x8C08;&#x4E0D;&#x4E0A;&#x770B;&#x5B8C;&#x8FD9;&#x672C;&#x4E66;&#x4E86;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>
+<p>No one had even heard of Pat Weaver, let alone seen him.</p>
+</li>
+<li>
+<p>&#x8BD1;&#xFF1A;&#x6CA1;&#x6709;&#x8C01;&#x542C;&#x8BF4;&#x8FC7;&#x5E15;&#x7279;&#xB7;&#x97E6;&#x7EF4;&#x5C14;&#xFF0C;&#x66F4;&#x6CA1;&#x6709;&#x89C1;&#x8FC7;&#x4ED6;&#x3002;</p>
+</li>
+</ul>
+</blockquote>
+<p style="color:rgb(0,0,255);">
+    <b>
+    &#x7B14;&#x8005;&#x7ED3;&#x5408;&#x4E86;&#x9648;&#x7528;&#x4EEA;&#x5148;&#x751F;&#x5BF9; let alone &#x8BE6;&#x7EC6;&#x7684;&#x4ECB;&#x7ECD;&#x540E;&#xFF0C;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#x5F52;&#x7EB3;&#x6574;&#x7406;&#x5982;&#x4E0B;&#xFF08;&#x6B64;&#x5904;&#x5E94;&#x7C7B;&#x6BD4;&#x6216;&#x501F;&#x7528;&#x6570;&#x7406;&#x903B;&#x8F91;&#x7684;&#x601D;&#x7EF4;&#x65B9;&#x5F0F;&#xFF09;<br>
+    &#x53E5;&#x5B50; let alone &#x8FDE;&#x63A5;&#x7684;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x53EF;&#x4EE5;&#x5F62;&#x5F0F;&#x5730;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;
+    </b>
+</p>
+<p></p><div class="mathjax-exps">$$A,\quad  \text{let alone}\quad B$$</div><p></p>
+<p style="color:blue">
+    <b>
+        &#x5176;&#x4E2D;&#xFF0C;&#x547D;&#x9898; A &#x5F3A;&#x4E8E;&#x547D;&#x9898; B&#xFF0C;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x547D;&#x9898; A &#x662F; &#x547D;&#x9898; B &#x7684;&#x5145;&#x5206;&#x6761;&#x4EF6;&#xFF0C;B &#x662F; A &#x7684;&#x5FC5;&#x8981;&#x6761;&#x4EF6;&#xFF0C;&#x4F7F;&#x7528;&#x5F62;&#x5F0F;&#x5316;&#x7684;&#x8BED;&#x8A00;&#x8868;&#x793A;&#x5982;&#x4E0B;&#xFF1A;
+    </b>
+</p>
+<p></p><div class="mathjax-exps">$$A \Rightarrow B$$</div><p></p>
+<p style="color:blue">
+    <b>
+        &#x8FD9;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x9648;&#x5148;&#x751F;&#x6240;&#x8BF4;&#x7684; &#x201C;&#x4ECE;&#x9AD8;&#x5904;&#x5F80;&#x4F4E;&#x5904;&#x8BF4;&#x7684; &#x2018;&#x964D;&#x7EA7;&#x2019; &#x610F;&#x5473;&#x201D;&#xFF0C;&#x800C;&#x4E14;&#x7B14;&#x8005;&#x4EE5;&#x4E3A;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x603B;&#x7ED3;&#x53EF;&#x4EE5;&#x5F88;&#x7B80;&#x5355;&#x5730;&#x8BF4;&#x660E; let alone &#x5728;&#x8BED;&#x4E49;&#x8F6C;&#x6298;&#x4E2D;&#x6240;&#x8D77;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x4E0D;&#x59A8;&#x4EE5;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x8BE6;&#x6790;&#x4E4B;&#xFF1A;<br><br>
+        1. It was folly to have thought of going in the first place, let alone staying. <br>
+        &#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x5176;&#x5B9E;&#x63D0;&#x53CA;&#x4E86;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#xFF0C;&#x201C;&#x60F3;&#x53BB;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x662F;&#x611A;&#x8822;&#x7684;&#x201D;&#x548C;&#x201C;&#x5446;&#x5728;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x662F;&#x611A;&#x8822;&#x7684;&#x201D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x89C1;&#xFF0C;&#x524D;&#x8005;&#x662F;&#x8574;&#x542B;&#x540E;&#x8005;&#x7684;&#xFF0C;&#x4E5F;&#x5373;&#x524D;&#x9762;&#x7684;&#x547D;&#x9898;&#x6BD4;&#x540E;&#x9762;&#x7684;&#x547D;&#x9898;&#x66F4;&#x5F3A;&#x2014;&#x2014;&#x5149;&#x662F;&#x60F3;&#x53BB;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x5C31;&#x5DF2;&#x7ECF;&#x53EF;&#x79F0;&#x4F5C;&#x611A;&#x8822;&#xFF0C;&#x90A3;&#x4E48;&#x5446;&#x5728;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x81EA;&#x7136;&#x4E0D;&#x7528;&#x8BF4;&#x4E86;&#xFF08;&#x4F46;&#x53CD;&#x8FC7;&#x6765;&#x8BF4;&#x5C31;&#x4E0D;&#x4E00;&#x5B9A;&#x4E86;&#xFF09;<br>
+        &#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x5206;&#x6790;&#x8FD9;&#x4E2A;&#x53E5;&#x5B50;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5343;&#x4E07;&#x4E0D;&#x8981;&#x9519;&#x8BEF;&#x628A;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#x5F52;&#x7ED3;&#x4E3A; &#x201C;&#x60F3;&#x53BB;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x201D; &#x548C; &#x201C;&#x5446;&#x5728;&#x90A3;&#x4E2A;&#x5730;&#x65B9;&#x201D;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x4F1A;&#x53D1;&#x73B0;&#x540E;&#x8005;&#x6BD4;&#x524D;&#x8005;&#x66F4;&#x5F3A;&#xFF0C;&#x4ECE;&#x800C;&#x5F97;&#x51FA;&#x77DB;&#x76FE;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#xFF0C;let alone &#x8FDE;&#x63A5;&#x7684;&#x662F; &quot;It was folly to have thought of going&quot; &#x8FD9;&#x4E2A;&#x8BED;&#x4E49;&#x6574;&#x4F53;&#xFF0C;&#x4E0D;&#x53EF;&#x968F;&#x4FBF;&#x5206;&#x5272;&#xFF0C;&#x614E;&#x4E4B;&#x3002;
+    </b>
+</p>
+<p style="color:blue">
+    <b>
+        2. He knows every cabbage stump in the gardens, let alone the people.<br>
+        &#x540C;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x601D;&#x8DEF;&#x5206;&#x6790;&#xFF0C;let alone &#x8FDE;&#x63A5;&#x7684;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#x5206;&#x522B;&#x662F; &#x201C;&#x4ED6;&#x719F;&#x6089;&#x56ED;&#x5B50;&#x7684;&#x6BCF;&#x4E00;&#x9897;&#x767D;&#x83DC;&#x201D; &#x548C; &#x201C;&#x4ED6;&#x719F;&#x6089;&#x56ED;&#x5B50;&#x91CC;&#x7684;&#x4EBA;&#x201D;&#xFF0C;&#x524D;&#x8005;&#x6BD4;&#x540E;&#x8005;&#x66F4;&#x5F3A;&#xFF0C;&#x56E0;&#x6B64;&#x8868;&#x8FBE;&#x7684;&#x610F;&#x601D;&#x5C31;&#x662F;&#xFF0C;&#x201C;&#x8FDE;&#x56ED;&#x5B50;&#x7684;&#x6BCF;&#x4E00;&#x9897;&#x767D;&#x83DC;&#x90FD;&#x719F;&#x6089;&#xFF0C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x56ED;&#x5B50;&#x91CC;&#x7684;&#x4EBA;&#x4E86;&#x201D;
+    </b>
+</p>
+<p style="color:blue">
+    <b>
+        3. He will, sir, for the hatred and malice that he bears to you; let alone the pleasure of doing a bad action, which to him is its own reward.<br>
+        &#x6B64;&#x5904;&#x7684;&#x5206;&#x6790;&#x4ECD;&#x7136;&#x7B26;&#x5408;&#x7B14;&#x8005;&#x7684;&#x7406;&#x8BBA;&#xFF0C;&#x6B64;&#x5904; let alone &#x8FDE;&#x63A5;&#x7684;&#x662F;&#x8FD9;&#x6837;&#x7684;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#xFF1A;&#x201C;&#x56E0;&#x4E3A;&#x4ED6;&#x5BF9;&#x4F60;&#x6709;&#x6076;&#x610F;&#xFF0C;&#x4ED6;&#x4F1A;&#x8FD9;&#x6837;&#x505A;&#x201D; &#x548C; &#x201C;&#x56E0;&#x4E3A;&#x505A;&#x574F;&#x4E8B;&#x5BF9;&#x4ED6;&#x800C;&#x8A00;&#x662F;&#x4E00;&#x79CD;&#x5956;&#x8D4F;&#xFF0C;&#x4ED6;&#x4F1A;&#x8FD9;&#x6837;&#x505A;&#x201D;&#xFF0C;&#x524D;&#x8005;&#x6BD4;&#x540E;&#x4E00;&#x4E2A;&#x547D;&#x9898;&#x66F4;&#x5F3A;&#xFF1B;<br>
+        &#x6CE8;&#x610F;&#xFF0C;&#x548C;&#x7B2C;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x7C7B;&#x4F3C;&#xFF0C;&#x63D0;&#x53D6;&#x8BED;&#x4E49;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x80FD;&#x968F;&#x4FBF;&#x5206;&#x5272;&#xFF0C;&#x5982;&#x679C;&#x628A; let alone &#x8FDE;&#x63A5;&#x7684;&#x547D;&#x9898;&#x9519;&#x8BEF;&#x5730;&#x8BA4;&#x4F5C;&#x662F;&#xFF1A;&#x201C;&#x6709;&#x4F60;&#x6709;&#x6076;&#x610F;&#x201D; &#x548C; &#x201C;&#x505A;&#x574F;&#x4E8B;&#x662F;&#x5956;&#x8D4F;&#x201D;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x4F1A;&#x53D1;&#x73B0; &#x540E;&#x8005;&#x53CD;&#x800C;&#x6BD4;&#x524D;&#x8005;&#x66F4;&#x5F3A;&#xFF0C;&#x4E8E;&#x662F;&#x770B;&#x4E0A;&#x53BB;&#x597D;&#x50CF;&#x77DB;&#x76FE;&#x4E86;&#xFF1B;<br>
+        &#x7B14;&#x8005;&#x4ECD;&#x613F;&#x610F;&#x501F;&#x52A9;&#x5F62;&#x5F0F;&#x5316;&#x7684;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x5982;&#x4E0B;&#xFF1A;<br>
+        &#x8BBE;&#x547D;&#x9898; X &#x4E3A; &#x201C;&#x5BF9;&#x4F60;&#x6709;&#x6076;&#x610F;&#x201D;&#xFF1B;<br>
+        &#x547D;&#x9898; Y &#x4E3A; &#x201C;&#x505A;&#x574F;&#x4E8B;&#x672C;&#x8EAB;&#x5BF9;&#x4ED6;&#x662F;&#x5956;&#x8D4F;&#x201D;&#xFF1B;<br>
+        &#x547D;&#x9898; Z &#x4E3A; &#x201C;&#x4ED6;&#x4F1A;&#x8FD9;&#x6837;&#x505A;&#x201D;&#xFF1B;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x6709; <br>
+    </b>
+</p>
+<p></p><div class="mathjax-exps">$$Y \Rightarrow X$$</div><p></p>
+<p style="color:blue">
+    <b>
+        &#x4F46;&#x662F;&#x8FD9;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#x672C;&#x8EAB;&#x53EA;&#x662F;&#x6761;&#x4EF6;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x6709;
+    </b>
+</p>
+<p></p><div class="mathjax-exps">$$(X \rightarrow Z) \Rightarrow (Y \rightarrow Z)$$</div><p></p>
+<p style="color:blue">
+    <b>
+        &#x800C; let alone &#x8FDE;&#x63A5;&#x7684;&#x5176;&#x5B9E;&#x662F; X-&gt;Z &#x548C; Y-&gt;Z &#x4E24;&#x4E2A;&#x547D;&#x9898;&#xFF0C;&#x524D;&#x8005;&#x6BD4;&#x540E;&#x8005;&#x5F3A;&#xFF0C;so... still make sense.
+    </b>
+</p>
+<p style="color:blue">
+    <b>
+        &#x5F53; let alone &#x5E94;&#x7528;&#x4E8E;&#x5BF9;&#x4E8E;&#x5426;&#x5B9A;&#x6216;&#x8005;&#x51C6;&#x5426;&#x5B9A;&#x542B;&#x4E49;&#x7684;&#x8FFD;&#x52A0;&#x65F6;&#xFF0C;&#x7406;&#x8BBA;&#x4ECD;&#x7136;&#x6210;&#x7ACB;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;<br><br>
+        4. I wouldn&apos;t go out with him, let alone marry him.
+        let alone &#x8FDE;&#x63A5;&#x7684;&#x4E24;&#x4E2A;&#x547D;&#x9898;&#x662F; &#x201C;&#x6211;&#x4E0D;&#x4F1A;&#x548C;&#x4ED6;&#x4E00;&#x8D77;&#x5916;&#x51FA;&#x201D; &#x548C; &#x201C;&#x6211;&#x4E0D;&#x4F1A;&#x5AC1;&#x7ED9;&#x4ED6;&#x201D;&#xFF0C;&#x524D;&#x8005;&#x6BD4;&#x540E;&#x8005;&#x66F4;&#x5F3A;&#xFF1B;<br>
+        &#x540C;&#x6837;&#x5730;&#xFF0C;&#x63D0;&#x53D6;&#x547D;&#x9898;&#x8BED;&#x4E49;&#x5E94;&#x8BE5;&#x4FDD;&#x6301;&#x5B8C;&#x6574;&#x6027;&#x3002;&#x4E0D;&#x7136;&#x7684;&#x8BDD;&#xFF0C;&#x5982;&#x679C;&#x5FFD;&#x7565;&#x4E86;&#x5426;&#x5B9A;&#x542B;&#x4E49;&#x7684;&#x8BCD;&#xFF0C;&#x63D0;&#x53D6;&#x7684;&#x547D;&#x9898;&#x662F; &#x201C;&#x548C;&#x4ED6;&#x4E00;&#x8D77;&#x5916;&#x51FA;&#x201D; &#x548C; &#x201C;&#x5AC1;&#x7ED9;&#x4ED6;&#x201D;&#xFF0C;&#x90A3;&#x4E48;&#x5F3A;&#x5F31;&#x6027;&#x5C31;&#x521A;&#x597D;&#x53CD;&#x8FC7;&#x6765;&#x4E86;&#x3002;
+    </b>
+</p>
+<p style="color:blue">
+    <b>
+        &#x6CE8;&#x610F;&#x5230;&#x9648;&#x7528;&#x4EEA;&#x5148;&#x751F;&#x6307;&#x51FA;&#xFF1A;&#x8FD9;&#x4E2A; let alone &#x5DF2;&#x7ECF;&#x9010;&#x6E10;&#x6210;&#x4E86;&#x4E00;&#x4E2A;&#x6BD4; not &#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5426;&#x5B9A;&#x7684;&#x526F;&#x8BCD;&#x77ED;&#x8BED;<br>
+        &#x6211;&#x4EEC;&#x4ECE;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x53E5;&#x53EF;&#x4EE5;&#x7AA5;&#x89C1;&#xFF1A;let alone &#x8FDE;&#x63A5;&#x7684;&#x672C;&#x5E94;&#x8BE5;&#x662F; &quot;not go out with him&quot; &#x548C; &quot;not marry him&quot;&#xFF0C;&#x4F46;&#x5728;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x5F53;&#x4E2D;&#xFF0C;&#x7701;&#x7565;&#x4E86; not&#xFF0C;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;&#x8FD9;&#x90E8;&#x5206;&#x8868;&#x793A;&#x5426;&#x5B9A;&#x7684;&#x542B;&#x4E49;&#x5DF2;&#x7ECF;&#x8F6C;&#x79FB;&#x5230; let alone &#x4E2D;&#x53BB;&#x4E86;
+    </b>
+</p>
+<p style="color:blue">
+    <b>
+		&#x7B14;&#x8005;&#x8BA4;&#x4E3A;&#xFF0C;let alone &#x662F;&#x6700;&#x8D34;&#x5408;&#x6C49;&#x8BED;&#x91CC; &#x201C;&#x66F4;&#x522B;&#x8BF4;&#x201D; &#x8FD9;&#x4E00;&#x542B;&#x4E49;&#x7684;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;&#xFF1B;
+    </b>
+</p>
+</li>
+<li>
+<p>not to mention / to say nothing of / not to speak of / without mentioning</p>
+<p>&#x8FD9;&#x51E0;&#x4E2A;&#x77ED;&#x8BED;&#xFF0C;&#x7B14;&#x8005;&#x67E5;&#x4E0D;&#x5230;&#x8BE6;&#x7EC6;&#x7684;&#x8D44;&#x6599;&#xFF0C;&#x800C;&#x4E14;&#x80FD;&#x67E5;&#x5230;&#x7684;&#x4E00;&#x4E9B;&#x89E3;&#x91CA;&#x4E92;&#x76F8;&#x4E4B;&#x95F4;&#x7565;&#x6709;&#x51FA;&#x5165;&#xFF1B;</p>
+<ul>
+<li>&#x6709;&#x7684;&#x89C2;&#x70B9;&#x8BA4;&#x4E3A;&#xFF0C;&#x8FD9;&#x51E0;&#x4E2A;&#x77ED;&#x8BED;&#x9664;&#x4E86;&#x5728;&#x540E;&#x63A5;&#x7ED3;&#x6784;&#x4E0A;&#x8303;&#x56F4;&#x8F83;&#x7A84;&#x4E4B;&#x5916;&#xFF0C;&#x4E0E; let alone &#x7684;&#x542B;&#x4E49;&#x76F8;&#x540C;&#xFF1B;</li>
+<li>&#x800C;&#x6709;&#x7684;&#x89C2;&#x70B9;&#x8BA4;&#x4E3A;&#xFF0C;&#x8FD9;&#x4E9B;&#x77ED;&#x8BED;&#x4E0E; let alone &#x7528;&#x6CD5;&#x4E0D;&#x4E00;&#x6837;&#xFF1B;&#x53C2;&#x8003;&#xFF1A;<a href="https://english.stackexchange.com/questions/124358/not-to-mention-%e2%89%88-let-alone-%e2%89%88-much-less-%e2%89%88-still-less">Not to Mention &#x2248; Let Alone &#x2248; Much Less &#x2248; Still Less</a></li>
+</ul>
+</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E6%9B%B4%E4%B8%8D%E7%94%A8%E8%AF%B4-%E7%9A%84%E8%8B%A5%E5%B9%B2%E7%A7%8D%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F"> &#x201C;&#x66F4;&#x4E0D;&#x7528;&#x8BF4;&#x201D; &#x7684;&#x82E5;&#x5E72;&#x79CD;&#x8868;&#x8FBE;&#x65B9;&#x5F0F;</a></li>
+<li><a href="#%E8%82%AF%E5%AE%9A%E8%BF%BD%E5%8A%A0"> &#x80AF;&#x5B9A;&#x8FFD;&#x52A0;</a></li>
+<li><a href="#%E5%90%A6%E5%AE%9A%E8%BF%BD%E5%8A%A0"> &#x5426;&#x5B9A;&#x8FFD;&#x52A0;</a></li>
+<li><a href="#%E8%87%AA%E7%94%B1%E8%BF%BD%E5%8A%A0"> &#x81EA;&#x7531;&#x8FFD;&#x52A0;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
