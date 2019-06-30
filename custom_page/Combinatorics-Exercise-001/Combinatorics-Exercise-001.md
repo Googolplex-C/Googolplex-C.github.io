@@ -109,7 +109,7 @@ $$
     $$
 
     注意到序列中省略号部分为 $n$ 个来自序列 $\{R\}$ 的项以及  $n-2$ 个来自序列 $\{ S \}$ 的项. 
-    由抽屉原理可知，存在 $0 \leq i \leq n-1, \ 0 \leq j \leq n-1$ 及 $p \geq 1$ 使得：
+    由抽屉原理可知，存在 $1 \leq i \leq n-1, \ 1 \leq j \leq n-1$ 及 $p \geq 1$ 使得：
     $$
     \lvert S_i \rvert \leq \underbrace{\lvert R_j \rvert < \cdots < \lvert R_{j+p} \rvert}_{\text{存在至少}\,2\,\text{项}(p\geq1)} < \lvert S_{i+1} \rvert
     \label{ten}
