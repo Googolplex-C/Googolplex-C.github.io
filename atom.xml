@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
-  <updated>2019-06-27T09:07:04.297Z</updated>
+  <updated>2019-07-01T14:41:11.715Z</updated>
   <id>https://googolplex-c.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://googolplex-c.github.io/2019/06/27/hello-world/"/>
-    <id>https://googolplex-c.github.io/2019/06/27/hello-world/</id>
-    <published>2019-06-27T09:07:04.297Z</published>
-    <updated>2019-06-27T09:07:04.297Z</updated>
+    <title>博客测试</title>
+    <link href="https://googolplex-c.github.io/normal_page/blog-tester.html"/>
+    <id>https://googolplex-c.github.io/normal_page/blog-tester.html</id>
+    <published>2019-07-01T14:25:50.000Z</published>
+    <updated>2019-07-01T14:41:11.715Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;p&gt;&lt;a
         
       
     
@@ -40,14 +40,36 @@
   
   <entry>
     <title>Introduction</title>
-    <link href="https://googolplex-c.github.io/2019/01/09/Introduction/"/>
-    <id>https://googolplex-c.github.io/2019/01/09/Introduction/</id>
+    <link href="https://googolplex-c.github.io/normal_page/Introduction.html"/>
+    <id>https://googolplex-c.github.io/normal_page/Introduction.html</id>
     <published>2019-01-09T07:17:39.000Z</published>
-    <updated>2019-06-30T15:47:51.276Z</updated>
+    <updated>2019-07-01T12:33:59.564Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;​    这是我的第一个博客。  &lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://googolplex-c.github.io/normal_page/Hello-World.html"/>
+    <id>https://googolplex-c.github.io/normal_page/Hello-World.html</id>
+    <published>2018-12-31T16:00:00.000Z</published>
+    <updated>2019-07-01T12:33:38.143Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
     
     </summary>
     
