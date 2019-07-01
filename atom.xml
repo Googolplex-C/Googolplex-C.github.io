@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
-  <updated>2019-07-01T14:41:11.715Z</updated>
+  <updated>2019-07-01T16:14:02.626Z</updated>
   <id>https://googolplex-c.github.io/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>博客测试</title>
-    <link href="https://googolplex-c.github.io/normal_page/blog-tester.html"/>
-    <id>https://googolplex-c.github.io/normal_page/blog-tester.html</id>
+    <link href="https://googolplex-c.github.io/_posts/blog-tester.html"/>
+    <id>https://googolplex-c.github.io/_posts/blog-tester.html</id>
     <published>2019-07-01T14:25:50.000Z</published>
-    <updated>2019-07-01T14:41:11.715Z</updated>
+    <updated>2019-07-01T16:14:02.626Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;&lt;a
+          &lt;p&gt;此处用于测试自定义页面在远程的访问入口以及显示效果：&lt;a
         
       
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>Introduction</title>
-    <link href="https://googolplex-c.github.io/normal_page/Introduction.html"/>
-    <id>https://googolplex-c.github.io/normal_page/Introduction.html</id>
+    <link href="https://googolplex-c.github.io/_posts/Introduction.html"/>
+    <id>https://googolplex-c.github.io/_posts/Introduction.html</id>
     <published>2019-01-09T07:17:39.000Z</published>
     <updated>2019-07-01T12:33:59.564Z</updated>
     
@@ -56,8 +56,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://googolplex-c.github.io/normal_page/Hello-World.html"/>
-    <id>https://googolplex-c.github.io/normal_page/Hello-World.html</id>
+    <link href="https://googolplex-c.github.io/_posts/Hello-World.html"/>
+    <id>https://googolplex-c.github.io/_posts/Hello-World.html</id>
     <published>2018-12-31T16:00:00.000Z</published>
     <updated>2019-07-01T12:33:38.143Z</updated>
     
