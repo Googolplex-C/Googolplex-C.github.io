@@ -43,7 +43,7 @@
     <link href="https://googolplex-c.github.io/posts/Configuration-of-my-blog.html"/>
     <id>https://googolplex-c.github.io/posts/Configuration-of-my-blog.html</id>
     <published>2019-06-30T15:54:05.000Z</published>
-    <updated>2019-07-02T06:02:26.775Z</updated>
+    <updated>2019-07-02T07:49:12.069Z</updated>
     
     <summary type="html">
     
@@ -57,6 +57,14 @@
     
     </summary>
     
+      <category term="博客搭建与配置" scheme="https://googolplex-c.github.io/categories/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B8%8E%E9%85%8D%E7%BD%AE/"/>
+    
+    
+      <category term="Hexo" scheme="https://googolplex-c.github.io/tags/Hexo/"/>
+    
+      <category term="Github Pages" scheme="https://googolplex-c.github.io/tags/Github-Pages/"/>
+    
+      <category term="博客" scheme="https://googolplex-c.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
     
   </entry>
   
