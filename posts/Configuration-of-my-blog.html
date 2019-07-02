@@ -395,14 +395,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        8.9k
+                        8.8k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        36 分
+                        35 分
                     </div>
                     
                 
@@ -907,7 +907,7 @@ prism_plugin:
   custom_css:</code></pre>
 <h4 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h4><p>修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点、使用的主题、访问量等。</p>
 <p>笔者将其改成如下的内容：</p>
-<pre class=" language-ejs"><code class="language-ejs"><footer class="page-footer bg-color">
+<pre class=" language-text"><code class="language-text"><footer class="page-footer bg-color">
     <div class="container row center-align">
         <div class="col s12 m8 l8 copy-right">
             本站由&copy;<a href="https://googolplex-c.github.io/" target="_blank">Googolplex-C</a>基于
@@ -943,18 +943,19 @@ prism_plugin:
 <div class="progress-bar"></div></code></pre>
 <h4 id="修改首页的社交链接"><a href="#修改首页的社交链接" class="headerlink" title="修改首页的社交链接"></a>修改首页的社交链接</h4><p>在主题的 _config.yml 文件中，默认支持 QQ、GitHub 和邮箱的配置。我们可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改需要的社交链接地址</p>
 <p>笔者删除了许多链接，只保留了一部分：</p>
-<pre><code>&lt;% if (theme.socialLink.github) { %&gt;
-    &lt;a href=&quot;https://googolplex-c.github.io/&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;访问我的GitHub&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;
-        &lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;
-    &lt;/a&gt;
-&lt;% } %&gt;
+<pre class=" language-text"><code class="language-text"><% if (theme.socialLink.github) { %>
+    <a href="https://googolplex-c.github.io/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+<% } %>
 
 
-&lt;% if (config.feed &amp;&amp; config.feed.path == &#39;atom.xml&#39;) { %&gt;
-    &lt;a href=&quot;&lt;%- url_for(&#39;/atom.xml&#39;) %&gt;&quot; class=&quot;tooltipped&quot; target=&quot;_blank&quot; data-tooltip=&quot;RSS 订阅&quot; data-position=&quot;top&quot; data-delay=&quot;50&quot;&gt;
-        &lt;i class=&quot;fa fa-rss&quot;&gt;&lt;/i&gt;
-    &lt;/a&gt;
-&lt;% } %&gt;</code></pre><h4 id="修改打赏的二位码"><a href="#修改打赏的二位码" class="headerlink" title="修改打赏的二位码"></a>修改打赏的二位码</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/medias/reward</code> 文件中替换即可。</p>
+<% if (config.feed && config.feed.path == 'atom.xml') { %>
+    <a href="<%- url_for('/atom.xml') %>" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+<% } %></code></pre>
+<h4 id="修改打赏的二位码"><a href="#修改打赏的二位码" class="headerlink" title="修改打赏的二位码"></a>修改打赏的二位码</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/medias/reward</code> 文件中替换即可。</p>
 <h4 id="修改-Favicon、Logo-和-Avatar"><a href="#修改-Favicon、Logo-和-Avatar" class="headerlink" title="修改 Favicon、Logo 和 Avatar"></a>修改 Favicon、Logo 和 Avatar</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/</code> 以及 <code>theme/hexo-theme-matery/source/medias</code> 目录中替换相应文件即可。</p>
 <h4 id="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）"><a href="#修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）" class="headerlink" title="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）"></a>修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）</h4><p>修改主题颜色</p>
 <p>在主题文件的 <code>/theme/hexo-theme-matery/source/css/matery.css</code> 文件中，搜索 .bg-color 来修改背景颜色：</p>
@@ -1679,7 +1680,7 @@ reprint:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">9.5k</span>
+                <span class="white-color">9.4k</span>
             
 
             
