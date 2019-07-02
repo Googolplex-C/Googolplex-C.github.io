@@ -28,7 +28,7 @@
     </style>
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
-</head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -395,14 +395,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        9.2k
+                        8.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        38 分
+                        36 分
                     </div>
                     
                 
@@ -648,12 +648,12 @@
 </ul>
 <p>于是，我们只须将页面文件（连带必须的文件）上传至 对应 repo 的目录下，就可以直接通过 url 来访问了。</p>
 <p>还有一个关键的问题，如何不被 Hexo 处理而直接上传至 github？<br>注意到在博客配置文件 <code>_config.yml</code> 中有一项为</p>
-<pre><code class="yaml"># Directory
-......
-skip_render: </code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Directory</span>
+<span class="token punctuation">...</span><span class="token punctuation">...</span>
+<span class="token key atrule">skip_render</span><span class="token punctuation">:</span> </code></pre>
 <p>这个选项正是用以标记不需要经过渲染而直接上传到 github repo 的目录和文件的。换句话说，Hexo 原生支持 “不经渲染直接上传” 这一特性（感谢作者）。</p>
 <p>我们把这一项作如下设置：</p>
-<pre><code class="yaml">skip_render: custom_page/**</code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">skip_render</span><span class="token punctuation">:</span> custom_page/**</code></pre>
 <p>注意这一项默认将 <code>/sourse</code> 视作根目录，因此上一项实际指向的对象就是：目录 <code>/source/custom_page/</code> 以及其所有的子目录和文件。</p>
 <h2 id="将部分博文汇集成册"><a href="#将部分博文汇集成册" class="headerlink" title="将部分博文汇集成册"></a>将部分博文汇集成册</h2><p>在 <a href="#笔者理想中博客应具的特性">笔者理想的博客特性</a>中，笔者提到过最好可以自己决定博文的组织形式偏松散还是偏紧密。</p>
 <p>因此，在前面所述生成插入自定义界面的基础上，笔者想到可以将这些博文汇集成 “册”：</p>
@@ -668,21 +668,21 @@ skip_render: </code></pre>
 <h1 id="博客具体配置"><a href="#博客具体配置" class="headerlink" title="博客具体配置"></a>博客具体配置</h1><p>本节记录在此次搭建博客过程中，各项配置的具体内容</p>
 <h2 id="Hexo-框架配置"><a href="#Hexo-框架配置" class="headerlink" title="Hexo 框架配置"></a>Hexo 框架配置</h2><h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><h4 id="站点基本信息配置"><a href="#站点基本信息配置" class="headerlink" title="站点基本信息配置"></a>站点基本信息配置</h4><p>位置：<code>/_config.yml</code></p>
 <p>相关项：</p>
-<pre><code class="yaml"># Site
-title: Googolplex-C
-subtitle: 10^googol
-description: 没什么好看的，关了吧
-keywords: Maths,Computer-Science,Technology 
-author: Googolplex-C
-language: zh-CN
-timezone:</code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Site</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> Googolplex<span class="token punctuation">-</span>C
+<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> 10^googol
+<span class="token key atrule">description</span><span class="token punctuation">:</span> 没什么好看的，关了吧
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span> Maths<span class="token punctuation">,</span>Computer<span class="token punctuation">-</span>Science<span class="token punctuation">,</span>Technology 
+<span class="token key atrule">author</span><span class="token punctuation">:</span> Googolplex<span class="token punctuation">-</span>C
+<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
+timezone<span class="token punctuation">:</span></code></pre>
 <h4 id="post（博文）链接优化与目录组织"><a href="#post（博文）链接优化与目录组织" class="headerlink" title="post（博文）链接优化与目录组织"></a>post（博文）链接优化与目录组织</h4><h5 id="普通-posts-目录组织设置"><a href="#普通-posts-目录组织设置" class="headerlink" title="普通 posts 目录组织设置"></a>普通 posts 目录组织设置</h5><p>位置：<code>/_config.yml</code></p>
 <p>配置项：</p>
-<pre><code class="yaml">url: https://googolplex-c.github.io/
-root: /
-# permalink: :year/:month/:day/:title/
-permalink: _posts/:url.html
-permalink_defaults:</code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//googolplex<span class="token punctuation">-</span>c.github.io/
+<span class="token key atrule">root</span><span class="token punctuation">:</span> /
+<span class="token comment" spellcheck="true"># permalink: :year/:month/:day/:title/</span>
+<span class="token key atrule">permalink</span><span class="token punctuation">:</span> posts/<span class="token punctuation">:</span>url.html
+permalink_defaults<span class="token punctuation">:</span></code></pre>
 <p>这几项设置的是站点链接结构。以下是笔者自己的理解：</p>
 <ol>
 <li><p><code>url</code> 一项设置站点的根 url，</p>
@@ -694,22 +694,21 @@ permalink_defaults:</code></pre>
 <p> 进而对应的 url 为 <a href="https://Tony.github.io/2018/01/01/Hi-Iron-Man/index.html" target="_blank" rel="noopener">https://Tony.github.io/2018/01/01/Hi-Iron-Man/index.html</a></p>
 </li>
 </ol>
-<p>把 <code>permalink</code> 一项设为 <code>_posts/url.html</code> 的效果是：</p>
+<p>把 <code>permalink</code> 一项设为 <code>posts/url.html</code> 的效果是：</p>
 <ul>
 <li>每一篇博文不再单独地存储在各自单独的目录中，命令也不再是 index.html，而是从 md 文件 front-matter 中提取 url 作为文件名；</li>
 </ul>
 <p>这样设置基于几个考虑：</p>
 <ol>
-<li><p>posts 生成的静态页面的目录组织形式与本地目录 <code>/source</code> 中保持一致，这样在 markdown 正文中通过相对路径进行<strong>页面间链接</strong>时，无论是本地还是远程都可以正确地链接，无需再修改</p>
-</li>
-<li><p><code>permalink</code> 一项可以使用 posts 中的一切 front-matter，因此 <code>:url</code> 一项是笔者自定义的，<strong>使用的时候 <em>规定</em> 必须使用英文手动填写</strong>；之所以不使用 <code>:title</code>，是因为有些时候标题难免使用中文，而中文生成的链接会导致很多问题，也不利于 SEO。</p>
-</li>
+<li>posts 生成的静态页面的目录组织形式与本地目录 <code>/source</code> 中保持一致，这样在 markdown 正文中通过相对路径进行<strong>页面间链接</strong>时，无论是本地还是远程都可以正确地链接，无需再修改</li>
+<li><code>permalink</code> 一项可以使用 posts 中的一切 front-matter，因此 <code>:url</code> 一项是笔者自定义的，<strong>使用的时候 <em>规定</em> 必须使用英文手动填写</strong>；之所以不使用 <code>:title</code>，是因为有些时候标题难免使用中文，而中文生成的链接会导致很多问题，也不利于 SEO。</li>
+<li>注意这个 posts 文件夹名称和本地的文件夹名称是不一样的，前者开头没有下划线，因为下划线开头的目录推送到远程会被 github pages 忽略！！</li>
 </ol>
 <h5 id="自定义页面目录设置"><a href="#自定义页面目录设置" class="headerlink" title="自定义页面目录设置"></a>自定义页面目录设置</h5><p>自定义页面（连同资源文件）在本地的存放位置是：<code>/source/custom_page/[页面名]/</code>；</p>
 <p>同时在博客配置文件中设置：</p>
-<pre><code class="yaml"># Directory
-......
-skip_render: custom_page/**</code></pre>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token comment" spellcheck="true"># Directory</span>
+<span class="token punctuation">...</span><span class="token punctuation">...</span>
+<span class="token key atrule">skip_render</span><span class="token punctuation">:</span> custom_page/**</code></pre>
 <h5 id="目标效果"><a href="#目标效果" class="headerlink" title="目标效果"></a>目标效果</h5><p>推送到远程的静态文件——无论是由 Hexo 生成的还是自定义生成的——他们的目录组织和本地保持一致；</p>
 <p>本地的情形：</p>
 <ul>
@@ -758,7 +757,7 @@ skip_render: custom_page/**</code></pre>
 </li>
 </ul>
 </li>
-<li><p>_posts</p>
+<li><p>posts</p>
 <ul>
 <li><p>test2.html</p>
 </li>
@@ -771,7 +770,7 @@ skip_render: custom_page/**</code></pre>
 </ul>
 <p>在此前提下，自定义页面和 Hexo 生成页之间的相互引用就可以通过相对路径形式的超链接 <code>[title](link)</code> 来实现啦。</p>
 <p>这里的设置对于前面的 <a href="#将部分博文汇集成册">博文汇成册</a> 的目标而言相当关键，同时也是笔者重新编排博客内容和目录组织这个大目标中的重要一环。</p>
-<h4 id="写作配置"><a href="#写作配置" class="headerlink" title="写作配置"></a>写作配置</h4><pre><code class="yml"># Writing
+<h4 id="写作配置"><a href="#写作配置" class="headerlink" title="写作配置"></a>写作配置</h4><pre class=" language-yml"><code class="language-yml"># Writing
 new_post_name: :year-:month-:day-:title.md # File name of new posts
 default_layout: post
 titlecase: false # Transform title into titlecase
@@ -782,25 +781,23 @@ post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace:</code></pre>
 <p>笔者在此处更改了几项：</p>
 <ol>
-<li><p><code>new_post_name</code> 这一项定义的是新建 posts 的时候，md 文件的命名模板，注意此处以半角冒号 : 开头的 <code>:XXX</code> 是 front-matter 中的参数；其中 <code>:title</code> 这一项就是 <code>hexo new &lt;title&gt;</code> 中的 <code>&lt;title&gt;</code> 部分，笔者此处的设置的目的是<strong>自动在文件名前面加上日期</strong>（因为前面已经说明了所有的博文位于同一目录，因此以日期编排会更加有序），当然，在 front-matter 中 <code>title</code> 一项不会包含日期；</p>
-</li>
-<li><p><code>post_asset_folder: true</code> 一项设为 <code>true</code>，这样每生成一个 post，都会新建一个与其 <strong>文件名</strong> 相同的文件夹，用以存储资源文件。</p>
-</li>
-<li><p><code>external_link</code> 一项设为 <code>true</code></p>
-</li>
+<li><code>new_post_name</code> 这一项定义的是新建 posts 的时候，md 文件的命名模板，注意此处以半角冒号 : 开头的 <code>:XXX</code> 是 front-matter 中的参数；其中 <code>:title</code> 这一项就是 <code>hexo new &lt;title&gt;</code> 中的 <code>&lt;title&gt;</code> 部分，笔者此处的设置的目的是<strong>自动在文件名前面加上日期</strong>（因为前面已经说明了所有的博文位于同一目录，因此以日期编排会更加有序），当然，在 front-matter 中 <code>title</code> 一项不会包含日期；</li>
+<li><code>post_asset_folder: true</code> 一项设为 <code>true</code>，这样每生成一个 post，都会新建一个与其 <strong>文件名</strong> 相同的文件夹，用以存储资源文件。</li>
+<li><code>external_link</code> 一项设为 <code>true</code></li>
+<li><code>highlight</code> 一项设为 <code>false</code>，自带的代码高亮真的是太丑了！！</li>
 </ol>
-<h4 id="启用哪个主题"><a href="#启用哪个主题" class="headerlink" title="启用哪个主题"></a>启用哪个主题</h4><pre><code class="yml"># Extensions
+<h4 id="启用哪个主题"><a href="#启用哪个主题" class="headerlink" title="启用哪个主题"></a>启用哪个主题</h4><pre class=" language-yml"><code class="language-yml"># Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: hexo-theme-matery-master</code></pre>
 <p>本设置项决定启用本地 <code>/theme/</code> 下的哪个主题</p>
-<h4 id="远程部署设置"><a href="#远程部署设置" class="headerlink" title="远程部署设置"></a>远程部署设置</h4><pre><code class="yml"># Deployment
+<h4 id="远程部署设置"><a href="#远程部署设置" class="headerlink" title="远程部署设置"></a>远程部署设置</h4><pre class=" language-yml"><code class="language-yml"># Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
@@ -808,131 +805,142 @@ deploy:
   branch: master</code></pre>
 <p>这里用于设置部署方式，远程库的链接，以及远程库的部署分支上。</p>
 <h3 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h3><h4 id="安装-hexo-generator-search，用以支持站内搜索"><a href="#安装-hexo-generator-search，用以支持站内搜索" class="headerlink" title="安装 hexo-generator-search，用以支持站内搜索"></a>安装 hexo-generator-search，用以支持站内搜索</h4><p>在博客的根目录下，输入：</p>
-<pre><code class="bash">npm install hexo-generator-search --save</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-search --save</code></pre>
 <p>博客根目录下的 _config.yml 文件中，新增以下的配置项</p>
-<pre><code class="yml">search:
+<pre class=" language-yml"><code class="language-yml">search:
   path: search.xml
   field: post</code></pre>
 <h4 id="安装-hexo-wordcount，用以统计（每一篇）文章字数"><a href="#安装-hexo-wordcount，用以统计（每一篇）文章字数" class="headerlink" title="安装 hexo-wordcount，用以统计（每一篇）文章字数"></a>安装 hexo-wordcount，用以统计（每一篇）文章字数</h4><p>安装命令如下：</p>
-<pre><code class="bash">npm i --save hexo-wordcount</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i --save hexo-wordcount</code></pre>
 <p>然后只需在<strong>主题目录</strong>下的 _config.yml 文件中，激活以下配置项即可：</p>
-<pre><code class="yml">wordCount:
+<pre class=" language-yml"><code class="language-yml">wordCount:
   enable: false # 将这个值设置为 true 即可.
   postWordCount: true
   min2read: true
   totalCount: true</code></pre>
 <h4 id="安装-hexo-generator-feed，添加-RSS-支持"><a href="#安装-hexo-generator-feed，添加-RSS-支持" class="headerlink" title="安装 hexo-generator-feed，添加 RSS 支持"></a>安装 hexo-generator-feed，添加 RSS 支持</h4><p>安装命令如下：</p>
-<pre><code class="bash">npm install hexo-generator-feed --save</code></pre>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed --save</code></pre>
 <p>在 Hexo 根目录下的 _config.yml 文件中，新增以下的配置项：</p>
-<pre><code class="yml">feed:
+<pre class=" language-yml"><code class="language-yml">feed:
   type: atom
   path: atom.xml
   limit: 20
   hub:
   content:
   content_limit: 140
-  content_limit_delim: &#39; &#39;
+  content_limit_delim: ' '
   order_by: -date</code></pre>
+<h4 id="安装-hexo-prism-plugin-插件"><a href="#安装-hexo-prism-plugin-插件" class="headerlink" title="安装  hexo-prism-plugin 插件"></a>安装  hexo-prism-plugin 插件</h4><p>安装命令如下：</p>
+<pre class=" language-bash"><code class="language-bash"><span class="token function">npm</span> i -S hexo-prism-plugin</code></pre>
 <h2 id="新主题有哪些（内置）新特性"><a href="#新主题有哪些（内置）新特性" class="headerlink" title="新主题有哪些（内置）新特性"></a>新主题有哪些（内置）新特性</h2><ul>
-<li>Banner 封面轮播文章（好）</li>
+<li><strong>Banner 封面轮播文章（好）</strong></li>
 <li>“我的梦想” 展示板（鸡肋）</li>
 <li>首页的音乐播放器和视频播放器配置（用不到）</li>
-<li>是否显示推荐文章名称和按钮配置（即首页有一块版面用于显示 “推荐文章”，由 md 文件 front-matter 中的 <code>top</code> 一项控制）</li>
-<li>个人信息（也就是 about 页面）</li>
-<li>文章打赏信息（好东西）</li>
-<li>复制文章内容时追加版权信息（好东西）</li>
+<li><strong>显示推荐文章名称和按钮配置（即首页有一块版面用于显示 “推荐文章”，由 md 文件 front-matter 中的 <code>top</code> 一项控制）</strong></li>
+<li><strong>个人信息（也就是 about 页面）</strong></li>
+<li><strong>文章打赏信息（好东西）</strong></li>
+<li><strong>复制文章内容时追加版权信息（好东西）</strong></li>
 <li>MathJax（Hexo 自身的解析有问题，所以支持 mathjax 也没有什么用，而且有公式的内容笔者都会放到自定义页面中去）</li>
-<li>文章字数统计、阅读时长（好东西，需要安装插件）</li>
+<li><strong>文章字数统计、阅读时长（好东西，需要安装插件）</strong></li>
 <li>点击页面的’爱心’效果（花里胡哨）</li>
 <li>我的项目（有点用）</li>
 <li>我的技能（装逼用）</li>
 <li>我的相册（好像没什么用）</li>
-<li>Gitalk、Gitment、Valine 和 disqus 评论配置（好，非常好）</li>
-<li>不蒜子统计和谷歌分析（Google Analytics）（好，非常好）</li>
+<li><strong>Gitalk、Gitment、Valine 和 disqus 评论配置（好，非常好）</strong></li>
+<li><strong>不蒜子统计和谷歌分析（Google Analytics）（好，非常好）</strong></li>
 <li>默认特色图的集合。当文章没有设置特色图时，本主题会根据文章标题的 hashcode 值取余，来选择展示对应的特色图（增加一些美观程度）</li>
 </ul>
 <h2 id="hexo-theme-matery-配置"><a href="#hexo-theme-matery-配置" class="headerlink" title="hexo-theme-matery 配置"></a>hexo-theme-matery 配置</h2><h3 id="新建导航页面"><a href="#新建导航页面" class="headerlink" title="新建导航页面"></a>新建导航页面</h3><h4 id="新建分类-categories-页"><a href="#新建分类-categories-页" class="headerlink" title="新建分类 categories 页"></a>新建分类 categories 页</h4><p>categories 页是用来展示所有分类的页面，命令如下：</p>
 <pre><code>hexo new page &quot;categories&quot;</code></pre><p>编辑你刚刚新建的页面文件 /source/categories/index.md，至少需要以下内容：</p>
-<pre><code class="yml">title: categories
+<pre class=" language-yml"><code class="language-yml">title: categories
 date: 2018-09-30 17:25:30
-type: &quot;categories&quot;
-layout: &quot;categories&quot;</code></pre>
+type: "categories"
+layout: "categories"</code></pre>
 <h4 id="新建标签-tags-页"><a href="#新建标签-tags-页" class="headerlink" title="新建标签 tags 页"></a>新建标签 tags 页</h4><p>tags 页是用来展示所有标签的页面，命令如下：</p>
 <pre><code>hexo new page &quot;tags&quot;</code></pre><p>编辑你刚刚新建的页面文件 /source/tags/index.md，至少需要以下内容：</p>
-<pre><code class="yml">title: tags
+<pre class=" language-yml"><code class="language-yml">title: tags
 date: 2018-09-30 18:23:38
-type: &quot;tags&quot;
-layout: &quot;tags&quot;</code></pre>
+type: "tags"
+layout: "tags"</code></pre>
 <h4 id="新建关于我-about-页"><a href="#新建关于我-about-页" class="headerlink" title="新建关于我 about 页"></a>新建关于我 about 页</h4><p>about 页是用来展示关于我和我的博客信息的页面，如果在你的博客 source 目录下还没有 about/index.md 文件，那么你就需要新建一个，命令如下：</p>
 <pre><code>hexo new page &quot;about&quot;</code></pre><p>编辑你刚刚新建的页面文件 /source/about/index.md，至少需要以下内容：</p>
-<pre><code class="yml">title: about
+<pre class=" language-yml"><code class="language-yml">title: about
 date: 2018-09-30 17:25:30
-type: &quot;about&quot;
-layout: &quot;about&quot;</code></pre>
+type: "about"
+layout: "about"</code></pre>
 <h4 id="新建友情连接-friends-页（可选，但笔者还是做了）"><a href="#新建友情连接-friends-页（可选，但笔者还是做了）" class="headerlink" title="新建友情连接 friends 页（可选，但笔者还是做了）"></a>新建友情连接 friends 页（可选，但笔者还是做了）</h4><p>friends 页是用来展示友情连接信息的页面，如果在你的博客 source 目录下还没有 friends/index.md 文件，那么你就需要新建一个，命令如下：</p>
-<pre><code class="bash">hexo new page &quot;friends&quot;</code></pre>
+<pre class=" language-bash"><code class="language-bash">hexo new page <span class="token string">"friends"</span></code></pre>
 <p>编辑你刚刚新建的页面文件 <code>/source/friends/index.md</code>，至少需要以下内容：</p>
-<pre><code class="yml">title: friends
+<pre class=" language-yml"><code class="language-yml">title: friends
 date: 2018-12-12 21:25:30
-type: &quot;friends&quot;
-layout: &quot;friends&quot;</code></pre>
+type: "friends"
+layout: "friends"</code></pre>
 <p>同时，在博客 source 目录下新建 _data 目录，在 _data 目录中新建 friends.json 文件，文件内容如下所示：</p>
-<pre><code class="json">[{
-    &quot;avatar&quot;: &quot;http://image.luokangyuan.com/1_qq_27922023.jpg&quot;,
-    &quot;name&quot;: &quot;码酱&quot;,
-    &quot;introduction&quot;: &quot;我不是大佬，只是在追寻大佬的脚步&quot;,
-    &quot;url&quot;: &quot;http://luokangyuan.com/&quot;,
-    &quot;title&quot;: &quot;前去学习&quot;
-}, {
-    &quot;avatar&quot;: &quot;http://image.luokangyuan.com/4027734.jpeg&quot;,
-    &quot;name&quot;: &quot;闪烁之狐&quot;,
-    &quot;introduction&quot;: &quot;编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬&quot;,
-    &quot;url&quot;: &quot;https://blinkfox.github.io/&quot;,
-    &quot;title&quot;: &quot;前去学习&quot;
-}, {
-    &quot;avatar&quot;: &quot;http://image.luokangyuan.com/avatar.jpg&quot;,
-    &quot;name&quot;: &quot;ja_rome&quot;,
-    &quot;introduction&quot;: &quot;平凡的脚步也可以走出伟大的行程&quot;,
-    &quot;url&quot;: &quot;ttps://me.csdn.net/jlh912008548&quot;,
-    &quot;title&quot;: &quot;前去学习&quot;
-}]</code></pre>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">[</span><span class="token punctuation">{</span>
+    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"http://image.luokangyuan.com/1_qq_27922023.jpg"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"码酱"</span><span class="token punctuation">,</span>
+    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"我不是大佬，只是在追寻大佬的脚步"</span><span class="token punctuation">,</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"http://luokangyuan.com/"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"前去学习"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"http://image.luokangyuan.com/4027734.jpeg"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"闪烁之狐"</span><span class="token punctuation">,</span>
+    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬"</span><span class="token punctuation">,</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"https://blinkfox.github.io/"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"前去学习"</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    <span class="token property">"avatar"</span><span class="token operator">:</span> <span class="token string">"http://image.luokangyuan.com/avatar.jpg"</span><span class="token punctuation">,</span>
+    <span class="token property">"name"</span><span class="token operator">:</span> <span class="token string">"ja_rome"</span><span class="token punctuation">,</span>
+    <span class="token property">"introduction"</span><span class="token operator">:</span> <span class="token string">"平凡的脚步也可以走出伟大的行程"</span><span class="token punctuation">,</span>
+    <span class="token property">"url"</span><span class="token operator">:</span> <span class="token string">"ttps://me.csdn.net/jlh912008548"</span><span class="token punctuation">,</span>
+    <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"前去学习"</span>
+<span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
 <p>以上只作举例，因为这些其实都是主题作者的 “朋友们”，和笔者无关。</p>
-<h3 id="内置特性开启与主题美化"><a href="#内置特性开启与主题美化" class="headerlink" title="内置特性开启与主题美化"></a>内置特性开启与主题美化</h3><h4 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h4><p>修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点、使用的主题、访问量等。</p>
+<h3 id="内置特性开启与主题美化"><a href="#内置特性开启与主题美化" class="headerlink" title="内置特性开启与主题美化"></a>内置特性开启与主题美化</h3><h4 id="开启主题的代码高亮功能"><a href="#开启主题的代码高亮功能" class="headerlink" title="开启主题的代码高亮功能"></a>开启主题的代码高亮功能</h4><p>修改 Hexo 根目录下 <code>_config.yml</code> 文件中 <code>highlight.enable</code> 的值为 <code>false</code>，并新增 prism 插件相关的配置，主要配置如下：</p>
+<pre class=" language-yml"><code class="language-yml">highlight:
+  enable: false
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'tomorrow'
+  line_number: false    # default false
+  custom_css:</code></pre>
+<h4 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h4><p>修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点、使用的主题、访问量等。</p>
 <p>笔者将其改成如下的内容：</p>
-<pre><code class="ejs">&lt;footer class=&quot;page-footer bg-color&quot;&gt;
-    &lt;div class=&quot;container row center-align&quot;&gt;
-        &lt;div class=&quot;col s12 m8 l8 copy-right&quot;&gt;
-            本站由&amp;copy;&lt;a href=&quot;https://googolplex-c.github.io/&quot; target=&quot;_blank&quot;&gt;Googolplex-C&lt;/a&gt;基于
-            &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot;&gt;Hexo&lt;/a&gt; 的
-            &lt;a href=&quot;https://github.com/blinkfox/hexo-theme-matery&quot; target=&quot;_blank&quot;&gt;hexo-theme-matery&lt;/a&gt;主题搭建.
+<pre class=" language-ejs"><code class="language-ejs"><footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://googolplex-c.github.io/" target="_blank">Googolplex-C</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
 
-            &lt;% if (theme.wordCount.enable &amp;&amp; theme.wordCount.totalCount) { %&gt;
-                &amp;nbsp;&lt;i class=&quot;fa fa-area-chart&quot;&gt;&lt;/i&gt;&amp;nbsp;站点总字数:&amp;nbsp;
-                &lt;span class=&quot;white-color&quot;&gt;&lt;%= totalcount(site) %&gt;&lt;/span&gt;
-            &lt;% } %&gt;
+            <% if (theme.wordCount.enable && theme.wordCount.totalCount) { %>
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color"><%= totalcount(site) %></span>
+            <% } %>
 
-            &lt;% let socialClass = &#39;&#39; %&gt;
-            &lt;% if (theme.busuanziStatistics &amp;&amp; theme.busuanziStatistics.enable) { %&gt;
-                &lt;% socialClass = &#39;social-statis&#39; %&gt;&lt;br&gt;
-                &lt;% if (theme.busuanziStatistics &amp;&amp; theme.busuanziStatistics.totalTraffic) { %&gt;
-                &lt;span id=&quot;busuanzi_container_site_pv&quot;&gt;
-                    &lt;i class=&quot;fa fa-heart-o&quot;&gt;&lt;/i&gt;
-                    本站总访问量 &lt;span id=&quot;busuanzi_value_site_pv&quot; class=&quot;white-color&quot;&gt;&lt;/span&gt;
-                &lt;/span&gt;
-                &lt;% } %&gt;
-                &lt;% if (theme.busuanziStatistics &amp;&amp; theme.busuanziStatistics.totalNumberOfvisitors) { %&gt;
-                &lt;span id=&quot;busuanzi_container_site_uv&quot;&gt;
-                    &lt;i class=&quot;fa fa-users&quot;&gt;&lt;/i&gt;
-                    次,&amp;nbsp;访客数 &lt;span id=&quot;busuanzi_value_site_uv&quot; class=&quot;white-color&quot;&gt;&lt;/span&gt; 人.
-                &lt;/span&gt;
-                &lt;% } %&gt;
-            &lt;% } %&gt;
-        &lt;/div&gt;
-        &lt;div class=&quot;col s12 m4 l4 social-link &lt;%- socialClass %&gt;&quot;&gt;&lt;%- partial(&#39;_partial/social-link&#39;) %&gt;&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/footer&gt;
+            <% let socialClass = '' %>
+            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
+                <% socialClass = 'social-statis' %><br>
+                <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                <% } %>
+                <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                <% } %>
+            <% } %>
+        </div>
+        <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
+    </div>
+</footer>
 
-&lt;div class=&quot;progress-bar&quot;&gt;&lt;/div&gt;</code></pre>
+<div class="progress-bar"></div></code></pre>
 <h4 id="修改首页的社交链接"><a href="#修改首页的社交链接" class="headerlink" title="修改首页的社交链接"></a>修改首页的社交链接</h4><p>在主题的 _config.yml 文件中，默认支持 QQ、GitHub 和邮箱的配置。我们可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改需要的社交链接地址</p>
 <p>笔者删除了许多链接，只保留了一部分：</p>
 <pre><code>&lt;% if (theme.socialLink.github) { %&gt;
@@ -951,14 +959,14 @@ layout: &quot;friends&quot;</code></pre>
 <h4 id="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）"><a href="#修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）" class="headerlink" title="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）"></a>修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）</h4><p>修改主题颜色</p>
 <p>在主题文件的 <code>/theme/hexo-theme-matery/source/css/matery.css</code> 文件中，搜索 .bg-color 来修改背景颜色：</p>
 <p>以下是笔者的个人喜好（灰色配彩色）：</p>
-<pre><code class="css">/* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */
-.bg-color {
-    background-image: linear-gradient(to right, #616161 0%, #BDBDBD 100%);
-}</code></pre>
+<pre class=" language-css"><code class="language-css"><span class="token comment" spellcheck="true">/* 整体背景颜色，包括导航、移动端的导航、页尾、标签页等的背景颜色. */</span>
+<span class="token selector"><span class="token class">.bg-color</span> </span><span class="token punctuation">{</span>
+    <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right, <span class="token hexcode">#616161</span> <span class="token number">0%</span>, <span class="token hexcode">#BDBDBD</span> <span class="token number">100%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <h4 id="“我的梦想”-dashboard"><a href="#“我的梦想”-dashboard" class="headerlink" title="“我的梦想” dashboard"></a>“我的梦想” dashboard</h4><p>笔者直接禁用了它，无聊，还梦想呢，咋不上天……</p>
-<pre><code class="yml">dream:
+<pre class=" language-yml"><code class="language-yml">dream:
   enable: false</code></pre>
-<h3 id="其他功能的开启和设置（推荐文章、不蒜子统计等）"><a href="#其他功能的开启和设置（推荐文章、不蒜子统计等）" class="headerlink" title="其他功能的开启和设置（推荐文章、不蒜子统计等）"></a>其他功能的开启和设置（推荐文章、不蒜子统计等）</h3><pre><code class="yml"># Whether to display the musics.
+<h3 id="其他功能的开启和设置（推荐文章、不蒜子统计等）"><a href="#其他功能的开启和设置（推荐文章、不蒜子统计等）" class="headerlink" title="其他功能的开启和设置（推荐文章、不蒜子统计等）"></a>其他功能的开启和设置（推荐文章、不蒜子统计等）</h3><pre class=" language-yml"><code class="language-yml"># Whether to display the musics.
 # 是否在首页显示音乐.
 music:
   enable: false
@@ -966,10 +974,10 @@ music:
   title: 听听音乐
   fixed: false # 开启吸底模式
   autoplay: false # 是否自动播放
-  theme: &#39;#42b983&#39;
-  loop: &#39;all&#39; # 音频循环播放, 可选值: &#39;all&#39;, &#39;one&#39;, &#39;none&#39;
-  order: &#39;list&#39; # 音频循环顺序, 可选值: &#39;list&#39;, &#39;random&#39;
-  preload: &#39;auto&#39; # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;
+  theme: '#42b983'
+  loop: 'all' # 音频循环播放, 可选值: 'all', 'one', 'none'
+  order: 'list' # 音频循环顺序, 可选值: 'list', 'random'
+  preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7 # 默认音量，请注意播放器会记忆用户设置，用户手动设置音量后默认音量即失效
   listFolded: false # 列表默认折叠
   listMaxHeight: #列表最大高度
@@ -985,9 +993,9 @@ video:
   thumbnails:
   height: # 如：400
   autoplay: false # 是否自动播放
-  theme: &#39;#42b983&#39;
+  theme: '#42b983'
   loop: false # 是否循环播放
-  preload: &#39;auto&#39; # 预加载，可选值: &#39;none&#39;, &#39;metadata&#39;, &#39;auto&#39;
+  preload: 'auto' # 预加载，可选值: 'none', 'metadata', 'auto'
   volume: 0.7
 
 # Whether to display the title of the recommended posts
@@ -1066,8 +1074,8 @@ wordCount:
   min2read: true
   totalCount: true
 
-# Whether to activate the &#39;love&#39; effect of clicking on the page.
-# 是否激活点击页面的&#39;爱心&#39;效果，默认激活.
+# Whether to activate the 'love' effect of clicking on the page.
+# 是否激活点击页面的'爱心'效果，默认激活.
 clicklove:
   enable: false
 
@@ -1079,55 +1087,55 @@ profile:
   introduction: I am.
 
 # config my projects informations in about page.
-# If you don&#39;t want to display this `My Projects` content, you can deactivate or delete this configuration.
-# 在“关于”页面配置&quot;我的项目&quot;信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+# If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
   enable: true
   data:
     hexo-theme-matery:
       icon: fa-meetup
-      iconBackground: &#39;linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)&#39;
+      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
       url: http://github.com/blinkfox/hexo-theme-matery
-      desc: This is a Hexo blog theme with &#39;Material Design&#39; and responsive design.
+      desc: This is a Hexo blog theme with 'Material Design' and responsive design.
     zealt:
         icon: fa-database
-        iconBackground: &#39;linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)&#39;
+        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
         url: https://github.com/blinkfox/zealot
         desc: 一个轻量级的SQL和参数动态生成工具库
     typora-vue-theme:
         icon: fa-file-text-o
-        iconBackground: &#39;linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)&#39;
+        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
         url: https://github.com/blinkfox/typora-vue-theme
         desc: This is a typora theme inspired by Vue document style.
 
 # config my skills informations in about page.
-# If you don&#39;t want to display this `My Skills` content, you can deactivate or delete this configuration.
-# 在“关于”页面配置&quot;我的技能&quot;信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+# If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 mySkills:
   enable: true
   data:
     Java:
-      background: &#39;linear-gradient(to right, #FF0066 0%, #FF00CC 100%)&#39;
+      background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
       percent: 85%
     JavaScript:
-      background: &#39;linear-gradient(to right, #9900FF 0%, #CC66FF 100%)&#39;
+      background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
       percent: 80%
     HTML5:
-      background: &#39;linear-gradient(to right, #2196F3 0%, #42A5F5 100%)&#39;
+      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 80%
     CSS:
-      background: &#39;linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)&#39;
+      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 70%
     SQL:
-      background: &#39;linear-gradient(to right, #4CAF50 0%, #81C784 100%)&#39;
+      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
       percent: 90%
     程序设计:
-      background: &#39;linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)&#39;
+      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
       percent: 75%
 
 # config gallery of my photos in about page.
-# If you don&#39;t want to display this `Gallery` content, you can deactivate or delete this configuration.
-# 在“关于”页面配置&quot;我的相册&quot;图片，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
+# If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
+# 在“关于”页面配置"我的相册"图片，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myGallery:
   enable: false
   data:
@@ -1136,7 +1144,7 @@ myGallery:
     - /medias/featureimages/2.jpg
 
 # Whether to display post-calender in the `archive` page
-# 设置在归档页面中是否显示&#39;文章日历&#39;控件
+# 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
 
 # the Gitalk config，default disabled
@@ -1182,9 +1190,9 @@ valine:
   notify: false
   verify: false
   visitor: true
-  avatar: &#39;mm&#39; # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
+  avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
   pageSize: 10
-  placeholder: &#39;just go go&#39; # Comment Box placeholder
+  placeholder: 'just go go' # Comment Box placeholder
 
 # Whether to display fork me on github icon and link, default true, You can change it to your repo address
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
@@ -1194,11 +1202,11 @@ githubLink:
   title: Fork Me
 
 # The password verification feature of read post. To use this feature,
-# activate the configuration item and write the &#39;password&#39; key and Cipher in the post&#39;s Front-matter.
+# activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.
 # Note: In order to ensure that the original password will not be leaked to the web page,
-# the password of the article must be encrypted by &#39;SHA256&#39; so that it will not be cracked.
-# 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的Front-matter中写上&#39;password&#39;的键和加密后的密文即可.
-# 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过&#39;SHA256&#39;加密的，这样就不会被破解.
+# the password of the article must be encrypted by 'SHA256' so that it will not be cracked.
+# 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的Front-matter中写上'password'的键和加密后的密文即可.
+# 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
 verifyPassword:
   enable: false
   promptMessage: 请输入访问本文章的密码
@@ -1671,7 +1679,7 @@ reprint:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">9.8k</span>
+                <span class="white-color">9.5k</span>
             
 
             
