@@ -4,11 +4,9 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Introduction, Maths,Computer-Science,Technology">
-    <meta name="description" content="​    这是我的第一个博客。  
-
-
-​    很久之前就有这个想法，搭建一个属于自己的博客，一个由自己创建、管理的地方，一个在虚拟世界里属于自己的窝。终于，在费尽九牛二虎之力后，这个博客终于搭建起来了，心里希望有的基础功能也添加得差不多">
+    <meta name="keywords" content="Linux终端自动记录脚本, Maths,Computer-Science,Technology">
+    <meta name="description" content="笔者写了一个简单的小脚本，用于自动记录 ubuntu/linux 系统中的终端的输入输出。现将代码以及实现思路记录于此。
+场景与需求在 linux 系统下，使用终端是几乎不可避免的，而且对于 linux 而言，命令行才应该是打开 linux">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +14,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Introduction | Q.E.D.</title>
+    <title>Linux终端自动记录脚本 | Q.E.D.</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -263,13 +261,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Introduction
+                        Linux终端自动记录脚本
                     </div>
                 </div>
             </div>
@@ -378,12 +376,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Linux/" target="_blank">
+                                <span class="chip bg-color">Linux</span>
+                            </a>
+                        
+                            <a href="/tags/Shell/" target="_blank">
+                                <span class="chip bg-color">Shell</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/系统调校/" class="post-category" target="_blank">
+                                系统调校
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -391,21 +406,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-01-09
+                    2019-07-02
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        497
+                        3.9k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        14 分
                     </div>
                     
                 
@@ -421,17 +436,150 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​    这是我的第一个博客。  </p>
-<a id="more"></a>
+                <p>笔者写了一个简单的小脚本，用于自动记录 ubuntu/linux 系统中的终端的输入输出。<br>现将代码以及实现思路记录于此。</p>
+<h1 id="场景与需求"><a href="#场景与需求" class="headerlink" title="场景与需求"></a>场景与需求</h1><p>在 linux 系统下，使用终端是几乎不可避免的，而且对于 linux 而言，命令行才应该是打开 linux 的 “正确方式”；而在命令行下操作，总免不了与天书般的命令、深奥晦涩的输出和提示打交道，时间一久，很容易忘记曾经在命令行下进行过什么操作，并得到什么输出；</p>
+<p>能够记录下曾在命令行下发生的一切事情非常有利于日后的排查和整理，而且大多数的发行版（当然，不包括 ArchLinux 这类）也已经提供了一个现成的命令 <code>script</code>，用于记录终端下的输入输出。然而，这依然不是我们理想中的解决方案，因为我们必须在写入终端之前，调用 <code>script</code> 命令——不难，但很繁琐，且分散注意力（相信我，你在急匆匆打开一个终端往里面输东西的时候——比如在配环境这种令人烦躁的时刻，根本不会记得这种事情）</p>
+<p>我们要让工具适应人，而非反其道而行之。</p>
+<p>我们不妨大胆地设想一个一个理想的终端记录功能/记录器应有的样子：</p>
+<ol>
+<li><strong>每次</strong>打开终端，都可以<strong>自动</strong>记录</li>
+<li><strong>每次</strong>关闭终端的时候，此次打开终端的所有输入输出都可以<strong>自动保存</strong>，而不需要手工地进行一次保存操作</li>
+<li>应该明确告知用户目前是否处于自动记录状态</li>
+<li>记录下的文件按照一定的规则进行保存整理，方便以后查看翻阅</li>
+</ol>
+<h1 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a>源代码</h1><p>整个脚本只有一段源代码，如下所示：</p>
+<pre class=" language-sh"><code class="language-sh">#automatically record user's terminal - BY JACKSON
+PS1_bak=${PS1}
+PS1="(logging)"${PS1}
 
-<p>​    很久之前就有这个想法，搭建一个属于自己的博客，一个由自己创建、管理的地方，一个在虚拟世界里属于自己的窝。终于，在费尽九牛二虎之力后，这个博客终于搭建起来了，心里希望有的基础功能也添加得差不多了。可在真正在键盘上敲下第一行字的时候，突然发现好像什么东西都写不出来了，近一个多星期的功夫，完成了一件事，正要继续前行之时，却不知道自己是如何来到此处的，也不知道未来正要去往何方。</p>
-<p>​    正是我现在的写照，迷迷糊糊，空空落落。</p>
-<p>​    活在这个世界已经有一段时间了，脑子里记得的值得回味的事情不多，贫乏得好似那水沟里的一潭死水。所以，按说像我这种人，应该是不会想到去写博客的。</p>
-<p>​    但它还是诞生了。</p>
-<p>​    我猜想，也许是我自己心里某个声音在隐隐约约地提醒自己，你是个读过点书的人。嗯，好像是的，的确不止一次地幻想过自己在某个领域作出令人瞩目的成果，青史留名；又或者是，隐隐约约的某个声音希望自己在想说话的时候，这个博客的存在，能有个地方让我写下来。</p>
-<p>​    人太需要被看见了。</p>
-<p>​    虽然我知道，这辈子几乎不可能作出什么令人称道的成就了，也不能像以前那样，动不动就在朋友圈里大发感想。我还是决定，给自己搭一个小窝吧<br>​    ——哪怕这里写的一切内容可能只为自己而写，也只有自己会看；<br>​    ——但或许还会有一两个过客会经过，瞟上两眼<br>​    我对自己说。</p>
-<p>​    我存在过的。</p>
+if [ $SHLVL -le 1 ];
+then
+
+    ADDRESS=~/sysconfig/tmlog/
+    ARCHIVE=${ADDRESS}"archives"
+
+    if [ ! -d ${ARCHIVE} ]; then
+        mkdir -p ${ARCHIVE}
+    fi
+
+    titledate=`date "+%F-%u-%H%M%S"`
+
+    # DEBUG
+    #cat ${ARCHIVE}/${titledate}.tm
+
+    script -f -q -a -t 2>${ARCHIVE}/${titledate}.tm ${ARCHIVE}/${titledate}.log
+
+    PS1=${PS1_bak}
+fi
+
+alias lgd="cd ~/sysconfig/tmlog/archives"
+# BY JACKSON</code></pre>
+<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><p>非常简单，只需要复制这段源代码，然后在 <code>/home/${USER}/</code> 目录下的 <code>.bashrc</code> 文件中的最后一段粘贴添加并保存即可。</p>
+<blockquote>
+<p>${USER} 就是当前的用户名</p>
+</blockquote>
+<h1 id="思路解释、特性和难点"><a href="#思路解释、特性和难点" class="headerlink" title="思路解释、特性和难点"></a>思路解释、特性和难点</h1><h2 id="shell类型"><a href="#shell类型" class="headerlink" title="shell类型"></a>shell类型</h2><p>关于 shell 的类型，一般而言有两个维度来衡量：交互式与非交互式，登录与非登录，这两个维度可以组合出四种类型的 shell</p>
+<h3 id="交互式与非交互式"><a href="#交互式与非交互式" class="headerlink" title="交互式与非交互式"></a>交互式与非交互式</h3><p>交互式 shell，故名思义，就是 shell 等待用户的输入，然后执行输入的命令，最后将执行结果输出在屏幕上；就好似 shell 和用户对话一般，这就是交互式 shell。</p>
+<p>那么，非交互式 shell 就很容易理解了，这种类型的 shell 并不会将用户视作交互的对象，而是默默地执行命令，命令多数包含在文件中作为一整个脚本运行，即使有输出或者输出，也不是直接打印在屏幕上，而往往会输出到别的地方（比如文件）</p>
+<h3 id="登录与非登录"><a href="#登录与非登录" class="headerlink" title="登录与非登录"></a>登录与非登录</h3><p>这对概念范畴相对来说比较难理解，笔者查阅过网络上不少资料，在此试着阐述一下自己的理解。</p>
+<p>凡是你打开一个终端，被告知输入用户名和密码的终端，就是登录式终端；而凡是不需要提供这些的，就是非登录式终端。</p>
+<p>请注意，在图形界面打开的终端（实际上是终端模拟器）是<strong>非登录</strong> shell。</p>
+<h2 id="自动运行"><a href="#自动运行" class="headerlink" title="自动运行"></a>自动运行</h2><p>如果我们需要让一个 shell 在打开的时候自动运行某些命令，我们应该去关注 bash 的初始化文件；类似于面向对象范式编程语言中，类的构造函数一样，这些初始化文件会在某些时候（主要指的是 bash 打开或者登录 shell 的时候）执行一些命令，完成关于 shell 的初始化配置。</p>
+<ol>
+<li><p>系统级别的初始化文件：</p>
+<p> 这种类型的文件中的配置是面向系统所有用户的，一般位于 <code>/etc</code> 目录中</p>
+</li>
+<li><p>用户级别的初始化文件：</p>
+<p> 面向的是单个用户</p>
+</li>
+</ol>
+<p>我们不在此列举各个初始化文件，那样只会显得罗嗦和繁琐；最终笔者发现在用户家目录下的 <code>.bashrc</code> 文件可以提供我们需要的特性</p>
+<ol>
+<li>交互式、non-login shell 在<strong>每次</strong>打开的时候都会读取执行这个文件；</li>
+<li>交互式、login shell 一般会读取 <code>~/.bash_profile</code> 这个文件，而它往往又会读取并执行 <code>.bashrc</code> 文件</li>
+</ol>
+<p>非常符合我们的需求，所以我们就在此处添加脚本代码。</p>
+<h2 id="不要踩坑：有关循环调用的问题"><a href="#不要踩坑：有关循环调用的问题" class="headerlink" title="不要踩坑：有关循环调用的问题"></a>不要踩坑：有关循环调用的问题</h2><p>在 linux 命令 <code>script</code> 的 manual 中，提及到了这样一句话：</p>
+<blockquote>
+<p>the inner shell of script is always interactive, and this could lead to unexpected results.  If you use script in the shell initialization file, you have to avoid entering an infinite loop.</p>
+</blockquote>
+<p>意思就是说 script 命令执行后，其应该是 fork 了一个新的交互式 bash shell 出来（尽管除了能够记录输入输出之外，其他地方看上去并没有什么区别），关键在于这个 inner shell 也是交互式的——这将导致循环调用。</p>
+<p>如果我们直接在 <code>.bashrc</code> 文件后面简单添加一行命令 <code>script [-option] [file]</code> 的话，那么在我们打开一个交互式、non-login 的 bash shell 的时候，会执行 <code>.bashrc</code> 中的命令——当然也包括 <code>script</code> 命令；</p>
+<p>而正如上所述，<code>script</code> 命令本身也会 fork 一个新的交互式 shell（同时也是非登录式的，因为它从未要求输入用户名和密码），那么这个新一层调用的 shell 也会执行 <code>.bashrc</code> 中的内容（注意，<code>.bashrc</code> 中的内容是每次打开对应类型的 bash shell 时都会执行的），那么会在这个新 fork 出来的 shell 中再一次执行所有包含在内的命令——自然，也会再一次执行文件末尾的 <code>script</code> 命令。</p>
+<p>于是，死循环调用就这样产生了。</p>
+<p>为了避免这种问题的产生，我们几乎只有一种解决的思路（受水平所限，笔者无法深入 shell 或者 <code>script</code> 命令的内部去做修改），那就是：<strong>让 <code>script</code> 命令只调用执行一次</strong></p>
+<p>经过一定时间的查找，笔者发现在 linux 系统中有一个环境变量 <code>SHLVL</code>，意为 “ Shell Level”，它的值表示当前 shell 处于调用层级的第几层，如一开始打开一个 bash shell，在此 shell 中变量 SHLVL 的值为 $1$，调用一次 <code>script</code> 之后，在窗口中显示此环境变量的值则为 $2$，以此类推。</p>
+<p>因此，笔者所写的源代码具有这样的结构：</p>
+<pre class=" language-sh"><code class="language-sh">// do something
+
+if [$SHLVL -le 1];
+then
+
+    // do something related to scripts logging
+    script [-option][file]
+
+fi</code></pre>
+<p>如此，在第一次调用 <code>script</code> 命令的时候，新 inner shell 同样也会读取执行 <code>.bashrc</code> 文件，但在执行到 <code>script</code> 所在的部分时，会因为不满足 <code>$SHLVL -le 1</code> 的条件而跳过，从而避免了循环调用的问题。</p>
+<h3 id="child-shell-and-subshell-any-difference"><a href="#child-shell-and-subshell-any-difference" class="headerlink" title="child shell and subshell, any difference?"></a>child shell and subshell, any difference?</h3><p>在查阅环境变量 <code>SHLVL</code> 的时候，笔者得知两个相近但不同的概念：child shell 和 subshell。</p>
+<p>在一个 bash 里面调用另一个 bash（比如 <code>script</code>）会新增一层 child shell 调用，而环境变量 <code>SHLVL</code> 记录的正是 bash 进程嵌套深度——对应地，另一个环境变量 <code>BASH_SUBSHELL</code> 记录一个 bash 进程中多个 subshell 的嵌套深度，但我们此处无需用到。</p>
+<h2 id="特性：无需手动保存"><a href="#特性：无需手动保存" class="headerlink" title="特性：无需手动保存"></a>特性：无需手动保存</h2><p>在笔者的需求设想中，脚本除了使 bash 一打开就自动进行记录之外，还无需在退出前输入 <code>exit</code> 退出 <code>script</code> bash shell 进程就能自动将终端记录保存至文件。</p>
+<p>为了实现这一特性，笔者想到了两种思路：</p>
+<p>第一种思路，就是在终端退出前自动执行 <code>exit</code> 命令；<br>笔者经过查阅，得知有一个名为 <code>.bash_logout</code> 的文件，但它是针对登录 shell 的，在 logout 之前自动执行文件中的命令；</p>
+<p>另外，stackexchange 上也有一些相似的问题，其主要思路是捕获 bash shell 退出的 signal，被此 signal 触发后执行一段命令；但问题在于，这种方法只针对的在 bash 中使用命令（如 <code>exit</code> 等）退出的情形；如果在图形界面直接用鼠标点击关闭终端模拟器，类似与直接杀死进程，和使用命令退出是两回事，而很多时候我们都往往会用后者关闭终端模拟器——如果都用到 <code>exit</code> 退出终端了，还会介意用 <code>exit</code> 退出 <code>script</code> 么？然而直接鼠标点击关闭时，这种方法不会起奏效。</p>
+<p>幸好，<code>script</code> 命令本身提供了 <code>-f/--flush</code> 参数，顾名思义，这个参数使得 <code>script</code> 命令在其 inner shell 的<strong>每次</strong>写入之时，都<strong>同时</strong>将内容写入文件（如果不加这个参数，那么默认在使用 <code>exit</code> 退出 <code>script</code> shell 时一次性保存）——这个参数选项的存在，不仅使得直接达到 “无需手动保存” 的要求，从某种意义上说，比原先的要求还更进一步：即使我们做到每次退出前自动保存，但难免会出现非正常退出的情形，这种情形下实时写入文件保存至少仍能最大程度地保留终端交互的内容。</p>
+<h3 id="注意：不能在-script-inner-shell-中直接回放该-shell-已保存的交互内容"><a href="#注意：不能在-script-inner-shell-中直接回放该-shell-已保存的交互内容" class="headerlink" title="注意：不能在 script inner shell 中直接回放该 shell 已保存的交互内容"></a>注意：不能在 script inner shell 中直接回放该 shell 已保存的交互内容</h3><p>实时 flush 从另一方面，要求我们不能在打开一个 script shell 而未退出时，直接使用 <code>scriptreplay</code> 或者 <code>cat</code> 等命令对这同一个 inner shell 已经保存的内容进行回放——这将导致无限读写循环。</p>
+<p>我们试以一个例子说明之。</p>
+<p>假设我们已经执行 <code>script</code> 命令：</p>
+<ol>
+<li>进行一次交互式输入输出，交互内容记为 $P$，同时 $P$ 被写入文件；</li>
+<li>不退出当前 inner shell，直接回放当前 shell 对应记录文件中的内容；</li>
+<li>$P$ 作为回放输出呈现在屏幕上，由于 <strong><code>script</code> 会将终端所有内容记录下来，并且 <code>--flush</code> 选项会在每次交互时同步写入文件</strong>，因此，$P$ 会再次被保存到文件中</li>
+<li>此时回放程序读取到的位置刚好是第二部中调用回放程序自身的时刻，它会继续向下读取，把 $P$ 的第一次回放所留下的记录又一次回放出来，而本次回放将依然记录到文件中去；</li>
+</ol>
+<p>于是，内容 $P$ 的每一次回放都会作为输出内容被保存到文件中去（而且是在原有内容上追加），从而作为后续的回放内容再次输出——这就成了一个死循环。</p>
+<p>因此，为了避免循环输出，在需要翻看从前的 script log 时，<strong>请一定记得退出 script 本身，并在原来底层的 bash shell 进程中使用其他回放程序查看</strong> </p>
+<h2 id="终端提示符修改"><a href="#终端提示符修改" class="headerlink" title="终端提示符修改"></a>终端提示符修改</h2><p>受 Anaconda 的启发，笔者也想对终端提示符进行配置，使其能够提示用户当前是否处于 <code>script</code> 命令的 shell 中（正如上一小节所述，用户如果要调阅之前的记录，需要在底层的 bash shell 中查看，如果可以直接根据终端提示符来判断会更加方便）</p>
+<p>可以通过修改环境变量 <code>PS1</code> 的内容，来修改终端提示符——并且随着变量 <code>PS1</code> 的值的改变，提示符也会<strong>实时</strong>改变；</p>
+<p>笔者的脚本中关于终端提示符的流程逻辑如下：</p>
+<pre class=" language-sh"><code class="language-sh">// action1: modify the terminal prompt
+
+if [ $SHLVL -le 1 ];
+
+then
+    script [-option][file]
+    // action2: restore the terminal prompt
+fi</code></pre>
+<ol>
+<li><p>第一次打开终端：</p>
+<ul>
+<li>bash shell 自动执行 <code>.bashrc</code>， 至 action1 处底层 bash 提示符添加 “logging” 标识；</li>
+<li>执行 <code>script</code> 命令，inner shell 内样执行 <code>.bashrc</code>，inner bash 同样添加 “logging” 标识；</li>
+<li>执行 <code>exit</code> 命令，inner shell 进程结束，返回至底层 shell；</li>
+<li>底层 shell 的 <code>.bashrc</code> 文件此时未执行完毕，而是执行至 action2 命令，此时将提示符 “logging” 标识去掉，恢复原样；</li>
+</ul>
+</li>
+<li><p>退出 script shell 后再次调用 <code>script</code> 命令</p>
+<ul>
+<li>如前所述，<strong>第一次退出</strong> script shell 后，底层 bash shell 的提示符已经没有 “logging” 标识；</li>
+<li>再次调用 <code>script</code> 命令，自动执行 <code>.bashrc</code> 脚本至 action1 处， inner shell 提示符添加 “logging” 标识；</li>
+<li>第二次退出 script shell，回到底层 bash shell，提示符呈现无标识状态</li>
+</ul>
+</li>
+</ol>
+<p>就这样，第一次调用退出，和之后的调用退出，流程逻辑略有不同，但结合在一起就可以实现相同的 “记录时则有标识，不记录则无标识” 的提示效果；</p>
+<h2 id="记录档案保存规则"><a href="#记录档案保存规则" class="headerlink" title="记录档案保存规则"></a>记录档案保存规则</h2><p>字符文件和时间轴文件按照日期时间命令，存储在指定目录 <code>ARCHIVE</code> 中；</p>
+<p>注意，日期时间精确到秒，因此，排除一次性同时打开两个终端的情况——每一次打开终端都会生成单独的两个记录文件</p>
+<p>为什么要精确到秒，请看下一节</p>
+<h1 id="待续：未完善之处"><a href="#待续：未完善之处" class="headerlink" title="待续：未完善之处"></a>待续：未完善之处</h1><h2 id="时间轴文件的追加问题，以及当前所采用的取巧解决方法"><a href="#时间轴文件的追加问题，以及当前所采用的取巧解决方法" class="headerlink" title="时间轴文件的追加问题，以及当前所采用的取巧解决方法"></a>时间轴文件的追加问题，以及当前所采用的取巧解决方法</h2><p>如果您仔细阅读笔者的源代码，您会发现脚本的核心代码如下：</p>
+<pre class=" language-sh"><code class="language-sh">script -f -q -a -t 2>${ARCHIVE}/${titledate}.tm ${ARCHIVE}/${titledate}.log</code></pre>
+<p><code>-f</code> 的含义上面已经解释，<code>-q</code> 表示记录时静默，<code>-a</code> 表示如果待写入的目标文件已经存在则在文件末尾追加记录（而非覆盖），<code>-t</code> 以及后面的重定向输出表示记录并保存交互内容的时间轴；</p>
+<p>一切看上去都很美好，但是……</p>
+<p>在笔者一开始的设想中，记录文件是按照日期生成的——可以预见的是，一天之内，肯定不止一次打开终端，因此也就是说，一天之内，我们需要多次调用 <code>script</code> 命令往同一个文件（准确说是两个文件，字符和时间轴）中写入，因此在代码中才特意加上 <code>-a</code> 选项；</p>
+<p>但问题就是，这个选项只对字符文件有效，而在记录时间轴的文件在每次重新调用 <code>script</code> 时原有的内容会被覆盖。</p>
+<p>笔者找了许多方法也没有正面解决时间轴输出覆盖的问题；因此，之所以前面笔者强调记录文档的生成需要精确到 秒，正是绕开了文件追加的问题采取的取巧折中的办法——当然前提是，一次性只打开一个终端，正好符合笔者的操作习惯</p>
+<h2 id="记录多个同时打开的终端？"><a href="#记录多个同时打开的终端？" class="headerlink" title="记录多个同时打开的终端？"></a>记录多个同时打开的终端？</h2><p>继续上面的讨论，笔者在撰写这篇博文之前，得到过一位优秀的朋友兼师弟的提议。他说他自己平时使用终端的习惯是同时打开多个终端进行不同的任务，因此他建议笔者继续改进，以实现可以记录多个终端交互内容的功能——这目前还未能做到。</p>
+<p>不过，由于时间精力所限，这件事恐怕得放到以后了。</p>
+<p>以上。</p>
 
             </div>
             <hr/>
@@ -620,31 +768,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/Configuration-of-my-blog.html">
+                <a href="/posts/Modify-keyboard-mapping-on-Ubuntu.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Configuration of my blog">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="修改 Ubuntu 键盘映射">
                         
-                        <span class="card-title">Configuration of my blog</span>
+                        <span class="card-title">修改 Ubuntu 键盘映射</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            搭建博客要考虑的事情，并记录本博客搭建过程中的配置
+                            针对 Ubuntu 系列的 Linux 系统，修改键盘映射
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-30
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-02
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/博客搭建与配置/" class="post-category" target="_blank">
-                                    博客搭建与配置
+                            <a href="/categories/系统调校/" class="post-category" target="_blank">
+                                    系统调校
                                 </a>
                             
                             
@@ -654,16 +802,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/" target="_blank">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/Github-Pages/" target="_blank">
-                        <span class="chip bg-color">Github Pages</span>
-                    </a>
-                    
-                    <a href="/tags/博客/" target="_blank">
-                        <span class="chip bg-color">博客</span>
+                    <a href="/tags/Linux/" target="_blank">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -677,24 +817,24 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/Hello-World.html">
+                <a href="/posts/blog-tester.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="博客测试">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">博客测试</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            本文仅用于博客功能的测试
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-01-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-07-01
                             </span>
                         <span class="publish-author">
                             

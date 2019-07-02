@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
-  <updated>2019-07-01T18:17:07.207Z</updated>
+  <updated>2019-07-02T10:18:54.105Z</updated>
   <id>https://googolplex-c.github.io/</id>
   
   <author>
@@ -15,6 +15,119 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>英语中&#39;更别说&#39;的表达方式</title>
+    <link href="https://googolplex-c.github.io/posts/discussion-on-the-pharse-&#39;let-alone&#39;.html"/>
+    <id>https://googolplex-c.github.io/posts/discussion-on-the-pharse-&#39;let-alone&#39;.html</id>
+    <published>2019-07-02T10:12:50.000Z</published>
+    <updated>2019-07-02T10:18:54.105Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;“更不用说”-的若干种表达方式&quot;&gt;&lt;a href=&quot;#“更不用说”-的若干种表达方式&quot; class=&quot;headerlink&quot; title=&quot;“更不用说” 的若干种表达方式&quot;&gt;&lt;/a&gt;“更不用说”
+        
+      
+    
+    </summary>
+    
+      <category term="外语" scheme="https://googolplex-c.github.io/categories/%E5%A4%96%E8%AF%AD/"/>
+    
+    
+      <category term="词汇语料" scheme="https://googolplex-c.github.io/tags/%E8%AF%8D%E6%B1%87%E8%AF%AD%E6%96%99/"/>
+    
+      <category term="同义辨析" scheme="https://googolplex-c.github.io/tags/%E5%90%8C%E4%B9%89%E8%BE%A8%E6%9E%90/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning Python: Notes</title>
+    <link href="https://googolplex-c.github.io/posts/Learning-Python:-Notes.html"/>
+    <id>https://googolplex-c.github.io/posts/Learning-Python:-Notes.html</id>
+    <published>2019-07-02T10:02:06.000Z</published>
+    <updated>2019-07-02T10:10:17.659Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p align=&quot;center&quot;&gt;&lt;b&gt;本博文的内容写在自定义页面上，将长期维护更新&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;笔者学习 Python 的笔记，按照时间顺序排序。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="编程语言" scheme="https://googolplex-c.github.io/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="Python" scheme="https://googolplex-c.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>修改 Ubuntu 键盘映射</title>
+    <link href="https://googolplex-c.github.io/posts/Modify-keyboard-mapping-on-Ubuntu.html"/>
+    <id>https://googolplex-c.github.io/posts/Modify-keyboard-mapping-on-Ubuntu.html</id>
+    <published>2019-07-02T09:55:02.000Z</published>
+    <updated>2019-07-02T09:58:01.562Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h5 id=&quot;1-需求&quot;&gt;&lt;a href=&quot;#1-需求&quot; class=&quot;headerlink&quot; title=&quot;1. 需求&quot;&gt;&lt;/a&gt;1.
+        
+      
+    
+    </summary>
+    
+      <category term="系统调校" scheme="https://googolplex-c.github.io/categories/%E7%B3%BB%E7%BB%9F%E8%B0%83%E6%A0%A1/"/>
+    
+    
+      <category term="Linux" scheme="https://googolplex-c.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux终端自动记录脚本</title>
+    <link href="https://googolplex-c.github.io/posts/automatic-terminal-recorder.html"/>
+    <id>https://googolplex-c.github.io/posts/automatic-terminal-recorder.html</id>
+    <published>2019-07-02T09:39:48.000Z</published>
+    <updated>2019-07-02T09:51:26.388Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;笔者写了一个简单的小脚本，用于自动记录 ubuntu/linux 系统中的终端的输入输出。&lt;br&gt;现将代码以及实现思路记录于此。&lt;/p&gt;
+&lt;h1 id=&quot;场景与需求&quot;&gt;&lt;a href=&quot;#场景与需求&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="系统调校" scheme="https://googolplex-c.github.io/categories/%E7%B3%BB%E7%BB%9F%E8%B0%83%E6%A0%A1/"/>
+    
+    
+      <category term="Linux" scheme="https://googolplex-c.github.io/tags/Linux/"/>
+    
+      <category term="Shell" scheme="https://googolplex-c.github.io/tags/Shell/"/>
+    
+  </entry>
   
   <entry>
     <title>博客测试</title>
