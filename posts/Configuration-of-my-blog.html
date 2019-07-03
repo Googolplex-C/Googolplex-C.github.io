@@ -416,14 +416,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        8.8k
+                        9.3k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        35 分
+                        38 分
                     </div>
                     
                 
@@ -918,7 +918,28 @@ layout: "friends"</code></pre>
     <span class="token property">"title"</span><span class="token operator">:</span> <span class="token string">"前去学习"</span>
 <span class="token punctuation">}</span><span class="token punctuation">]</span></code></pre>
 <p>以上只作举例，因为这些其实都是主题作者的 “朋友们”，和笔者无关。</p>
-<h3 id="内置特性开启与主题美化"><a href="#内置特性开启与主题美化" class="headerlink" title="内置特性开启与主题美化"></a>内置特性开启与主题美化</h3><h4 id="开启主题的代码高亮功能"><a href="#开启主题的代码高亮功能" class="headerlink" title="开启主题的代码高亮功能"></a>开启主题的代码高亮功能</h4><p>修改 Hexo 根目录下 <code>_config.yml</code> 文件中 <code>highlight.enable</code> 的值为 <code>false</code>，并新增 prism 插件相关的配置，主要配置如下：</p>
+<h3 id="内置特性开启与主题美化"><a href="#内置特性开启与主题美化" class="headerlink" title="内置特性开启与主题美化"></a>内置特性开启与主题美化</h3><h4 id="封面轮播功能与推荐文章"><a href="#封面轮播功能与推荐文章" class="headerlink" title="封面轮播功能与推荐文章"></a>封面轮播功能与推荐文章</h4><p>hexo-theme-matery 主题的首页展示文章的方式并不如某些其它主题只有单一的时间倒序罗列（如之前笔者使用过的 Next 主题）。</p>
+<ol>
+<li><p>首先是在封面部分轮播展示的 banner 文章</p>
+<ul>
+<li>post 源文件 front-matter 中的 <code>cover</code> 一项控制该文是否加入 banner</li>
+<li><strong>笔记、习题集等需要聚合组织在一起、并且长期更新的内容就非常适合放在 banner 部分</strong></li>
+</ul>
+</li>
+<li><p>首页的“推荐文章”展示</p>
+<ul>
+<li><p>主题配置文件 <code>_config.yml</code> 中有该项功能的全局开关设置</p>
+<pre class=" language-yml"><code class="language-yml">recommend:
+showTitle: true</code></pre>
+</li>
+<li><p>post 源文件 front-matter 中的 <code>top</code> 一项控制该文是否加入 banner</p>
+</li>
+<li><p><strong>某些内容相对独立、零散，但是 “颇值得一看” 的文章可以放到这一部分中去</strong></p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="开启主题的代码高亮功能"><a href="#开启主题的代码高亮功能" class="headerlink" title="开启主题的代码高亮功能"></a>开启主题的代码高亮功能</h4><p>修改 Hexo 根目录下 <code>_config.yml</code> 文件中 <code>highlight.enable</code> 的值为 <code>false</code>，并新增 prism 插件相关的配置，主要配置如下：</p>
 <pre class=" language-yml"><code class="language-yml">highlight:
   enable: false
 
@@ -986,9 +1007,139 @@ prism_plugin:
 <span class="token selector"><span class="token class">.bg-color</span> </span><span class="token punctuation">{</span>
     <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>to right, <span class="token hexcode">#616161</span> <span class="token number">0%</span>, <span class="token hexcode">#BDBDBD</span> <span class="token number">100%</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span></code></pre>
-<h4 id="“我的梦想”-dashboard"><a href="#“我的梦想”-dashboard" class="headerlink" title="“我的梦想” dashboard"></a>“我的梦想” dashboard</h4><p>笔者直接禁用了它，无聊，还梦想呢，咋不上天……</p>
+<h4 id="“我的梦想”-dashboard"><a href="#“我的梦想”-dashboard" class="headerlink" title="“我的梦想” dashboard"></a>“我的梦想” dashboard</h4><p>笔者直接禁用了它，无聊，还梦想呢，咋不上天……<br>（当然，后来还是开启了，不一定非得写梦想，还可以吐槽嘛）</p>
 <pre class=" language-yml"><code class="language-yml">dream:
   enable: false</code></pre>
+<h4 id="“我的技能”-dashboard"><a href="#“我的技能”-dashboard" class="headerlink" title="“我的技能” dashboard"></a>“我的技能” dashboard</h4><p>这个版块是一个可以很好的用于展示博主掌握的理论知识、实践技能的地方，好好利用起来</p>
+<pre class=" language-yml"><code class="language-yml"># 记录一下笔者喜欢的几种渐变配色方案：
+# 天蓝：background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+# 粉紫：background-image: linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%);
+# 嫩绿：background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+# 淡黄：background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+# 晶石：background-image: linear-gradient(to right, #00c6fb 0%, #005bea 100%);
+# 腮红：background-image: linear-gradient(to right, #ff758c 0%, #ff7eb3 100%);
+
+mySkills:
+  enable: true
+  data:
+
+# 理论向的计算机学科或课程
+    Data_Structure:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 15%
+    Computer_Achitecture:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Operating_System:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Computer_Network:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 10%
+    Data_Base:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 10%
+    Software_Engineering:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 3%
+    Compiling_Theory:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 1%
+    Programming_Language_Theory:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Computer_Graphics:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Image_Processing:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Machine_Learing:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 5%
+    Information_Theory:
+      background: 'linear-gradient(to right, #4facfe 0%, #00f2fe 100%)'
+      percent: 10%
+# 编程语言
+    C:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 20%
+    C++:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 5%
+    Java:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 3%
+    Python:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 7%
+    Assembly:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 9%
+    Shell:
+      background: 'linear-gradient(to right, #a18cd1 0%, #fbc2eb 100%)'
+      percent: 5%
+# 平台或工具
+    Linux:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 10%
+    LaTeX:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 9%
+    Mathematica:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 10%
+    Matlab:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 12%
+    Docker:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 4%
+    Geogebra:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 9%
+    Graphviz:
+      background: 'linear-gradient(to right, #fa709a 0%, #fee140 100%)'
+      percent: 15%
+# 数学
+    Calculas:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 25%
+    Linear_Algebra:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 50%
+    Probability_Theory:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 10%
+    Set_Theory:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 10%
+    Symbolic_Logic:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 15%
+    Combinatorics:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 25%
+    Abstract_Algebra:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 5%
+    Number_Theory:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 7%
+    Complex_Analysis:
+      background: 'linear-gradient(to right, #00c6fb 0%, #005bea 100%)'
+      percent: 5%
+# 外语
+    English: 
+      background: 'linear-gradient(to right, #ff758c 0%, #ff7eb3 100%)'
+      percent: 30%
+# 其他兴趣
+    Natrual_History:
+      background: 'linear-gradient(to right, #43e97b 0%, #38f9d7 100%)'
+      percent: 18%
+    Sports:
+      background: 'linear-gradient(to right, #43e97b 0%, #38f9d7 100%)'
+      percent: 15%</code></pre>
 <h3 id="其他功能的开启和设置（推荐文章、不蒜子统计等）"><a href="#其他功能的开启和设置（推荐文章、不蒜子统计等）" class="headerlink" title="其他功能的开启和设置（推荐文章、不蒜子统计等）"></a>其他功能的开启和设置（推荐文章、不蒜子统计等）</h3><pre class=" language-yml"><code class="language-yml"># Whether to display the musics.
 # 是否在首页显示音乐.
 music:
@@ -1109,52 +1260,6 @@ profile:
   career: A learner
   introduction: I am.
 
-# config my projects informations in about page.
-# If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
-# 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
-myProjects:
-  enable: true
-  data:
-    hexo-theme-matery:
-      icon: fa-meetup
-      iconBackground: 'linear-gradient(to bottom right, #66BB6A 0%, #81C784 100%)'
-      url: http://github.com/blinkfox/hexo-theme-matery
-      desc: This is a Hexo blog theme with 'Material Design' and responsive design.
-    zealt:
-        icon: fa-database
-        iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
-        url: https://github.com/blinkfox/zealot
-        desc: 一个轻量级的SQL和参数动态生成工具库
-    typora-vue-theme:
-        icon: fa-file-text-o
-        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-        url: https://github.com/blinkfox/typora-vue-theme
-        desc: This is a typora theme inspired by Vue document style.
-
-# config my skills informations in about page.
-# If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
-# 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
-mySkills:
-  enable: true
-  data:
-    Java:
-      background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
-      percent: 85%
-    JavaScript:
-      background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 80%
-    HTML5:
-      background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
-      percent: 80%
-    CSS:
-      background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
-      percent: 70%
-    SQL:
-      background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 90%
-    程序设计:
-      background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 75%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
@@ -1500,6 +1605,28 @@ reprint:
     </div>
 
     
+        <link rel="stylesheet" href="/libs/gitalk/gitalk.css">
+<link rel="stylesheet" href="/css/my-gitalk.css">
+
+<div class="card gitalk-card" data-aos="fade-up">
+    <div id="gitalk-container" class="card-content"></div>
+</div>
+
+<script src="/libs/gitalk/gitalk.min.js"></script>
+<script>
+    let gitalk = new Gitalk({
+        clientID: '3fec459e689675d15922',
+        clientSecret: 'baa0cedbe9cb6687349f0dc09bcc426b1dbffe1d',
+        repo: 'Googolplex-C.github.io',
+        owner: 'Googolplex-C',
+        admin: "Googolplex-C",
+        id: '2019-06-30T23-54-05',
+        distractionFreeMode: false  // Facebook-like distraction free mode
+    });
+
+    gitalk.render('gitalk-container');
+</script>
+    
 
     
 
@@ -1715,7 +1842,7 @@ reprint:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.2k</span>
+                <span class="white-color">21.7k</span>
             
 
             
