@@ -262,6 +262,187 @@
     
     
     <entry>
+      <title>VSCode Snippet Configuration</title>
+      <link href="/posts/VSCode-Snippet-Configuration.html"/>
+      <url>/posts/VSCode-Snippet-Configuration.html</url>
+      
+        <content type="html"><![CDATA[<p>日常折腾，为了更流畅地在电脑上写数学公式和博文。</p><a id="more"></a><h3 id="一、为什么要折腾"><a href="#一、为什么要折腾" class="headerlink" title="一、为什么要折腾"></a>一、为什么要折腾</h3><p>尽管之前已经在笔者本人的 Ubuntu 系统上进行了键位映射，但是写博文的时候依然非常不顺手，输入速度很慢，尤其是带有 LaTeX 公式的时候，此外写一般的代码时候也没有训练打字时顺畅。</p><h3 id="二、从哪里得到的启发"><a href="#二、从哪里得到的启发" class="headerlink" title="二、从哪里得到的启发"></a>二、从哪里得到的启发</h3><p>在知乎的一篇帖子 <a href="https://zhuanlan.zhihu.com/p/60049290" target="_blank" rel="noopener">1700页数学笔记火了！全程敲代码，速度飞快易搜索，硬核小哥教你上手LaTeX+Vim</a> 中，介绍了一位小哥使用 LaTeX + Vim，在课堂上记下了 1700 多页数学笔记，其中提到了一个编辑器的特性叫做 Snippet，可以通过输入关键词直接插入设定好的代码片段，尽管笔者没有使用过、也不会用 Vim，但是这个 Snippet 特性还是令笔者非常感兴趣，当时笔者就是从此处受到了启发。</p><h3 id="三、为什么会慢"><a href="#三、为什么会慢" class="headerlink" title="三、为什么会慢"></a>三、为什么会慢</h3><ol><li>代码中含有大量的符号</li><li>笔者暂时还没有开始练习非英文键区的标准指法；</li><li>即便训练了非英文键区的标准指法，数字区和符号区的键位也离手指更远，因此相比起字母键区的键位，输入节奏必然有别，输入速度必然也更慢</li></ol><h3 id="四、理想的快捷输入"><a href="#四、理想的快捷输入" class="headerlink" title="四、理想的快捷输入"></a>四、理想的快捷输入</h3><ol><li>Snippet 中已经包含代码中繁杂的符号，不需要再手动输入</li><li>作为输入者，只需（或者最大程度地只需）输入真正的会显示出来的内容（主要就是字母串）</li><li>在使用快捷输入的时候，功能键必须尽可能地靠近字母区；</li><li>快捷输入最好可以嵌套使用</li></ol><h3 id="五、Snippet-和-Shortcut-设置"><a href="#五、Snippet-和-Shortcut-设置" class="headerlink" title="五、Snippet 和 Shortcut 设置"></a>五、Snippet 和 Shortcut 设置</h3><p>VSCode 已经自带了 Snippet 功能，尽管功能不如 Vim 上的插件，并且有一定的缺陷，但基本还是满足使用要求的，笔者在 CSDN 上找到一篇博文，其内容是 VSCode 文档中 Snippet 部分的翻译和整理。笔者就不在此赘述 VSC 中 Snippet 的基本语法和概述了。</p><p><a href="https://blog.csdn.net/maokelong95/article/details/54379046" target="_blank" rel="noopener">[VS Code]跟我一起在Visual Studio Code 添加自定义snippet（代码段），附详细配置</a></p><h4 id="更改触发快捷键"><a href="#更改触发快捷键" class="headerlink" title="更改触发快捷键"></a>更改触发快捷键</h4><p>snippet 的本质是输入一个作为口令的单词（vscode里称为 prefix）之后，通过设定好的快捷键触发功能，然后将prefix替换为预设好的内容</p><ol><li><p>设置 <code>&quot;editor.tabCompletion&quot;: &quot;on&quot;</code>，这一步严格来说开启的是自动补全，和真正意义上的插入 snippet 是不一样的</p></li><li><p>设置</p><pre><code> {     &quot;key&quot;: &quot;shift+space&quot;,     &quot;command&quot;: &quot;editor.action.insertSnippet&quot; }</code></pre><p>这个应该才是真正意义上地触发 snippet 的命令；</p></li></ol><p>其他快捷键保持不变；</p><h4 id="自定义-prefix"><a href="#自定义-prefix" class="headerlink" title="自定义 prefix"></a>自定义 prefix</h4><p>由于笔者最近一段时间几乎只用 VSCode 写博客，因此优先考虑 LaTeX 和 Markdown 的输入。</p><p>同时，考虑到 LaTeX 公式也会在 Markdown 中出现，因此笔者将 LaTeX 命令的 Snippet 放到全局 Snippet 文件中，但是将 scope 关键字设为：LaTeX，Markdown</p><p>具体的设置如下：</p><pre class=" language-JSON"><code class="language-JSON">{    // latex 数学环境输入基本要素：定界符    "Inline maths formula delimiter": {        "scope": "markdown,latex",        "prefix": "fi",        "body": "$$1$ $0",        "description": "the delimiter of inline maths"    },    "Display maths formula delimiter": {        "scope": "markdown,latex",        "prefix": "fd",        "body": ["$$",            "$1",            "$$\n",            "$0",        ],        "description": "the delimiter of diaplay maths"    },    // latex 公式环境以及编号、引用等宏    "formulas environment": {        "scope": "markdown,latex",        "prefix": "fev",        "body": [            "\\begin{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}",            "$2",            "\\end{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}$0",        ],        "description": "the formulas environment"    },    "reference and tags of formulas": {        "scope": "markdown,latex",        "prefix": "ftr",        "body": ["${1|\\ref,\\tag,\\tag*,\\label|}{$2}$0"],        "description": "reference and tags of formulas"    },    // latex 内嵌公式环境    "formulas inside environment": {        "scope": "markdown,latex",        "prefix": "fiev",        "body": [            "\\begin{${1|gathered,split,aligned|}}",            "$2",            "\\end{${1|gathered,split,aligned|}}$0",        ],        "description": "the formulas inside environment"    },    // latex 矩阵环境    "environment of matrix": {        "scope": "markdown,latex",        "prefix": "fmt",        "body": [            "\\begin{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}",            "$2",            "\\end{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}$0",        ],        "description": "environment of matrix"    },    // latex 基本宏命令快捷输入    "Slash1": {        "scope": "markdown,latex",        "prefix": "jj",        "body": "\\\\$1{$2}$0",        "description": "Slash1",    },    "Slash2": {        "scope": "markdown,latex",        "prefix": "jk",        "body": "\\\\$1{$2}{$3}$0",        "description": "Slash2",    },    "Slash3": {        "scope": "markdown,latex",        "prefix": "jl",        "body": "\\\\$1{$2}{$3}{$4}$0",        "description": "Slash3",    },    // latex 公式基本结构：上下标    "superscript and subscript": {        "scope": "markdown,latex",        "prefix": "gg",        "body": "$1_{$2}^{$3}$0",        "description": "superscript and subscript"    },    // latex 括号快捷输入    "parenthesis": {        "scope": "markdown,latex",        "prefix": "ff",        "body": "($1)$0",        "description": "parenthesis"    },    "brace": {        "scope": "markdown,latex",        "prefix": "dd",        "body": "\\{$1\\\\}$0",        "description": "brace"    },    "bracket": {        "scope": "markdown,latex",        "prefix": "ss",        "body": "[$1]$0",        "description": "bracket"    },    // latex 常用函数,公式或表达式    "sqrt formulas": {        "scope": "markdown,latex",        "prefix": "fsq",        "body": "\\sqrt[$1]{$2}$0",        "description": "sqrt formulas"    },    "general fraction": {        "scope": "markdown,latex",        "prefix": "fgfr",        "body": "\\genfrac{$1}{$2}{$3}{$4}{$5}{$6}$0",        "description": "general fraction"    },    "fraction": {        "scope": "markdown,latex",        "prefix": "ffr",        "body": "\\frac{$1}{$2}$0",        "description": "fraction"    },    "binomial coefficient": {        "scope": "markdown,latex",        "prefix": "fbi",        "body": "\\binom{$1}{$2}$0",        "description": "binomial coefficient"    },    "lists": {        "scope": "markdown,latex",        "prefix": "flt",        "body": "$$1$, $$2$, $$3$, $\\ldots$, $$4$$0",        "description": "binomial coefficient"    },}</code></pre><p>以及专门面向 Markdown 的 prefix：</p><pre class=" language-JSON"><code class="language-JSON">{    // 数学证明结束语    "End of proof": {        "prefix": "qed",        "body": [            "<p align=\"right\">Q.E.D.</p>",            "$0"        ],        "description": "End of proof",    },    // 插入图片（针对Hexo）    "Insert image": {        "prefix": "iimg",        "body": [            "{% asset_image $1.$2 %}",            "$0"        ],        "description": "Insert image",    },    // 注释    "Comments": {        "prefix": "cmt",        "body": [            "<!--...-->",            "$0",        ],        "description": "Comments",    },    // html 标签字体颜色    "Fonts style": {        "prefix": "sty",        "body": [            "<font color=\"$1\" size=\"$2\"> $3 </font>$0",        ],        "description": "Comments",    },    // 居中    "Center": {        "prefix": "ctr",        "body": [            "<center> $1 </center>$0",        ],        "description": "Center",    },}</code></pre><p><strong>需要注意的是：如果需要定义一个 <code>\[content]</code> 的内容，即<code>\\</code> 后面接的是符号 <code>$</code>，那么在JSON 中不能写成 <code>\\$1</code>，笔者专门在网上搜查过，JSON 会经过两次转义（其实笔者自己也不太清楚内部的原理），因此，必须写成 <code>\\\\$1</code> 的形式。</strong></p><h4 id="定义方向键快捷键"><a href="#定义方向键快捷键" class="headerlink" title="定义方向键快捷键"></a>定义方向键快捷键</h4><p>方向键也是非常常用的键位，但是它们离主键区实在太远了，笔者将 <code>ctrl+;</code> 设为 Rightarrow 和 Downarrow，<code>ctrl+‘</code>设为 Leftarrow 和 Uparrow；其中当编辑器处于文本聚焦（也就是光标在闪可以输入文字的状态）时，它们相当于左右箭头，其他情形下相当于上下箭头。</p><pre class=" language-JSON"><code class="language-JSON">[    {        "key": "ctrl+'",        "command": "cursorLeft",        "when": "textInputFocus"    },    {        "key": "ctrl+'",        "command": "history.showPrevious",        "when": "historyNavigationEnabled && historyNavigationWidget"    },    {        "key": "ctrl+'",        "command": "list.focusUp",        "when": "listFocus && !inputFocus"    },    {        "key": "ctrl+'",        "command": "notifications.focusPreviousToast",        "when": "notificationFocus && notificationToastsVisible"    },    {        "key": "ctrl+'",        "command": "outline.focusUpHighlighted",        "when": "outlineFiltered && outlineFocused"    },    {        "key": "ctrl+'",        "command": "selectPrevSuggestion",        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"    },    {        "key": "ctrl+'",        "command": "showPrevParameterHint",        "when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"    },    {        "key": "ctrl+'",        "command": "workbench.action.interactivePlayground.arrowUp",        "when": "interactivePlaygroundFocus && !editorTextFocus"    },    {        "key": "ctrl+;",        "command": "breadcrumbs.selectFocused",        "when": "breadcrumbsActive && breadcrumbsVisible"    },    {        "key": "ctrl+;",        "command": "cursorRight",        "when": "textInputFocus"    },    {        "key": "ctrl+;",        "command": "history.showNext",        "when": "historyNavigationEnabled && historyNavigationWidget"    },    {        "key": "ctrl+;",        "command": "keybindings.editor.focusKeybindings",        "when": "inKeybindings && inKeybindingsSearch"    },    {        "key": "ctrl+;",        "command": "list.focusDown",        "when": "listFocus && !inputFocus"    },    {        "key": "ctrl+;",        "command": "notifications.focusNextToast",        "when": "notificationFocus && notificationToastsVisible"    },    {        "key": "ctrl+;",        "command": "outline.focusDownHighlighted",        "when": "outlineFiltered && outlineFocused"    },    {        "key": "ctrl+;",        "command": "selectNextSuggestion",        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"    },    {        "key": "ctrl+;",        "command": "settings.action.focusSettingsFile",        "when": "inSettingsSearch && !suggestWidgetVisible"    },    {        "key": "ctrl+;",        "command": "settings.action.focusSettingsFromSearch",        "when": "inSettingsSearch && !suggestWidgetVisible"    },    {        "key": "ctrl+;",        "command": "showNextParameterHint",        "when": "editorTextFocus && parameterHintsMultipleSignatures && parameterHintsVisible"    },    {        "key": "ctrl+;",        "command": "workbench.action.interactivePlayground.arrowDown",        "when": "interactivePlaygroundFocus && !editorTextFocus"    },]</code></pre><p>至此，设置就全部结束了</p><h3 id="六、曾经遇到的坑，以及不完善的地方"><a href="#六、曾经遇到的坑，以及不完善的地方" class="headerlink" title="六、曾经遇到的坑，以及不完善的地方"></a>六、曾经遇到的坑，以及不完善的地方</h3><ol><li><p>如何在一个 snippet 中快捷地输入一个嵌套的 snippet：</p><p> 笔者做过非常多的尝试，最后仍然没有达到想要的效果</p><p> 在笔者的 VSCode 上，单纯地把 <code>tabCompletion</code> 设为 <code>on</code>的话，快捷键是这样的：</p><ul><li><p>输入 prefix，按 <code>tab</code>，自动插入 snippet</p></li><li><p>按 <code>tab</code> 可以不断地跳转到 snippet 中设定好的 tabstop 位置，直到结束</p><p>于是，如果设定好了一个至少一个 topstop 的 snippet的话，在 tabstop 当中如果想要继续通过 <code>tab</code> 来插入嵌套的 snippet 是做不到的</p><p>笔者为了解决这个问题是费了许多功夫：</p></li></ul><ol><li><p>一开始笔者以为控制 <code>tab</code> 输入 snippet 的是命令 <code>insertSnippet</code>，于是笔者将触发条件中的 <code>!inSnippetMode</code> 去掉，无果；</p></li><li><p>后来笔者发现即使是在 snippet 的 tabstop 中，可以通过 <code>ctrl+tab</code> 快捷键触发 suggestion，然后用 <code>tab</code> 选择，但这样就多了一部操作，显得很繁琐</p></li><li><p>于是笔者将 这个快捷键的触发条件 复制到 insertSnippet 中，依然无效</p></li><li><p>仍不死心，后来发现控制这一行为的应该是 <code>insertBestCompletion</code> 这一命令；尝试修改之，无果；</p></li><li><p>在 VSC 的 github issue 上也找到了一些嵌套 snippet not working 的帖子，有人说要修改 <code>editor.suggestion.snippetPreventQuickSuggestion</code> 这一项，但好像没有什么变化；</p></li><li><p>笔者还发现 <code>insertSnippet</code> 这一命令好像是不起作用的，设置什么快捷键都不会触发其效果</p><p>中途笔者使用了一段时间的 <code>shift+space</code> 触发建议小窗口后（原快捷家是 <code>ctrl+space</code>） 使用 <code>tab</code> 选中的方式，但是这方法除了比较麻烦之外，还必须要求 prefix 是单独的单词，不能和前后的内容连在一起，否则不会触发；</p><p>最后笔者将 命令<code>editor.action.insertSnippet</code>（这个才能真正其作用，但依然是弹出一个窗口）的快捷键设为 <code>shift+space</code>，输入 prefix 后 <code>enter</code>选中，；而建议小窗口的快捷键换回 <code>ctrl+space</code>，虽然也要两步，但是可以在任何时候插入 snippet。</p></li></ol></li><li><p>退出snippet mode 的问题</p><p> 在 snippet 的 tabstop 中，为了显示现在处于 tabstop 中，输入的时候是带有阴影的；</p><p> 笔者不希望进入这个snippet mode 之后太难或者太容易就推出这种状态：前者有时候会增添麻烦，后者会使得在 tabstop 处使用一些功能键的时候（比如 <code>ctrl+v</code>）直接推出，影响节奏；</p><p> 最后发现，有几种情况会退出 snippet mode：</p><ol><li><code>Esc</code> 或者 <code>Shift+Esc</code></li><li><code>Tab</code> 进入下一个 tabstop</li><li>光标移出 tabstop 的位置</li></ol></li></ol><h4 id="不完善的地方"><a href="#不完善的地方" class="headerlink" title="不完善的地方"></a>不完善的地方</h4><ol><li>prefix 本身必须是固定的，不能支持正则表达式等</li><li>snippet 嵌套问题</li><li></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 开发环境配置 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
+            
+            <tag> Snippet </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pandoc报错的解决</title>
+      <link href="/posts/Fixing%20the%20error%20of%20Pandoc.html"/>
+      <url>/posts/Fixing%20the%20error%20of%20Pandoc.html</url>
+      
+        <content type="html"><![CDATA[<p>记录一下笔者的电脑上安装的 Pandoc 报错的问题，以及对应的解决方案。</p><a id="more"></a><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><ol start="0"><li><p>笔者动手能力很差，而且刚接触 Ubuntu 系统不久，对其并不熟悉；</p></li><li><p>笔者搭建博客的其中一个重要目的就是记录笔记，而笔者本身又是理工专业的，所以博文中必然包含大量的数学公式，这些数学公式的输入与排版几乎只能依赖于 LaTeX / MathJax</p></li><li><p>基于 Hexo 框架以及 Next 主题自身的某些原因，MathJax虽然已经内置在 Next 主题中，但是据网上的反映，Hexo 的渲染引擎在渲染某些 LaTeX 代码的时候，会错误地解析成别的东西，最后呈现出来的方式是一团乱麻；</p></li><li><p>所以，笔者在搭建博客的时候，花了许多的心思寻找解决方案：</p><ol><li>有些网友的方法是修改 Hexo 框架的某些解析规则；笔者不喜欢这种需要修改框架自身的方法；</li><li>有些网友提出更换 Hexo 原有的渲染引擎，但更换之后仍会有这些问题出现，从而仍然需要修改 Hexo 框架的规则；</li><li>还有一种方法就是使用 Pandoc 渲染，据网上的资料，这种方法需要在本地安装 Pandoc，可能稍显臃肿；但无需修改任何规则，直接可用，另外 Pandoc 解析的 Markdown 的语法格式和 标准你 Markdown 有一定的不一样（<strong>比如 LaTeX 的 $ … $ 两边必须紧贴公式，不能留空</strong>）</li></ol></li><li><p>使用 Pandoc 渲染的安装步骤比较简单（此处顺便作为搭建记录）</p><ol><li>本地安装最新版本的 Pandoc；</li><li>Hexo 博客根目录下终端安装 <code>hexo-renderer-pandoc</code>；</li><li>卸载原有的渲染引擎；</li><li>在 Next 主题配置文件 <code>_config.yml</code> 中 将 <code>enable:MathJax</code> 项设为 <code>true</code></li></ol></li><li><p>笔者<strong>猜测</strong>的针对数学公式渲染的流程：</p><pre class=" language-mermaid"><code class="language-mermaid">graph LR 源文件 --> renderer; Pandoc --> renderer; renderer --> MathJax; MathJax --> 网页最终效果</code></pre></li></ol><p>渲染引擎应该需要调用本地的 Pandoc 程序；<br>而 MathJax 本身应该是独立的，因为官方的原版渲染引擎也能显示一部分公式，但它要求前面的解析工作不能出问题；</p><ol start="6"><li>在配置完成之后，博客框架可以正常运行</li></ol><h1 id="错误描述"><a href="#错误描述" class="headerlink" title="错误描述"></a>错误描述</h1><p>3 月 13 日，笔者发觉已经有一段时间没有写博文了，于是就随意写了一些，在终端下生成博客的时候，竟然破天荒的报错了：</p><pre><code>pandoc exited with code 2: --smart/-S has been removed.  Use +smart or -smart extension instead.</code></pre><h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><h2 id="反思和复盘："><a href="#反思和复盘：" class="headerlink" title="反思和复盘："></a>反思和复盘：</h2><ol><li>笔者最近并没有折腾过电脑上的 Hexo 框架，问题是平白无故地出现的；</li><li>之前在笔者的 Windows 10 系统上，也曾出现过这样的问题，并且最后死活都解决不了，后来重装了 Ubuntu 后不了了之；</li><li>这次问题的出现的原因应该和之前是类似的；</li><li>上一次正常写博文大约是在十天前，这十天内可能导致错误的出现的可能原因有：<ol><li>笔者更换了 Markdown 文件的编辑器，新的编辑器在本地直接使用 pandoc 渲染；</li><li>还安装了一些打包好的 AppImage 程序；</li></ol></li></ol><h2 id="解决过程-1"><a href="#解决过程-1" class="headerlink" title="解决过程"></a>解决过程</h2><ol><li><p>根据报错信息在 Google 上搜索，大意就是 Pandoc 的版本低于 2.0 就会出现这种错误；</p></li><li><p>github 上有网友表示在重装了 hexo-renderer-pandoc 之后就成功解决了问题；</p></li><li><p>当时笔者终于回想起在 Win 10 上遇到的问题应该是同一个问题；</p></li><li><p>但首先为了排除是 Markdown 源文件的问题，笔者现将最近的两篇博文的 Markdown 源文件移到别的目录下</p><p> 重新生成： <code>hexo -g</code>，依然报错；</p><p> 此时可基本排除 Markdown 源文件的问题；</p></li><li><p>笔者直接在终端下输入命令 <code>pandoc -v</code>，显示版本号是 1.9</p><p> 问题逐渐浮出水面，当时笔者安装 pandoc 的具体版本是多少虽然不记得了，但绝对不可能去安装一个这么低的版本；</p></li><li><p>终端输入 <code>dpkg -l | grep &quot;pandoc&quot;</code>，显示 pandoc 版本是 2.5</p><p> 看来应该是不小心在电脑上安装了两个 pandoc，引起了混乱；</p></li><li><p>笔者怀疑是新的编辑器 VSCode 以及插件 Markdown-Preview-Enhanced 引入了新的渲染引擎，可是在设置中并没有证据显示这一点；</p></li><li><p>求助于搜索引擎，换了许多关键字，无果；最终把搜索关键字换为英文在 Google 上搜到了一个网页：</p><p> <a href="https://askubuntu.com/questions/1084723/issues-installing-pandoc-2-3-1-in-ubuntu-18-04-1" target="_blank" rel="noopener">Issues installing pandoc 2.3.1 in Ubuntu 18.04.1</a></p><p> 里面的评论提醒了笔者，这种情况下很可能是因为另外一个 pandoc 是通过 non-deb 的方式安装的，所以需要将这个 “私生子” 给找出来</p></li><li><p>此外，笔者还了解到了两个有用的命令：<code>whereis</code> 和 <code>which</code>，最终通过这两个命令找到了多出来的 pandoc，其实是在 anaconda 的 base 环境下的可执行文件；</p></li></ol><ol start="10"><li><p>真相终于大白！接下来就是解决这个问题的步骤了：</p><ol><li>笔者首先试图升级 anaconda 环境下的 pandoc 包，但好像没办法升级；</li><li>最后，笔者把 anaconda 在 PATH 环境变量中的顺序改到最后：这样系统按照从前到后的搜索顺序就会先搜索到系统安装的 pandoc了</li></ol></li><li><p>最终问题解决，博客可以正常生成了！解决了之前悬而未决的问题，颇有收获。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统维护 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Pandoc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Wine安装与折腾</title>
+      <link href="/posts/Wine-Installation.html"/>
+      <url>/posts/Wine-Installation.html</url>
+      
+        <content type="html"><![CDATA[<p>记录下安装折腾 wine 的全过程，安装过程中遇到了问题，作为备忘；</p><p>参考网址为：<a href="https://wiki.winehq.org/Ubuntu_zhcn" target="_blank" rel="noopener">Ubuntu 系统上 Wine 安装</a></p><a id="more"></a><p>接下来的步骤是按照上面官网链接的指示来做的：</p><h4 id="1-开启-32bit-架构支持"><a href="#1-开启-32bit-架构支持" class="headerlink" title="1. 开启 32bit 架构支持"></a>1. 开启 32bit 架构支持</h4><pre><code>sudo dpkg --add-architecture i386 </code></pre><h4 id="2-下载添加仓库密钥"><a href="#2-下载添加仓库密钥" class="headerlink" title="2. 下载添加仓库密钥"></a>2. 下载添加仓库密钥</h4><pre><code>wget -nc https://dl.winehq.org/wine-builds/winehq.keysudo apt-key add winehq.key</code></pre><h4 id="3-添加仓库"><a href="#3-添加仓库" class="headerlink" title="3. 添加仓库"></a>3. 添加仓库</h4><pre><code>sudo apt-add-repository &#39;deb https://dl.winehq.org/wine-builds/ubuntu/bionic main&#39;</code></pre><h4 id="4-更新安装包"><a href="#4-更新安装包" class="headerlink" title="4. 更新安装包"></a>4. 更新安装包</h4><pre><code>sudo apt update</code></pre><p>这前四步都非常顺利，没有遇到任何问题，如下图所示：</p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/001.png" alt="001"></p>{% asset_image 001.png %}<p>截止目前，一切都很顺列，但是接下来的一步就开始出问题了；</p><h4 id="5-安装稳定版安装包"><a href="#5-安装稳定版安装包" class="headerlink" title="5. 安装稳定版安装包"></a>5. 安装稳定版安装包</h4><pre><code>sudo apt install --install-recommends winehq-stable</code></pre><p>弹出来的结果是</p><img src="/posts/Wine-Installation/002.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/002.png" alt="002"></p><p>有一些未满足的依赖关系！</p><p>好，我们来看看官网上怎么说？</p><blockquote><p>如果 apt-get 提示缺少依赖，请先安装缺少的依赖，然后重复以上两步（update 和 install）</p></blockquote><h4 id="6-在黑暗中摸索"><a href="#6-在黑暗中摸索" class="headerlink" title="6. 在黑暗中摸索"></a>6. 在黑暗中摸索</h4><p>首先尝试安装 libswresample2，反馈如下</p><img src="/posts/Wine-Installation/003.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/003.png" alt="003"></p><p>这个意思应该是已经安装了这个包；</p><p>好，继续安装 libsoxr0，反馈如下</p><img src="/posts/Wine-Installation/004.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/004.png" alt="004"></p><p>也已经安装了这个包</p><p>继续，尝试安装 wine-stable，反馈如下：</p><img src="/posts/Wine-Installation/005.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/005.png" alt="005"></p><p>我去，翻天了！</p><p>忍着一口气继续尝试安装 wine-stable-amd64</p><img src="/posts/Wine-Installation/006.png"><img src="/posts/Wine-Installation/007.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/006.png" alt="006"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/007.png" alt="007"></p><p>OK，成功安装了！再尝试一下使用 <code>sudo apt install wine-stable</code>命令安装</p><img src="/posts/Wine-Installation/008.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/008.png" alt="008"></p><p>依赖项果然少了，amd64 后缀包成功安装了</p><p>于是我们继续尝试安装 <code>wine-stable-i386</code></p><img src="/posts/Wine-Installation/009.png"><img src="/posts/Wine-Installation/010.png"><img src="/posts/Wine-Installation/011.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/009.png" alt="009"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/010.png" alt="010"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/011.png" alt="011"></p><p>老子现在彻底无语了……</p><p>于是上 google 查，查到了不少与我遇到相似问题的人，可是这些网页里的解决方案我基本都看不懂，一头雾水。</p><h4 id="7-问题解决"><a href="#7-问题解决" class="headerlink" title="7. 问题解决"></a>7. 问题解决</h4><p>活马当死马医，用关键词 “无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系” 在 google 上搜索，结果搜到的帖子给出的解决方法竟然如出一辙：是源的问题。</p><p>其中一个搜索结果：<a href="https://www.cnblogs.com/LeoGodfrey/p/3316834.html" target="_blank" rel="noopener">E:无法修正错误,因为您要求某些软件包保持现状,就是它们破坏了软件包间的依赖关系</a></p><p>然后按照帖子的说法，把 软件与更新 中 “更新” 选项卡的 “从下列地点安装更新” 的两个勾选上；</p><img src="/posts/Wine-Installation/012.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/012.png" alt="012"></p><p>回到终端里面，使用一开始的安装命令进行安装，发现可以安装啦！！！！</p><img src="/posts/Wine-Installation/013.png"><img src="/posts/Wine-Installation/014.png"><img src="/posts/Wine-Installation/015.png"><img src="/posts/Wine-Installation/016.png"><img src="/posts/Wine-Installation/017.png"><img src="/posts/Wine-Installation/018.png"><img src="/posts/Wine-Installation/019.png"><img src="/posts/Wine-Installation/020.png"><img src="/posts/Wine-Installation/021.png"><img src="/posts/Wine-Installation/022.png"><img src="/posts/Wine-Installation/023.png"><img src="/posts/Wine-Installation/024.png"><img src="/posts/Wine-Installation/025.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/013.png" alt="013"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/014.png" alt="014"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/015.png" alt="015"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/016.png" alt="016"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/017.png" alt="017"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/018.png" alt="018"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/019.png" alt="019"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/020.png" alt="020"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/021.png" alt="021"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/022.png" alt="022"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/023.png" alt="023"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/024.png" alt="024"></p><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/025.png" alt="025"></p><p>中途省略了一部分，没有截图……</p><p>然后笔者输入命令 <code>wine -v</code>本意欲查看版本号，结果又自动开始安装 wine-gecko：</p><img src="/posts/Wine-Installation/026.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/026.png" alt="026"></p><p>最后输入命令 <code>wine --version</code>成功取得版本号：</p><img src="/posts/Wine-Installation/027.png"><p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/027.png" alt="027"></p><p>目前看来，wine 终于安装成功了，告一段落，心累……</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Wine </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Oxford English Dictionary Installation</title>
+      <link href="/posts/OED-installation.html"/>
+      <url>/posts/OED-installation.html</url>
+      
+        <content type="html"><![CDATA[<p>安装 Oxford English Dictionary，过程不难，记录如下</p><a id="more"></a><h5 id="安装包来源"><a href="#安装包来源" class="headerlink" title="安装包来源"></a>安装包来源</h5><p>magnet:?xt=urn:btih:98F95B2DA4380A0231109F8CFDB6E5AB0E48C2EA</p><p>挺老的资源，但是健康度还是挺好的，在 Ubuntu 上使用 qBIttorrent 下载一晚上就安装好了；</p><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>下载得到是一个压缩包，里面是需运行在 Windows 系统上目录（主程序是exe），无需安装；</p><h5 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h5><p>打开主程序，提示找不到 MSVCR71.dll</p><h5 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h5><ol><li><p>在网上下载 32bit 的 MSVCR71.dll，放置在 C:/windows/sysWOW64 目录下，无需通过名命令行注册；</p></li><li><p>根据原网页的提示，将目录名字改为 “Oxford English Dictionary”；</p></li></ol><p>问题成功解决，可以正常运行主程序。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 词典 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mathematica 11 安装过程</title>
+      <link href="/posts/Mathematica-installation.html"/>
+      <url>/posts/Mathematica-installation.html</url>
+      
+        <content type="html"><![CDATA[<p>本文记录实验室电脑安装 Mathematica 11 并 “破解” 授权的过程. </p><a id="more"></a><h4 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h4><p>Windows 10</p><p>公用电脑，软件安装及文件存放比较乱，但基本没有什么问题</p><h4 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h4><p>Mathematica 11 （下简称MMA）安装包（内含序列号生成器），是在百度上搜索得到的结果，经某软件下载站链接定向至百度网盘分享页，并已转存至笔者百度网盘中.</p><h4 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h4><ol><li>安装包是分割打包的，对其完整解压</li><li>点击 Setup.exe，一路 next 即可（斜眼）</li><li>进入命令行（我指的是 windows 下的命令提示符），将目录转至序列号生成器的目录下；<br><strong>注：安装包自带的<code>readme.txt</code> 表示，要将生成器复制到 <code>C:\</code> 下；我猜想可能是为了避免目录中带有空格或者中文字体，因此笔者在运行生成器的时候，特别留意了这一点，由于解压目录刚好没有这样的问题，所以，就直接在解压目录下运行</strong></li><li>打开 MMA 主程序，提示输入序列号激活，根据指示，不要选择在线激活，而选择 “手动激活”；<br><strong>注：理论上，有些软件在这一步应该需要断开网络，但笔者没有断开网络，仍然成功</strong></li><li>窗口此时应该会显示 MathID ，将其复制到命令行下，作为生成器的输入参数，回车，出现序列号和密码；将生成的这两列字符串复制回 MMA 的激活窗口，点击<code>next</code>，成功！<br><strong>注：在序列号生成器中输入 MathID 时，一定要把中间的<code>-</code> hyphen 分隔符也包含在内，否则生成出来的序列号和密码是无法成功激活的！笔者第一次就不小心踩到了坑，心塞……</strong></li></ol><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>一台性能很强的计算机上少了专业计算软件总觉得少了些什么，装完之后顿感轻松愉快～～</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 破解版 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Ubuntu输入法Bug及解决过程</title>
+      <link href="/posts/Fixing-the-input-method-on-Ubuntu.html"/>
+      <url>/posts/Fixing-the-input-method-on-Ubuntu.html</url>
+      
+        <content type="html"><![CDATA[<p>最近笔者的笔记本电脑上的Ubuntu系统的输入法出现问题，最终（可能不是永久性的）解决 Bug，将过程记录如下。</p><a id="more"></a><h4 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h4><p>系统：Ubuntu 18.04 LTS</p><p>输入法：系统自带的 iBus 输入法</p><h4 id="Bug-描述"><a href="#Bug-描述" class="headerlink" title="Bug 描述"></a>Bug 描述</h4><p>Bug 是突然出现的，描述如下：</p><ol><li>一开始可以切换中英文，到后来中英文无法用键盘快捷键切换，再后来甚至无法用鼠标切换，顶栏一直显示 “中” ；</li><li>Bug 最主要的问题和特征就是，中文输入不再可用，英文输入正常；</li><li>开始的时候，重启可以解决问题，但是重启后一段时间（中途对系统进行了太多操作，难以记录）后 Bug 继续出现，后来严重之时，重启也无法缓解；但是有时侯，该问题会消失几分钟；</li><li>系统偶尔会报错：提示出现内部错误：gkbd-keyboard-display:11:get_preferred_height_for_width() 与出现的 bug 也相关；</li><li>后来在网上搜索之后发现，这个 bug 有一定的触发条件，就是：在输入法偶尔可用的时候，使用中文输入，用数字键选择候选字词就会触发——于是在自己电脑上，趁输入法有一次偶尔可用的时候，试了一下果然如此；</li></ol><h4 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h4><ol><li>使用报错信息在百度和google镜像上搜索，有相关的英文网页，然而看不懂；</li><li>转换关键词搜索，在网上找到网页<a href="http://forum.ubuntu.org.cn/viewtopic.php?t=487280" target="_blank" rel="noopener">http://forum.ubuntu.org.cn/viewtopic.php?t=487280</a>，发现其问题描述和笔者遇到的问题如出一辙，按照其指示最终解决问题；</li></ol><h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>将目录 <code>～/.cache/ibus/libpinyin</code> 删除后重启电脑，问题得到解决. </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 系统维护 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+            <tag> Ubuntu </tag>
+            
+            <tag> 输入法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VSCode Installation and Configuration</title>
+      <link href="/posts/VSCode-Installation-and-Configuration.html"/>
+      <url>/posts/VSCode-Installation-and-Configuration.html</url>
+      
+        <content type="html"><![CDATA[<p>Ubuntu 环境下安装配置 VSCode</p><a id="more"></a><p>为了在 Linux 环境下进行 C/C++ 程序的编写，笔者决定配置相关的程序开发环境，最终决定选用 VSCode + GCC 的搭配。</p><p>由于笔者水平极为有限，因此本文之只作为安装和配置过程中的记录，以供后续查看和捋清思路之用。</p><h4 id="1-安装必要的编译器套装"><a href="#1-安装必要的编译器套装" class="headerlink" title="1. 安装必要的编译器套装"></a>1. 安装必要的编译器套装</h4><p>​    据笔者所知（虽然不知道是什么时候听闻的）LInux 系统与 C/C++ 语言本身关系密切，且笔者某位朋友也曾提及过 Linux 环境下 C/C++ 环境的配置很顺畅，甚至于 GCC 本身是 Linux 某些发行版自带的。</p><p>​    但由于笔者在安装 Ubuntu 时选择了最小安装选项，所以一开始在 terminal 下输入 gcc 显示找不到命令，笔者推测此时系统并未安装 gcc 编译套装。</p><p>​    查找网络后，决定采用较为简单的方法：安装 build-essential 包，据说此包已包含许多 C/C++ 语言开发的必要编译包。</p><pre><code>sudo apt-get install build-essential</code></pre><pre><code> 安装完成后，多出了许多包，看起来很恐怖，也不知道具体是什么包，忽略之。</code></pre><p>​    <strong>值得注意的是</strong>：</p><p>​    在安装 build-essential 包的时候，提示将安装的包中并没有 glibc 这个包，而这个包据说是非常重要和基础的一个C 库，运行命令：</p><pre><code>dpkg -l</code></pre><p>不能看到 glibc 这个包的存在。但使用网上的查看 glibc 的方法是可以看到其版本的……</p><p>​    <strong>目前无法解决此疑问，也没有搞清诸如 libc，libc++，glibc 这些概念的关系</strong></p><h4 id="2-安装VSCode"><a href="#2-安装VSCode" class="headerlink" title="2. 安装VSCode"></a>2. 安装VSCode</h4><p>​    这一步骤非常简单，直接在 VSCode 的首页上下载 .deb 包安装即可。</p><h4 id="3-安装必要插件"><a href="#3-安装必要插件" class="headerlink" title="3. 安装必要插件"></a>3. 安装必要插件</h4><p>​    截至 2019.01.13，安装了四个插件：</p><ul><li>C/C++ </li><li>YAML 安装这个包是因为我的博客的许多配置文件据说是用 YAML 格式写的，与 C/C++ 本身好像没有什么关系</li><li>Chinese (SImplified) Language Pack 这个是简体中文语言包</li><li>Code Runner 这个包据说能提供一键运行的功能（我注意到 VSCode 没有传统的 IDE 中的 “构建“ 菜单）</li></ul><p>！！但目前配置应该还没有结束，因为许多网上的教程进行到这一步还没有结束。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软件安装 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> VSCode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Introduction</title>
       <link href="/posts/Introduction.html"/>
       <url>/posts/Introduction.html</url>

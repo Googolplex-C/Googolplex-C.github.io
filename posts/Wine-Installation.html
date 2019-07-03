@@ -1,0 +1,1027 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Wine安装与折腾, Maths,Computer-Science,Technology">
+    <meta name="description" content="记录下安装折腾 wine 的全过程，安装过程中遇到了问题，作为备忘；
+参考网址为：Ubuntu 系统上 Wine 安装
+
+
+接下来的步骤是按照上面官网链接的指示来做的：
+1. 开启 32bit 架构支持sudo dpkg --add-arc">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Wine安装与折腾 | Q.E.D.</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet" href="/css/prism-base16-ateliersulphurpool.light.css" type="text/css"></head>
+
+
+<body>
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Q.E.D.</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Q.E.D.</div>
+        <div class="logo-desc">
+            
+            没什么好看的，关了吧
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/Googolplex-C/" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/Googolplex-C/" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Wine安装与折腾
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Wine/" target="_blank">
+                                <span class="chip bg-color">Wine</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/软件安装/" class="post-category" target="_blank">
+                                软件安装
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-03-04
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        702
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        2 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>记录下安装折腾 wine 的全过程，安装过程中遇到了问题，作为备忘；</p>
+<p>参考网址为：<a href="https://wiki.winehq.org/Ubuntu_zhcn" target="_blank" rel="noopener">Ubuntu 系统上 Wine 安装</a></p>
+<a id="more"></a>
+
+<p>接下来的步骤是按照上面官网链接的指示来做的：</p>
+<h4 id="1-开启-32bit-架构支持"><a href="#1-开启-32bit-架构支持" class="headerlink" title="1. 开启 32bit 架构支持"></a>1. 开启 32bit 架构支持</h4><pre><code>sudo dpkg --add-architecture i386 </code></pre><h4 id="2-下载添加仓库密钥"><a href="#2-下载添加仓库密钥" class="headerlink" title="2. 下载添加仓库密钥"></a>2. 下载添加仓库密钥</h4><pre><code>wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo apt-key add winehq.key</code></pre><h4 id="3-添加仓库"><a href="#3-添加仓库" class="headerlink" title="3. 添加仓库"></a>3. 添加仓库</h4><pre><code>sudo apt-add-repository &#39;deb https://dl.winehq.org/wine-builds/ubuntu/bionic main&#39;</code></pre><h4 id="4-更新安装包"><a href="#4-更新安装包" class="headerlink" title="4. 更新安装包"></a>4. 更新安装包</h4><pre><code>sudo apt update</code></pre><p>这前四步都非常顺利，没有遇到任何问题，如下图所示：</p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/001.png" alt="001"></p>
+{% asset_image 001.png %}
+
+
+
+
+
+<p>截止目前，一切都很顺列，但是接下来的一步就开始出问题了；</p>
+<h4 id="5-安装稳定版安装包"><a href="#5-安装稳定版安装包" class="headerlink" title="5. 安装稳定版安装包"></a>5. 安装稳定版安装包</h4><pre><code>sudo apt install --install-recommends winehq-stable</code></pre><p>弹出来的结果是</p>
+<img src="/posts/Wine-Installation/002.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/002.png" alt="002"></p>
+<p>有一些未满足的依赖关系！</p>
+<p>好，我们来看看官网上怎么说？</p>
+<blockquote>
+<p>如果 apt-get 提示缺少依赖，请先安装缺少的依赖，然后重复以上两步（update 和 install）</p>
+</blockquote>
+<h4 id="6-在黑暗中摸索"><a href="#6-在黑暗中摸索" class="headerlink" title="6. 在黑暗中摸索"></a>6. 在黑暗中摸索</h4><p>首先尝试安装 libswresample2，反馈如下</p>
+<img src="/posts/Wine-Installation/003.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/003.png" alt="003"></p>
+<p>这个意思应该是已经安装了这个包；</p>
+<p>好，继续安装 libsoxr0，反馈如下</p>
+<img src="/posts/Wine-Installation/004.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/004.png" alt="004"></p>
+<p>也已经安装了这个包</p>
+<p>继续，尝试安装 wine-stable，反馈如下：</p>
+<img src="/posts/Wine-Installation/005.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/005.png" alt="005"></p>
+<p>我去，翻天了！</p>
+<p>忍着一口气继续尝试安装 wine-stable-amd64</p>
+<img src="/posts/Wine-Installation/006.png">
+
+<img src="/posts/Wine-Installation/007.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/006.png" alt="006"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/007.png" alt="007"></p>
+<p>OK，成功安装了！再尝试一下使用 <code>sudo apt install wine-stable</code>命令安装</p>
+<img src="/posts/Wine-Installation/008.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/008.png" alt="008"></p>
+<p>依赖项果然少了，amd64 后缀包成功安装了</p>
+<p>于是我们继续尝试安装 <code>wine-stable-i386</code></p>
+<img src="/posts/Wine-Installation/009.png">
+
+<img src="/posts/Wine-Installation/010.png">
+
+<img src="/posts/Wine-Installation/011.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/009.png" alt="009"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/010.png" alt="010"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/011.png" alt="011"></p>
+<p>老子现在彻底无语了……</p>
+<p>于是上 google 查，查到了不少与我遇到相似问题的人，可是这些网页里的解决方案我基本都看不懂，一头雾水。</p>
+<h4 id="7-问题解决"><a href="#7-问题解决" class="headerlink" title="7. 问题解决"></a>7. 问题解决</h4><p>活马当死马医，用关键词 “无法修正错误，因为您要求某些软件包保持现状，就是它们破坏了软件包间的依赖关系” 在 google 上搜索，结果搜到的帖子给出的解决方法竟然如出一辙：是源的问题。</p>
+<p>其中一个搜索结果：<a href="https://www.cnblogs.com/LeoGodfrey/p/3316834.html" target="_blank" rel="noopener">E:无法修正错误,因为您要求某些软件包保持现状,就是它们破坏了软件包间的依赖关系</a></p>
+<p>然后按照帖子的说法，把 软件与更新 中 “更新” 选项卡的 “从下列地点安装更新” 的两个勾选上；</p>
+<img src="/posts/Wine-Installation/012.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/012.png" alt="012"></p>
+<p>回到终端里面，使用一开始的安装命令进行安装，发现可以安装啦！！！！</p>
+<img src="/posts/Wine-Installation/013.png">
+
+<img src="/posts/Wine-Installation/014.png">
+
+<img src="/posts/Wine-Installation/015.png">
+
+<img src="/posts/Wine-Installation/016.png">
+
+<img src="/posts/Wine-Installation/017.png">
+
+<img src="/posts/Wine-Installation/018.png">
+
+<img src="/posts/Wine-Installation/019.png">
+
+<img src="/posts/Wine-Installation/020.png">
+
+<img src="/posts/Wine-Installation/021.png">
+
+<img src="/posts/Wine-Installation/022.png">
+
+<img src="/posts/Wine-Installation/023.png">
+
+<img src="/posts/Wine-Installation/024.png">
+
+<img src="/posts/Wine-Installation/025.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/013.png" alt="013"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/014.png" alt="014"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/015.png" alt="015"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/016.png" alt="016"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/017.png" alt="017"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/018.png" alt="018"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/019.png" alt="019"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/020.png" alt="020"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/021.png" alt="021"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/022.png" alt="022"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/023.png" alt="023"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/024.png" alt="024"></p>
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/025.png" alt="025"></p>
+<p>中途省略了一部分，没有截图……</p>
+<p>然后笔者输入命令 <code>wine -v</code>本意欲查看版本号，结果又自动开始安装 wine-gecko：</p>
+<img src="/posts/Wine-Installation/026.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/026.png" alt="026"></p>
+<p>最后输入命令 <code>wine --version</code>成功取得版本号：</p>
+<img src="/posts/Wine-Installation/027.png">
+
+<p><img src="/home/jackson/Blog/source/_posts/Wine%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8A%98%E8%85%BE/027.png" alt="027"></p>
+<p>目前看来，wine 终于安装成功了，告一段落，心累……</p>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        <p class="reprint-tip">
+            <i class="fa fa-exclamation-triangle"></i>&nbsp;&nbsp;
+            <span>转载规则</span>
+        </p>
+        
+            <span>
+                本文不允许转载。
+            </span>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/Fixing the error of Pandoc.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Pandoc报错的解决">
+                        
+                        <span class="card-title">Pandoc报错的解决</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            解决需要用pandoc渲染Hexo时无端报错的问题
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/系统维护/" class="post-category" target="_blank">
+                                    系统维护
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Pandoc/" target="_blank">
+                        <span class="chip bg-color">Pandoc</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/OED-installation.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="Oxford English Dictionary Installation">
+                        
+                        <span class="card-title">Oxford English Dictionary Installation</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            安装牛津英语词典——最强词典，独一无二
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/软件安装/" class="post-category" target="_blank">
+                                    软件安装
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/词典/" target="_blank">
+                        <span class="chip bg-color">词典</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h1, h2, h3, h4, h5'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4, h5').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            本站由&copy;<a href="https://googolplex-c.github.io/" target="_blank">Googolplex-C</a>基于
+            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
+            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
+
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">21.2k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
