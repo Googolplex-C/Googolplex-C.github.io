@@ -169,6 +169,8 @@ ___
 
 ![演示2](./geogebra-export.svg "这是标题")
 
+![pp](./pp.svg)
+
 svg 动画：
 
 ![演示3](./animate.svg "这是标题")

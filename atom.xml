@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
-  <updated>2019-07-02T10:18:54.105Z</updated>
+  <updated>2019-07-03T03:50:30.320Z</updated>
   <id>https://googolplex-c.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>英语中&#39;更别说&#39;的表达方式</title>
-    <link href="https://googolplex-c.github.io/posts/discussion-on-the-pharse-&#39;let-alone&#39;.html"/>
-    <id>https://googolplex-c.github.io/posts/discussion-on-the-pharse-&#39;let-alone&#39;.html</id>
-    <published>2019-07-02T10:12:50.000Z</published>
-    <updated>2019-07-02T10:18:54.105Z</updated>
+    <title>Advanced Algebra: Notes and Problem Set</title>
+    <link href="https://googolplex-c.github.io/posts/Advanced-Algebra.html"/>
+    <id>https://googolplex-c.github.io/posts/Advanced-Algebra.html</id>
+    <published>2019-07-03T00:41:44.000Z</published>
+    <updated>2019-07-03T03:50:30.320Z</updated>
     
     <summary type="html">
     
@@ -29,18 +29,145 @@
       
         
         
-          &lt;h4 id=&quot;“更不用说”-的若干种表达方式&quot;&gt;&lt;a href=&quot;#“更不用说”-的若干种表达方式&quot; class=&quot;headerlink&quot; title=&quot;“更不用说” 的若干种表达方式&quot;&gt;&lt;/a&gt;“更不用说”
+          &lt;p
         
       
     
     </summary>
     
-      <category term="外语" scheme="https://googolplex-c.github.io/categories/%E5%A4%96%E8%AF%AD/"/>
+      <category term="高等代数" scheme="https://googolplex-c.github.io/categories/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/"/>
     
     
-      <category term="词汇语料" scheme="https://googolplex-c.github.io/tags/%E8%AF%8D%E6%B1%87%E8%AF%AD%E6%96%99/"/>
+      <category term="笔记" scheme="https://googolplex-c.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="同义辨析" scheme="https://googolplex-c.github.io/tags/%E5%90%8C%E4%B9%89%E8%BE%A8%E6%9E%90/"/>
+      <category term="习题集" scheme="https://googolplex-c.github.io/tags/%E4%B9%A0%E9%A2%98%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Abstract Algebra: Notes and Problem Set</title>
+    <link href="https://googolplex-c.github.io/posts/Abstract-Algebra.html"/>
+    <id>https://googolplex-c.github.io/posts/Abstract-Algebra.html</id>
+    <published>2019-07-03T00:41:33.000Z</published>
+    <updated>2019-07-03T03:57:18.038Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p align=&quot;center&quot;&gt;本文内容的真正记录位置在笔者生成上传的自定义页面中，此页面仅用于展示该学科的整体框架，同时提供具体内容入口链接；本页面以及自定义页内容将长期更新&lt;/p&gt;
+
+&lt;p&gt;本文的链接按照时间顺序排序。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="抽象代数" scheme="https://googolplex-c.github.io/categories/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0/"/>
+    
+    
+      <category term="笔记" scheme="https://googolplex-c.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="习题集" scheme="https://googolplex-c.github.io/tags/%E4%B9%A0%E9%A2%98%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Combinatorics: Notes and Problem Set</title>
+    <link href="https://googolplex-c.github.io/posts/Combinatorics:-Notes-and-Problem-Set.html"/>
+    <id>https://googolplex-c.github.io/posts/Combinatorics:-Notes-and-Problem-Set.html</id>
+    <published>2019-07-03T00:41:19.000Z</published>
+    <updated>2019-07-03T03:51:12.080Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p align=&quot;center&quot;&gt;本文内容的真正记录位置在笔者生成上传的自定义页面中，此页面仅用于展示该学科的整体框架，同时提供具体内容入口链接；本页面以及自定义页内容将长期更新&lt;/p&gt;
+
+&lt;p&gt;本文的链接按照内容架构排序&lt;/p&gt;
+&lt;h4
+        
+      
+    
+    </summary>
+    
+      <category term="组合数学" scheme="https://googolplex-c.github.io/categories/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="笔记" scheme="https://googolplex-c.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="习题集" scheme="https://googolplex-c.github.io/tags/%E4%B9%A0%E9%A2%98%E9%9B%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning English: Word and Pharse</title>
+    <link href="https://googolplex-c.github.io/posts/word-and-phrase.html"/>
+    <id>https://googolplex-c.github.io/posts/word-and-phrase.html</id>
+    <published>2019-07-03T00:23:19.000Z</published>
+    <updated>2019-07-03T03:56:49.993Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p align=&quot;center&quot;&gt;本文内容的真正记录位置在笔者生成上传的自定义页面中，此页面仅用于展示该学科的整体框架，同时提供具体内容入口链接；本页面以及自定义页内容将长期更新&lt;/p&gt;
+
+&lt;p&gt;本文的链接按照时间排序&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="英语" scheme="https://googolplex-c.github.io/categories/%E8%8B%B1%E8%AF%AD/"/>
+    
+    
+      <category term="词汇" scheme="https://googolplex-c.github.io/tags/%E8%AF%8D%E6%B1%87/"/>
+    
+      <category term="短语" scheme="https://googolplex-c.github.io/tags/%E7%9F%AD%E8%AF%AD/"/>
+    
+      <category term="语料" scheme="https://googolplex-c.github.io/tags/%E8%AF%AD%E6%96%99/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Learning English: Grammar</title>
+    <link href="https://googolplex-c.github.io/posts/Grammar.html"/>
+    <id>https://googolplex-c.github.io/posts/Grammar.html</id>
+    <published>2019-07-03T00:17:44.000Z</published>
+    <updated>2019-07-03T03:57:26.970Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p
+        
+      
+    
+    </summary>
+    
+      <category term="英语" scheme="https://googolplex-c.github.io/categories/%E8%8B%B1%E8%AF%AD/"/>
+    
+    
+      <category term="语法" scheme="https://googolplex-c.github.io/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+      <category term="句法" scheme="https://googolplex-c.github.io/tags/%E5%8F%A5%E6%B3%95/"/>
+    
+      <category term="词法" scheme="https://googolplex-c.github.io/tags/%E8%AF%8D%E6%B3%95/"/>
     
   </entry>
   

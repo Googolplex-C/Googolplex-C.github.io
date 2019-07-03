@@ -1,0 +1,874 @@
+<!DOCTYPE html><html><head>
+      <title>Mirsky&apos;s-and-Dilworth&apos;s-theorem</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <p>&#x5728;&#x4E4B;&#x524D;&#x7684;&#x4E00;&#x7BC7;&#x535A;&#x6587; <a href="../Sperner-Theorem/Sperner-Theorem.html">Sperner Theorem</a> &#x4E2D;&#xFF0C;&#x7B14;&#x8005;&#x5199;&#x8FC7;&#x5E42;&#x96C6;&#x4E0A;&#x7684; Sperner &#x5B9A;&#x7406;&#xFF0C;&#x7136;&#x800C;&#x7EC4;&#x5408;&#x6570;&#x5B66;&#x4E2D;&#x5BF9;&#x4E8E;&#x504F;&#x5E8F;&#x96C6;&#x6027;&#x8D28;&#x7684;&#x7814;&#x7A76;&#x8FDC;&#x4E0D;&#x6B62;&#x5982;&#x6B64;&#xFF1B;&#x6240;&#x4EE5;&#xFF0C;&#x672C;&#x6587;&#x7684;&#x8BA8;&#x8BBA;&#x5BF9;&#x8C61;&#x5C06;&#x4E0D;&#x518D;&#x5C40;&#x9650;&#x4E8E; <span class="mathjax-exps">$\subseteq$</span> &#x5173;&#x7CFB;&#x4E0B;&#x7684;&#x5E42;&#x96C6;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x822C;&#x7684;&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x8FDB;&#x800C;&#x8BA8;&#x8BBA;&#x94FE;&#x4E0E;&#x53CD;&#x94FE;&#x7684;&#x4E24;&#x4E2A;&#x5FAE;&#x5999;&#x7684;&#x5BF9;&#x5076;&#x5B9A;&#x7406;.</p>
+<h4 class="mume-header" id="%E9%93%BE%E4%B8%8E%E5%8F%8D%E9%93%BE">&#x94FE;&#x4E0E;&#x53CD;&#x94FE;</h4>
+
+<p>&#x8BBE; <span class="mathjax-exps">$(X,\leq)$</span> &#x662F;<strong>&#x6709;&#x9650;</strong>&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x94FE;&#x4E0E;&#x53CD;&#x94FE;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>&#x94FE;&#xFF1A;<span class="mathjax-exps">$X$</span> &#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6; <span class="mathjax-exps">$C$</span> &#xFF0C;&#x4E14;&#x5176;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x95F4;&#x90FD;&#x5B58;&#x5728;&#x5E8F;&#x5173;&#x7CFB;&#xFF08;&#x53EF;&#x6BD4;&#x8F83;&#xFF09;&#xFF1B;</li>
+<li>&#x53CD;&#x94FE;&#xFF1A;<span class="mathjax-exps">$X$</span> &#x7684;&#x4E00;&#x4E2A;&#x5B50;&#x96C6; <span class="mathjax-exps">$A$</span>&#xFF0C;&#x4E14;&#x5176;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x4E0D;&#x5B58;&#x5728;&#x5E8F;&#x5173;&#x7CFB;&#xFF08;&#x4E0D;&#x53EF;&#x6BD4;&#x8F83;&#xFF09;&#xFF1B;</li>
+</ol>
+<p>&#x663E;&#x7136;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#xFF1A;</p>
+<blockquote>
+<ol>
+<li>&#x94FE; <span class="mathjax-exps">$C$</span> &#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x4E00;&#x4E2A;&#x5168;&#x5E8F;&#x5B50;&#x96C6;&#xFF0C;&#x5373; <span class="mathjax-exps">$C$</span> &#x7684;&#x5168;&#x90E8;&#x5143;&#x7D20;&#x53EF;&#x4EE5;&#x88AB;&#x5168;&#x5E8F;&#x5316;&#xFF08;&#x4EE5;&#x5E8F;&#x5173;&#x7CFB; <span class="mathjax-exps">$\leq$</span> &#x7EBF;&#x6027;&#x6392;&#x5217;&#xFF09;&#xFF1B;</li>
+<li>&#x94FE;&#x7684;&#x5B50;&#x96C6;&#x4ECD;&#x662F;&#x94FE;&#xFF1B;</li>
+<li>&#x53CD;&#x94FE;&#x7684;&#x5B50;&#x96C6;&#x4ECD;&#x662F;&#x53CD;&#x94FE;&#xFF1B;</li>
+<li>&#x82E5; <span class="mathjax-exps">$A$</span> &#x548C; <span class="mathjax-exps">$C$</span> &#x5206;&#x522B;&#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x53CD;&#x94FE;&#x548C;&#x94FE;&#xFF0C;&#x5219; <span class="mathjax-exps">$\lvert A \cap C \rvert \leq 1$</span>&#xFF1B;</li>
+</ol>
+</blockquote>
+<h4 class="mume-header" id="%E6%9E%81%E5%B0%8F%E5%85%83%E4%B8%8E%E6%9E%81%E5%A4%A7%E5%85%83">&#x6781;&#x5C0F;&#x5143;&#x4E0E;&#x6781;&#x5927;&#x5143;</h4>
+
+<p>&#x8BBE; <span class="mathjax-exps">$(X,\leq)$</span> &#x662F;<strong>&#x6709;&#x9650;</strong>&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x79F0;&#x67D0;&#x4E2A;&#x5143;&#x7D20; <span class="mathjax-exps">$a \in X$</span> &#x4E3A;&#x6781;&#x5C0F;&#x5143;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#xFF1A;&#x4E0D;&#x5B58;&#x5728; <span class="mathjax-exps">$x \in X$</span>&#xFF0C;&#x4F7F;&#x5F97; <span class="mathjax-exps">$x &lt; a$</span> &#xFF1B;&#x540C;&#x7406;&#xFF0C;&#x79F0;&#x67D0;&#x4E2A;&#x5143;&#x7D20; <span class="mathjax-exps">$b \in X$</span> &#x4E3A;&#x6781;&#x5927;&#x5143;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#xFF1A;&#x4E0D;&#x5B58;&#x5728; <span class="mathjax-exps">$x \in X$</span>&#xFF0C;&#x4F7F;&#x5F97; <span class="mathjax-exps">$b &lt; x$</span> &#xFF1B;</p>
+<p>&#x6211;&#x4EEC;&#x5F88;&#x5BB9;&#x6613;&#x5F97;&#x77E5;&#xFF1A;</p>
+<blockquote>
+<p>&#x504F;&#x5E8F;&#x96C6;&#x7684;&#x6240;&#x6709;&#x6781;&#x5927;&#x5143;&#xFF08;&#x6781;&#x5C0F;&#x5143;&#xFF09;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x53CD;&#x94FE;&#xFF1B;</p>
+</blockquote>
+<h4 class="mume-header" id="%E6%9C%80%E5%A4%A7%E9%93%BE%E6%9C%80%E5%A4%A7%E5%8F%8D%E9%93%BE%E5%81%8F%E5%BA%8F%E9%9B%86%E7%9A%84%E5%AE%BD%E5%92%8C%E9%AB%98">&#x6700;&#x5927;&#x94FE;&#xFF0C;&#x6700;&#x5927;&#x53CD;&#x94FE;&#xFF0C;&#x504F;&#x5E8F;&#x96C6;&#x7684;&#x5BBD;&#x548C;&#x9AD8;</h4>
+
+<p>&#x94FE; <span class="mathjax-exps">$C$</span> &#x5305;&#x542B;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4E0D;&#x5C11;&#x4E8E;&#x4EFB;&#x610F;&#x5176;&#x4ED6;&#x94FE; <span class="mathjax-exps">$C&apos;$</span> &#xFF0C;&#x5219; <span class="mathjax-exps">$C$</span> &#x662F;<strong>&#x6700;&#x5927;&#x94FE;</strong>&#xFF1B;</p>
+<p>&#x53CD;&#x94FE; <span class="mathjax-exps">$A$</span> &#x5305;&#x542B;&#x5143;&#x7D20;&#x4E2A;&#x6570;&#x4E0D;&#x5C11;&#x4E8E;&#x4EFB;&#x610F;&#x5176;&#x4ED6;&#x94FE; <span class="mathjax-exps">$A&apos;$</span> &#xFF0C;&#x5219; <span class="mathjax-exps">$A$</span> &#x662F;<strong>&#x6700;&#x5927;&#x53CD;&#x94FE;</strong>&#xFF1B;</p>
+<p>&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$X$</span> &#x7684;&#x6700;&#x5927;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x79F0;&#x4E3A;&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$X$</span> &#x7684;<strong>&#x9AD8;</strong>&#xFF1B;</p>
+<p>&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$X$</span> &#x7684;&#x6700;&#x5927;&#x53CD;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x79F0;&#x4E3A;&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$X$</span> &#x7684;<strong>&#x5BBD;</strong>&#xFF1B;</p>
+<h4 class="mume-header" id="dual-of-dilworths-theorem-mirskys-theorem">Dual of Dilworth&apos;s theorem (Mirsky&apos;s theorem)</h4>
+
+<h5 class="mume-header" id="statement">Statement:</h5>
+
+<p>&#x8BBE; <span class="mathjax-exps">$(X,\leq)$</span> &#x662F;<strong>&#x6709;&#x9650;</strong>&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x5C06; <span class="mathjax-exps">$X$</span> &#x5206;&#x5212;&#x6210;&#x53CD;&#x94FE;&#x96C6;&#x65CF;&#xFF0C;&#x5219;&#x5206;&#x5212;&#x5F97;&#x5230;&#x7684;&#x53CD;&#x94FE;&#x7684;<strong>&#x6700;&#x5C0F;</strong>&#x6570;&#x76EE;&#x7B49;&#x4E8E; <span class="mathjax-exps">$X$</span> &#x7684;&#x9AD8;.</p>
+<h5 class="mume-header" id="proof"><em>Proof</em></h5>
+
+<p>&#x8BBE; <span class="mathjax-exps">$X$</span> &#x7684;&#x9AD8;&#x4E3A; <span class="mathjax-exps">$h$</span>&#xFF0C;&#x5373; <span class="mathjax-exps">$X$</span> &#x7684;&#x6700;&#x5927;&#x94FE; <span class="mathjax-exps">$C$</span> &#x5305;&#x542B;&#x7684;&#x5143;&#x7D20;&#x6570;&#x76EE;&#x4E3A; <span class="mathjax-exps">$h$</span> . &#x8BBE;&#x5206;&#x5212;&#x7684;&#x53CD;&#x94FE;&#x6700;&#x5C0F;&#x6570;&#x76EE;&#x4E3A; <span class="mathjax-exps">$r$</span> .</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5BB9;&#x6613;&#x8BC1;&#x660E; <span class="mathjax-exps">$r \geq h$</span>&#xFF1A;&#x53EF;&#x5148;&#x5047;&#x8BBE;&#x547D;&#x9898;&#x4E0D;&#x6210;&#x7ACB;&#xFF0C;&#x5219;&#x7531;&#x62BD;&#x5C49;&#x539F;&#x7406;&#x5DF2;&#x77E5;&#x5FC5;&#x5B9A;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x5C5E;&#x4E8E; <span class="mathjax-exps">$C$</span> &#x7684;&#x5143;&#x7D20;&#x5C06;&#x5206;&#x914D;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x53CD;&#x94FE;&#x4E2D;&#xFF0C;&#x4E0E;&#x5B9A;&#x4E49;&#x77DB;&#x76FE;&#xFF1B;</p>
+<p>&#x518D;&#x6784;&#x9020;&#x6027;&#x5730;&#x8BC1;&#x660E; <span class="mathjax-exps">$r \leq h$</span> &#x5982;&#x4E0B;.</p>
+<ol>
+<li>&#x4EE4; <span class="mathjax-exps">$X_1=X$</span>&#xFF0C;<span class="mathjax-exps">$i=1$</span>&#xFF1B;</li>
+<li>&#x4EE4; <span class="mathjax-exps">$A_i=\{x \in X_i | \ x \,\text{&#x662F;}\, A_i \text{&#x7684;&#x6781;&#x5C0F;&#x5143;}\}$</span>&#xFF1B;</li>
+<li>&#x4EE4; <span class="mathjax-exps">$X_{i+1}=X_i - A_i$</span>&#xFF1B;</li>
+<li>&#x82E5; <span class="mathjax-exps">$X_{i+1}=\varnothing$</span> &#xFF0C;&#x7EC8;&#x6B62;&#xFF1B;<br>
+&#x5426;&#x5219;&#xFF0C;&#x4EE4; <span class="mathjax-exps">$i++$</span>&#xFF0C;&#x56DE;&#x5230;&#x6B65;&#x9AA4;2&#xFF1B;</li>
+</ol>
+<p>&#x7ECF;&#x8FC7;&#x6709;&#x9650;&#x6B65;&#x4E4B;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x8FD9;&#x6837;&#x628A; <span class="mathjax-exps">$X$</span> &#x5206;&#x5212;&#x6210;&#x4E00;&#x5217;&#x96C6;&#x5408;&#xFF1A;
+</p><div class="mathjax-exps">$$A_1,\ A_2,\ \cdots,\ A_n$$</div>
+&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x5728;&#x6BCF;&#x4E00;&#x6B65; <span class="mathjax-exps">$A_i$</span> &#x7684;&#x6784;&#x9020;&#x4E2D;&#xFF0C;<span class="mathjax-exps">$A_i$</span> &#x90FD;&#x662F; <span class="mathjax-exps">$X_i$</span> &#x7684;&#x5168;&#x4F53;&#x6781;&#x5C0F;&#x5143;&#x7EC4;&#x6210;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0A;&#x9762;&#x7684;&#x96C6;&#x5408; <span class="mathjax-exps">$\{A\}$</span> &#x6BCF;&#x4E00;&#x4E2A;&#x90FD;&#x662F;&#x53CD;&#x94FE;&#x2014;&#x2014;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8FD9;&#x6837;&#x7684;&#x5206;&#x5212;&#xFF0C;&#x5DF2;&#x7ECF;&#x5C06;&#x539F;&#x504F;&#x5E8F;&#x96C6;&#x5206;&#x5212;&#x4E3A; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x53CD;&#x94FE;&#xFF0C;&#x4ECE;&#x800C; <span class="mathjax-exps">$n \geq r$</span>.<p></p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#xFF1A;
+</p><div class="mathjax-exps">$$\forall\  1\leq j \leq n-1,\ (x \in A_{j+1} \rightarrow \exists y \in A_j,\ (y \leq x))$$</div>
+&#x5982;&#x82E5;&#x4E0D;&#x7136;&#xFF0C;&#x5219; <span class="mathjax-exps">$x$</span> &#x5728; <span class="mathjax-exps">$X_j$</span> &#x4E2D;&#x5DF2;&#x7ECF;&#x662F;&#x6781;&#x5C0F;&#x5143;&#xFF0C;&#x6839;&#x672C;&#x4E0D;&#x4F1A;&#x88AB;&#x5206;&#x5212;&#x5230; <span class="mathjax-exps">$A_{j+1}$</span> &#x4E2D;&#x53BB;&#xFF1B;<p></p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x6839;&#x636E;&#x4E0A;&#x5F0F;&#x4EE5;&#x53CA; <span class="mathjax-exps">$A_n$</span> &#x975E;&#x7A7A;&#x7684;&#x4E8B;&#x5B9E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x4E00;&#x6761;&#x94FE;&#xFF1A;
+</p><div class="mathjax-exps">$$a_1 \leq a_2 \leq \cdots\leq a_n$$</div>
+&#x5176;&#x4E2D;&#xFF0C;<span class="mathjax-exps">$a_i$</span> &#x5BF9;&#x5E94;&#x5730;&#x5C5E;&#x4E8E; <span class="mathjax-exps">$A_i$</span>&#xFF0C;&#x800C; <span class="mathjax-exps">$X$</span> &#x7684;&#x9AD8;&#x4E3A; <span class="mathjax-exps">$h$</span>&#xFF0C;&#x4ECE;&#x800C; <span class="mathjax-exps">$h \geq n$</span>.<p></p>
+<p>&#x7531; <span class="mathjax-exps">$h \geq n$</span> &#x4E14; <span class="mathjax-exps">$n\geq r$</span> &#x53EF;&#x5F97;&#x51FA; <span class="mathjax-exps">$h \geq r$</span>.</p>
+<p>&#x7EFC;&#x5408;&#x53EF;&#x77E5;&#xFF0C;<span class="mathjax-exps">$r=h$</span>.</p>
+<p align="right">Q.E.D.</p>
+<h4 class="mume-header" id="dilworths-theorem">Dilworth&apos;s theorem</h4>
+
+<h5 class="mume-header" id="statement-1">Statement</h5>
+
+<p>&#x8BBE; <span class="mathjax-exps">$(X,\leq)$</span> &#x662F;<strong>&#x6709;&#x9650;</strong>&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x5C06; <span class="mathjax-exps">$X$</span> &#x5206;&#x5212;&#x6210;&#x94FE;&#x96C6;&#x65CF;&#xFF0C;&#x5219;&#x5206;&#x5212;&#x5F97;&#x5230;&#x7684;&#x94FE;&#x7684;<strong>&#x6700;&#x5C0F;</strong>&#x6570;&#x76EE;&#x7B49;&#x4E8E; <span class="mathjax-exps">$X$</span> &#x7684;&#x5BBD;.</p>
+<h5 class="mume-header" id="proof-1"><em>Proof</em></h5>
+
+<p>&#x8BBE; <span class="mathjax-exps">$X$</span> &#x7684;&#x5BBD;&#x4E3A; <span class="mathjax-exps">$w$</span>&#xFF0C;&#x5373; <span class="mathjax-exps">$X$</span> &#x7684;&#x6700;&#x5927;&#x53CD;&#x94FE; <span class="mathjax-exps">$A$</span> &#x5305;&#x542B;&#x7684;&#x5143;&#x7D20;&#x6570;&#x76EE;&#x4E3A; <span class="mathjax-exps">$w$</span> . &#x8BBE;&#x5206;&#x5212;&#x7684;&#x94FE;&#x6700;&#x5C0F;&#x6570;&#x76EE;&#x4E3A; <span class="mathjax-exps">$s$</span> .</p>
+<p>&#x9996;&#x5148;&#xFF0C;&#x5BB9;&#x6613;&#x8BC1;&#x660E; <span class="mathjax-exps">$s \geq w$</span>&#xFF1A;&#x53EF;&#x5148;&#x5047;&#x8BBE;&#x547D;&#x9898;&#x4E0D;&#x6210;&#x7ACB;&#xFF0C;&#x5219;&#x7531;&#x62BD;&#x5C49;&#x539F;&#x7406;&#x5DF2;&#x77E5;&#x5FC5;&#x5B9A;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x5C5E;&#x4E8E; <span class="mathjax-exps">$A$</span> &#x7684;&#x5143;&#x7D20;&#x5C06;&#x5206;&#x914D;&#x5230;&#x540C;&#x4E00;&#x4E2A;&#x94FE;&#x4E2D;&#xFF0C;&#x4E0E;&#x5B9A;&#x4E49;&#x77DB;&#x76FE;&#xFF1B;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8BC1;&#x660E;&#xFF0C;<span class="mathjax-exps">$X$</span> &#x7684;&#x786E;&#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5212;&#x6210; <span class="mathjax-exps">$w$</span> &#x4E2A;&#x94FE;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4F7F;&#x7528;&#x5F3A;&#x5F52;&#x7EB3;&#x6CD5;&#x6765;&#x8BC1;&#x660E;&#x6B64;&#x4E8B;.</p>
+<p>&#x5F53; <span class="mathjax-exps">$|X|=1$</span> &#x65F6;&#xFF0C;&#x547D;&#x9898;&#x81EA;&#x7136;&#x5730;&#x6210;&#x7ACB;&#xFF1B;</p>
+<p>&#x82E5; <span class="mathjax-exps">$|X|&gt;1$</span> &#xFF0C;&#x5F52;&#x7EB3;&#x5730;&#x5047;&#x8BBE;&#xFF1A;&#x5BF9;&#x4E8E;&#x4E00;&#x5207;&#x57FA;&#x6570;&#x5C0F;&#x4E8E; <span class="mathjax-exps">$|X|$</span> &#x7684;&#x504F;&#x5E8F;&#x96C6;&#xFF0C;&#x547D;&#x9898;&#x5DF2;&#x7ECF;&#x6210;&#x7ACB;&#xFF0C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x8003;&#x8651;&#x4E24;&#x79CD;&#x60C5;&#x5F62;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x82E5; <span class="mathjax-exps">$A$</span> &#x65E2;&#x4E0D;&#x662F; <span class="mathjax-exps">$X$</span> &#x6240;&#x6709;&#x6781;&#x5927;&#x5143;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x5176;&#x6240;&#x6709;&#x6781;&#x5C0F;&#x5143;&#x7684;&#x96C6;&#x5408;.<br>
+&#x57FA;&#x4E8E;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;
+</p><div class="mathjax-exps">$$A^+=\{x \in X\ |\ \exists a \in A,x \geq a\}$$</div>
+&#x4EE5;&#x53CA;
+<div class="mathjax-exps">$$A^-=\{x \in X\ |\ \exists a \in A,x \leq a\}$$</div>
+&#x76F4;&#x89C2;&#x800C;&#x8A00;&#xFF0C; <span class="mathjax-exps">$A^+$</span> &#x5C31;&#x662F;&#x5728; <span class="mathjax-exps">$X$</span> &#x4E2D;&#x4F4D;&#x4E8E; <span class="mathjax-exps">$A$</span> &#x7684;&#x5143;&#x7D20;&#x4E0A;&#x65B9;&#x7684;&#x90A3;&#x4E9B;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF1B;&#x800C; <span class="mathjax-exps">$A^-$</span> &#x5C31;&#x662F;&#x5728; <span class="mathjax-exps">$X$</span> &#x4E2D;&#x4F4D;&#x4E8E; <span class="mathjax-exps">$A$</span> &#x7684;&#x5143;&#x7D20;&#x4E0B;&#x65B9;&#x7684;&#x90A3;&#x4E9B;&#x5143;&#x7D20;&#x7684;&#x96C6;&#x5408;&#xFF1B;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;<span class="mathjax-exps">$A$</span> &#x7684;&#x5143;&#x7D20;&#x6070;&#x597D;&#x662F; <span class="mathjax-exps">$A^-$</span> &#x7684;&#x6781;&#x5927;&#x5143;&#xFF0C;&#x4EE5;&#x53CA; <span class="mathjax-exps">$A^+&#x200B;$</span> &#x7684;&#x6781;&#x5C0F;&#x5143;.<p></p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x77E5;&#x4EE5;&#x4E0B;&#x82E5;&#x5E72;&#x6761;&#x6027;&#x8D28;&#xFF1A;</p>
+<ol>
+<li>&#x56E0;&#x4E3A; <span class="mathjax-exps">$A$</span> &#x4E0D;&#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x6240;&#x6709;&#x6781;&#x5C0F;&#x5143;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5728; <span class="mathjax-exps">$X$</span> &#x4E2D;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x4E0D;&#x5C5E;&#x4E8E; <span class="mathjax-exps">$A$</span> &#x7684;&#x6781;&#x5C0F;&#x5143;&#xFF0C;&#x4ECE;&#x800C; <span class="mathjax-exps">$A^+ \subsetneqq X$</span></li>
+<li>&#x540C;&#x7406;&#xFF0C; <span class="mathjax-exps">$A$</span> &#x4E0D;&#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x6240;&#x6709;&#x6781;&#x5927;&#x5143;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x56E0;&#x6B64; <span class="mathjax-exps">$A^- \subsetneqq X$</span></li>
+<li>&#x663E;&#x7136;&#x6709; <span class="mathjax-exps">$A \subseteq (A^+ \cap A^-)$</span> &#x4E14; <span class="mathjax-exps">$(A^+ \cup A^-) \subseteq X$</span></li>
+<li><span class="mathjax-exps">$A = (A^+ \cap A^-)$</span></li>
+<li><span class="mathjax-exps">$(A^+ \cup A^-) = X$</span></li>
+</ol>
+<p>&#x7B2C; 4&#xFF0C;5 &#x6761;&#x6027;&#x8D28;&#x5E76;&#x975E;&#x663E;&#x7136;&#xFF0C;&#x4F46;&#x7A0D;&#x52A0;&#x601D;&#x8003;&#x4E5F;&#x4E0D;&#x96BE;&#x770B;&#x51FA;&#xFF0C;&#x8BC1;&#x660E;&#x7565;&#xFF1B;</p>
+<p>&#x7B2C; 1&#xFF0C;2 &#x6761;&#x6027;&#x8D28;&#x544A;&#x8BC9;&#x6211;&#x4EEC;&#xFF0C;<span class="mathjax-exps">$A^-$</span> &#x548C; <span class="mathjax-exps">$A^+$</span> &#x7684;&#x57FA;&#x6570;&#x5C0F;&#x4E8E; <span class="mathjax-exps">$X$</span>&#xFF0C;&#x4E8E;&#x662F;&#x6B64;&#x65F6;&#x7531;&#x5F52;&#x7EB3;&#x5047;&#x8BBE;&#x53EF;&#x77E5;&#xFF0C;<span class="mathjax-exps">$A^-$</span> &#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5212;&#x6210; <span class="mathjax-exps">$w$</span> &#x6761;&#x94FE;
+</p><div class="mathjax-exps">$$\mathcal{L}_1,\ \mathcal{L}_2,\ \cdots,\ \mathcal{L}_w$$</div>
+&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;<span class="mathjax-exps">$A^+$</span> &#x53EF;&#x4EE5;&#x88AB;&#x5206;&#x5212;&#x6210; <span class="mathjax-exps">$w$</span> &#x6761;&#x94FE;
+<div class="mathjax-exps">$$\mathcal{L}&apos;_1,\ \mathcal{L}&apos;_2,\ \cdots,\ \mathcal{L}&apos;_w$$</div>
+&#x800C;&#x94FE; <span class="mathjax-exps">$\mathcal{L}_i$</span> &#x7684;&#x6781;&#x5927;&#x5143;&#x548C; <span class="mathjax-exps">$\mathcal{L}&apos;_i$</span> &#x7684;&#x6781;&#x5C0F;&#x5143;&#x90FD;&#x540C;&#x65F6;&#x5BF9;&#x5E94;&#x4E8E; <span class="mathjax-exps">$A$</span> &#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x5143;&#x7D20;. &#x6784;&#x9020;&#x94FE; <span class="mathjax-exps">$\mathcal{K}_i=\mathcal{L}_i \cup \mathcal{L}&apos;_i$</span>&#xFF0C;&#x5C06;&#x5B83;&#x4EEC; &#x201C;&#x7C98;&#x5408;&#x201D; &#x5728;&#x4E00;&#x8D77;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x7684; <span class="mathjax-exps">$w$</span> &#x6761;&#x94FE;&#xFF0C;&#x5C31;&#x662F;&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$X$</span> &#x7684;&#x94FE;&#x5206;&#x5212;.<p></p>
+</li>
+<li>
+<p>&#x82E5; <span class="mathjax-exps">$A$</span> &#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x6240;&#x6709;&#x6781;&#x5C0F;&#x5143;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x6216;&#x8005; <span class="mathjax-exps">$X$</span> &#x7684;&#x6240;&#x6709;&#x6781;&#x5927;&#x5143;&#x7684;&#x96C6;&#x5408;</p>
+<p>&#x8BBE; <span class="mathjax-exps">$x$</span> &#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x6781;&#x5C0F;&#x5143;&#x800C; <span class="mathjax-exps">$y$</span> &#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x6781;&#x5927;&#x5143;&#x4E14; <span class="mathjax-exps">$x \leq y$</span>&#xFF08; <span class="mathjax-exps">$x$</span> &#x548C; <span class="mathjax-exps">$y$</span> &#x53EF;&#x80FD;&#x76F8;&#x7B49;&#xFF09;&#xFF0C;&#x5219; <span class="mathjax-exps">$X-\{x,y\}$</span> &#x7684;&#x6700;&#x5927;&#x53CD;&#x94FE;&#x5927;&#x5C0F;&#x81F3;&#x591A;&#x4E3A; <span class="mathjax-exps">$w-1$</span> &#xFF0C;&#x6839;&#x636E;&#x5F52;&#x7EB3;&#x5047;&#x8BBE;&#xFF0C; <span class="mathjax-exps">$X-\{x,y\}$</span> &#x6700;&#x5C11;&#x80FD;&#x5212;&#x5206;&#x6210; <span class="mathjax-exps">$w-1$</span> &#x6761;&#x94FE;&#xFF0C;&#x8FD9;&#x4E9B;&#x94FE;&#x548C;&#x94FE; <span class="mathjax-exps">$\{x,y\}$</span> &#x4E00;&#x8D77;&#x6784;&#x6210;&#x4E86; <span class="mathjax-exps">$X$</span> &#x7684;&#x4E00;&#x4E2A;&#x5927;&#x5C0F;&#x4E3A; <span class="mathjax-exps">$w$</span> &#x7684;&#x94FE;&#x5206;&#x5212;.</p>
+</li>
+</ol>
+<p>&#x7EFC;&#x5408;&#x53EF;&#x77E5;&#xFF0C;&#x5B9A;&#x7406;&#x5F97;&#x8BC1;.</p>
+<p align="right">Q.E.D.</p>
+<h4 class="mume-header" id="%E6%B3%A8%E8%A7%A3%E4%B8%8E%E9%98%90%E9%87%8A">&#x6CE8;&#x89E3;&#x4E0E;&#x9610;&#x91CA;</h4>
+
+<p>&#x504F;&#x5E8F;&#x96C6; <span class="mathjax-exps">$(X,\leq)$</span> &#x53EF;&#x4EE5;&#x7528; Hasse &#x56FE;&#x6765;&#x8868;&#x793A;&#xFF1B;&#x5728;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;&#x672C;&#x6587;&#x7684;&#x5185;&#x5BB9;&#x4EA6;&#x53EF;&#x4EE5;&#x501F;&#x52A9; Hasse &#x56FE;&#x76F4;&#x89C2;&#x5730;&#x89E3;&#x91CA;&#x6216;&#x63CF;&#x8FF0;.</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="194pt" height="276pt" viewBox="0.00 0.00 193.80 276.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 272)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-272 189.8,-272 189.8,4 -4,4"/>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<polygon fill="none" stroke="#000000" points="82.7008,-24.7008 58.0992,-24.7008 58.0992,-.0992 82.7008,-.0992 82.7008,-24.7008"/>
+<text text-anchor="middle" x="70.4" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- c -->
+<g id="node2" class="node">
+<title>c</title>
+<polygon fill="none" stroke="#000000" points="62.7008,-85.5008 38.0992,-85.5008 38.0992,-60.8992 62.7008,-60.8992 62.7008,-85.5008"/>
+<text text-anchor="middle" x="50.4" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- a&#45;&gt;c -->
+<g id="edge1" class="edge">
+<title>a-&gt;c</title>
+<path fill="none" stroke="#000000" d="M66.3527,-24.7038C63.4367,-33.5683 59.459,-45.6605 56.2051,-55.5524"/>
+<polygon fill="#000000" stroke="#000000" points="54.479,-55.1995 54.579,-60.496 57.8038,-56.2932 54.479,-55.1995"/>
+</g>
+<!-- d -->
+<g id="node3" class="node">
+<title>d</title>
+<polygon fill="none" stroke="#000000" points="105.7008,-85.5008 81.0992,-85.5008 81.0992,-60.8992 105.7008,-60.8992 105.7008,-85.5008"/>
+<text text-anchor="middle" x="93.4" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- a&#45;&gt;d -->
+<g id="edge2" class="edge">
+<title>a-&gt;d</title>
+<path fill="none" stroke="#000000" d="M75.0544,-24.7038C78.4078,-33.5683 82.9821,-45.6605 86.7241,-55.5524"/>
+<polygon fill="#000000" stroke="#000000" points="85.1882,-56.4386 88.5942,-60.496 88.4618,-55.2002 85.1882,-56.4386"/>
+</g>
+<!-- f -->
+<g id="node7" class="node">
+<title>f</title>
+<polygon fill="none" stroke="#000000" points="63.7008,-146.3008 39.0992,-146.3008 39.0992,-121.6992 63.7008,-121.6992 63.7008,-146.3008"/>
+<text text-anchor="middle" x="51.4" y="-129.8" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- c&#45;&gt;f -->
+<g id="edge7" class="edge">
+<title>c-&gt;f</title>
+<path fill="none" stroke="#000000" d="M50.6024,-85.5038C50.7468,-94.287 50.9434,-106.2389 51.1053,-116.0796"/>
+<polygon fill="#000000" stroke="#000000" points="49.359,-116.3255 51.1911,-121.296 52.8585,-116.2678 49.359,-116.3255"/>
+</g>
+<!-- h -->
+<g id="node6" class="node">
+<title>h</title>
+<polygon fill="none" stroke="#000000" points="105.7008,-207.1008 81.0992,-207.1008 81.0992,-182.4992 105.7008,-182.4992 105.7008,-207.1008"/>
+<text text-anchor="middle" x="93.4" y="-190.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- d&#45;&gt;h -->
+<g id="edge11" class="edge">
+<title>d-&gt;h</title>
+<path fill="none" stroke="#000000" d="M93.4,-85.7553C93.4,-107.5312 93.4,-152.3507 93.4,-177.2139"/>
+<polygon fill="#000000" stroke="#000000" points="91.6501,-177.494 93.4,-182.4941 95.1501,-177.4941 91.6501,-177.494"/>
+</g>
+<!-- b -->
+<g id="node4" class="node">
+<title>b</title>
+<polygon fill="none" stroke="#000000" points="135.7008,-24.7008 111.0992,-24.7008 111.0992,-.0992 135.7008,-.0992 135.7008,-24.7008"/>
+<text text-anchor="middle" x="123.4" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- b&#45;&gt;c -->
+<g id="edge3" class="edge">
+<title>b-&gt;c</title>
+<path fill="none" stroke="#000000" d="M111.0165,-22.7139C98.925,-32.7847 80.4421,-48.1787 67.0646,-59.3205"/>
+<polygon fill="#000000" stroke="#000000" points="65.8116,-58.0865 63.0896,-62.6312 68.0515,-60.7759 65.8116,-58.0865"/>
+</g>
+<!-- b&#45;&gt;d -->
+<g id="edge4" class="edge">
+<title>b-&gt;d</title>
+<path fill="none" stroke="#000000" d="M117.3291,-24.7038C112.915,-33.6496 106.879,-45.8827 101.9736,-55.8241"/>
+<polygon fill="#000000" stroke="#000000" points="100.3116,-55.2377 99.6684,-60.496 103.4503,-56.7865 100.3116,-55.2377"/>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<polygon fill="none" stroke="#000000" points="185.7008,-85.5008 161.0992,-85.5008 161.0992,-60.8992 185.7008,-60.8992 185.7008,-85.5008"/>
+<text text-anchor="middle" x="173.4" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- b&#45;&gt;e -->
+<g id="edge5" class="edge">
+<title>b-&gt;e</title>
+<path fill="none" stroke="#000000" d="M133.5182,-24.7038C141.0757,-33.8936 151.4858,-46.5524 159.7752,-56.6323"/>
+<polygon fill="#000000" stroke="#000000" points="158.4251,-57.7457 162.9526,-60.496 161.1284,-55.5225 158.4251,-57.7457"/>
+</g>
+<!-- b&#45;&gt;h -->
+<g id="edge6" class="edge">
+<title>b-&gt;h</title>
+<path fill="none" stroke="#000000" d="M122.5774,-25.0715C120.873,-48.9823 116.346,-102.3146 107.4,-146.4 105.2864,-156.8156 102.0255,-168.2468 99.1825,-177.3835"/>
+<polygon fill="#000000" stroke="#000000" points="97.4977,-176.9072 97.6559,-182.2023 100.8343,-177.9642 97.4977,-176.9072"/>
+</g>
+<!-- f&#45;&gt;h -->
+<g id="edge9" class="edge">
+<title>f-&gt;h</title>
+<path fill="none" stroke="#000000" d="M59.8993,-146.3038C66.1914,-155.4123 74.8375,-167.9286 81.7699,-177.9641"/>
+<polygon fill="#000000" stroke="#000000" points="80.3425,-178.9767 84.6242,-182.096 83.2222,-176.9874 80.3425,-178.9767"/>
+</g>
+<!-- g -->
+<g id="node8" class="node">
+<title>g</title>
+<polygon fill="none" stroke="#000000" points="24.7008,-207.1008 .0992,-207.1008 .0992,-182.4992 24.7008,-182.4992 24.7008,-207.1008"/>
+<text text-anchor="middle" x="12.4" y="-190.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- f&#45;&gt;g -->
+<g id="edge8" class="edge">
+<title>f-&gt;g</title>
+<path fill="none" stroke="#000000" d="M43.5078,-146.3038C37.7173,-155.331 29.7798,-167.7053 23.3722,-177.6947"/>
+<polygon fill="#000000" stroke="#000000" points="21.7756,-176.9425 20.549,-182.096 24.7216,-178.8322 21.7756,-176.9425"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<polygon fill="none" stroke="#000000" points="44.7008,-267.9008 20.0992,-267.9008 20.0992,-243.2992 44.7008,-243.2992 44.7008,-267.9008"/>
+<text text-anchor="middle" x="32.4" y="-251.4" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- f&#45;&gt;i -->
+<g id="edge10" class="edge">
+<title>f-&gt;i</title>
+<path fill="none" stroke="#000000" d="M49.4382,-146.5553C46.0215,-168.4227 38.9738,-213.5278 35.099,-238.3262"/>
+<polygon fill="#000000" stroke="#000000" points="33.3657,-238.0838 34.3228,-243.2941 36.8238,-238.6242 33.3657,-238.0838"/>
+</g>
+<!-- g&#45;&gt;i -->
+<g id="edge12" class="edge">
+<title>g-&gt;i</title>
+<path fill="none" stroke="#000000" d="M16.4473,-207.1038C19.3633,-215.9683 23.341,-228.0605 26.5949,-237.9524"/>
+<polygon fill="#000000" stroke="#000000" points="24.9962,-238.6932 28.221,-242.896 28.321,-237.5995 24.9962,-238.6932"/>
+</g>
+</g>
+</svg>
+</p><p>&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5728; Hasse &#x56FE;&#x4E2D;&#xFF0C;&#x53EF;&#x6BD4;&#x7684;&#x5143;&#x7D20;&#x603B;&#x4F53;&#x4E0A;&#x6CBF;&#x7EB5;&#x5411;&#x6392;&#x5217;&#xFF0C;&#x800C;&#x4E92;&#x76F8;&#x4E0D;&#x53EF;&#x6BD4;&#x7684;&#x5143;&#x7D20;&#x503E;&#x5411;&#x4E8E;&#x6392;&#x5E03;&#x5728;&#x540C;&#x4E00;&#x6C34;&#x5E73;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF1B;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x4E86; Hasse &#x56FE;&#x5728;&#xFF08;&#x81F3;&#x5C11;&#x662F;&#x5C40;&#x90E8;&#x8303;&#x56F4;&#x5185;&#xFF09;&#x7EB5;&#x5411;&#x7684;&#x957F;&#x77ED;&#xFF0C;&#x800C;&#x53CD;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x51B3;&#x5B9A;&#x4E86;&#x5176;&#x5728;&#xFF08;&#x81F3;&#x5C11;&#x5C40;&#x90E8;&#x8303;&#x56F4;&#x5185;&#xFF09;&#x6A2A;&#x5411;&#x7684;&#x957F;&#x77ED;&#x2014;&#x2014;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4E0A;&#x6587;&#x4E2D;&#xFF0C;&#x628A;&#x6700;&#x5927;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x5B9A;&#x4E49;&#x4E3A; &#x201C;&#x9AD8;&#x201D;&#xFF0C;&#x628A;&#x6700;&#x5927;&#x53CD;&#x94FE;&#x7684;&#x5927;&#x5C0F;&#x5B9A;&#x4E49;&#x4E3A; &#x201C;&#x5BBD;&#x201D;&#xFF0C;&#x6B63;&#x8574;&#x542B;&#x4E86;&#x5176;&#x4E2D;&#x7684;&#x76F4;&#x89C2;&#x610F;&#x5473;.</p>
+<p>&#x4E8E;&#x662F;&#xFF0C;&#x672C;&#x6587;&#x6240;&#x8FF0;&#x7684;&#x4E24;&#x4E2A;&#x5B9A;&#x7406;&#x6240;&#x5177;&#x6709;&#x7684;&#x5BF9;&#x5076;&#x6027;&#xFF0C;&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E;&#x4E00;&#x4E2A;&#x9762;&#x79EF;&#x56FA;&#x5B9A;&#x7684;&#x77E9;&#x5F62;&#x7684;&#x957F;&#x548C;&#x5BBD;&#x6240;&#x5177;&#x6709;&#x7684;&#x5BF9;&#x5076;&#x6027;&#xFF08;&#x5E0C;&#x671B;&#x8FD9;&#x4E0D;&#x662F;&#x4E2A;&#x7CDF;&#x7CD5;&#x900F;&#x9876;&#x7684;&#x6BD4;&#x55BB;&#xFF09;.</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="151pt" height="308pt" viewBox="0.00 0.00 151.05 308.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 304)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-304 147.0456,-304 147.0456,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_l1</title>
+<polygon fill="none" stroke="#0000ff" stroke-dasharray="5,2" points="29,-8 29,-48.8 112,-48.8 112,-8 29,-8"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_l2</title>
+<polygon fill="none" stroke="#0000ff" stroke-dasharray="5,2" points="8,-68.8 8,-109.6 134,-109.6 134,-68.8 8,-68.8"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_l3</title>
+<polygon fill="none" stroke="#0000ff" stroke-dasharray="5,2" points="8,-129.6 8,-170.4 48,-170.4 48,-129.6 8,-129.6"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_l4</title>
+<polygon fill="none" stroke="#0000ff" stroke-dasharray="5,2" points="8,-190.4 8,-231.2 91,-231.2 91,-190.4 8,-190.4"/>
+</g>
+<g id="clust5" class="cluster">
+<title>cluster_l5</title>
+<polygon fill="none" stroke="#0000ff" stroke-dasharray="5,2" points="8,-251.2 8,-292 48,-292 48,-251.2 8,-251.2"/>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<polygon fill="none" stroke="#000000" points="61.3008,-40.7008 36.6992,-40.7008 36.6992,-16.0992 61.3008,-16.0992 61.3008,-40.7008"/>
+<text text-anchor="middle" x="49" y="-24.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<polygon fill="none" stroke="#000000" points="40.3008,-101.5008 15.6992,-101.5008 15.6992,-76.8992 40.3008,-76.8992 40.3008,-101.5008"/>
+<text text-anchor="middle" x="28" y="-85" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- a&#45;&gt;c -->
+<g id="edge1" class="edge">
+<title>a-&gt;c</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M44.7503,-40.7038C41.6886,-49.5683 37.512,-61.6605 34.0954,-71.5524"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="32.3662,-71.1986 32.3879,-76.496 35.6744,-72.3413 32.3662,-71.1986"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<polygon fill="none" stroke="#000000" points="83.3008,-101.5008 58.6992,-101.5008 58.6992,-76.8992 83.3008,-76.8992 83.3008,-101.5008"/>
+<text text-anchor="middle" x="71" y="-85" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- a&#45;&gt;d -->
+<g id="edge2" class="edge">
+<title>a-&gt;d</title>
+<path fill="none" stroke="#000000" d="M53.452,-40.7038C56.6596,-49.5683 61.0351,-61.6605 64.6144,-71.5524"/>
+<polygon fill="#000000" stroke="#000000" points="63.0562,-72.3898 66.4031,-76.496 66.3474,-71.1988 63.0562,-72.3898"/>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<polygon fill="none" stroke="#000000" points="104.3008,-40.7008 79.6992,-40.7008 79.6992,-16.0992 104.3008,-16.0992 104.3008,-40.7008"/>
+<text text-anchor="middle" x="92" y="-24.2" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- b&#45;&gt;c -->
+<g id="edge3" class="edge">
+<title>b-&gt;c</title>
+<path fill="none" stroke="#000000" d="M79.6602,-40.1229C69.5668,-49.7116 55.2127,-63.3479 44.1958,-73.814"/>
+<polygon fill="#000000" stroke="#000000" points="42.7217,-72.8006 40.302,-77.5131 45.1323,-75.3381 42.7217,-72.8006"/>
+</g>
+<!-- b&#45;&gt;d -->
+<g id="edge4" class="edge">
+<title>b-&gt;d</title>
+<path fill="none" stroke="#000000" d="M87.7503,-40.7038C84.6886,-49.5683 80.512,-61.6605 77.0954,-71.5524"/>
+<polygon fill="#000000" stroke="#000000" points="75.3662,-71.1986 75.3879,-76.496 78.6744,-72.3413 75.3662,-71.1986"/>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<polygon fill="none" stroke="#000000" points="126.3008,-101.5008 101.6992,-101.5008 101.6992,-76.8992 126.3008,-76.8992 126.3008,-101.5008"/>
+<text text-anchor="middle" x="114" y="-85" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- b&#45;&gt;e -->
+<g id="edge5" class="edge">
+<title>b-&gt;e</title>
+<path fill="none" stroke="#000000" d="M96.452,-40.7038C99.6596,-49.5683 104.0351,-61.6605 107.6144,-71.5524"/>
+<polygon fill="#000000" stroke="#000000" points="106.0562,-72.3898 109.4031,-76.496 109.3474,-71.1988 106.0562,-72.3898"/>
+</g>
+<!-- h -->
+<g id="node7" class="node">
+<title>h</title>
+<polygon fill="none" stroke="#000000" points="83.3008,-223.1008 58.6992,-223.1008 58.6992,-198.4992 83.3008,-198.4992 83.3008,-223.1008"/>
+<text text-anchor="middle" x="71" y="-206.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- b&#45;&gt;h -->
+<g id="edge6" class="edge">
+<title>b-&gt;h</title>
+<path fill="none" stroke="#000000" d="M104.4435,-35.1628C115.5766,-41.9968 131.1624,-53.6945 138,-68.8 145.4778,-85.3197 143.227,-92.2363 138,-109.6 127.9488,-142.9892 102.8955,-175.499 86.4354,-194.3143"/>
+<polygon fill="#000000" stroke="#000000" points="84.8697,-193.4419 82.8585,-198.3427 87.4869,-195.7658 84.8697,-193.4419"/>
+</g>
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<polygon fill="none" stroke="#000000" points="40.3008,-162.3008 15.6992,-162.3008 15.6992,-137.6992 40.3008,-137.6992 40.3008,-162.3008"/>
+<text text-anchor="middle" x="28" y="-145.8" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- c&#45;&gt;f -->
+<g id="edge7" class="edge">
+<title>c-&gt;f</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M28,-101.5038C28,-110.287 28,-122.2389 28,-132.0796"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="26.2501,-132.2959 28,-137.296 29.7501,-132.296 26.2501,-132.2959"/>
+</g>
+<!-- d&#45;&gt;h -->
+<g id="edge11" class="edge">
+<title>d-&gt;h</title>
+<path fill="none" stroke="#000000" d="M71,-101.7553C71,-123.5312 71,-168.3507 71,-193.2139"/>
+<polygon fill="#000000" stroke="#000000" points="69.2501,-193.494 71,-198.4941 72.7501,-193.4941 69.2501,-193.494"/>
+</g>
+<!-- f&#45;&gt;h -->
+<g id="edge9" class="edge">
+<title>f-&gt;h</title>
+<path fill="none" stroke="#000000" d="M36.7017,-162.3038C43.1436,-171.4123 51.9955,-183.9286 59.093,-193.9641"/>
+<polygon fill="#000000" stroke="#000000" points="57.6993,-195.0242 62.0152,-198.096 60.5569,-193.0032 57.6993,-195.0242"/>
+</g>
+<!-- g -->
+<g id="node8" class="node">
+<title>g</title>
+<polygon fill="none" stroke="#000000" points="40.3008,-223.1008 15.6992,-223.1008 15.6992,-198.4992 40.3008,-198.4992 40.3008,-223.1008"/>
+<text text-anchor="middle" x="28" y="-206.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- f&#45;&gt;g -->
+<g id="edge8" class="edge">
+<title>f-&gt;g</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M28,-162.3038C28,-171.087 28,-183.0389 28,-192.8796"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="26.2501,-193.0959 28,-198.096 29.7501,-193.096 26.2501,-193.0959"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<polygon fill="none" stroke="#000000" points="40.3008,-283.9008 15.6992,-283.9008 15.6992,-259.2992 40.3008,-259.2992 40.3008,-283.9008"/>
+<text text-anchor="middle" x="28" y="-267.4" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- f&#45;&gt;i -->
+<g id="edge10" class="edge">
+<title>f-&gt;i</title>
+<path fill="none" stroke="#000000" d="M18.074,-162.6478C12.7654,-170.2304 6.7654,-180.3304 4,-190.4 -.8021,-207.8859 -.8021,-213.7141 4,-231.2 6.2469,-239.3816 10.6291,-247.5832 15.0409,-254.4383"/>
+<polygon fill="#000000" stroke="#000000" points="13.8328,-255.7782 18.074,-258.9522 16.7379,-253.8261 13.8328,-255.7782"/>
+</g>
+<!-- g&#45;&gt;i -->
+<g id="edge12" class="edge">
+<title>g-&gt;i</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M28,-223.1038C28,-231.887 28,-243.8389 28,-253.6796"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="26.2501,-253.8959 28,-258.896 29.7501,-253.896 26.2501,-253.8959"/>
+</g>
+</g>
+</svg>
+</p><p>&#x4E0D;&#x59A8;&#x7EE7;&#x7EED;&#x4ECE; Hasse &#x56FE;&#x7684;&#x89D2;&#x5EA6;&#x89E3;&#x91CA; Mirsky &#x5B9A;&#x7406;. &#x65E2;&#x7136;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x77E5;&#x9053;&#xFF0C;&#x4E92;&#x4E0D;&#x53EF;&#x6BD4;&#x7684;&#x5143;&#x7D20;&#x603B;&#x4F53;&#x4E0A;&#x6CBF;&#x6A2A;&#x5411;&#x6392;&#x5E03;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x5BF9;&#x504F;&#x5E8F;&#x96C6;&#x7684;&#x53CD;&#x94FE;&#x5206;&#x5212;&#x5176;&#x5B9E;&#x5C31;&#x7C7B;&#x4F3C;&#x4E8E;&#x6CBF;&#x6A2A;&#x5411; &#x201C;&#x5207;&#x86CB;&#x7CD5;&#x201D;&#x2014;&#x2014;&#x4F46;&#x662F;&#x5206;&#x5212;&#x8FC7;&#x7A0B;&#x4E2D;&#x5207;&#x7684;&#x6570;&#x76EE;&#x5C31;&#x5FC5;&#x987B;&#x7531;&#x7EB5;&#x5411;&#x7684;&#x6700;&#x5927;&#x957F;&#x5EA6;&#xFF08;&#x4E5F;&#x5C31;&#x662F; <span class="mathjax-exps">$X$</span> &#x7684;&#x9AD8;&#xFF09;&#x6765;&#x754C;&#x5B9A;&#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x6CBF;&#x7740;&#x6700;&#x5927;&#x94FE;&#x6765;&#x5207;&#x86CB;&#x7CD5;&#x7684;&#x8BDD;&#xFF0C;&#x5206;&#x5212;&#x6570;&#x76EE;&#x53EF;&#x4EE5;&#x521A;&#x597D;&#x7B49;&#x4E8E; <span class="mathjax-exps">$X$</span> &#x7684;&#x9AD8;&#xFF1B;</li>
+<li>&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x4E0D;&#x80FD;&#x5C0F;&#x4E8E;&#x6700;&#x5927;&#x94FE;&#x7684;&#x5143;&#x7D20;&#x6570;&#x76EE;&#xFF08;&#x5426;&#x5219;&#x5F3A;&#x5927;&#x7684;&#x62BD;&#x5C49;&#x539F;&#x7406;&#x4F1A;&#x9A6C;&#x4E0A;&#x5BFC;&#x51FA;&#x77DB;&#x76FE;&#xFF09;</li>
+</ul>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="173pt" height="276pt" viewBox="0.00 0.00 173.40 276.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 272)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-272 169.4005,-272 169.4005,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_l2</title>
+<path fill="none" stroke="#0000ff" stroke-width="2" d="M21.0005,-52.8C21.0005,-52.8 123.0005,-52.8 123.0005,-52.8 129.0005,-52.8 135.0005,-58.8 135.0005,-64.8 135.0005,-64.8 135.0005,-81.6 135.0005,-81.6 135.0005,-87.6 129.0005,-93.6 123.0005,-93.6 123.0005,-93.6 21.0005,-93.6 21.0005,-93.6 15.0005,-93.6 9.0005,-87.6 9.0005,-81.6 9.0005,-81.6 9.0005,-64.8 9.0005,-64.8 9.0005,-58.8 15.0005,-52.8 21.0005,-52.8"/>
+</g>
+<!-- c -->
+<g id="node1" class="node">
+<title>c</title>
+<polygon fill="none" stroke="#000000" points="127.3013,-85.5008 102.6997,-85.5008 102.6997,-60.8992 127.3013,-60.8992 127.3013,-85.5008"/>
+<text text-anchor="middle" x="115.0005" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- f -->
+<g id="node7" class="node">
+<title>f</title>
+<polygon fill="none" stroke="#000000" points="126.3013,-146.3008 101.6997,-146.3008 101.6997,-121.6992 126.3013,-121.6992 126.3013,-146.3008"/>
+<text text-anchor="middle" x="114.0005" y="-129.8" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- c&#45;&gt;f -->
+<g id="edge7" class="edge">
+<title>c-&gt;f</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M114.7981,-85.5038C114.6537,-94.287 114.4571,-106.2389 114.2952,-116.0796"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="112.542,-116.2678 114.2095,-121.296 116.0415,-116.3255 112.542,-116.2678"/>
+</g>
+<!-- d -->
+<g id="node2" class="node">
+<title>d</title>
+<polygon fill="none" stroke="#000000" points="84.3013,-85.5008 59.6997,-85.5008 59.6997,-60.8992 84.3013,-60.8992 84.3013,-85.5008"/>
+<text text-anchor="middle" x="72.0005" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- h -->
+<g id="node6" class="node">
+<title>h</title>
+<polygon fill="none" stroke="#000000" points="84.3013,-207.1008 59.6997,-207.1008 59.6997,-182.4992 84.3013,-182.4992 84.3013,-207.1008"/>
+<text text-anchor="middle" x="72.0005" y="-190.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- d&#45;&gt;h -->
+<g id="edge11" class="edge">
+<title>d-&gt;h</title>
+<path fill="none" stroke="#00ff00" stroke-width="2.5" d="M72.0005,-85.7553C72.0005,-107.5312 72.0005,-152.3507 72.0005,-177.2139"/>
+<polygon fill="#00ff00" stroke="#00ff00" stroke-width="2.5" points="70.2506,-177.494 72.0005,-182.4941 73.7506,-177.4941 70.2506,-177.494"/>
+</g>
+<!-- e -->
+<g id="node3" class="node">
+<title>e</title>
+<polygon fill="none" stroke="#000000" points="41.3013,-85.5008 16.6997,-85.5008 16.6997,-60.8992 41.3013,-60.8992 41.3013,-85.5008"/>
+<text text-anchor="middle" x="29.0005" y="-69" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- a -->
+<g id="node4" class="node">
+<title>a</title>
+<polygon fill="none" stroke="#000000" points="116.3013,-24.7008 91.6997,-24.7008 91.6997,-.0992 116.3013,-.0992 116.3013,-24.7008"/>
+<text text-anchor="middle" x="104.0005" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- a&#45;&gt;c -->
+<g id="edge1" class="edge">
+<title>a-&gt;c</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M106.2265,-24.7038C107.8303,-33.5683 110.018,-45.6605 111.8077,-55.5524"/>
+<polygon fill="#000000" stroke="#000000" points="110.0898,-55.8874 112.7021,-60.496 113.5339,-55.2643 110.0898,-55.8874"/>
+</g>
+<!-- a&#45;&gt;d -->
+<g id="edge2" class="edge">
+<title>a-&gt;d</title>
+<path fill="none" stroke="#00ff00" stroke-width="2.5" d="M97.5248,-24.7038C92.8165,-33.6496 86.3781,-45.8827 81.1457,-55.8241"/>
+<polygon fill="#00ff00" stroke="#00ff00" stroke-width="2.5" points="79.467,-55.2563 78.6868,-60.496 82.5642,-56.8864 79.467,-55.2563"/>
+</g>
+<!-- b -->
+<g id="node5" class="node">
+<title>b</title>
+<polygon fill="none" stroke="#000000" points="62.3013,-24.7008 37.6997,-24.7008 37.6997,-.0992 62.3013,-.0992 62.3013,-24.7008"/>
+<text text-anchor="middle" x="50.0005" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- b&#45;&gt;c -->
+<g id="edge3" class="edge">
+<title>b-&gt;c</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M62.5332,-24.1229C72.8742,-33.7957 87.6187,-47.5875 98.8453,-58.0887"/>
+<polygon fill="#000000" stroke="#000000" points="97.6593,-59.3756 102.5063,-61.5131 100.0502,-56.8195 97.6593,-59.3756"/>
+</g>
+<!-- b&#45;&gt;d -->
+<g id="edge4" class="edge">
+<title>b-&gt;d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M54.4525,-24.7038C57.6601,-33.5683 62.0356,-45.6605 65.6149,-55.5524"/>
+<polygon fill="#000000" stroke="#000000" points="64.0567,-56.3898 67.4037,-60.496 67.3479,-55.1988 64.0567,-56.3898"/>
+</g>
+<!-- b&#45;&gt;e -->
+<g id="edge5" class="edge">
+<title>b-&gt;e</title>
+<path fill="none" stroke="#a020f0" stroke-width="2.5" d="M45.7508,-24.7038C42.6891,-33.5683 38.5125,-45.6605 35.0959,-55.5524"/>
+<polygon fill="#a020f0" stroke="#a020f0" stroke-width="2.5" points="33.3667,-55.1986 33.3884,-60.496 36.6749,-56.3413 33.3667,-55.1986"/>
+</g>
+<!-- b&#45;&gt;h -->
+<g id="edge6" class="edge">
+<title>b-&gt;h</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M37.3988,-19.4976C26.534,-26.4136 11.5876,-38.0341 5.0005,-52.8 -2.387,-69.3603 -.2265,-76.2363 5.0005,-93.6 15.0517,-126.9892 40.105,-159.499 56.5651,-178.3143"/>
+<polygon fill="#000000" stroke="#000000" points="55.5136,-179.7658 60.142,-182.3427 58.1308,-177.4419 55.5136,-179.7658"/>
+</g>
+<!-- f&#45;&gt;h -->
+<g id="edge9" class="edge">
+<title>f-&gt;h</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M105.5012,-146.3038C99.2091,-155.4123 90.563,-167.9286 83.6306,-177.9641"/>
+<polygon fill="#000000" stroke="#000000" points="82.1783,-176.9874 80.7763,-182.096 85.058,-178.9767 82.1783,-176.9874"/>
+</g>
+<!-- g -->
+<g id="node8" class="node">
+<title>g</title>
+<polygon fill="none" stroke="#000000" points="165.3013,-207.1008 140.6997,-207.1008 140.6997,-182.4992 165.3013,-182.4992 165.3013,-207.1008"/>
+<text text-anchor="middle" x="153.0005" y="-190.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- f&#45;&gt;g -->
+<g id="edge8" class="edge">
+<title>f-&gt;g</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M121.8927,-146.3038C127.6832,-155.331 135.6207,-167.7053 142.0284,-177.6947"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="140.6789,-178.8322 144.8515,-182.096 143.6249,-176.9425 140.6789,-178.8322"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<polygon fill="none" stroke="#000000" points="145.3013,-267.9008 120.6997,-267.9008 120.6997,-243.2992 145.3013,-243.2992 145.3013,-267.9008"/>
+<text text-anchor="middle" x="133.0005" y="-251.4" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- f&#45;&gt;i -->
+<g id="edge10" class="edge">
+<title>f-&gt;i</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M115.9623,-146.5553C119.3791,-168.4227 126.4267,-213.5278 130.3015,-238.3262"/>
+<polygon fill="#000000" stroke="#000000" points="128.5767,-238.6242 131.0777,-243.2941 132.0348,-238.0838 128.5767,-238.6242"/>
+</g>
+<!-- g&#45;&gt;i -->
+<g id="edge12" class="edge">
+<title>g-&gt;i</title>
+<path fill="none" stroke="#ff0000" stroke-width="2.5" d="M148.9532,-207.1038C146.0372,-215.9683 142.0595,-228.0605 138.8056,-237.9524"/>
+<polygon fill="#ff0000" stroke="#ff0000" stroke-width="2.5" points="137.0795,-237.5995 137.1795,-242.896 140.4043,-238.6932 137.0795,-237.5995"/>
+</g>
+</g>
+</svg>
+</p><p>Dilworth &#x5B9A;&#x7406;&#x7684;&#x60C5;&#x5F62;&#x662F;&#x9AD8;&#x5EA6;&#x5BF9;&#x79F0;&#x7684;&#xFF0C;&#x5BF9;&#x504F;&#x5E8F;&#x96C6;&#x7684;&#x94FE;&#x5206;&#x5212;&#x5C31;&#x8981;&#x6C42;&#x6211;&#x4EEC;&#x6CBF;&#x7EB5;&#x5411; &#x201C;&#x5207;&#x86CB;&#x7CD5;&#x201D; &#xFF1A;</p>
+<ul>
+<li>&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x4ECE;&#x6700;&#x5927;&#x53CD;&#x94FE;&#x7684;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x51FA;&#x53D1;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5EF6;&#x4F38;&#x51FA;&#x521A;&#x597D; <span class="mathjax-exps">$w$</span> &#x6761;&#x94FE;&#xFF1B;</li>
+<li>&#x4F46;&#x4E0D;&#x80FD;&#x5C0F;&#x4E8E; <span class="mathjax-exps">$w$</span> &#x6761;&#x94FE;&#xFF08;&#x539F;&#x7406;&#x540C;&#x4E0A;&#xFF0C;&#x4E0D;&#x8D58;&#x8FF0;&#xFF09;</li>
+</ul>
+<h4 class="mume-header" id="%E6%97%A0%E8%81%8A%E7%9A%84%E6%80%BB%E7%BB%93">&#x65E0;&#x804A;&#x7684;&#x603B;&#x7ED3;</h4>
+
+<p>&#x672C;&#x6587;&#x53D9;&#x8FF0;&#x4E86;&#x504F;&#x5E8F;&#x96C6;&#x4E0A;&#x5173;&#x4E8E;&#x94FE;&#x548C;&#x53CD;&#x94FE;&#x7684;&#x4E24;&#x4E2A;&#x5BF9;&#x5076;&#x5B9A;&#x7406;&#xFF0C;&#x548C;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x975E;&#x7EAF;&#x6570;&#x4E13;&#x4E1A;&#x7684;&#x4EBA;&#x80FD;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x5B9A;&#x7406;&#x4E00;&#x6837;&#xFF0C;&#x5B83;&#x4EEC;&#x4E0D;&#x5149;&#x5177;&#x6709;&#x5F62;&#x5F0F;&#x4E0A;&#x7684; &#x201C;&#x7F8E;&#x201D;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5B9E;&#x5B9E;&#x5728;&#x5728;&#x5730;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x4EE5;&#x540E;&#x6216;&#x8BB8;&#x7B14;&#x8005;&#x4F1A;&#x6CBF;&#x6B64;&#x7EE7;&#x7EED;&#x6DF1;&#x5165;.</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E9%93%BE%E4%B8%8E%E5%8F%8D%E9%93%BE"> &#x94FE;&#x4E0E;&#x53CD;&#x94FE;</a></li>
+<li><a href="#%E6%9E%81%E5%B0%8F%E5%85%83%E4%B8%8E%E6%9E%81%E5%A4%A7%E5%85%83"> &#x6781;&#x5C0F;&#x5143;&#x4E0E;&#x6781;&#x5927;&#x5143;</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E9%93%BE%E6%9C%80%E5%A4%A7%E5%8F%8D%E9%93%BE%E5%81%8F%E5%BA%8F%E9%9B%86%E7%9A%84%E5%AE%BD%E5%92%8C%E9%AB%98"> &#x6700;&#x5927;&#x94FE;&#xFF0C;&#x6700;&#x5927;&#x53CD;&#x94FE;&#xFF0C;&#x504F;&#x5E8F;&#x96C6;&#x7684;&#x5BBD;&#x548C;&#x9AD8;</a></li>
+<li><a href="#dual-of-dilworths-theorem-mirskys-theorem"> Dual of Dilworth&apos;s theorem (Mirsky&apos;s theorem)</a>
+<ul>
+<li><a href="#statement"> Statement:</a></li>
+<li><a href="#proof"> <em>Proof</em></a></li>
+</ul>
+</li>
+<li><a href="#dilworths-theorem"> Dilworth&apos;s theorem</a>
+<ul>
+<li><a href="#statement-1"> Statement</a></li>
+<li><a href="#proof-1"> <em>Proof</em></a></li>
+</ul>
+</li>
+<li><a href="#%E6%B3%A8%E8%A7%A3%E4%B8%8E%E9%98%90%E9%87%8A"> &#x6CE8;&#x89E3;&#x4E0E;&#x9610;&#x91CA;</a></li>
+<li><a href="#%E6%97%A0%E8%81%8A%E7%9A%84%E6%80%BB%E7%BB%93"> &#x65E0;&#x804A;&#x7684;&#x603B;&#x7ED3;</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
