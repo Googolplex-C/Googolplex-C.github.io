@@ -961,54 +961,9 @@ prism_plugin:
   theme: 'tomorrow'
   line_number: false    # default false
   custom_css:</code></pre>
-<h4 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h4><p>修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点、使用的主题、访问量等。</p>
-<p>笔者将其改成如下的内容：</p>
-<pre class=" language-text"><code class="language-text"><footer class="page-footer bg-color">
-    <div class="container row center-align">
-        <div class="col s12 m8 l8 copy-right">
-            本站由&copy;<a href="https://googolplex-c.github.io/" target="_blank">Googolplex-C</a>基于
-            <a href="https://hexo.io/" target="_blank">Hexo</a> 的
-            <a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">hexo-theme-matery</a>主题搭建.
-
-            <% if (theme.wordCount.enable && theme.wordCount.totalCount) { %>
-                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color"><%= totalcount(site) %></span>
-            <% } %>
-
-            <% let socialClass = '' %>
-            <% if (theme.busuanziStatistics && theme.busuanziStatistics.enable) { %>
-                <% socialClass = 'social-statis' %><br>
-                <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalTraffic) { %>
-                <span id="busuanzi_container_site_pv">
-                    <i class="fa fa-heart-o"></i>
-                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
-                </span>
-                <% } %>
-                <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
-                <span id="busuanzi_container_site_uv">
-                    <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.</code></pre>
-<pre class=" language-text"><code class="language-text">                </span>
-                <% } %>
-            <% } %>
-        </div>
-        <div class="col s12 m4 l4 social-link <%- socialClass %>"><%- partial('_partial/social-link') %></div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div></code></pre>
+<h4 id="修改页脚"><a href="#修改页脚" class="headerlink" title="修改页脚"></a>修改页脚</h4><p>修改的地方在主题文件的 /layout/_partial/footer.ejs 文件中，包括站点名、使用的主题、访问量等。</p>
 <h4 id="修改首页的社交链接"><a href="#修改首页的社交链接" class="headerlink" title="修改首页的社交链接"></a>修改首页的社交链接</h4><p>在主题的 _config.yml 文件中，默认支持 QQ、GitHub 和邮箱的配置。我们可以在主题文件的 <code>/layout/_partial/social-link.ejs</code> 文件中，新增、修改需要的社交链接地址</p>
 <p>笔者删除了许多链接，只保留了一部分：</p>
-<pre class=" language-text"><code class="language-text"><% if (theme.socialLink.github) { %>
-    <a href="https://googolplex-c.github.io/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i></code></pre>
-<pre class=" language-text"><code class="language-text">    </a>
-<% } %></code></pre>
-<pre class=" language-text"><code class="language-text"><% if (config.feed && config.feed.path == 'atom.xml') { %>
-    <a href="<%- url_for('/atom.xml') %>" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i></code></pre>
-<pre class=" language-text"><code class="language-text">    </a>
-<% } %></code></pre>
 <h4 id="修改打赏的二位码"><a href="#修改打赏的二位码" class="headerlink" title="修改打赏的二位码"></a>修改打赏的二位码</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/medias/reward</code> 文件中替换即可。</p>
 <h4 id="修改-Favicon、Logo-和-Avatar"><a href="#修改-Favicon、Logo-和-Avatar" class="headerlink" title="修改 Favicon、Logo 和 Avatar"></a>修改 Favicon、Logo 和 Avatar</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/</code> 以及 <code>theme/hexo-theme-matery/source/medias</code> 目录中替换相应文件即可。</p>
 <h4 id="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）"><a href="#修改主题颜色（准确而言，应该是页首和页脚的颜色，banner-图的颜色是自己变化的）" class="headerlink" title="修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）"></a>修改主题颜色（准确而言，应该是页首和页脚的颜色，banner 图的颜色是自己变化的）</h4><p>修改主题颜色</p>
@@ -1867,7 +1822,7 @@ reprint:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">22k</span>
+                <span class="white-color">21.9k</span>
             
 
             
