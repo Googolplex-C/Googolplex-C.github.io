@@ -257,6 +257,19 @@
 </header>
 
 
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -416,14 +429,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        9.3k
+                        9.5k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        38 分
+                        39 分
                     </div>
                     
                 
@@ -974,8 +987,8 @@ prism_plugin:
                 <% if (theme.busuanziStatistics && theme.busuanziStatistics.totalNumberOfvisitors) { %>
                 <span id="busuanzi_container_site_uv">
                     <i class="fa fa-users"></i>
-                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
-                </span>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.</code></pre>
+<pre class=" language-text"><code class="language-text">                </span>
                 <% } %>
             <% } %>
         </div>
@@ -988,15 +1001,13 @@ prism_plugin:
 <p>笔者删除了许多链接，只保留了一部分：</p>
 <pre class=" language-text"><code class="language-text"><% if (theme.socialLink.github) { %>
     <a href="https://googolplex-c.github.io/" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fa fa-github"></i>
-    </a>
-<% } %>
-
-
-<% if (config.feed && config.feed.path == 'atom.xml') { %>
+        <i class="fa fa-github"></i></code></pre>
+<pre class=" language-text"><code class="language-text">    </a>
+<% } %></code></pre>
+<pre class=" language-text"><code class="language-text"><% if (config.feed && config.feed.path == 'atom.xml') { %>
     <a href="<%- url_for('/atom.xml') %>" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fa fa-rss"></i>
-    </a>
+        <i class="fa fa-rss"></i></code></pre>
+<pre class=" language-text"><code class="language-text">    </a>
 <% } %></code></pre>
 <h4 id="修改打赏的二位码"><a href="#修改打赏的二位码" class="headerlink" title="修改打赏的二位码"></a>修改打赏的二位码</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/medias/reward</code> 文件中替换即可。</p>
 <h4 id="修改-Favicon、Logo-和-Avatar"><a href="#修改-Favicon、Logo-和-Avatar" class="headerlink" title="修改 Favicon、Logo 和 Avatar"></a>修改 Favicon、Logo 和 Avatar</h4><p>在主题文件的 <code>theme/hexo-theme-matery/source/</code> 以及 <code>theme/hexo-theme-matery/source/medias</code> 目录中替换相应文件即可。</p>
@@ -1140,6 +1151,31 @@ mySkills:
     Sports:
       background: 'linear-gradient(to right, #43e97b 0%, #38f9d7 100%)'
       percent: 15%</code></pre>
+<h4 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h4><p>笔者使用的评论系统是 gitalk，该功能已经内置在主题当中，只须按照网上的教程进行配置即可：</p>
+<ol>
+<li><p>在 github 中申请一个 github application，<code>Authorization callback URL</code> 填写欲使用 gitalk 插件页面的域名；</p>
+</li>
+<li><p>生成成功之后，会生成 clientID 和 clientSecret；</p>
+</li>
+<li><p>在主题配置文件 <code>_config.yml</code> 中配置相应的选项</p>
+</li>
+</ol>
+<pre class=" language-yml"><code class="language-yml"># the Gitalk config，default disabled
+# Gitalk 评论模块的配置，默认为不激活
+gitalk:
+  enable: // 是否开启该模块
+  owner:  // gitalk 所使用的 repo 的拥有者
+  repo:  // gitalk 所使用的 repo 名
+  oauth:  // 刚刚第 1 步中生成的 clientID 和 clientSecret；
+    clientId:
+    clientSecret:
+  admin:  // gitalk 所使用的 repo 的管理者（有写权限的人）</code></pre>
+<ol start="4">
+<li><p>配置完成之后重新生成博客页面，进入随便一篇文章，底部会多出一个版块，第一次需要登陆 github 进行认证；</p>
+</li>
+<li><p>之后每一篇文章在第一次打开时（如果在开启本功能时文章就存在）或者创建之时，都会在设置的 github repo 下开启一个 issue，评论的内容就将记录在该 issue 下；</p>
+</li>
+</ol>
 <h3 id="其他功能的开启和设置（推荐文章、不蒜子统计等）"><a href="#其他功能的开启和设置（推荐文章、不蒜子统计等）" class="headerlink" title="其他功能的开启和设置（推荐文章、不蒜子统计等）"></a>其他功能的开启和设置（推荐文章、不蒜子统计等）</h3><pre class=" language-yml"><code class="language-yml"># Whether to display the musics.
 # 是否在首页显示音乐.
 music:
@@ -1234,7 +1270,7 @@ copyright:
 # 是否激活mathjax数学公式，这是全局配置，但文章仍然不会都开启mathjax渲染，
 # 考虑到mathjax加载比较耗时，你还需要在需要渲染的文章的Front-matter中再加上`mathjax: true`才行.
 mathjax:
-  enable: false
+  enable: true
   cdn: https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # Post word count, reading duration, site total word count.
@@ -1274,17 +1310,6 @@ myGallery:
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
 postCalendar: true
-
-# the Gitalk config，default disabled
-# Gitalk 评论模块的配置，默认为不激活
-gitalk:
-  enable: false
-  owner:
-  repo:
-  oauth:
-    clientId:
-    clientSecret:
-  admin:
 
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
@@ -1336,7 +1361,7 @@ githubLink:
 # 阅读文章的密码验证功能，如要使用此功能请激活该配置项，并在对应文章的Front-matter中写上'password'的键和加密后的密文即可.
 # 请注意：为了保证密码原文不会被泄露到网页中，文章的密码必须是通过'SHA256'加密的，这样就不会被破解.
 verifyPassword:
-  enable: false
+  enable: true
   promptMessage: 请输入访问本文章的密码
   errorMessage: 密码错误，将返回主页！
 
@@ -1842,7 +1867,7 @@ reprint:
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">21.7k</span>
+                <span class="white-color">22k</span>
             
 
             
