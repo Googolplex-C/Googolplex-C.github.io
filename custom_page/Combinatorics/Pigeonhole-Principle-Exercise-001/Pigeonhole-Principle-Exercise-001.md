@@ -135,6 +135,7 @@ $$
 
     另外，可知：
     $$
+    \lvert B_{i+1}^{} \rvert \geq 2 \\
     \lvert S_{i+1} \rvert \geq \lvert R_{j} \rvert + 2
     \label{thirteen}
     $$
@@ -201,6 +202,7 @@ $$
 
 另外，可知：
 $$
+\lvert B_{i+1}^{} \rvert \geq 2 \\
 \lvert S_{i+1} \rvert \geq \lvert R_{j} \rvert + 2
 \label{twenty}
 $$
