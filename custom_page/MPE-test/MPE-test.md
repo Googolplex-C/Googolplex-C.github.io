@@ -191,6 +191,11 @@ svg 动画：
 
 <img src="./pic.png" width = "300" height = "200" alt="图片名称" align="center"/>
 
+插入动态 webp：
+
+![魔方](./1.webp)
+
+
 测试目录：
 [TOC]
 

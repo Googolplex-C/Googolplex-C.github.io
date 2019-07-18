@@ -38,16 +38,37 @@ html:
 ###### Part 1 线性代数部分
 
 ```viz{align=center}
-strict digraph G {
-    a -> b
+strict  digraph G{
+//attribute_statement:
+//    ("graph" | "node" | "edge") *attribute_list*
+    graph[splines="ortho"]
+    node[shape="rect"]
+//node_statement:
+//    *node_id* *[attribute_list]*
+    a[label="线性方程组"]
+    b[label="向量空间"]
+    c[label="行列式"]
+    d[label="矩阵"]
+    e[label="线性空间"]
+    f[label="线性变换"]
+    g[label="若当标准型"]
+    h[label="双线性函数\n二次型"]
+    i[label="欧氏空间与酉空间"]
+    j[label="线性代数与分析、几何"]
 
-    subgraph F {
-        c
-    }
+//subgraph
+    
+//edge_statement:
+//    (*node_id* | *subgraph*) *edgeRHS* *[attribute_list]*
+    a -> b, c, d
+    b -> e -> h
+    d -> f -> g
+    g -> i -> j
+    f -> i -> j
+    d -> c
+    e -> f
+
 
 }
-
-
 ```
-
 
