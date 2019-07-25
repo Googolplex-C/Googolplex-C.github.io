@@ -1,0 +1,629 @@
+<!DOCTYPE html><html><head>
+      <title>Pigeonhole Principle Exercise 033</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h4 class="mume-header" id="title">Title</h4>
+
+<p>&#x6709; <span class="mathjax-exps">$9$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#xFF0C;&#x5176;&#x4E2D;&#x6BCF; <span class="mathjax-exps">$3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x81F3;&#x5C11;&#x6709; <span class="mathjax-exps">$2$</span> &#x4F4D;&#x4F1A;&#x8BF4;&#x540C;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x81F3;&#x591A;&#x4F1A;&#x8BF4; <span class="mathjax-exps">$3$</span> &#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x95EE;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x8BC1;&#x660E;&#xFF1A;&#x5B58;&#x5728;&#x67D0;&#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x5176;&#x81F3;&#x5C11;&#x88AB; <span class="mathjax-exps">$3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x638C;&#x63E1;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x5982;&#x679C;&#x5176;&#x5B83;&#x6761;&#x4EF6;&#x4E0D;&#x53D8;&#xFF0C;&#x6570;&#x5B66;&#x5BB6;&#x7684;&#x6570;&#x91CF;&#x53D8;&#x4E3A; <span class="mathjax-exps">$8$</span> &#x4EBA;&#xFF0C;&#x7ED3;&#x8BBA;&#x662F;&#x5426;&#x8FD8;&#x6210;&#x7ACB;&#xFF1F;</p>
+</li>
+</ol>
+<h4 class="mume-header" id="solution">Solution</h4>
+
+<h5 class="mume-header" id="agreement-of-signs">Agreement of Signs</h5>
+
+<p>&#x8BB0;&#x6570;&#x5B66;&#x5BB6;&#x7684;&#x96C6;&#x5408;&#x4E3A; <span class="mathjax-exps">$\{p_{1}^{}, p_{2}^{}, \dots, p_{9}^{}\}$</span>, &#x8BED;&#x8A00;&#x7684;&#x96C6;&#x5408;&#x4E3A; <span class="mathjax-exps">$\{l_{1}^{}, l_{2}^{}, \dots, l_{n}^{}\}$</span>&#xFF0C; &#x5171;&#x6709; <span class="mathjax-exps">$n$</span> &#x79CD;&#x8BED;&#x8A00;&#xFF1B;</p>
+<p>&#x79F0; &#x6570;&#x5B66;&#x5BB6; <span class="mathjax-exps">$p_{i}^{}$</span> &#x548C;&#x6570;&#x5B66;&#x5BB6; <span class="mathjax-exps">$p_{j}^{}$</span> &#x6709;&#x5171;&#x540C;&#x8BED;&#x8A00;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x5B58;&#x5728;&#x81F3;&#x5C11;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x88AB;&#x8FD9;&#x4E8C;&#x4EBA;&#x5171;&#x540C;&#x638C;&#x63E1;&#x3002;</p>
+<h5 class="mume-header" id="solution-to-question-1">Solution to Question 1</h5>
+
+<p>&#x8003;&#x8651;&#x547D;&#x9898;&#xFF1A;&#x4EFB;&#x610F;&#x4E24;&#x540D;&#x6570;&#x5B66;&#x5BB6;&#x90FD;&#x6709;&#x5171;&#x540C;&#x8BED;&#x8A00;&#x3002;</p>
+<ol>
+<li>
+<p>&#x82E5;&#x6B64;&#x547D;&#x9898;&#x6210;&#x7ACB;</p>
+<p>&#x5219;&#x4E0D;&#x59A8;&#x8BBE;&#x67D0;&#x4F4D;&#x6570;&#x5B66;&#x5BB6; <span class="mathjax-exps">$p_{1}^{}$</span> &#x638C;&#x63E1; <span class="mathjax-exps">$i$</span> &#x79CD;&#x8BED;&#x8A00; <span class="mathjax-exps">$\{l_{1}^{}, \dots, l_{i}^{}\}(1 \leq i \leq 3)$</span>, &#x4E8E;&#x662F;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6; <span class="mathjax-exps">$8$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#xFF0C;&#x4ED6;&#x4EEC;&#x90FD;&#x81F3;&#x5C11;&#x638C;&#x63E1; <span class="mathjax-exps">$\{l_{1}^{}, \dots, l_{i}^{}\}$</span> &#x8FD9; <span class="mathjax-exps">$i$</span> &#x79CD;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x4E00;&#x79CD;.</p>
+<p>&#x4E8E;&#x662F;&#x6839;&#x636E;&#x62BD;&#x5C49;&#x539F;&#x7406;&#xFF0C;&#x8FD9; <span class="mathjax-exps">$i$</span> &#x79CD;&#x8BED;&#x8A00;&#x4E2D;&#x5B58;&#x5728;&#x67D0;&#x79CD;&#x8BED;&#x8A00;&#xFF0C;&#x5728;&#x5269;&#x4E0B;&#x7684;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x88AB;&#x81F3;&#x5C11; <span class="mathjax-exps">$\lceil \frac{8}{i} \rceil \geq \lceil \frac{8}{3} \rceil = 3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x638C;&#x63E1;&#xFF1B;&#x518D;&#x7B97;&#x4E0A;&#x6570;&#x5B66;&#x5BB6; <span class="mathjax-exps">$p_{1}^{}$</span> &#x672C;&#x4EBA;&#xFF0C;&#x81F3;&#x5C11;&#x6709; <span class="mathjax-exps">$4$</span> &#x4EBA;&#x638C;&#x63E1;&#x4E86;&#x8FD9;&#x95E8;&#x8BED;&#x8A00;&#xFF0C;&#x4E8E;&#x662F;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E86;&#x6BD4;&#x6B32;&#x8BC1;&#x547D;&#x9898;&#x66F4;&#x5F3A;&#x7684;&#x7ED3;&#x8BBA;&#x3002;</p>
+</li>
+<li>
+<p>&#x82E5;&#x6B64;&#x547D;&#x9898;&#x4E0D;&#x6210;&#x7ACB;</p>
+<p>&#x5219;&#x4E0D;&#x59A8;&#x5047;&#x8BBE;&#x5B58;&#x5728;&#x4E24;&#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#xFF0C;&#x8BB0;&#x4F5C; <span class="mathjax-exps">$p_{1}^{}$</span> &#x548C; <span class="mathjax-exps">$p_{2}^{}$</span> &#xFF0C;&#x4ED6;&#x4EEC;&#x6CA1;&#x6709;&#x5171;&#x540C;&#x8BED;&#x8A00;&#xFF0C;&#x4ED6;&#x4EEC;&#x5404;&#x81EA;&#x638C;&#x63E1;&#x7684;&#x8BED;&#x8A00;&#x7684;&#x96C6;&#x5408;&#x8BB0;&#x4F5C; <span class="mathjax-exps">$L_{1}^{}$</span> &#x548C; <span class="mathjax-exps">$L_{2}^{}$</span>.</p>
+<p><strong>&#x6CE8;&#x610F;&#x6B64;&#x4E8C;&#x4EBA;&#x6CA1;&#x6709;&#x5171;&#x540C;&#x8BED;&#x8A00;</strong>&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x6709;</p>
+<p></p><div class="mathjax-exps">$$L_1 \cap L_2 = \varnothing \\  2 \leq \lvert L_1 \cup L_2 \rvert = \lvert L_1 \rvert + \lvert L_2 \rvert \leq 6$$</div><p></p>
+<p>&#x800C;&#x6B64;&#x65F6;&#x9664;&#x4E86;&#x6B64;&#x4E8C;&#x4EBA;&#x4E4B;&#x5916;&#xFF0C;&#x53E6;&#x5916;&#x8FD8;&#x6709; <span class="mathjax-exps">$7$</span> &#x540D;&#x6570;&#x5B66;&#x5BB6;&#xFF1B;&#x5269;&#x4E0B;&#x7684;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4F4D;&#x90FD;&#x5FC5;&#x987B;&#x638C;&#x63E1; <span class="mathjax-exps">$L_1 \cup L_2$</span> &#x4E2D;&#x7684;<strong>&#x81F3;&#x5C11;</strong>&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x4E0E;&#x6761;&#x4EF6; &#x201C;&#x6BCF; <span class="mathjax-exps">$3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x81F3;&#x5C11;&#x6709; <span class="mathjax-exps">$2$</span> &#x4F4D;&#x4F1A;&#x8BF4;&#x540C;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#x201D; &#x77DB;&#x76FE;&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#x5230; <span class="mathjax-exps">$7 &gt; 6 \geq \lvert L_1 \cup L_2 \rvert$</span>, &#x7531;&#x62BD;&#x5C49;&#x539F;&#x7406;&#x53EF;&#x77E5;&#xFF0C;&#x5FC5;&#x5B9A;&#x6709;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x88AB;&#xFF08;&#x5269;&#x4E0B;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x7684;&#xFF09;&#x81F3;&#x5C11; <span class="mathjax-exps">$2$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x638C;&#x63E1;&#xFF1B;&#x518D;&#x7B97;&#x4E0A; <span class="mathjax-exps">$p_{1}^{}$</span> &#x6216; <span class="mathjax-exps">$p_{2}^{}$</span> &#x4E2D;&#x4E4B;&#x4E00;&#x81EA;&#x8EAB;
+&#xFF0C;&#x8BE5;&#x8BED;&#x8A00;&#x81F3;&#x5C11;&#x6709; <span class="mathjax-exps">$3$</span> &#x4EBA;&#x638C;&#x63E1;&#x3002;</p>
+</li>
+</ol>
+<p>&#x7EFC;&#x5408;&#x4EE5;&#x4E0A;&#x8BA8;&#x8BBA;&#xFF0C;&#x547D;&#x9898;&#x5F97;&#x8BC1;&#x3002;</p>
+<p align="right">Q.E.D.</p>
+<h5 class="mume-header" id="solution-to-question-2">Solution to Question 2</h5>
+
+<p>&#x6B64;&#x65F6;&#x7ED3;&#x8BBA;&#x4E0D;&#x6210;&#x7ACB;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5B57;&#x6BCD;&#x8868;&#x793A;&#x6570;&#x5B66;&#x5BB6;&#xFF0C;&#x6574;&#x6570;&#x8868;&#x793A;&#x8BED;&#x8A00;&#xFF1B;&#x5B57;&#x6BCD;&#x4E0E;&#x6574;&#x6570;&#x95F4;&#x5B58;&#x5728;&#x8FDE;&#x7EBF;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x8BE5;&#x5B57;&#x6BCD;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x6570;&#x5B66;&#x5BB6;&#x638C;&#x63E1;&#x8BE5;&#x6574;&#x6570;&#x8868;&#x793A;&#x7684;&#x90A3;&#x79CD;&#x8BED;&#x8A00;&#x3002;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="422pt" height="260pt" viewBox="0.00 0.00 422.00 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 418,-256 418,4 -4,4"/>
+<!-- A -->
+<g id="node1" class="node">
+<title>A</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">A</text>
+</g>
+<!-- 1 -->
+<g id="node2" class="node">
+<title>1</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">1</text>
+</g>
+<!-- A&#45;&#45;1 -->
+<g id="edge1" class="edge">
+<title>A--1</title>
+<path fill="none" stroke="#000000" d="M83.7307,-218.7307C71.512,-206.512 54.4602,-189.4602 42.2473,-177.2473"/>
+</g>
+<!-- 2 -->
+<g id="node3" class="node">
+<title>2</title>
+<ellipse fill="none" stroke="#000000" cx="171" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">2</text>
+</g>
+<!-- A&#45;&#45;2 -->
+<g id="edge2" class="edge">
+<title>A--2</title>
+<path fill="none" stroke="#000000" d="M114.2693,-218.7307C126.488,-206.512 143.5398,-189.4602 155.7527,-177.2473"/>
+</g>
+<!-- 3 -->
+<g id="node4" class="node">
+<title>3</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">3</text>
+</g>
+<!-- A&#45;&#45;3 -->
+<g id="edge3" class="edge">
+<title>A--3</title>
+<path fill="none" stroke="#000000" d="M99,-215.8314C99,-205 99,-191.2876 99,-180.4133"/>
+</g>
+<!-- B -->
+<g id="node5" class="node">
+<title>B</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">B</text>
+</g>
+<!-- 1&#45;&#45;B -->
+<g id="edge4" class="edge">
+<title>1--B</title>
+<path fill="none" stroke="#000000" d="M27,-143.8314C27,-133 27,-119.2876 27,-108.4133"/>
+</g>
+<!-- C -->
+<g id="node6" class="node">
+<title>C</title>
+<ellipse fill="none" stroke="#000000" cx="171" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">C</text>
+</g>
+<!-- 2&#45;&#45;C -->
+<g id="edge5" class="edge">
+<title>2--C</title>
+<path fill="none" stroke="#000000" d="M171,-143.8314C171,-133 171,-119.2876 171,-108.4133"/>
+</g>
+<!-- D -->
+<g id="node7" class="node">
+<title>D</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">D</text>
+</g>
+<!-- 3&#45;&#45;D -->
+<g id="edge6" class="edge">
+<title>3--D</title>
+<path fill="none" stroke="#000000" d="M99,-143.8314C99,-133 99,-119.2876 99,-108.4133"/>
+</g>
+<!-- 4 -->
+<g id="node8" class="node">
+<title>4</title>
+<ellipse fill="none" stroke="#000000" cx="27" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="27" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">4</text>
+</g>
+<!-- B&#45;&#45;4 -->
+<g id="edge7" class="edge">
+<title>B--4</title>
+<path fill="none" stroke="#000000" d="M27,-71.8314C27,-61 27,-47.2876 27,-36.4133"/>
+</g>
+<!-- 5 -->
+<g id="node9" class="node">
+<title>5</title>
+<ellipse fill="none" stroke="#000000" cx="99" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="99" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">5</text>
+</g>
+<!-- B&#45;&#45;5 -->
+<g id="edge8" class="edge">
+<title>B--5</title>
+<path fill="none" stroke="#000000" d="M42.2693,-74.7307C54.488,-62.512 71.5398,-45.4602 83.7527,-33.2473"/>
+</g>
+<!-- C&#45;&#45;5 -->
+<g id="edge9" class="edge">
+<title>C--5</title>
+<path fill="none" stroke="#000000" d="M155.7307,-74.7307C143.512,-62.512 126.4602,-45.4602 114.2473,-33.2473"/>
+</g>
+<!-- 6 -->
+<g id="node10" class="node">
+<title>6</title>
+<ellipse fill="none" stroke="#000000" cx="171" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="171" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">6</text>
+</g>
+<!-- C&#45;&#45;6 -->
+<g id="edge10" class="edge">
+<title>C--6</title>
+<path fill="none" stroke="#000000" d="M171,-71.8314C171,-61 171,-47.2876 171,-36.4133"/>
+</g>
+<!-- D&#45;&#45;4 -->
+<g id="edge11" class="edge">
+<title>D--4</title>
+<path fill="none" stroke="#000000" d="M83.7307,-74.7307C71.512,-62.512 54.4602,-45.4602 42.2473,-33.2473"/>
+</g>
+<!-- D&#45;&#45;6 -->
+<g id="edge12" class="edge">
+<title>D--6</title>
+<path fill="none" stroke="#000000" d="M114.2693,-74.7307C126.488,-62.512 143.5398,-45.4602 155.7527,-33.2473"/>
+</g>
+<!-- E -->
+<g id="node11" class="node">
+<title>E</title>
+<ellipse fill="none" stroke="#000000" cx="315" cy="-234" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">E</text>
+</g>
+<!-- 7 -->
+<g id="node12" class="node">
+<title>7</title>
+<ellipse fill="none" stroke="#000000" cx="243" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="243" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">7</text>
+</g>
+<!-- E&#45;&#45;7 -->
+<g id="edge13" class="edge">
+<title>E--7</title>
+<path fill="none" stroke="#000000" d="M299.7307,-218.7307C287.512,-206.512 270.4602,-189.4602 258.2473,-177.2473"/>
+</g>
+<!-- 8 -->
+<g id="node13" class="node">
+<title>8</title>
+<ellipse fill="none" stroke="#000000" cx="387" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="387" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">8</text>
+</g>
+<!-- E&#45;&#45;8 -->
+<g id="edge14" class="edge">
+<title>E--8</title>
+<path fill="none" stroke="#000000" d="M330.2693,-218.7307C342.488,-206.512 359.5398,-189.4602 371.7527,-177.2473"/>
+</g>
+<!-- 9 -->
+<g id="node14" class="node">
+<title>9</title>
+<ellipse fill="none" stroke="#000000" cx="315" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">9</text>
+</g>
+<!-- E&#45;&#45;9 -->
+<g id="edge15" class="edge">
+<title>E--9</title>
+<path fill="none" stroke="#000000" d="M315,-215.8314C315,-205 315,-191.2876 315,-180.4133"/>
+</g>
+<!-- F -->
+<g id="node15" class="node">
+<title>F</title>
+<ellipse fill="none" stroke="#000000" cx="243" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="243" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">F</text>
+</g>
+<!-- 7&#45;&#45;F -->
+<g id="edge16" class="edge">
+<title>7--F</title>
+<path fill="none" stroke="#000000" d="M243,-143.8314C243,-133 243,-119.2876 243,-108.4133"/>
+</g>
+<!-- G -->
+<g id="node16" class="node">
+<title>G</title>
+<ellipse fill="none" stroke="#000000" cx="387" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="387" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">G</text>
+</g>
+<!-- 8&#45;&#45;G -->
+<g id="edge17" class="edge">
+<title>8--G</title>
+<path fill="none" stroke="#000000" d="M387,-143.8314C387,-133 387,-119.2876 387,-108.4133"/>
+</g>
+<!-- H -->
+<g id="node17" class="node">
+<title>H</title>
+<ellipse fill="none" stroke="#000000" cx="315" cy="-90" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">H</text>
+</g>
+<!-- 9&#45;&#45;H -->
+<g id="edge18" class="edge">
+<title>9--H</title>
+<path fill="none" stroke="#000000" d="M315,-143.8314C315,-133 315,-119.2876 315,-108.4133"/>
+</g>
+<!-- 10 -->
+<g id="node18" class="node">
+<title>10</title>
+<ellipse fill="none" stroke="#000000" cx="243" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="243" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">10</text>
+</g>
+<!-- F&#45;&#45;10 -->
+<g id="edge19" class="edge">
+<title>F--10</title>
+<path fill="none" stroke="#000000" d="M243,-71.8314C243,-61 243,-47.2876 243,-36.4133"/>
+</g>
+<!-- 11 -->
+<g id="node19" class="node">
+<title>11</title>
+<ellipse fill="none" stroke="#000000" cx="315" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="315" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">11</text>
+</g>
+<!-- F&#45;&#45;11 -->
+<g id="edge20" class="edge">
+<title>F--11</title>
+<path fill="none" stroke="#000000" d="M258.2693,-74.7307C270.488,-62.512 287.5398,-45.4602 299.7527,-33.2473"/>
+</g>
+<!-- G&#45;&#45;11 -->
+<g id="edge21" class="edge">
+<title>G--11</title>
+<path fill="none" stroke="#000000" d="M371.7307,-74.7307C359.512,-62.512 342.4602,-45.4602 330.2473,-33.2473"/>
+</g>
+<!-- 12 -->
+<g id="node20" class="node">
+<title>12</title>
+<ellipse fill="none" stroke="#000000" cx="387" cy="-18" rx="27" ry="18"/>
+<text text-anchor="middle" x="387" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">12</text>
+</g>
+<!-- G&#45;&#45;12 -->
+<g id="edge22" class="edge">
+<title>G--12</title>
+<path fill="none" stroke="#000000" d="M387,-71.8314C387,-61 387,-47.2876 387,-36.4133"/>
+</g>
+<!-- H&#45;&#45;10 -->
+<g id="edge23" class="edge">
+<title>H--10</title>
+<path fill="none" stroke="#000000" d="M299.7307,-74.7307C287.512,-62.512 270.4602,-45.4602 258.2473,-33.2473"/>
+</g>
+<!-- H&#45;&#45;12 -->
+<g id="edge24" class="edge">
+<title>H--12</title>
+<path fill="none" stroke="#000000" d="M330.2693,-74.7307C342.488,-62.512 359.5398,-45.4602 371.7527,-33.2473"/>
+</g>
+</g>
+</svg>
+</p><p>&#x53EF;&#x4EE5;&#x9A8C;&#x8BC1;&#xFF1A;&#x8FD9;&#x4E2A;&#x6784;&#x9020; &#x201C;&#x521A;&#x521A;&#x597D;&#x201D; &#x5730;&#x4F7F;&#x5F97;&#x7ED3;&#x8BBA;&#x4E0D;&#x6210;&#x7ACB;</p>
+<ol>
+<li>
+<p>&#x6BCF;&#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x90FD;&#x6070;&#x597D;&#x638C;&#x63E1; <span class="mathjax-exps">$3$</span> &#x95E8;&#x8BED;&#x8A00;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x6BCF; <span class="mathjax-exps">$3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x4E2D;&#x81F3;&#x5C11;&#x6709; <span class="mathjax-exps">$2$</span> &#x4F4D;&#x4F1A;&#x8BF4;&#x540C;&#x4E00;&#x79CD;&#x8BED;&#x8A00;&#xFF1A;</p>
+<ul>
+<li>
+<p>&#x8FD9;&#x4E2A;&#x6027;&#x8D28;&#x7684;&#x8BBA;&#x8BC1;&#x53EF;&#x4EE5;&#x53D9;&#x8FF0;&#x5982;&#x4E0B;&#xFF1A;</p>
+</li>
+<li>
+<p>&#x6CE8;&#x610F;&#x5230;&#xFF1A;&#x4E0A;&#x56FE;&#x662F;&#x7531;&#x4E24;&#x4E2A;&#x6781;&#x5927;&#x8FDE;&#x901A;&#x5B50;&#x56FE;&#x6784;&#x6210;&#x7684;&#x56FE;&#x3002;&#x4EFB;&#x9009; <span class="mathjax-exps">$3$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#xFF0C;&#x6839;&#x636E;&#x62BD;&#x5C49;&#x539F;&#x7406;&#x53EF;&#x77E5;&#xFF0C;&#x5176;&#x4E2D;&#x5FC5;&#x6709;&#x4E24;&#x4F4D;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x91CF;&#x4E2D;&#xFF1B;&#x800C;&#x5904;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x8FDE;&#x901A;&#x5206;&#x91CF;&#x7684;&#x4EFB;&#x610F;&#x4E24;&#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x90FD;<strong>&#x6070;&#x597D;</strong>&#x6709;&#x4E00;&#x95E8;&#x5171;&#x540C;&#x8BED;&#x8A00;&#xFF1B;&#x56E0;&#x6B64;&#xFF0C;&#x9898;&#x8BBE;&#x7684;&#x6761;&#x4EF6;&#x5F97;&#x5230;&#x6EE1;&#x8DB3;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>&#x6BCF;&#x79CD;&#x8BED;&#x8A00;&#x90FD;<strong>&#x6070;&#x597D;</strong>&#x88AB; <span class="mathjax-exps">$2$</span> &#x4F4D;&#x6570;&#x5B66;&#x5BB6;&#x638C;&#x63E1;&#x3002;</p>
+</li>
+</ol>
+<h4 class="mume-header" id="note">Note</h4>
+
+<p>&#x7B14;&#x8005;&#x5728;&#x78B0;&#x89C1;&#x672C;&#x95EE;&#x9898;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7CBE;&#x795E;&#x72B6;&#x6001;&#x4E0D;&#x592A;&#x597D;&#xFF0C;&#x80FD;&#x72EC;&#x7ACB;&#x505A;&#x51FA;&#x8FD9;&#x4E2A; solution&#xFF0C;&#x4E00;&#x90E8;&#x5206;&#x771F;&#x662F;&#x7075;&#x611F;&#x548C;&#x8FD0;&#x6C14;&#x7684;&#x529F;&#x52B3;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x6B64;&#x95EE;&#x9898;&#x8C8C;&#x4F3C;&#x8FD8;&#x6709;&#x53E6;&#x89E3;&#xFF0C;&#x65E5;&#x540E;&#x53EF;&#x80FD;&#x7EE7;&#x7EED;&#x8865;&#x4E0A;&#x3002;</p>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#title"> Title</a></li>
+<li><a href="#solution"> Solution</a>
+<ul>
+<li><a href="#agreement-of-signs"> Agreement of Signs</a></li>
+<li><a href="#solution-to-question-1"> Solution to Question 1</a></li>
+<li><a href="#solution-to-question-2"> Solution to Question 2</a></li>
+</ul>
+</li>
+<li><a href="#note"> Note</a></li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
