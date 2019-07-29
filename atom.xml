@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://googolplex-c.github.io/"/>
-  <updated>2019-07-03T03:50:30.320Z</updated>
+  <updated>2019-07-29T22:14:11.165Z</updated>
   <id>https://googolplex-c.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Image Processing and Computer Graphics</title>
+    <link href="https://googolplex-c.github.io/posts/Image-Processing-and-Computer-Graphics.html"/>
+    <id>https://googolplex-c.github.io/posts/Image-Processing-and-Computer-Graphics.html</id>
+    <published>2019-07-29T12:35:27.000Z</published>
+    <updated>2019-07-29T22:14:11.165Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p align=&quot;center&quot;&gt;本文内容的真正记录位置在笔者生成上传的自定义页面中，此页面仅用于展示该学科的整体框架，同时提供具体内容入口链接；本页面以及自定义页内容将长期更新&lt;/p&gt;
+
+&lt;p&gt;本文的链接按照时间顺序排序。&lt;/p&gt;
+&lt;h4 id=&quot;前置数学基础&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="图形与图像" scheme="https://googolplex-c.github.io/categories/%E5%9B%BE%E5%BD%A2%E4%B8%8E%E5%9B%BE%E5%83%8F/"/>
+    
+    
+      <category term="计算机图形学" scheme="https://googolplex-c.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
+    
+      <category term="数字图像处理" scheme="https://googolplex-c.github.io/tags/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>Advanced Algebra: Notes and Problem Set</title>
