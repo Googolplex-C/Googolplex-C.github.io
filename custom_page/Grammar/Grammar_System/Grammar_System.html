@@ -1,0 +1,1594 @@
+<!DOCTYPE html><html><head>
+      <title>&#x8BED;&#x6CD5;&#x4F53;&#x7CFB;&#x6982;&#x8BBA;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E5%85%83%E8%AF%AD%E8%A8%80%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80">&#x5143;&#x8BED;&#x8A00;&#x4E0E;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;</h1>
+
+<p>&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6BCD;&#x8BED;&#x662F;&#x6C49;&#x8BED;&#x7684;&#x4EBA;&#xFF0C;&#x5728;&#x5B66;&#x4E60;&#x82F1;&#x8BED;&#x8BED;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5143;&#x8BED;&#x8A00;&#x81EA;&#x7136;&#x662F;&#x6C49;&#x8BED;&#xFF0C;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x81EA;&#x7136;&#x662F;&#x82F1;&#x8BED;</p>
+<p>&#x53E6;&#x5916;&#xFF0C;&#x6709;&#x5FC5;&#x8981;&#x5206;&#x6E05; &#x201C;&#x7814;&#x7A76;&#x672F;&#x8BED;&#x201D; &#x548C; &#x201C;&#x5177;&#x4F53;&#x8BED;&#x8A00;&#x9879;&#x201D; &#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#xFF1B;</p>
+<ul>
+<li>
+<p>&#x524D;&#x8005;&#x662F;&#x5728;&#x5143;&#x8BED;&#x8A00;&#x4E2D;&#x5BF9;&#x4E8E;&#x540E;&#x8005;&#x7684;&#x79F0;&#x547C;</p>
+</li>
+<li>
+<p>&#x540E;&#x8005;&#x662F;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x5177;&#x4F53;&#x7684;&#x4F53;&#x73B0;</p>
+</li>
+</ul>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>she&apos;s a bitch.</p>
+<p>&#x8FD9;&#x91CC; &quot;she&quot; &#x8FD9;&#x4E2A;&#x5355;&#x8BCD;&#x5C31;&#x662F;&#x5177;&#x4F53;&#x7684;&#x8BED;&#x8A00;&#x9879;&#xFF0C;&#x800C;&#x5728;&#x7814;&#x7A76;&#x8BED;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;she &#x662F;&#x4E2A;&#x4EE3;&#x8BCD;&#xFF0C;&#x5728;&#x53E5;&#x5B50;&#x4E2D;&#x4F5C;&#x4E3A;&#x4E3B;&#x8BED;&#xFF1B;&#x201C;&#x4EE3;&#x8BCD;&#x201D;&#xFF0C;&#x201C;&#x4E3B;&#x8BED;&#x201D; &#x5C31;&#x662F;&#x672F;&#x8BED;</p>
+<p>&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x8BED;&#x8A00;&#x9879;&#x88AB;&#x79F0;&#x4E4B;&#x4E3A;&#x672F;&#x8BED;&#x7684; <strong>&#x5B9E;&#x73B0; (realization)</strong></p>
+<p>&#x53EF;&#x4EE5;&#x501F;&#x52A9;&#x4E00;&#x9636;&#x903B;&#x8F91;&#x8BED;&#x8A00;&#x548C;&#x5176;&#x5177;&#x4F53;&#x7684;&#x6A21;&#x578B;&#x6765;&#x7406;&#x89E3;&#x5B83;&#x4EEC;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<h1 class="mume-header" id="%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B1%82%E6%AC%A1%E6%80%A7">&#x8BED;&#x8A00;&#x7684;&#x5C42;&#x6B21;&#x6027;</h1>
+
+<h2 class="mume-header" id="%E5%B1%82%E6%AC%A1%E6%80%A7">&#x5C42;&#x6B21;&#x6027;</h2>
+
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6682;&#x4E14;&#x5FFD;&#x7565;&#x8BED;&#x8A00;&#x7684;&#x5177;&#x4F53;&#x8868;&#x610F;&#xFF0C;&#x53EA;&#x4ECE;&#x5F62;&#x5F0F;&#x4E0E;&#x7ED3;&#x6784;&#x4E0A;&#x8003;&#x8651;&#x5B83;&#x4EEC;&#x7684;&#x7EC4;&#x6210;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5F88;&#x660E;&#x786E;&#x5730;&#x770B;&#x5230;&#xFF0C;&#x8BED;&#x8A00;&#x7684;&#x6784;&#x6210;&#x662F;&#x5177;&#x6709;&#x5C42;&#x6B21;&#x6027;&#x7684;&#x2014;&#x2014;&#x4F4D;&#x4E8E;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#x7684;&#x8BED;&#x8A00; &#x201C;&#x7D20;&#x6750;&#x201D; &#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x5EFA;&#x6784;&#x8D77;&#x4E86;&#x6211;&#x4EEC;&#x5E73;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x8BED;&#x8A00;&#xFF1B;&#x9664;&#x4E86;&#x6700;&#x5E95;&#x5C42;&#x548C;&#x6700;&#x9AD8;&#x5C42;&#x7684;&#x5BF9;&#x8C61;&#x4E4B;&#x5916;&#xFF0C;&#x4F4D;&#x4E8E;&#x5176;&#x4ED6;&#x5C42;&#x7EA7;&#x7684; &#x201C;&#x7D20;&#x6750;&#x201D; &#x4E00;&#x65B9;&#x9762;&#x6784;&#x5EFA;&#x8D77;&#x4E86;&#x4F4D;&#x4E8E;&#x5176;&#x4E4B;&#x4E0A;&#x7684;&#x5C42;&#x7EA7;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x4E5F;&#x7531;&#x66F4;&#x5E95;&#x5C42;&#x7684;&#x8BED;&#x8A00; &#x201C;&#x7D20;&#x6750;&#x201D; &#x5EFA;&#x6784;&#x800C;&#x6210;&#x3002;</p>
+<p>&#x5C42;&#x6B21;&#x6027;&#x662F;&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;&#x3002;</p>
+<h2 class="mume-header" id="%E8%AF%AD%E6%B3%95%E5%8D%95%E4%BD%8D%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%B1%82%E7%BA%A7">&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E0E;&#x8BED;&#x8A00;&#x5C42;&#x7EA7;</h2>
+
+<h3 class="mume-header" id="%E6%A6%82%E5%BF%B5">&#x6982;&#x5FF5;</h3>
+
+<dl>
+<dt>&#x8BED;&#x6CD5;&#x5355;&#x4F4D;</dt>
+<dd>&#x5982;&#x4E0A;&#x4E00;&#x5C0F;&#x8282;&#x6240;&#x8FF0;&#xFF0C;&#x8FD9;&#x4E9B;&#x4F4D;&#x4E8E;&#x4E0D;&#x540C;&#x5C42;&#x7EA7;&#x4E0A;&#x6784;&#x6210;&#x4E00;&#x95E8;&#x5B8C;&#x6574;&#x7684;&#x8BED;&#x8A00;&#x7684; &#x201C;&#x7D20;&#x6750;&#x201D; &#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A; <strong>&#x8BED;&#x6CD5;&#x5355;&#x4F4D;</strong></dd>
+<dt>&#x8BED;&#x8A00;&#x5C42;&#x7EA7;</dt>
+<dd>&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x6240;&#x5904;&#x7684;&#x5C42;&#x7EA7;&#x79F0;&#x4E4B;&#x4E3A;<strong>&#x8BED;&#x8A00;&#x5C42;&#x7EA7;</strong></dd>
+</dl>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E0D;&#x662F;&#x7279;&#x6307;&#x67D0;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x67D0;&#x51E0;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x53E5;&#x5B50;&#x3001;&#x5355;&#x8BCD;&#x6216;&#x8005;&#x77ED;&#x8BED;&#xFF0C;<strong>&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x672F;&#x8BED;</strong>&#x3002;&#x6211;&#x4EEC;&#x5728;&#x63D0;&#x53CA;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x51E0;&#x4E4E;&#x603B;&#x662F;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x5730;&#x8981;&#x548C;&#x8981;&#x4E0E;&#x8BED;&#x6CD5;&#x5C42;&#x6B21;&#x7ED3;&#x5408;&#x8D77;&#x6765;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x5728;&#x8FDB;&#x884C;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x7279;&#x6307;&#x7684;&#x67D0;&#x4E2A;&#x53E5;&#x5B50;&#x3001;&#x67D0;&#x4E2A;&#x5355;&#x8BCD;&#x7B49;&#x79F0;&#x4F5C;&#x67D0;&#x67D0;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF08;&#x6216;&#x8005;&#x8BF4; <strong>&#x4F5C;&#x4E3A;</strong>&#x67D0;&#x67D0;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF09;</p>
+<h3 class="mume-header" id="%E5%85%B7%E4%BD%93%E5%A4%96%E5%BB%B6">&#x5177;&#x4F53;&#x5916;&#x5EF6;</h3>
+
+<p>&#x6309;&#x7167;&#x4ECE;&#x5E95;&#x5C42;&#x81F3;&#x9AD8;&#x5C42;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x8BED;&#x8A00;&#x5C42;&#x6B21;&#x53EF;&#x4EE5;&#x4F5C;&#x4EE5;&#x4E0B;&#x5212;&#x5206;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x8BCD;&#x7D20; morpheme</p>
+</li>
+<li>
+<p>&#x8BCD; word</p>
+</li>
+<li>
+<p>&#x8BCD;&#x7EC4; pharse
+// &#x6709;&#x65F6;&#x4E5F;&#x79F0;&#x77ED;&#x8BED;</p>
+</li>
+<li>
+<p>&#x5206;&#x53E5; clause</p>
+</li>
+<li>
+<p>&#x53E5;&#x5B50; sentence</p>
+</li>
+<li>
+<p>&#x8BED;&#x6BB5; sentence group</p>
+</li>
+<li>
+<p>&#x8BED;&#x7BC7; text</p>
+</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#xFF0C;1 - 5 &#x662F;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x5C42;&#x6B21;&#x5212;&#x5206;&#xFF0C;5 - 7 &#x662F;&#x8BED;&#x7BC7;&#x7ED3;&#x6784;&#x4E0A;&#x7684;&#x5C42;&#x6B21;&#x5212;&#x5206;&#xFF0C;&#x53E5;&#x5B50;&#x662F;&#x8FDE;&#x63A5;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;&#x548C;&#x8BED;&#x7BC7;&#x7ED3;&#x6784;&#x7684;&#x6865;&#x6881;&#x3002;</p>
+<h3 class="mume-header" id="%E5%B1%82%E7%BA%A7%E9%A1%BA%E5%BA%8F%E7%9A%84%E7%A1%AE%E5%AE%9A">&#x5C42;&#x7EA7;&#x987A;&#x5E8F;&#x7684;&#x786E;&#x5B9A;</h3>
+
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4ED4;&#x7EC6;&#x8003;&#x8651;&#x4E00;&#x4E0B;&#xFF0C;&#x5176;&#x5B9E;&#x53EF;&#x80FD;&#x4F1A;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x7591;&#x95EE;&#xFF1A;&#x8BED;&#x8A00;&#x5C42;&#x7EA7;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x5982;&#x4F55;&#x786E;&#x5B9A;&#x7684;&#xFF1F;&#x6BD4;&#x5982;&#xFF0C;&#x51ED;&#x4EC0;&#x4E48;&#x5C31;&#x8BF4;&#x53E5;&#x5B50;&#x7684;&#x5C42;&#x7EA7;&#x4F4D;&#x4E8E;&#x8BCD;&#x7EC4;&#x4E4B;&#x4E0A;&#xFF1F;</p>
+<p>&#x6216;&#x8BB8;&#x6709;&#x4E00;&#x79CD;&#x89C2;&#x70B9;&#x662F;&#xFF1A;&#x56E0;&#x4E3A;&#x9AD8;&#x5C42;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x8F83;&#x4F4E;&#x5C42;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x3002;&#x4F46;&#x662F;&#x8003;&#x8651;&#x5230; <strong>&#x5305;&#x5B55;&#x5173;&#x7CFB;</strong> &#x7684;&#x5B58;&#x5728;&#xFF0C;&#x8FD9;&#x79CD;&#x8BF4;&#x6CD5;&#x597D;&#x50CF;&#x4E5F;&#x7565;&#x6709;&#x7455;&#x75B5;&#x3002;</p>
+<p>&#x7B14;&#x8005;&#x8BA4;&#x4E3A;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5;&#x6309;&#x7167;&#x8FD9;&#x6837;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x5929;&#x7136;&#x5177;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x76F4;&#x89C9;&#x2026;&#x2026;&#x5C31;&#x597D;&#x6BD4;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x627F;&#x8BA4;&#x903B;&#x8F91;&#x5B66;&#x4E2D;&#x90A3;&#x51E0;&#x4E2A;&#x6700;&#x57FA;&#x672C;&#x7684;&#x89C4;&#x5F8B;&#xFF1A;&#x540C;&#x4E00;&#x5F8B;&#x3001;&#x65E0;&#x77DB;&#x76FE;&#x5F8B;&#x7B49;&#x7B49;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x90A3;&#x6837;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x77E5;&#x9053;&#x6211;&#x4EEC;&#x662F;&#x5982;&#x4F55;&#x77E5;&#x9053;&#x7684;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x77E5;&#x9053;&#x3002;</p>
+<h1 class="mume-header" id="%E8%AF%AD%E6%B3%95%E5%8D%95%E4%BD%8D%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</h1>
+
+<h2 class="mume-header" id="%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB">&#x6784;&#x6210;&#x5173;&#x7CFB;</h2>
+
+<h3 class="mume-header" id="%E6%A6%82%E5%BF%B5%E5%86%85%E6%B6%B5">&#x6982;&#x5FF5;&#x5185;&#x6DB5;</h3>
+
+<dl>
+<dt>&#x6784;&#x6210;&#x5173;&#x7CFB;</dt>
+<dd>&#x67D0;&#x4E2A;&#x5C42;&#x7EA7;&#x4E0A;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x548C;&#x6784;&#x6210;&#x5B83;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x79F0;&#x4E4B;&#x4E3A; <strong>&#x6784;&#x6210;&#x5173;&#x7CFB;</strong></dd>
+<dt>&#x6784;&#x6210;&#x6210;&#x5206;</dt>
+<dd>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x6784;&#x6210;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF0C;&#x90A3;&#x4E48;&#x524D;&#x8005;&#x662F;&#x540E;&#x8005;&#x7684; <strong>&#x6784;&#x6210;&#x6210;&#x5206;</strong></dd>
+<dt>&#x76F4;&#x63A5;&#x6784;&#x6210;&#x5173;&#x7CFB;</dt>
+<dd>&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D; A &#x6784;&#x6210;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D; B&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x5B58;&#x5728;&#x7B2C;&#x4E09;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D; C &#x4F7F;&#x5F97; A &#x6784;&#x6210; C &#x7684;&#x540C;&#x65F6; C &#x6784;&#x6210; B&#xFF0C;&#x90A3;&#x4E48; A &#x5C31;&#x4E0E; B &#x6709;&#x76F4;&#x63A5;&#x6784;&#x6210;&#x5173;&#x7CFB;&#xFF0C;&#x6216;&#x79F0; A &#x76F4;&#x63A5;&#x6784;&#x6210; B</dd>
+<dt>&#x76F4;&#x63A5;&#x6784;&#x6210;&#x6210;&#x5206;</dt>
+<dd>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x76F4;&#x63A5;&#x6784;&#x6210;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF0C;&#x90A3;&#x4E48;&#x524D;&#x8005;&#x662F;&#x540E;&#x8005;&#x7684; <strong>&#x76F4;&#x63A5;&#x6784;&#x6210;&#x6210;&#x5206;</strong></dd>
+<dt>&#x5355;&#x72EC;&#x6784;&#x6210;&#x6210;&#x5206;</dt>
+<dd>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x7684;&#x552F;&#x4E00;&#x6784;&#x6210;&#x6210;&#x5206;&#xFF0C;&#x90A3;&#x4E48;&#x524D;&#x8005;&#x5C31;&#x662F;&#x540E;&#x8005;&#x7684;&#x5355;&#x72EC;&#x6784;&#x6210;&#x6210;&#x5206;&#x3002;</dd>
+</dl>
+<p><strong>&#x6CE8;&#x89E3;</strong></p>
+<ol>
+<li>
+<p>&#x8BF7;&#x6CE8;&#x610F;&#xFF1A;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x65AD;&#x5B9A; &#x201C;A &#x7684;&#x6784;&#x6210;&#x6210;&#x5206;&#x5728;&#x8BED;&#x6CD5;&#x4E0A;&#x7684;&#x5C42;&#x7EA7;&#x5C31;&#x4E00;&#x5B9A;&#x6BD4; A &#x4F4E;&#x201D;</p>
+</li>
+<li>
+<p>&#x540C;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;&#x9879;&#xFF0C;&#xFF08;&#x6BD4;&#x5982;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x7684;&#x53E5;&#x5B50;&#x6216;&#x8005;&#x8BCD;&#x7EC4;&#xFF09;&#x53EF;&#x4EE5;&#x5728;&#x4E00;&#x79CD;&#x573A;&#x5408;&#x4E0B;&#x662F;&#x4E00;&#x79CD;&#x5355;&#x4F4D;&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x573A;&#x5408;&#x4E0B;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x5C42;&#x7EA7;&#x7684;&#x5355;&#x4F4D;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95">&#x6784;&#x6210;&#x5173;&#x7CFB;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;</h3>
+
+<ol>
+<li>
+<p>&#x6811;&#x5F62;&#x8868;&#x793A;&#x6CD5;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="816pt" height="292pt" viewBox="0.00 0.00 816.38 292.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 288)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-288 812.3754,-288 812.3754,4 -4,4"/>
+<g id="clust1" class="cluster">
+<title>cluster_1</title>
+<polygon fill="none" stroke="#000000" points="284.3754,-224 284.3754,-276 552.3754,-276 552.3754,-224 284.3754,-224"/>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="240.3754,-152 240.3754,-204 613.3754,-204 613.3754,-152 240.3754,-152"/>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="none" stroke="#000000" points="175.3754,-80 175.3754,-132 697.3754,-132 697.3754,-80 175.3754,-80"/>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="none" stroke="#000000" points="76.3754,-8 76.3754,-60 800.3754,-60 800.3754,-8 76.3754,-8"/>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="34.3754" cy="-34" rx="31.9224" ry="18"/>
+<text text-anchor="middle" x="34.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BCD;&#x7D20;</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="34.3754" cy="-106" rx="27" ry="18"/>
+<text text-anchor="middle" x="34.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BCD;</text>
+</g>
+<!-- b&#45;&gt;a -->
+<g id="edge3" class="edge">
+<title>b-&gt;a</title>
+<path fill="none" stroke="#000000" d="M34.3754,-87.8314C34.3754,-80.131 34.3754,-70.9743 34.3754,-62.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.8755,-62.4132 34.3754,-52.4133 30.8755,-62.4133 37.8755,-62.4132"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="34.3754" cy="-178" rx="34.2513" ry="18"/>
+<text text-anchor="middle" x="34.3754" y="-173.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- c&#45;&gt;b -->
+<g id="edge2" class="edge">
+<title>c-&gt;b</title>
+<path fill="none" stroke="#000000" d="M34.3754,-159.8314C34.3754,-152.131 34.3754,-142.9743 34.3754,-134.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.8755,-134.4132 34.3754,-124.4133 30.8755,-134.4133 37.8755,-134.4132"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="34.3754" cy="-250" rx="27.8725" ry="18"/>
+<text text-anchor="middle" x="34.3754" y="-245.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5206;&#x53E5;</text>
+</g>
+<!-- d&#45;&gt;c -->
+<g id="edge1" class="edge">
+<title>d-&gt;c</title>
+<path fill="none" stroke="#000000" d="M34.3754,-231.8314C34.3754,-224.131 34.3754,-214.9743 34.3754,-206.4166"/>
+<polygon fill="#000000" stroke="#000000" points="37.8755,-206.4132 34.3754,-196.4133 30.8755,-206.4133 37.8755,-206.4132"/>
+</g>
+<!-- e -->
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<text text-anchor="middle" x="418.3754" y="-245.8" font-family="Times,serif" font-size="14.00" fill="#000000">The evenings has turned cold just recently</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<text text-anchor="middle" x="559.3754" y="-173.8" font-family="Times,serif" font-size="14.00" fill="#000000">The evenings</text>
+</g>
+<!-- f&#45;&gt;g -->
+<g id="edge7" class="edge">
+<title>f-&gt;g</title>
+<path fill="none" stroke="#000000" d="M453.9557,-231.8314C472.4079,-222.4089 495.1299,-210.8062 514.7484,-200.7883"/>
+<polygon fill="#000000" stroke="#000000" points="516.4922,-203.8278 523.8065,-196.1628 513.3087,-197.5935 516.4922,-203.8278"/>
+</g>
+<!-- h -->
+<g id="node8" class="node">
+<title>h</title>
+<text text-anchor="middle" x="459.3754" y="-173.8" font-family="Times,serif" font-size="14.00" fill="#000000">has turned</text>
+</g>
+<!-- f&#45;&gt;h -->
+<g id="edge6" class="edge">
+<title>f-&gt;h</title>
+<path fill="none" stroke="#000000" d="M428.7214,-231.8314C433.2991,-223.7925 438.7806,-214.1666 443.8343,-205.2918"/>
+<polygon fill="#000000" stroke="#000000" points="446.9831,-206.8351 448.8901,-196.4133 440.9002,-203.3712 446.9831,-206.8351"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<text text-anchor="middle" x="377.3754" y="-173.8" font-family="Times,serif" font-size="14.00" fill="#000000">cold</text>
+</g>
+<!-- f&#45;&gt;i -->
+<g id="edge5" class="edge">
+<title>f-&gt;i</title>
+<path fill="none" stroke="#000000" d="M408.0294,-231.8314C403.4517,-223.7925 397.9703,-214.1666 392.9166,-205.2918"/>
+<polygon fill="#000000" stroke="#000000" points="395.8506,-203.3712 387.8607,-196.4133 389.7677,-206.8351 395.8506,-203.3712"/>
+</g>
+<!-- j -->
+<g id="node10" class="node">
+<title>j</title>
+<text text-anchor="middle" x="290.3754" y="-173.8" font-family="Times,serif" font-size="14.00" fill="#000000">just recently</text>
+</g>
+<!-- f&#45;&gt;j -->
+<g id="edge4" class="edge">
+<title>f-&gt;j</title>
+<path fill="none" stroke="#000000" d="M386.0756,-231.8314C369.552,-222.5368 349.2569,-211.1208 331.6147,-201.1971"/>
+<polygon fill="#000000" stroke="#000000" points="333.0966,-198.015 322.6649,-196.1628 329.6647,-204.116 333.0966,-198.015"/>
+</g>
+<!-- k -->
+<g id="node11" class="node">
+<title>k</title>
+<text text-anchor="middle" x="662.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">The</text>
+</g>
+<!-- g&#45;&gt;k -->
+<g id="edge8" class="edge">
+<title>g-&gt;k</title>
+<path fill="none" stroke="#000000" d="M586.2108,-159.7903C598.4997,-151.3965 613.2244,-141.2615 626.3754,-132 627.2579,-131.3785 628.1515,-130.7473 629.0524,-130.1092"/>
+<polygon fill="#000000" stroke="#000000" points="631.1441,-132.9163 637.2531,-124.2601 627.0794,-127.2174 631.1441,-132.9163"/>
+</g>
+<!-- l -->
+<g id="node12" class="node">
+<title>l</title>
+<text text-anchor="middle" x="584.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">evenings</text>
+</g>
+<!-- g&#45;&gt;l -->
+<g id="edge9" class="edge">
+<title>g-&gt;l</title>
+<path fill="none" stroke="#000000" d="M565.684,-159.8314C568.3871,-152.0463 571.607,-142.7729 574.6064,-134.1347"/>
+<polygon fill="#000000" stroke="#000000" points="578.0081,-135.0081 577.9819,-124.4133 571.3954,-132.7119 578.0081,-135.0081"/>
+</g>
+<!-- m -->
+<g id="node13" class="node">
+<title>m</title>
+<text text-anchor="middle" x="506.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">has</text>
+</g>
+<!-- h&#45;&gt;m -->
+<g id="edge10" class="edge">
+<title>h-&gt;m</title>
+<path fill="none" stroke="#000000" d="M471.2355,-159.8314C476.5383,-151.7079 482.8991,-141.9637 488.7427,-133.0118"/>
+<polygon fill="#000000" stroke="#000000" points="491.8202,-134.7003 494.3556,-124.4133 485.9585,-130.8739 491.8202,-134.7003"/>
+</g>
+<!-- n -->
+<g id="node14" class="node">
+<title>n</title>
+<text text-anchor="middle" x="434.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">turned</text>
+</g>
+<!-- h&#45;&gt;n -->
+<g id="edge11" class="edge">
+<title>h-&gt;n</title>
+<path fill="none" stroke="#000000" d="M453.0669,-159.8314C450.3637,-152.0463 447.1438,-142.7729 444.1444,-134.1347"/>
+<polygon fill="#000000" stroke="#000000" points="447.3554,-132.7119 440.7689,-124.4133 440.7427,-135.0081 447.3554,-132.7119"/>
+</g>
+<!-- o -->
+<g id="node15" class="node">
+<title>o</title>
+<text text-anchor="middle" x="362.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">cold</text>
+</g>
+<!-- i&#45;&gt;o -->
+<g id="edge12" class="edge">
+<title>i-&gt;o</title>
+<path fill="none" stroke="#000000" d="M373.5903,-159.8314C371.986,-152.131 370.0784,-142.9743 368.2955,-134.4166"/>
+<polygon fill="#000000" stroke="#000000" points="371.6776,-133.4892 366.2115,-124.4133 364.8247,-134.9169 371.6776,-133.4892"/>
+</g>
+<!-- p -->
+<g id="node16" class="node">
+<title>p</title>
+<text text-anchor="middle" x="290.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">just</text>
+</g>
+<!-- j&#45;&gt;p -->
+<g id="edge13" class="edge">
+<title>j-&gt;p</title>
+<path fill="none" stroke="#000000" d="M290.3754,-159.8314C290.3754,-152.131 290.3754,-142.9743 290.3754,-134.4166"/>
+<polygon fill="#000000" stroke="#000000" points="293.8755,-134.4132 290.3754,-124.4133 286.8755,-134.4133 293.8755,-134.4132"/>
+</g>
+<!-- q -->
+<g id="node17" class="node">
+<title>q</title>
+<text text-anchor="middle" x="214.3754" y="-101.8" font-family="Times,serif" font-size="14.00" fill="#000000">recently</text>
+</g>
+<!-- j&#45;&gt;q -->
+<g id="edge14" class="edge">
+<title>j-&gt;q</title>
+<path fill="none" stroke="#000000" d="M271.1974,-159.8314C262.0166,-151.1337 250.8748,-140.5783 240.8979,-131.1265"/>
+<polygon fill="#000000" stroke="#000000" points="243.214,-128.4995 233.5473,-124.1628 238.3997,-133.5811 243.214,-128.4995"/>
+</g>
+<!-- r -->
+<g id="node18" class="node">
+<title>r</title>
+<text text-anchor="middle" x="765.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">The</text>
+</g>
+<!-- k&#45;&gt;r -->
+<g id="edge15" class="edge">
+<title>k-&gt;r</title>
+<path fill="none" stroke="#000000" d="M689.2108,-87.7903C701.4997,-79.3965 716.2244,-69.2615 729.3754,-60 730.2579,-59.3785 731.1515,-58.7473 732.0524,-58.1092"/>
+<polygon fill="#000000" stroke="#000000" points="734.1441,-60.9163 740.2531,-52.2601 730.0794,-55.2174 734.1441,-60.9163"/>
+</g>
+<!-- s -->
+<g id="node19" class="node">
+<title>s</title>
+<text text-anchor="middle" x="690.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">evening</text>
+</g>
+<!-- l&#45;&gt;s -->
+<g id="edge16" class="edge">
+<title>l-&gt;s</title>
+<path fill="none" stroke="#000000" d="M611.1237,-87.8314C624.4307,-78.7927 640.6914,-67.7476 655.0129,-58.0198"/>
+<polygon fill="#000000" stroke="#000000" points="657.3301,-60.677 663.6357,-52.1628 653.3969,-54.8864 657.3301,-60.677"/>
+</g>
+<!-- t -->
+<g id="node20" class="node">
+<title>t</title>
+<text text-anchor="middle" x="615.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">s</text>
+</g>
+<!-- l&#45;&gt;t -->
+<g id="edge17" class="edge">
+<title>l-&gt;t</title>
+<path fill="none" stroke="#000000" d="M592.198,-87.8314C595.5863,-79.9617 599.6295,-70.5712 603.383,-61.8533"/>
+<polygon fill="#000000" stroke="#000000" points="606.7075,-62.9822 607.4475,-52.4133 600.2781,-60.214 606.7075,-62.9822"/>
+</g>
+<!-- u -->
+<g id="node21" class="node">
+<title>u</title>
+<text text-anchor="middle" x="543.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">has</text>
+</g>
+<!-- m&#45;&gt;u -->
+<g id="edge18" class="edge">
+<title>m-&gt;u</title>
+<path fill="none" stroke="#000000" d="M515.7121,-87.8314C519.7997,-79.8771 524.6858,-70.369 529.2063,-61.5723"/>
+<polygon fill="#000000" stroke="#000000" points="532.4553,-62.9074 533.913,-52.4133 526.2293,-59.7078 532.4553,-62.9074"/>
+</g>
+<!-- v -->
+<g id="node22" class="node">
+<title>v</title>
+<text text-anchor="middle" x="471.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">turn</text>
+</g>
+<!-- n&#45;&gt;v -->
+<g id="edge19" class="edge">
+<title>n-&gt;v</title>
+<path fill="none" stroke="#000000" d="M443.7121,-87.8314C447.7997,-79.8771 452.6858,-70.369 457.2063,-61.5723"/>
+<polygon fill="#000000" stroke="#000000" points="460.4553,-62.9074 461.913,-52.4133 454.2293,-59.7078 460.4553,-62.9074"/>
+</g>
+<!-- w -->
+<g id="node23" class="node">
+<title>w</title>
+<text text-anchor="middle" x="399.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">ed</text>
+</g>
+<!-- n&#45;&gt;w -->
+<g id="edge20" class="edge">
+<title>n-&gt;w</title>
+<path fill="none" stroke="#000000" d="M425.5434,-87.8314C421.6768,-79.8771 417.0548,-70.369 412.7786,-61.5723"/>
+<polygon fill="#000000" stroke="#000000" points="415.8461,-59.8768 408.3263,-52.4133 409.5505,-62.9371 415.8461,-59.8768"/>
+</g>
+<!-- x -->
+<g id="node24" class="node">
+<title>x</title>
+<text text-anchor="middle" x="327.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">cold</text>
+</g>
+<!-- o&#45;&gt;x -->
+<g id="edge21" class="edge">
+<title>o-&gt;x</title>
+<path fill="none" stroke="#000000" d="M353.5434,-87.8314C349.6768,-79.8771 345.0548,-70.369 340.7786,-61.5723"/>
+<polygon fill="#000000" stroke="#000000" points="343.8461,-59.8768 336.3263,-52.4133 337.5505,-62.9371 343.8461,-59.8768"/>
+</g>
+<!-- y -->
+<g id="node25" class="node">
+<title>y</title>
+<text text-anchor="middle" x="255.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">just</text>
+</g>
+<!-- p&#45;&gt;y -->
+<g id="edge22" class="edge">
+<title>p-&gt;y</title>
+<path fill="none" stroke="#000000" d="M281.5434,-87.8314C277.6768,-79.8771 273.0548,-70.369 268.7786,-61.5723"/>
+<polygon fill="#000000" stroke="#000000" points="271.8461,-59.8768 264.3263,-52.4133 265.5505,-62.9371 271.8461,-59.8768"/>
+</g>
+<!-- z -->
+<g id="node26" class="node">
+<title>z</title>
+<text text-anchor="middle" x="183.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">recent</text>
+</g>
+<!-- q&#45;&gt;z -->
+<g id="edge23" class="edge">
+<title>q-&gt;z</title>
+<path fill="none" stroke="#000000" d="M206.5528,-87.8314C203.1645,-79.9617 199.1213,-70.5712 195.3678,-61.8533"/>
+<polygon fill="#000000" stroke="#000000" points="198.4727,-60.214 191.3033,-52.4133 192.0433,-62.9822 198.4727,-60.214"/>
+</g>
+<!-- end -->
+<g id="node27" class="node">
+<title>end</title>
+<text text-anchor="middle" x="111.3754" y="-29.8" font-family="Times,serif" font-size="14.00" fill="#000000">ly</text>
+</g>
+<!-- q&#45;&gt;end -->
+<g id="edge24" class="edge">
+<title>q-&gt;end</title>
+<path fill="none" stroke="#000000" d="M187.5401,-87.7903C175.2511,-79.3965 160.5264,-69.2615 147.3754,-60 146.4929,-59.3785 145.5993,-58.7473 144.6984,-58.1092"/>
+<polygon fill="#000000" stroke="#000000" points="146.6715,-55.2174 136.4977,-52.2601 142.6067,-60.9163 146.6715,-55.2174"/>
+</g>
+</g>
+</svg>
+</p><p>&#x4ECE;&#x800C;&#x4ECE;&#x903B;&#x8F91;&#x5173;&#x7CFB;&#x4E0A;&#x770B;&#xFF0C;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x662F;&#x4E00;&#x4E2A;&#x6811;&#x5F62;&#x5173;&#x7CFB;&#x3002;</p>
+</li>
+<li>
+<p>&#x5D4C;&#x5957;&#x62EC;&#x53F7;&#x8868;&#x793A;&#x6CD5;</p>
+<p>&#x524D;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x867D;&#x7136;&#x975E;&#x5E38;&#x76F4;&#x89C2;&#xFF0C;&#x4E5F;&#x80FD;&#x8BE6;&#x5C3D;&#x5730;&#x8868;&#x793A;&#x5404;&#x4E2A;&#x8BED;&#x6CD5;&#x5C42;&#x6B21;&#x95F4;&#x7684;&#x6784;&#x6210;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x8F83;&#x4E3A;&#x7E41;&#x7410;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x53E6;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x7B80;&#x4FBF;&#x7684;&#x65B9;&#x6CD5;&#x8868;&#x793A;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5D4C;&#x5957;&#x62EC;&#x53F7;&#x65B9;&#x6CD5;&#x3002;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="770pt" height="52pt" viewBox="0.00 0.00 770.20 52.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 48)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-48 766.202,-48 766.202,4 -4,4"/>
+<!-- sentence -->
+<g id="node1" class="node">
+<title>sentence</title>
+<text text-anchor="middle" x="381.101" y="-13" font-family="Times,serif" font-size="30.00" fill="#000000">[[[The] [evenings]] [[has] [turned]] [[cold]] [[just] [recently]]]</text>
+</g>
+</g>
+</svg>
+</p><p>&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x8BED;&#x8A00;&#x5C42;&#x7EA7;&#x5230; &#x201C;&#x8BCD;&#x201D; &#x8FD9;&#x4E00;&#x5C42;&#x5C31;&#x4E3A;&#x6B62;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x8054;&#x7CFB;&#x4E0A;&#x4E00;&#x5C0F;&#x8282;&#x7684;&#x7406;&#x8BBA;</p>
+<ul>
+<li>
+<p>&#x5728;&#x6811;&#x5F62;&#x8868;&#x793A;&#x6CD5;&#x4E2D;&#xFF0C;&#x6811;&#x5F62;&#x7ED3;&#x6784;&#x7684;&#x5E95;&#x5C42;&#x7EA7;&#x7684;&#x5355;&#x4F4D;&#x5C31;&#x662F;&#x66F4;&#x9AD8;&#x5C42;&#x7EA7;&#x4E2D;&#x5BF9;&#x5E94;&#x5355;&#x4F4D;&#x7684;&#x6784;&#x6210;&#x6210;&#x5206;&#xFF1B;</p>
+</li>
+<li>
+<p>cold &#x5728;&#x8BCD;&#x7EC4;&#x5C42;&#x9762;&#x88AB;&#x89C6;&#x4E3A;&#x4E00;&#x4E2A;&#x5F62;&#x5BB9;&#x8BCD;&#x8BCD;&#x7EC4;&#xFF1B;&#x5C3D;&#x7BA1;&#x5176;&#x672C;&#x8EAB;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;&#x5F62;&#x5BB9;&#x8BCD;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684;&#x5355;&#x72EC;&#x6784;&#x6210;&#x5173;&#x7CFB;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;&#x4F5C;&#x4E3A;&#x8BCD;&#x7684;cold&#x5355;&#x72EC;&#x6784;&#x6210;&#x4E86;&#x4F5C;&#x4E3A;&#x8BCD;&#x7EC4;&#x7684;cold&#xFF08;&#x8054;&#x7CFB;<a href="#%E6%A6%82%E5%BF%B5%E5%86%85%E6%B6%B5">&#x6982;&#x5FF5;&#x5185;&#x6DB5;</a>&#x4E2D;&#x7684;&#x6CE8;&#x89E3;&#x7B2C; 2 &#x70B9;&#xFF09;</p>
+</li>
+<li>
+<p>&#x8BCD; just &#x76F4;&#x63A5;&#x6784;&#x6210;&#x4E86;&#x8BCD;&#x7EC4; just recently&#x2014;&#x2014;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x76F4;&#x63A5;&#x6784;&#x6210;&#x5173;&#x7CFB;&#x7684;&#x4F8B;&#x5B50;</p>
+</li>
+<li>
+<p>&#x4F5C;&#x4E3A;&#x5BF9;&#x6BD4;&#xFF0C;&#x8BCD;&#x7D20; -ly &#x5219;&#x662F;&#x8BCD;&#x7EC4; just recently &#x7684;&#x95F4;&#x63A5;&#x6784;&#x6210;&#x6210;&#x5206;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 class="mume-header" id="%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%BD%A2%E5%BC%8F">&#x529F;&#x80FD;&#x4E0E;&#x5F62;&#x5F0F;</h2>
+
+<p>&#x8003;&#x8651;&#x4F8B;&#x5B50;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="241pt" height="44pt" viewBox="0.00 0.00 240.91 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-40 236.9118,-40 236.9118,4 -4,4"/>
+<!-- the weather has been cold just recently -->
+<g id="node1" class="node">
+<title>the weather has been cold just recently</title>
+<text text-anchor="middle" x="116.4559" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">the weather has been cold just recently</text>
+</g>
+</g>
+</svg>
+</p><p>&#x5176;&#x4E2D;&#xFF0C;&quot;just recently&quot; &#x53EF;&#x4EE5;&#x66FF;&#x6362;&#x6210;&#x522B;&#x7684;&#x8BCD;&#x7EC4;&#xFF1A;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="340pt" height="152pt" viewBox="0.00 0.00 340.34 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-148 336.3424,-148 336.3424,4 -4,4"/>
+<!-- the weather has been cold  -->
+<g id="node1" class="node">
+<title>the weather has been cold </title>
+<text text-anchor="middle" x="82.0502" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">the weather has been cold </text>
+</g>
+<!-- just recently -->
+<g id="node2" class="node">
+<title>just recently</title>
+<text text-anchor="middle" x="266.2214" y="-121.8" font-family="Times,serif" font-size="14.00" fill="#000000">just recently</text>
+</g>
+<!-- the weather has been cold &#45;&#45;just recently -->
+<g id="edge1" class="edge">
+<title>the weather has been cold :e--just recently:w</title>
+<path fill="none" stroke="#000000" d="M164.0502,-72C199.9831,-72 188.2885,-126 224.2214,-126"/>
+</g>
+<!-- this month -->
+<g id="node3" class="node">
+<title>this month</title>
+<text text-anchor="middle" x="266.2214" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">this month</text>
+</g>
+<!-- the weather has been cold &#45;&#45;this month -->
+<g id="edge2" class="edge">
+<title>the weather has been cold :e--this month:w</title>
+<path fill="none" stroke="#000000" d="M164.0502,-72C192.5707,-72 199.7009,-72 228.2214,-72"/>
+</g>
+<!-- during the past week -->
+<g id="node4" class="node">
+<title>during the past week</title>
+<text text-anchor="middle" x="266.2214" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">during the past week</text>
+</g>
+<!-- the weather has been cold &#45;&#45;during the past week -->
+<g id="edge3" class="edge">
+<title>the weather has been cold :e--during the past week:w</title>
+<path fill="none" stroke="#000000" d="M164.0502,-72C192.9369,-72 171.3347,-18 200.2214,-18"/>
+</g>
+</g>
+</svg>
+</p><p>&#x6240;&#x4EE5;&#xFF0C;&#x5728;&#x53E5;&#x5B50;&#x4E2D;&#x526F;&#x8BCD;&#x77ED;&#x8BED;&#x7684;&#x4F4D;&#x7F6E;&#x4E0A;&#xFF0C;&#x53EF;&#x4EE5;&#x7531; &#x540D;&#x8BCD;&#x77ED;&#x8BED; &#x548C; &#x4ECB;&#x8BCD;&#x8BCD;&#x7EC4;&#x6765;&#x4EE3;&#x66FF;&#x539F;&#x6765;&#x7684;&#x526F;&#x8BCD;&#x8BCD;&#x7EC4;&#xFF1B;</p>
+<p>&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x5374;&#x4E0D;&#x53EF;&#x4EE5;&#x7528;&#x526F;&#x8BCD;&#x8BCD;&#x7EC4;&#x53BB;&#x4EE3;&#x66FF;&#x53E5;&#x9996;&#x7684;&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="211pt" height="152pt" viewBox="0.00 0.00 211.38 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-148 207.3816,-148 207.3816,4 -4,4"/>
+<!-- the weather has been cold  -->
+<g id="node1" class="node">
+<title>the weather has been cold </title>
+<text text-anchor="middle" x="101.6908" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">the weather has been cold </text>
+</g>
+<!-- just recently has been cold &#160;(×) -->
+<g id="node2" class="node">
+<title>just recently has been cold &#xA0;(&#xD7;)</title>
+<text text-anchor="middle" x="101.6908" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">just recently has been cold &#xA0;(&#xD7;)</text>
+</g>
+<!-- during the past has been cold &#160;(×) -->
+<g id="node3" class="node">
+<title>during the past has been cold &#xA0;(&#xD7;)</title>
+<text text-anchor="middle" x="101.6908" y="-121.8" font-family="Times,serif" font-size="14.00" fill="#000000">during the past has been cold &#xA0;(&#xD7;)</text>
+</g>
+</g>
+</svg>
+</p><p>&#x53EF;&#x4EE5;&#x6709;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x8BCD;&#x7EC4;&#x662F;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x66FF;&#x6362;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x65F6;&#x5019;&#x5374;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;</p>
+<dl>
+<dt>&#x529F;&#x80FD;</dt>
+<dd>&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#xFF0C;&#x5728;&#x7531;&#x5176;&#x7EC4;&#x6210;&#x7684;&#x5355;&#x4F4D;&#x65F6;&#xFF0C;&#x5728;&#x51FA;&#x73B0;&#x4E0E;&#x5426;&#x3001;&#x53EF;&#x51FA;&#x73B0;&#x7684;&#x4F4D;&#x7F6E;&#x7B49;&#x65B9;&#x9762;&#x7684; &#x51FA;&#x73B0;&#x6743;</dd>
+</dl>
+<p>&#x529F;&#x80FD;&#x4E0E;&#x5F62;&#x5F0F;&#x7684;&#x533A;&#x522B;</p>
+<ol>
+<li>
+<p>&#x524D;&#x8005;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x67D0;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x5728;&#x66F4;&#x9AD8;&#x5C42;&#x6B21;&#x5355;&#x4F4D;&#x4E2D;&#x7684;&#x5730;&#x4F4D;</p>
+</li>
+<li>
+<p>&#x540E;&#x8005;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5355;&#x4F4D;&#x5728;&#x66F4;&#x4F4E;&#x5C42;&#x7EA7;&#x4E2D;&#x7684;&#x5185;&#x90E8;&#x7ED3;&#x6784;</p>
+</li>
+</ol>
+<p>&#x7B80;&#x5355;&#x6EF4;&#x8BF4;&#xFF0C;&#x201C;&#x72B6;&#x8BED;&#x201D;&#x201C;&#x4E3B;&#x8BED;&#x201D; &#x8FD9;&#x4E9B;&#x5C5E;&#x4E8E;&#x529F;&#x80FD;&#x7C7B;&#x522B;&#xFF0C;&#x800C;&#x201C;&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;&#x201D; &#x201C;&#x5206;&#x53E5;&#x201D; &#x8FD9;&#x4E9B;&#x5C5E;&#x4E8E;&#x5F62;&#x5F0F;&#x7C7B;&#x522B;&#x3002;</p>
+<h2 class="mume-header" id="%E7%89%B9%E6%AE%8A%E7%9A%84%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB%E5%8C%85%E5%AD%95">&#x7279;&#x6B8A;&#x7684;&#x6784;&#x6210;&#x5173;&#x7CFB;&#xFF1A;&#x5305;&#x5B55;</h2>
+
+<h3 class="mume-header" id="%E6%A6%82%E5%BF%B5-1">&#x6982;&#x5FF5;</h3>
+
+<dl>
+<dt>&#x5305;&#x5B55; (embedding)</dt>
+<dd>&#x5728;&#x8BED;&#x6CD5;&#x7684;&#x5C42;&#x7EA7;&#x4F53;&#x7CFB;&#x5F53;&#x4E2D;&#xFF0C;&#x4F4D;&#x4E8E;&#x67D0;&#x4E2A;&#x5C42;&#x7EA7;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4F5C;&#x4E3A;<strong>&#x540C;&#x4E00;&#x5C42;&#x7EA7;&#x6216;&#x8005;&#x66F4;&#x4F4E;&#x5C42;&#x7EA7;</strong>&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x7684;&#x6784;&#x6210;&#x6210;&#x5206;&#x7684;&#x73B0;&#x8C61;</dd>
+</dl>
+<h3 class="mume-header" id="%E4%B8%BE%E4%BE%8B">&#x4E3E;&#x4F8B;</h3>
+
+<ol>
+<li>&#x8BCD;&#x7EC4;&#x5305;&#x5B55;&#x4E8E;&#x8BCD;&#x7EC4;</li>
+</ol>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="431pt" height="188pt" viewBox="0.00 0.00 431.26 188.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 184)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-184 427.2613,-184 427.2613,4 -4,4"/>
+<!-- students -->
+<g id="node1" class="node">
+<title>students</title>
+<text text-anchor="middle" x="31.9612" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">students</text>
+</g>
+<!-- at this college -->
+<g id="node2" class="node">
+<title>at this college</title>
+<text text-anchor="middle" x="139.9612" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">at this college</text>
+</g>
+<!-- for -->
+<g id="node3" class="node">
+<title>for</title>
+<text text-anchor="middle" x="259.9612" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">for</text>
+</g>
+<!-- all our students -->
+<g id="node4" class="node">
+<title>all our students</title>
+<text text-anchor="middle" x="367.9612" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">all our students</text>
+</g>
+<!-- a -->
+<g id="node5" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="109.9612" cy="-162" rx="55.1009" ry="18"/>
+<text text-anchor="middle" x="109.9612" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- b -->
+<g id="node6" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="31.9612" cy="-90" rx="31.9224" ry="18"/>
+<text text-anchor="middle" x="31.9612" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;</text>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge1" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="#000000" d="M91.4763,-144.937C78.5018,-132.9606 61.2927,-117.0752 48.7181,-105.4679"/>
+</g>
+<!-- c -->
+<g id="node7" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="139.9612" cy="-90" rx="57.9294" ry="18"/>
+<text text-anchor="middle" x="139.9612" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4ECB;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;c -->
+<g id="edge2" class="edge">
+<title>a--c</title>
+<path fill="none" stroke="#000000" d="M117.5314,-143.8314C122.1139,-132.8334 127.9341,-118.865 132.4973,-107.9134"/>
+</g>
+<!-- b&#45;&#45;students -->
+<g id="edge3" class="edge">
+<title>b--students</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M31.9612,-71.8314C31.9612,-61 31.9612,-47.2876 31.9612,-36.4133"/>
+</g>
+<!-- c&#45;&#45;at this college -->
+<g id="edge4" class="edge">
+<title>c--at this college</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M139.9612,-71.8314C139.9612,-61 139.9612,-47.2876 139.9612,-36.4133"/>
+</g>
+<!-- d -->
+<g id="node8" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="288.9612" cy="-162" rx="57.9294" ry="18"/>
+<text text-anchor="middle" x="288.9612" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4ECB;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e -->
+<g id="node9" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="259.9612" cy="-90" rx="34.2513" ry="18"/>
+<text text-anchor="middle" x="259.9612" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4ECB;&#x8BCD;</text>
+</g>
+<!-- d&#45;&#45;e -->
+<g id="edge5" class="edge">
+<title>d--e</title>
+<path fill="none" stroke="#000000" d="M281.6433,-143.8314C277.2135,-132.8334 271.5873,-118.865 267.1763,-107.9134"/>
+</g>
+<!-- f -->
+<g id="node10" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="367.9612" cy="-90" rx="55.1009" ry="18"/>
+<text text-anchor="middle" x="367.9612" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- d&#45;&#45;f -->
+<g id="edge6" class="edge">
+<title>d--f</title>
+<path fill="none" stroke="#000000" d="M307.6831,-144.937C320.1851,-133.5428 336.5692,-118.6104 349.0999,-107.19"/>
+</g>
+<!-- e&#45;&#45;for -->
+<g id="edge7" class="edge">
+<title>e--for</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M259.9612,-71.8314C259.9612,-61 259.9612,-47.2876 259.9612,-36.4133"/>
+</g>
+<!-- f&#45;&#45;all our students -->
+<g id="edge8" class="edge">
+<title>f--all our students</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M367.9612,-71.8314C367.9612,-61 367.9612,-47.2876 367.9612,-36.4133"/>
+</g>
+</g>
+</svg>
+</p><ol start="2">
+<li>&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x53EF;&#x4EE5;&#x5305;&#x5B55;&#x5728;&#x5C42;&#x7EA7;&#x66F4;&#x4F4E;&#x7684;&#x5355;&#x4F4D;&#x4E2D;</li>
+</ol>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="757pt" height="332pt" viewBox="0.00 0.00 757.31 332.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 328)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-328 753.3117,-328 753.3117,4 -4,4"/>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<text text-anchor="middle" x="140.0852" y="-301.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5206;&#x53E5;</text>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<text text-anchor="middle" x="40.0852" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge1" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="#000000" d="M114.851,-287.8314C99.6917,-276.9167 80.4692,-263.0764 65.3113,-252.1628"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<text text-anchor="middle" x="140.0852" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;c -->
+<g id="edge2" class="edge">
+<title>a--c</title>
+<path fill="none" stroke="#000000" d="M140.0852,-287.8314C140.0852,-277 140.0852,-263.2876 140.0852,-252.4133"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<polygon fill="none" stroke="#000000" points="355.2558,-252 274.9146,-252 274.9146,-216 355.2558,-216 355.2558,-252"/>
+<text text-anchor="middle" x="315.0852" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;d -->
+<g id="edge3" class="edge">
+<title>a--d</title>
+<path fill="none" stroke="#000000" d="M167.4289,-294.75C196.2681,-282.8848 242.0051,-264.0672 274.9367,-250.5183"/>
+</g>
+<!-- the room -->
+<g id="node12" class="node">
+<title>the room</title>
+<text text-anchor="middle" x="40.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">the room</text>
+</g>
+<!-- b&#45;&#45;the room -->
+<g id="edge11" class="edge">
+<title>b--the room</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M40.0852,-215.8314C40.0852,-205 40.0852,-191.2876 40.0852,-180.4133"/>
+</g>
+<!-- has -->
+<g id="node13" class="node">
+<title>has</title>
+<text text-anchor="middle" x="129.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">has</text>
+</g>
+<!-- c&#45;&#45;has -->
+<g id="edge12" class="edge">
+<title>c--has</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M137.3094,-215.8314C135.6546,-205 133.5597,-191.2876 131.8983,-180.4133"/>
+</g>
+<!-- d1 -->
+<g id="node5" class="node">
+<title>d1</title>
+<text text-anchor="middle" x="208.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x9650;&#x5B9A;&#x8BCD;</text>
+</g>
+<!-- d&#45;&#45;d1 -->
+<g id="edge4" class="edge">
+<title>d--d1</title>
+<path fill="none" stroke="#000000" d="M288.0846,-215.8314C271.8642,-204.9167 251.296,-191.0764 235.0772,-180.1628"/>
+</g>
+<!-- d2 -->
+<g id="node6" class="node">
+<title>d2</title>
+<text text-anchor="middle" x="315.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x524D;&#x7F6E;&#x4FEE;&#x9970;&#x8BED;</text>
+</g>
+<!-- d&#45;&#45;d2 -->
+<g id="edge5" class="edge">
+<title>d--d2</title>
+<path fill="none" stroke="#000000" d="M315.0852,-215.8314C315.0852,-205 315.0852,-191.2876 315.0852,-180.4133"/>
+</g>
+<!-- d3 -->
+<g id="node7" class="node">
+<title>d3</title>
+<text text-anchor="middle" x="435.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x4E2D;&#x5FC3;&#x8BCD;</text>
+</g>
+<!-- d&#45;&#45;d3 -->
+<g id="edge6" class="edge">
+<title>d--d3</title>
+<path fill="none" stroke="#000000" d="M345.3663,-215.8314C363.5574,-204.9167 386.6245,-191.0764 404.8138,-180.1628"/>
+</g>
+<!-- e -->
+<g id="node8" class="node">
+<title>e</title>
+<polygon fill="none" stroke="#000000" points="606.0852,-180 534.0852,-180 534.0852,-144 606.0852,-144 606.0852,-180"/>
+<text text-anchor="middle" x="570.0852" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5173;&#x7CFB;&#x5206;&#x53E5;</text>
+</g>
+<!-- d&#45;&#45;e -->
+<g id="edge7" class="edge">
+<title>d--e</title>
+<path fill="none" stroke="#000000" d="M355.2095,-222.6708C404.2994,-208.8101 486.6857,-185.5481 533.9063,-172.2152"/>
+</g>
+<!-- some -->
+<g id="node14" class="node">
+<title>some</title>
+<text text-anchor="middle" x="208.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">some</text>
+</g>
+<!-- d1&#45;&#45;some -->
+<g id="edge13" class="edge">
+<title>d1--some</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M208.0852,-143.8314C208.0852,-133 208.0852,-119.2876 208.0852,-108.4133"/>
+</g>
+<!-- large -->
+<g id="node15" class="node">
+<title>large</title>
+<text text-anchor="middle" x="315.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">large</text>
+</g>
+<!-- d2&#45;&#45;large -->
+<g id="edge14" class="edge">
+<title>d2--large</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M315.0852,-143.8314C315.0852,-133 315.0852,-119.2876 315.0852,-108.4133"/>
+</g>
+<!-- windows -->
+<g id="node16" class="node">
+<title>windows</title>
+<text text-anchor="middle" x="414.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">windows</text>
+</g>
+<!-- d3&#45;&#45;windows -->
+<g id="edge15" class="edge">
+<title>d3--windows</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M429.786,-143.8314C426.6269,-133 422.6274,-119.2876 419.4557,-108.4133"/>
+</g>
+<!-- f -->
+<g id="node9" class="node">
+<title>f</title>
+<text text-anchor="middle" x="505.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e&#45;&#45;f -->
+<g id="edge8" class="edge">
+<title>e--f</title>
+<path fill="none" stroke="#000000" d="M553.683,-143.8314C543.9047,-133 531.5254,-119.2876 521.7083,-108.4133"/>
+</g>
+<!-- g -->
+<g id="node10" class="node">
+<title>g</title>
+<text text-anchor="middle" x="605.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e&#45;&#45;g -->
+<g id="edge9" class="edge">
+<title>e--g</title>
+<path fill="none" stroke="#000000" d="M578.9172,-143.8314C584.1824,-133 590.8482,-119.2876 596.1343,-108.4133"/>
+</g>
+<!-- h -->
+<g id="node11" class="node">
+<title>h</title>
+<text text-anchor="middle" x="707.0852" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x526F;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e&#45;&#45;h -->
+<g id="edge10" class="edge">
+<title>e--h</title>
+<path fill="none" stroke="#000000" d="M604.6561,-143.8314C625.4243,-132.9167 651.7592,-119.0764 672.5254,-108.1628"/>
+</g>
+<!-- which -->
+<g id="node17" class="node">
+<title>which</title>
+<text text-anchor="middle" x="505.0852" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">which</text>
+</g>
+<!-- f&#45;&#45;which -->
+<g id="edge16" class="edge">
+<title>f--which</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M505.0852,-71.8314C505.0852,-61 505.0852,-47.2876 505.0852,-36.4133"/>
+</g>
+<!-- face -->
+<g id="node18" class="node">
+<title>face</title>
+<text text-anchor="middle" x="605.0852" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">face</text>
+</g>
+<!-- g&#45;&#45;face -->
+<g id="edge17" class="edge">
+<title>g--face</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M605.0852,-71.8314C605.0852,-61 605.0852,-47.2876 605.0852,-36.4133"/>
+</g>
+<!-- south -->
+<g id="node19" class="node">
+<title>south</title>
+<text text-anchor="middle" x="707.0852" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">south</text>
+</g>
+<!-- h&#45;&#45;south -->
+<g id="edge18" class="edge">
+<title>h--south</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M707.0852,-71.8314C707.0852,-61 707.0852,-47.2876 707.0852,-36.4133"/>
+</g>
+</g>
+</svg>
+</p><h3 class="mume-header" id="%E6%84%8F%E4%B9%89">&#x610F;&#x4E49;</h3>
+
+<ol>
+<li>
+<p>&#x5305;&#x5B55;&#x73B0;&#x8C61;&#x4F7F;&#x5F97;&#x67D0;&#x4E9B;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x5177;&#x6709;&#x7406;&#x8BBA;&#x4E0A;&#x7684;<strong>&#x65E0;&#x9650;&#x62D3;&#x5C55;&#x6027;</strong>&#xFF0C;&#x4E5F;&#x5373;&#x4F7F;&#x8BF4;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x7406;&#x8BBA;&#x4E0A;&#x53EF;&#x4EE5;&#x65E0;&#x9650;&#x6269;&#x5C55;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="608pt" height="44pt" viewBox="0.00 0.00 607.94 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-40 603.9364,-40 603.9364,4 -4,4"/>
+<!-- ...[the cat [that killed the rat [that ate the malt[that lay in the house [that Jack built]]]]] -->
+<g id="node1" class="node">
+<title>...[the cat [that killed the rat [that ate the malt[that lay in the house [that Jack built]]]]]</title>
+<text text-anchor="middle" x="299.9682" y="-12.9" font-family="Times,serif" font-size="17.00" fill="#000000">...[the cat [that killed the rat [that ate the malt[that lay in the house [that Jack built]]]]]</text>
+</g>
+</g>
+</svg>
+</p><p>&#x7406;&#x8BBA;&#x4E0A;&#x4E5F;&#x4E0D;&#x96BE;&#x7406;&#x89E3;&#xFF0C;&#x8BED;&#x6CD5;&#x5C42;&#x7EA7;&#x4E4B;&#x95F4;&#x672C;&#x6765;&#x662F;&#x7EAF;&#x7CB9;&#x7684;&#x6811;&#x5F62;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x5305;&#x5B55;&#x5173;&#x7CFB;&#x7684;&#x7F18;&#x6545;&#xFF0C;&#x4F7F;&#x5F97;&#x5C42;&#x7EA7;&#x7684;&#x6784;&#x6210;&#x5173;&#x7CFB;&#x56FE;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x73AF;&#xFF0C;&#x4ECE;&#x800C;&#x5728;&#x6784;&#x5EFA;&#x8BED;&#x8A00;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x6CBF;&#x7740;&#x8FD9;&#x4E2A;&#x73AF;&#x65E0;&#x9650; &#x201C;&#x5FAA;&#x73AF;&#x201D; &#x4E0B;&#x53BB;</p>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="85pt" height="260pt" viewBox="0.00 0.00 84.53 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 80.5288,-256 80.5288,4 -4,4"/>
+<!-- mid -->
+<g id="node1" class="node">
+<title>mid</title>
+<text text-anchor="middle" x="37.0514" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">......</text>
+</g>
+<!-- 层级i -->
+<g id="node4" class="node">
+<title>&#x5C42;&#x7EA7;i</title>
+<ellipse fill="none" stroke="#000000" cx="37.0514" cy="-234" rx="34.8133" ry="18"/>
+<text text-anchor="middle" x="37.0514" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5C42;&#x7EA7;i</text>
+</g>
+<!-- mid&#45;&gt;层级i -->
+<g id="edge3" class="edge">
+<title>mid-&gt;&#x5C42;&#x7EA7;i</title>
+<path fill="none" stroke="#ff0000" d="M37.0514,-180.1686C37.0514,-187.869 37.0514,-197.0257 37.0514,-205.5834"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="33.5515,-205.5867 37.0514,-215.5867 40.5515,-205.5868 33.5515,-205.5867"/>
+</g>
+<!-- 层级1 -->
+<g id="node2" class="node">
+<title>&#x5C42;&#x7EA7;1</title>
+<ellipse fill="none" stroke="#000000" cx="37.0514" cy="-18" rx="37.1028" ry="18"/>
+<text text-anchor="middle" x="37.0514" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5C42;&#x7EA7;1</text>
+</g>
+<!-- 层级2 -->
+<g id="node3" class="node">
+<title>&#x5C42;&#x7EA7;2</title>
+<ellipse fill="none" stroke="#000000" cx="37.0514" cy="-90" rx="37.1028" ry="18"/>
+<text text-anchor="middle" x="37.0514" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5C42;&#x7EA7;2</text>
+</g>
+<!-- 层级1&#45;&gt;层级2 -->
+<g id="edge1" class="edge">
+<title>&#x5C42;&#x7EA7;1-&gt;&#x5C42;&#x7EA7;2</title>
+<path fill="none" stroke="#000000" d="M37.0514,-36.1686C37.0514,-43.869 37.0514,-53.0257 37.0514,-61.5834"/>
+<polygon fill="#000000" stroke="#000000" points="33.5515,-61.5867 37.0514,-71.5867 40.5515,-61.5868 33.5515,-61.5867"/>
+</g>
+<!-- 层级2&#45;&gt;mid -->
+<g id="edge2" class="edge">
+<title>&#x5C42;&#x7EA7;2-&gt;mid</title>
+<path fill="none" stroke="#ff0000" d="M37.0514,-108.1686C37.0514,-115.869 37.0514,-125.0257 37.0514,-133.5834"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="33.5515,-133.5867 37.0514,-143.5867 40.5515,-133.5868 33.5515,-133.5867"/>
+</g>
+<!-- 层级i&#45;&gt;层级2 -->
+<g id="edge4" class="edge">
+<title>&#x5C42;&#x7EA7;i-&gt;&#x5C42;&#x7EA7;2</title>
+<path fill="none" stroke="#ff0000" d="M51.9169,-217.3525C59.872,-207.3034 68.872,-193.8034 73.0514,-180 77.6879,-164.6865 77.6879,-159.3135 73.0514,-144 69.9169,-133.6475 64.0707,-123.4656 57.9875,-114.7822"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="60.7027,-112.5685 51.9169,-106.6475 55.0927,-116.7551 60.7027,-112.5685"/>
+</g>
+</g>
+</svg>
+</p></li>
+<li>
+<p>&#x5305;&#x5B55;&#x5177;&#x6709;<strong>&#x9AD8;&#x5EA6;&#x7684;&#x7075;&#x6D3B;&#x6027;</strong>&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x5F62;&#x5F0F;&#x4E0A;&#x5F88;&#x590D;&#x6742;&#xFF08;&#x6216;&#x8005;&#x8BED;&#x4E49;&#x4E0A;&#x5F88;&#x4E30;&#x5BCC;&#xFF09;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF0C;&#x5B83;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x529B;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E7%89%B9%E6%AE%8A%E7%9A%84%E5%8C%85%E5%AD%95%E4%BB%8E%E5%B1%9E">&#x7279;&#x6B8A;&#x7684;&#x5305;&#x5B55;&#xFF1A;&#x4ECE;&#x5C5E;</h3>
+
+<h4 class="mume-header" id="%E6%A6%82%E5%BF%B5-2">&#x6982;&#x5FF5;</h4>
+
+<dl>
+<dt>&#x4ECE;&#x5C5E; (subordination)</dt>
+<dd>&#x4E00;&#x4E2A;&#x5206;&#x53E5;&#x4F5C;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x5206;&#x53E5;&#x7684;&#x6784;&#x6210;&#x6210;&#x5206;&#x7684;&#x73B0;&#x8C61;</dd>
+</dl>
+<p>&#x4ECE;&#x5C5E;&#x662F;&#x4E00;&#x79CD;&#x7684;&#x5305;&#x5B55;&#x73B0;&#x8C61;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4F5C;&#x4E3A;&#x6784;&#x6210;&#x6210;&#x5206;&#x7684;&#x5206;&#x53E5;&#x79F0;&#x4E4B;&#x4E3A; <strong>&#x4ECE;&#x5C5E;&#x5206;&#x53E5;</strong>&#xFF0C;&#x7B80;&#x79F0;<strong>&#x4ECE;&#x53E5;</strong></p>
+<p>&#x4ECE;&#x5C5E;&#x5206;&#x53E5;&#x5E38;&#x5E38;&#x9700;&#x8981;&#x4E00;&#x4E2A;<strong>&#x4ECE;&#x5C5E;&#x8FDE;&#x8BCD;</strong>&#x5F15;&#x5BFC;</p>
+<h4 class="mume-header" id="%E4%B8%BE%E4%BE%8B-1">&#x4E3E;&#x4F8B;</h4>
+
+<ol>
+<li>&#x4ECE;&#x5C5E;&#x5173;&#x7CFB;&#x7684;&#x4F8B;&#x5B50;</li>
+</ol>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="782pt" height="260pt" viewBox="0.00 0.00 781.87 260.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 256)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-256 777.8696,-256 777.8696,4 -4,4"/>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="200.7844" cy="-234" rx="27.8725" ry="18"/>
+<text text-anchor="middle" x="200.7844" y="-229.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5206;&#x53E5;</text>
+</g>
+<!-- c -->
+<g id="node2" class="node">
+<title>c</title>
+<text text-anchor="middle" x="42.7844" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;c -->
+<g id="edge1" class="edge">
+<title>a--c</title>
+<path fill="none" stroke="#000000" d="M177.8098,-223.5306C152.8182,-212.142 112.4148,-193.7303 82.3073,-180.0104"/>
+</g>
+<!-- d -->
+<g id="node3" class="node">
+<title>d</title>
+<text text-anchor="middle" x="142.7844" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;d -->
+<g id="edge2" class="edge">
+<title>a--d</title>
+<path fill="none" stroke="#000000" d="M187.9123,-218.0209C178.9015,-206.835 166.8445,-191.8678 157.4601,-180.2181"/>
+</g>
+<!-- e -->
+<g id="node4" class="node">
+<title>e</title>
+<text text-anchor="middle" x="258.7844" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5F62;&#x5BB9;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- a&#45;&#45;e -->
+<g id="edge3" class="edge">
+<title>a--e</title>
+<path fill="none" stroke="#000000" d="M213.6565,-218.0209C222.6673,-206.835 234.7243,-191.8678 244.1087,-180.2181"/>
+</g>
+<!-- e1 -->
+<g id="node5" class="node">
+<title>e1</title>
+<polygon fill="none" stroke="#000000" points="521.1215,-180 442.4473,-180 442.4473,-144 521.1215,-144 521.1215,-180"/>
+<text text-anchor="middle" x="481.7844" y="-157.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x72B6;&#x8BED;&#x4ECE;&#x53E5;</text>
+</g>
+<!-- a&#45;&#45;e1 -->
+<g id="edge4" class="edge">
+<title>a--e1</title>
+<path fill="none" stroke="#000000" d="M226.9679,-227.2911C276.4254,-214.6187 383.8395,-187.0962 442.1693,-172.1505"/>
+</g>
+<!-- The weather -->
+<g id="node11" class="node">
+<title>The weather</title>
+<text text-anchor="middle" x="42.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">The weather</text>
+</g>
+<!-- c&#45;&#45;The weather -->
+<g id="edge10" class="edge">
+<title>c--The weather</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M42.7844,-143.8314C42.7844,-133 42.7844,-119.2876 42.7844,-108.4133"/>
+</g>
+<!-- has been -->
+<g id="node12" class="node">
+<title>has been</title>
+<text text-anchor="middle" x="142.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">has been</text>
+</g>
+<!-- d&#45;&#45;has been -->
+<g id="edge11" class="edge">
+<title>d--has been</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M142.7844,-143.8314C142.7844,-133 142.7844,-119.2876 142.7844,-108.4133"/>
+</g>
+<!-- remarkly warm -->
+<g id="node13" class="node">
+<title>remarkly warm</title>
+<text text-anchor="middle" x="250.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">remarkly warm</text>
+</g>
+<!-- e&#45;&#45;remarkly warm -->
+<g id="edge12" class="edge">
+<title>e--remarkly warm</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M256.7657,-143.8314C255.5622,-133 254.0386,-119.2876 252.8303,-108.4133"/>
+</g>
+<!-- g -->
+<g id="node6" class="node">
+<title>g</title>
+<text text-anchor="middle" x="346.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8FDE;&#x8BCD;</text>
+</g>
+<!-- e1&#45;&#45;g -->
+<g id="edge5" class="edge">
+<title>e1--g</title>
+<path fill="none" stroke="#000000" d="M447.7182,-143.8314C424.9099,-131.6669 395.288,-115.8686 374.0427,-104.5378"/>
+</g>
+<!-- c1 -->
+<g id="node7" class="node">
+<title>c1</title>
+<text text-anchor="middle" x="431.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e1&#45;&#45;c1 -->
+<g id="edge6" class="edge">
+<title>e1--c1</title>
+<path fill="none" stroke="#000000" d="M469.1673,-143.8314C461.6455,-133 452.123,-119.2876 444.5714,-108.4133"/>
+</g>
+<!-- d1 -->
+<g id="node8" class="node">
+<title>d1</title>
+<text text-anchor="middle" x="531.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e1&#45;&#45;d1 -->
+<g id="edge7" class="edge">
+<title>e1--d1</title>
+<path fill="none" stroke="#000000" d="M494.4015,-143.8314C501.9233,-133 511.4458,-119.2876 518.9974,-108.4133"/>
+</g>
+<!-- f -->
+<g id="node9" class="node">
+<title>f</title>
+<text text-anchor="middle" x="633.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4ECB;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e1&#45;&#45;f -->
+<g id="edge8" class="edge">
+<title>e1--f</title>
+<path fill="none" stroke="#000000" d="M520.1404,-143.8314C543.2704,-132.875 572.6239,-118.9708 595.7042,-108.038"/>
+</g>
+<!-- c2 -->
+<g id="node10" class="node">
+<title>c2</title>
+<text text-anchor="middle" x="733.7844" y="-85.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;</text>
+</g>
+<!-- e1&#45;&#45;c2 -->
+<g id="edge9" class="edge">
+<title>e1--c2</title>
+<path fill="none" stroke="#000000" d="M521.008,-152.7039C562.1221,-142.6951 628.4499,-125.7984 684.7844,-108 687.6362,-107.099 690.5669,-106.1312 693.509,-105.1288"/>
+</g>
+<!-- since -->
+<g id="node14" class="node">
+<title>since</title>
+<text text-anchor="middle" x="346.7844" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">since</text>
+</g>
+<!-- g&#45;&#45;since -->
+<g id="edge13" class="edge">
+<title>g--since</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M346.7844,-71.8314C346.7844,-61 346.7844,-47.2876 346.7844,-36.4133"/>
+</g>
+<!-- we -->
+<g id="node15" class="node">
+<title>we</title>
+<text text-anchor="middle" x="431.7844" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">we</text>
+</g>
+<!-- c1&#45;&#45;we -->
+<g id="edge14" class="edge">
+<title>c1--we</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M431.7844,-71.8314C431.7844,-61 431.7844,-47.2876 431.7844,-36.4133"/>
+</g>
+<!-- returned -->
+<g id="node16" class="node">
+<title>returned</title>
+<text text-anchor="middle" x="531.7844" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">returned</text>
+</g>
+<!-- d1&#45;&#45;returned -->
+<g id="edge15" class="edge">
+<title>d1--returned</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M531.7844,-71.8314C531.7844,-61 531.7844,-47.2876 531.7844,-36.4133"/>
+</g>
+<!-- from Italy -->
+<g id="node17" class="node">
+<title>from Italy</title>
+<text text-anchor="middle" x="633.7844" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">from Italy</text>
+</g>
+<!-- f&#45;&#45;from Italy -->
+<g id="edge16" class="edge">
+<title>f--from Italy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M633.7844,-71.8314C633.7844,-61 633.7844,-47.2876 633.7844,-36.4133"/>
+</g>
+<!-- last week -->
+<g id="node18" class="node">
+<title>last week</title>
+<text text-anchor="middle" x="733.7844" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">last week</text>
+</g>
+<!-- c2&#45;&#45;last week -->
+<g id="edge17" class="edge">
+<title>c2--last week</title>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M733.7844,-71.8314C733.7844,-61 733.7844,-47.2876 733.7844,-36.4133"/>
+</g>
+</g>
+</svg>
+</p><h3 class="mume-header" id="%E5%B9%B6%E5%88%97">&#x5E76;&#x5217;</h3>
+
+<h4 class="mume-header" id="%E6%A6%82%E5%BF%B5-3">&#x6982;&#x5FF5;</h4>
+
+<dl>
+<dt>&#x5E76;&#x5217; (Coordination)</dt>
+<dd>&#x4F4D;&#x4E8E;&#x8BED;&#x8A00;&#x5C42;&#x7EA7;&#x4E2D;&#x76F8;&#x540C;&#x5C42;&#x7EA7;&#x7684;&#x4E24;&#x4E2A;&#x6216;&#x8005;&#x4E24;&#x4E2A;&#x4EE5;&#x4E0A;&#x7684;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#xFF0C;&#x6784;&#x6210;&#x4E00;&#x4E2A;&#x6027;&#x8D28;&#x4E0A;&#x4ECD;&#x7B49;&#x4EF7;&#x4E8E;&#x5355;&#x4E2A;&#x7684;&#x8FD9;&#x79CD;&#x5355;&#x4F4D;&#xFF0C;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#x79F0;&#x4E4B;&#x4E3A;&#x5E76;&#x5217;&#x3002;</dd>
+</dl>
+<p>&#x5E76;&#x5217;&#x7684;&#x5404;&#x4E2A;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x5E38;&#x5E38;&#x7528;&#x4E00;&#x4E2A;&#x8FDE;&#x63A5;&#x8BCD;&#x76F8;&#x8FDE;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x8BCD;&#x79F0;&#x4E4B;&#x4E3A;<strong>&#x5E76;&#x5217;&#x8FDE;&#x8BCD;</strong></p>
+<h4 class="mume-header" id="%E4%B8%BE%E4%BE%8B-2">&#x4E3E;&#x4F8B;</h4>
+
+<ol>
+<li>&#x5206;&#x53E5;&#x5E76;&#x5217;</li>
+</ol>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="294pt" height="44pt" viewBox="0.00 0.00 294.48 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-40 290.4819,-40 290.4819,4 -4,4"/>
+<!-- [I hate that woman], and [she is a bitch] -->
+<g id="node1" class="node">
+<title>[I hate that woman], and [she is a bitch]</title>
+<text text-anchor="middle" x="143.241" y="-12.9" font-family="Times,serif" font-size="17.00" fill="#000000">[I hate that woman], and [she is a bitch]</text>
+</g>
+</g>
+</svg>
+</p><ol start="2">
+<li>&#x4ECB;&#x8BCD;&#x77ED;&#x8BED;&#x5E76;&#x5217;</li>
+</ol>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="253pt" height="44pt" viewBox="0.00 0.00 253.39 44.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 40)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-40 249.3861,-40 249.3861,4 -4,4"/>
+<!-- You can go [[by car], or [by rail]] -->
+<g id="node1" class="node">
+<title>You can go [[by car], or [by rail]]</title>
+<text text-anchor="middle" x="122.6931" y="-12.9" font-family="Times,serif" font-size="17.00" fill="#000000">You can go [[by car], or [by rail]]</text>
+</g>
+</g>
+</svg>
+</p><h4 class="mume-header" id="%E6%84%8F%E4%B9%89-1">&#x610F;&#x4E49;</h4>
+
+<ol>
+<li>
+<p>&#x7B14;&#x8005;&#x4E0D;&#x662F;&#x975E;&#x5E38;&#x786E;&#x5B9A;&#x5E94;&#x8BE5;&#x628A;&#x5E76;&#x5217;&#x89C6;&#x4F5C;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x5305;&#x5B55;&#x5173;&#x7CFB;&#xFF0C;&#x4ECE;&#x800C;&#x4E0E;&#x4ECE;&#x5C5E;&#x5173;&#x7CFB;&#x5E73;&#x7EA7;&#xFF1B;&#x8FD8;&#x662F;&#x5C06;&#x5B83;&#x89C6;&#x4F5C;&#x4E00;&#x79CD;&#x4E0E;&#x5305;&#x5B55;&#x5E73;&#x7EA7;&#x76F8;&#x5BF9;&#x7684;&#x6784;&#x5EFA;&#x590D;&#x6742;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x7684;&#x624B;&#x6BB5;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x4E0D;&#x7BA1;&#x600E;&#x6837;&#xFF0C;&#x5E76;&#x5217;&#x4E5F;&#x540C;&#x6837;&#x4F7F;&#x5F97;&#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x5728;&#x7406;&#x8BBA;&#x4E0A;&#x5177;&#x6709;<strong>&#x65E0;&#x9650;&#x6269;&#x5C55;&#x6027;</strong>&#x3002;</p>
+</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E5%85%83%E8%AF%AD%E8%A8%80%E4%B8%8E%E5%AF%B9%E8%B1%A1%E8%AF%AD%E8%A8%80"> &#x5143;&#x8BED;&#x8A00;&#x4E0E;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;
+</a></li>
+<li><a href="#%E8%AF%AD%E8%A8%80%E7%9A%84%E5%B1%82%E6%AC%A1%E6%80%A7"> &#x8BED;&#x8A00;&#x7684;&#x5C42;&#x6B21;&#x6027;
+</a>
+<ul>
+<li><a href="#%E5%B1%82%E6%AC%A1%E6%80%A7"> &#x5C42;&#x6B21;&#x6027;
+</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95%E5%8D%95%E4%BD%8D%E4%B8%8E%E8%AF%AD%E8%A8%80%E5%B1%82%E7%BA%A7"> &#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E0E;&#x8BED;&#x8A00;&#x5C42;&#x7EA7;
+</a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5"> &#x6982;&#x5FF5;
+</a></li>
+<li><a href="#%E5%85%B7%E4%BD%93%E5%A4%96%E5%BB%B6"> &#x5177;&#x4F53;&#x5916;&#x5EF6;
+</a></li>
+<li><a href="#%E5%B1%82%E7%BA%A7%E9%A1%BA%E5%BA%8F%E7%9A%84%E7%A1%AE%E5%AE%9A"> &#x5C42;&#x7EA7;&#x987A;&#x5E8F;&#x7684;&#x786E;&#x5B9A;
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E8%AF%AD%E6%B3%95%E5%8D%95%E4%BD%8D%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"> &#x8BED;&#x6CD5;&#x5355;&#x4F4D;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;
+</a>
+<ul>
+<li><a href="#%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB"> &#x6784;&#x6210;&#x5173;&#x7CFB;
+</a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5%E5%86%85%E6%B6%B5"> &#x6982;&#x5FF5;&#x5185;&#x6DB5;
+</a></li>
+<li><a href="#%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"> &#x6784;&#x6210;&#x5173;&#x7CFB;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E5%8A%9F%E8%83%BD%E4%B8%8E%E5%BD%A2%E5%BC%8F"> &#x529F;&#x80FD;&#x4E0E;&#x5F62;&#x5F0F;
+</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E6%9E%84%E6%88%90%E5%85%B3%E7%B3%BB%E5%8C%85%E5%AD%95"> &#x7279;&#x6B8A;&#x7684;&#x6784;&#x6210;&#x5173;&#x7CFB;&#xFF1A;&#x5305;&#x5B55;
+</a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5-1"> &#x6982;&#x5FF5;
+</a></li>
+<li><a href="#%E4%B8%BE%E4%BE%8B"> &#x4E3E;&#x4F8B;
+</a></li>
+<li><a href="#%E6%84%8F%E4%B9%89"> &#x610F;&#x4E49;
+</a></li>
+<li><a href="#%E7%89%B9%E6%AE%8A%E7%9A%84%E5%8C%85%E5%AD%95%E4%BB%8E%E5%B1%9E"> &#x7279;&#x6B8A;&#x7684;&#x5305;&#x5B55;&#xFF1A;&#x4ECE;&#x5C5E;
+</a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5-2"> &#x6982;&#x5FF5;
+</a></li>
+<li><a href="#%E4%B8%BE%E4%BE%8B-1"> &#x4E3E;&#x4F8B;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B9%B6%E5%88%97"> &#x5E76;&#x5217;
+</a>
+<ul>
+<li><a href="#%E6%A6%82%E5%BF%B5-3"> &#x6982;&#x5FF5;
+</a></li>
+<li><a href="#%E4%B8%BE%E4%BE%8B-2"> &#x4E3E;&#x4F8B;
+</a></li>
+<li><a href="#%E6%84%8F%E4%B9%89-1"> &#x610F;&#x4E49;
+</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>

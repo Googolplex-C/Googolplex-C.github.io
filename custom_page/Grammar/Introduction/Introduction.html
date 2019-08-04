@@ -1,0 +1,1085 @@
+<!DOCTYPE html><html><head>
+      <title>&#x82F1;&#x8BED;&#x8BED;&#x6CD5;&#x5BFC;&#x8BBA;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+.markdown-preview.markdown-preview img {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%AD%E6%B3%95">&#x4EC0;&#x4E48;&#x662F;&#x8BED;&#x6CD5;</h1>
+
+<h2 class="mume-header" id="%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A6%82%E5%BF%B5">&#x8BED;&#x8A00;&#x7684;&#x6982;&#x5FF5;</h2>
+
+<dl>
+<dt>&#x8BED;&#x8A00;</dt>
+<dd>&#x7528;&#x4E8E;&#x4EA4;&#x9645;&#x7684;&#xFF0C;&#x97F3;&#x3001; &#x5F62;&#x3001;&#x4E49;&#x7ED3;&#x5408;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x8BCD;&#x6C47;&#x7684;&#x4F53;&#x7CFB;&#x3002;</dd>
+</dl>
+<h2 class="mume-header" id="%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BD%93%E7%B3%BB%E6%9E%84%E6%88%90">&#x8BED;&#x8A00;&#x7684;&#x4F53;&#x7CFB;&#x6784;&#x6210;</h2>
+
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x8BED;&#x8A00;&#x7684;&#x4E09;&#x5927;&#x6846;&#x67B6;&#x7684;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x8BED;&#x4E49;&#x7CFB;&#x7EDF;</li>
+<li>&#x7ED3;&#x6784;&#x7CFB;&#x7EDF;</li>
+<li>&#x53D1;&#x97F3;/&#x6587;&#x5B57;&#x7CFB;&#x7EDF;</li>
+</ul>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="436pt" height="152pt" viewBox="0.00 0.00 436.44 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-148 432.4353,-148 432.4353,4 -4,4"/>
+<!-- h -->
+<g id="node1" class="node">
+<title>h</title>
+<ellipse fill="none" stroke="#000000" cx="198.389" cy="-126" rx="38.823" ry="18"/>
+<text text-anchor="middle" x="198.389" y="-121.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BED;&#x8A00;</text>
+</g>
+<!-- d -->
+<g id="node2" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="56.3623" cy="-72" rx="56.225" ry="18"/>
+<text text-anchor="middle" x="56.3623" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BED;&#x4E49;&#x7CFB;&#x7EDF;</text>
+</g>
+<!-- h&#45;&#45;d -->
+<g id="edge6" class="edge">
+<title>h--d</title>
+<path fill="none" stroke="#000000" d="M168.1656,-114.5088C146.1718,-106.1465 116.2798,-94.7812 92.9377,-85.9063"/>
+</g>
+<!-- e -->
+<g id="node3" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="198.389" cy="-72" rx="49.8291" ry="18"/>
+<text text-anchor="middle" x="198.389" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x7ED3;&#x6784;&#x7CFB;&#x7EDF;</text>
+</g>
+<!-- h&#45;&#45;e -->
+<g id="edge7" class="edge">
+<title>h--e</title>
+<path fill="none" stroke="#000000" d="M198.389,-107.7902C198.389,-101.907 198.389,-96.0238 198.389,-90.1406"/>
+</g>
+<!-- f -->
+<g id="node4" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="356.2443" cy="-72" rx="72.3826" ry="18"/>
+<text text-anchor="middle" x="356.2443" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x53D1;&#x97F3;/&#x6587;&#x5B57;&#x7CFB;&#x7EDF;</text>
+</g>
+<!-- h&#45;&#45;f -->
+<g id="edge8" class="edge">
+<title>h--f</title>
+<path fill="none" stroke="#000000" d="M229.5761,-115.3313C253.5664,-107.1246 286.9825,-95.6935 313.4695,-86.6326"/>
+</g>
+<!-- d&#45;&#45;e -->
+<g id="edge1" class="edge">
+<title>d--e</title>
+<path fill="none" stroke="#000000" d="M112.9031,-72C124.6613,-72 136.9724,-72 148.4717,-72"/>
+</g>
+<!-- a -->
+<g id="node5" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="56.3623" cy="-18" rx="34.2513" ry="18"/>
+<text text-anchor="middle" x="56.3623" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BCD;&#x6C47;</text>
+</g>
+<!-- d&#45;&#45;a -->
+<g id="edge9" class="edge">
+<title>d--a</title>
+<path fill="none" stroke="#000000" d="M56.3623,-53.7902C56.3623,-47.907 56.3623,-42.0238 56.3623,-36.1406"/>
+</g>
+<!-- e&#45;&#45;f -->
+<g id="edge2" class="edge">
+<title>e--f</title>
+<path fill="none" stroke="#000000" d="M248.3354,-72C259.6261,-72 271.8356,-72 283.8424,-72"/>
+</g>
+<!-- b -->
+<g id="node6" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="198.389" cy="-18" rx="35.3528" ry="18"/>
+<text text-anchor="middle" x="198.389" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BED;&#x6CD5;</text>
+</g>
+<!-- e&#45;&#45;b -->
+<g id="edge10" class="edge">
+<title>e--b</title>
+<path fill="none" stroke="#000000" d="M198.389,-53.7902C198.389,-47.907 198.389,-42.0238 198.389,-36.1406"/>
+</g>
+<!-- c -->
+<g id="node7" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="356.2443" cy="-18" rx="57.9062" ry="18"/>
+<text text-anchor="middle" x="356.2443" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BED;&#x97F3;/&#x6587;&#x5B57;</text>
+</g>
+<!-- f&#45;&#45;c -->
+<g id="edge11" class="edge">
+<title>f--c</title>
+<path fill="none" stroke="#000000" d="M356.2443,-53.7902C356.2443,-47.907 356.2443,-42.0238 356.2443,-36.1406"/>
+</g>
+<!-- a&#45;&#45;b -->
+<g id="edge3" class="edge">
+<title>a--b</title>
+<path fill="none" stroke="#000000" d="M90.743,-18C112.5806,-18 140.7826,-18 162.8417,-18"/>
+</g>
+<!-- b&#45;&#45;c -->
+<g id="edge4" class="edge">
+<title>b--c</title>
+<path fill="none" stroke="#000000" d="M233.8148,-18C252.813,-18 276.7013,-18 298.3218,-18"/>
+</g>
+<!-- empty -->
+<!-- empty&#45;&#45;h -->
+</g>
+</svg>
+</p><ol>
+<li>
+<p>&#x8BED;&#x4E49;&#x7CFB;&#x7EDF;&#x7684;&#x5177;&#x4F53;&#x8868;&#x73B0;&#x662F;&#x8BCD;&#x6C47;&#xFF0C;&#x5B83;&#x8D4B;&#x4E88;&#x8BED;&#x8A00;&#x4EE5;<strong>&#x610F;&#x4E49;&#x5185;&#x5BB9;</strong></p>
+</li>
+<li>
+<p>&#x7ED3;&#x6784;&#x7CFB;&#x7EDF;&#x7684;&#x5177;&#x4F53;&#x8868;&#x73B0;&#x662F;&#x8BED;&#x6CD5;&#xFF0C;&#x5B83;&#x8D4B;&#x4E88;&#x8BED;&#x8A00;&#x4EE5;<strong>&#x7ED3;&#x6784;&#x5F62;&#x5F0F;</strong></p>
+</li>
+<li>
+<p>&#x53D1;&#x97F3;/&#x6587;&#x5B57;&#x7CFB;&#x7EDF;&#x7684;&#x5177;&#x4F53;&#x8868;&#x73B0;&#x662F;&#x8BED;&#x97F3;&#x548C;&#x6587;&#x5B57;&#xFF0C;&#x5B83;&#x8D4B;&#x4E88;&#x8BED;&#x8A00;&#x4EE5;<strong>&#x7269;&#x8D28;&#x5916;&#x58F3;</strong></p>
+</li>
+</ol>
+<p>&#x5176;&#x4E2D;&#xFF0C;&#x8BED;&#x6CD5;&#x626E;&#x6F14;&#x7740;&#x4E00;&#x4E2A;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x89D2;&#x8272;&#xFF0C;&#x5728;&#x4E66;&#x5199;&#x65F6;&#xFF0C;&#x5B83;&#x662F;&#x8BCD;&#x6C47;&#x548C;&#x6587;&#x5B57;&#x7684;&#x67A2;&#x7EBD;&#xFF1B;&#x5728;&#x8BF4;&#x8BDD;&#x65F6;&#xFF0C;&#x5B83;&#x662F;&#x8BCD;&#x6C47;&#x548C;&#x8BED;&#x97F3;&#x7684;&#x67A2;&#x7EBD;&#x3002;</p>
+<h2 class="mume-header" id="%E8%AF%AD%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB">&#x8BED;&#x6CD5;&#x7684;&#x5206;&#x7C7B;</h2>
+
+<h3 class="mume-header" id="%E5%AE%A2%E8%A7%82%E4%B8%96%E7%95%8C%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%AE%B6%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95">&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x8BED;&#x8A00;&#x5B66;&#x5BB6;&#x773C;&#x4E2D;&#x7684;&#x8BED;&#x6CD5;</h3>
+
+<ol>
+<li>
+<p>&#x4E0D;&#x53EF;&#x5426;&#x8BA4;&#xFF0C;&#x8BED;&#x6CD5;&#x662F;&#x5BA2;&#x89C2;&#x5B58;&#x5728;&#x7684;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x7740;&#x4E00;&#x5957;&#x8BED;&#x8A00;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E4B;&#x4E3A;&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x5982;&#x679C;&#x8FDD;&#x80CC;&#x4E86;&#x8FD9;&#x5957;&#x89C4;&#x5219;&#xFF0C;&#x90A3;&#x4E48;&#x591A;&#x591A;&#x5C11;&#x5C11;&#x4F1A;&#x5BFC;&#x81F4;&#x4E00;&#x4E9B;&#x4EA4;&#x6D41;&#x4E0A;&#x7684;&#x95EE;&#x9898;</p>
+</li>
+<li>
+<p>&#x8BED;&#x8A00;&#x5B66;&#x5BB6;&#x6240;&#x8BF4;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;<strong>&#x5BF9;&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;&#x7684;&#x63CF;&#x8FF0;&#x548C;&#x603B;&#x7ED3;</strong></p>
+</li>
+</ol>
+<p>&#x8FD9;&#x4E24;&#x8005;&#x5728;&#x5916;&#x5EF6;&#x4E0A;&#x5E76;&#x4E0D;&#x5B8C;&#x5168;&#x76F8;&#x7B49;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x9996;&#x5148;&#xFF0C;&#x4EBA;&#x7684;&#x8BA4;&#x8BC6;&#x603B;&#x662F;&#x6709;&#x9650;&#x7684;</p>
+</li>
+<li>
+<p>&#x5176;&#x6B21;&#xFF0C;&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x4E5F;&#x662F;&#x5728;&#x4E0D;&#x65AD;&#x53D8;&#x5316;&#x4E2D;&#x7684;</p>
+</li>
+</ol>
+<p>&#x53EF;&#x4EE5;&#x501F;&#x52A9;<strong>&#x7269;&#x7406;&#x4E16;&#x754C;&#x89C4;&#x5F8B;</strong>&#x548C;<strong>&#x7269;&#x7406;&#x5B66;</strong>&#x7684;&#x5173;&#x7CFB;&#x7406;&#x89E3;&#x4E0A;&#x9762;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#x7684;&#x5173;&#x7CFB;&#x3002;</p>
+<h3 class="mume-header" id="%E7%90%86%E8%AE%BA%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%99%E5%AD%A6%E8%AF%AD%E6%B3%95">&#x7406;&#x8BBA;&#x8BED;&#x6CD5;&#x548C;&#x6559;&#x5B66;&#x8BED;&#x6CD5;</h3>
+
+<p>&#x8BED;&#x6CD5;&#x5B66;&#x8005;&#x6240;&#x7814;&#x7A76;&#x603B;&#x7ED3;&#x7684;&#x8BED;&#x6CD5;&#x5F53;&#x4E2D;&#xFF0C;&#x53C8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x5206;&#x7C7B;</p>
+<ul>
+<li>
+<p>&#x7406;&#x8BBA;&#x8BED;&#x6CD5;&#xFF1A;&#x7CFB;&#x7EDF;&#x7684;&#x8BED;&#x8A00;&#x5B66;&#x7406;&#x8BBA;&#xFF0C;&#x4E0D;&#x76F4;&#x63A5;&#x4E3A;&#x6559;&#x5B66;&#x670D;&#x52A1;</p>
+</li>
+<li>
+<p>&#x6559;&#x5B66;&#x8BED;&#x6CD5;&#xFF1A;&#x76F4;&#x63A5;&#x670D;&#x52A1;&#x4E8E;&#x6559;&#x5B66;&#xFF0C;&#x5185;&#x5BB9;&#x4E0A;&#x6765;&#x6E90;&#x81EA;&#x7406;&#x8BBA;&#x8BED;&#x6CD5;</p>
+</li>
+</ul>
+<p>&#x5176;&#x5B9E;&#x7B14;&#x8005;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#xFF0C;&#x8BED;&#x6CD5;&#x5C31;&#x662F;&#x8BED;&#x6CD5;&#xFF0C;&#x4EE5;&#x4E0A;&#x7684;&#x5206;&#x7C7B;&#x53EA;&#x4E0D;&#x8FC7;&#x76F8;&#x5F53;&#x4E8E;&#x201C;&#x6570;&#x5B66;&#x4E13;&#x4E1A;&#x7684;&#x6570;&#x5B66;&#x8BFE;&#x7A0B;&#x201D; &#x548C; &#x201C;&#x975E;&#x6570;&#x5B66;&#x4E13;&#x4E1A;&#x7684;&#x6570;&#x5B66;&#x8BFE;&#x7A0B;&#x201D; &#x7684;&#x5173;&#x7CFB;&#x7F62;&#x4E86;&#xFF0C;&#x4ED6;&#x4EEC;&#x672C;&#x8D28;&#x4E0A;&#x5E76;&#x4E0D;&#x662F;&#x4E24;&#x79CD;&#x4E1C;&#x897F;&#x3002;</p>
+<h3 class="mume-header" id="%E8%A7%84%E8%8C%83%E6%80%A7%E8%AF%AD%E6%B3%95%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E8%AF%AD%E6%B3%95">&#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;&#x548C;&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;</h3>
+
+<p>&#x5728;&#x6559;&#x5B66;&#x8BED;&#x6CD5;&#x4E2D;&#xFF0C;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;&#x5206;&#x7C7B;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>
+<p>&#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;&#xFF1A;&#x8BED;&#x6CD5;&#x662F;&#x4E00;&#x5957;&#x4EE5;&#x660E;&#x6587;&#x64B0;&#x5199;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x6240;&#x6709;&#x4EBA;&#x5FC5;&#x987B;&#x6309;&#x7167;&#x8FD9;&#x79CD;&#x89C4;&#x5219;&#x6765;&#xFF0C;&#x5426;&#x5219;&#x5C31;&#x662F;&#x9519;&#x7684;</p>
+</li>
+<li>
+<p>&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;&#xFF1A;&#x8BED;&#x6CD5;&#x548C;&#x6CD5;&#x5F8B;&#x5E76;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x4E0D;&#x5177;&#x6709;&#x90A3;&#x4E48;&#x5F3A;&#x7684;&#x5F3A;&#x5236;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x5FE0;&#x5B9E;&#x8BB0;&#x5F55;&#x4EBA;&#x4EEC;&#x662F;&#x600E;&#x4E48;&#x4F7F;&#x7528;&#x67D0;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x7684;&#x3002;</p>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%80%BB%E7%BB%93">&#x603B;&#x7ED3;</h3>
+
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="614pt" height="152pt" viewBox="0.00 0.00 613.57 152.00" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 148)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-148 609.5727,-148 609.5727,4 -4,4"/>
+<!-- 语法 -->
+<g id="node1" class="node">
+<title>&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="35.176" cy="-99" rx="35.3528" ry="18"/>
+<text text-anchor="middle" x="35.176" y="-94.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 客观世界的语法 -->
+<g id="node2" class="node">
+<title>&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="193.2862" cy="-126" rx="83.4156" ry="18"/>
+<text text-anchor="middle" x="193.2862" y="-121.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 语法&#45;&#45;客观世界的语法 -->
+<g id="edge1" class="edge">
+<title>&#x8BED;&#x6CD5;--&#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M68.7071,-104.726C85.8396,-107.6517 107.2992,-111.3163 127.5568,-114.7756"/>
+</g>
+<!-- 作为学科的语法 -->
+<g id="node3" class="node">
+<title>&#x4F5C;&#x4E3A;&#x5B66;&#x79D1;&#x7684;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="193.2862" cy="-72" rx="86.8686" ry="18"/>
+<text text-anchor="middle" x="193.2862" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4F5C;&#x4E3A;&#x5B66;&#x79D1;&#x7684;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 语法&#45;&#45;作为学科的语法 -->
+<g id="edge2" class="edge">
+<title>&#x8BED;&#x6CD5;--&#x4F5C;&#x4E3A;&#x5B66;&#x79D1;&#x7684;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M68.7071,-93.274C85.3863,-90.4257 106.1668,-86.8771 125.9467,-83.4994"/>
+</g>
+<!-- 理论语法 -->
+<g id="node4" class="node">
+<title>&#x7406;&#x8BBA;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="374.1937" cy="-99" rx="57.9463" ry="18"/>
+<text text-anchor="middle" x="374.1937" y="-94.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x7406;&#x8BBA;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 作为学科的语法&#45;&#45;理论语法 -->
+<g id="edge3" class="edge">
+<title>&#x4F5C;&#x4E3A;&#x5B66;&#x79D1;&#x7684;&#x8BED;&#x6CD5;--&#x7406;&#x8BBA;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M264.007,-82.5549C283.2325,-85.4243 303.7081,-88.4802 321.7263,-91.1694"/>
+</g>
+<!-- 教学语法 -->
+<g id="node5" class="node">
+<title>&#x6559;&#x5B66;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="374.1937" cy="-45" rx="52.7527" ry="18"/>
+<text text-anchor="middle" x="374.1937" y="-40.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x6559;&#x5B66;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 作为学科的语法&#45;&#45;教学语法 -->
+<g id="edge4" class="edge">
+<title>&#x4F5C;&#x4E3A;&#x5B66;&#x79D1;&#x7684;&#x8BED;&#x6CD5;--&#x6559;&#x5B66;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M264.007,-61.4451C284.6199,-58.3687 306.6699,-55.0778 325.5874,-52.2544"/>
+</g>
+<!-- 规范性语法 -->
+<g id="node6" class="node">
+<title>&#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="536.8697" cy="-72" rx="68.9065" ry="18"/>
+<text text-anchor="middle" x="536.8697" y="-67.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 教学语法&#45;&#45;规范性语法 -->
+<g id="edge5" class="edge">
+<title>&#x6559;&#x5B66;&#x8BED;&#x6CD5;--&#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M422.122,-52.9549C439.8354,-55.8948 460.1074,-59.2594 478.6353,-62.3346"/>
+</g>
+<!-- 描述性语法 -->
+<g id="node7" class="node">
+<title>&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;</title>
+<ellipse fill="none" stroke="#000000" cx="536.8697" cy="-18" rx="64.8525" ry="18"/>
+<text text-anchor="middle" x="536.8697" y="-13.8" font-family="Times,serif" font-size="14.00" fill="#000000">&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;</text>
+</g>
+<!-- 教学语法&#45;&#45;描述性语法 -->
+<g id="edge6" class="edge">
+<title>&#x6559;&#x5B66;&#x8BED;&#x6CD5;--&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;</title>
+<path fill="none" stroke="#000000" d="M422.122,-37.0451C440.6789,-33.9652 462.0438,-30.4192 481.2698,-27.2281"/>
+</g>
+</g>
+</svg>
+</p><h2 class="mume-header" id="%E6%9C%AC%E4%B9%A6%E4%B8%AD%E8%AF%AD%E6%B3%95%E7%9A%84%E5%90%AB%E4%B9%89">&#x672C;&#x4E66;&#x4E2D;&#x8BED;&#x6CD5;&#x7684;&#x542B;&#x4E49;</h2>
+
+<p>&#x672C;&#x4E66;&#x7684;&#x8BED;&#x6CD5;&#x6307;&#x7684;&#x662F; <strong>&#x6559;&#x5B66;&#x8BED;&#x6CD5;</strong> -- <strong>&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;</strong></p>
+<h1 class="mume-header" id="%E6%9C%AC%E4%B9%A6%E7%89%B9%E7%82%B9">&#x672C;&#x4E66;&#x7279;&#x70B9;</h1>
+
+<p>&#x672C;&#x7AE0;&#x8282;&#x5217;&#x4E3E;&#x7684; &#x201C;&#x7279;&#x70B9;&#x201D; &#x4E3B;&#x8981;&#x6307;&#x7684;&#x662F;&#x4E0E;&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x6559;&#x6750;&#x4E0D;&#x540C;&#x6216;&#x8005;&#x8FDB;&#x884C;&#x4E86;&#x9769;&#x65B0;&#x7684;&#x5730;&#x65B9;&#x3002;</p>
+<p>&#x6709;&#x4E00;&#x4E9B;&#x5730;&#x65B9;&#x53EF;&#x80FD;&#x4F1A;&#x7ED9;&#x51FA;&#x4E00;&#x4E9B;&#x8BED;&#x6CD5;&#x6982;&#x5FF5;&#x7684;&#x65B0;&#x5B9A;&#x4E49;&#x3002;</p>
+<h2 class="mume-header" id="%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E8%B4%AF%E7%A9%BF%E5%A7%8B%E7%BB%88">&#x5C42;&#x6B21;&#x5206;&#x6790;&#x6CD5;&#x8D2F;&#x7A7F;&#x59CB;&#x7EC8;</h2>
+
+<h3 class="mume-header" id="%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95">&#x5C42;&#x6B21;&#x5206;&#x6790;&#x6CD5;</h3>
+
+<ol>
+<li>
+<p>&#x5C42;&#x6B21;&#x6027;&#x662F;&#x8BED;&#x8A00;&#x7684;&#x57FA;&#x672C;&#x5C5E;&#x6027;&#x4E4B;&#x4E00;&#xFF1A;&#x8BED;&#x8A00;&#x662F;&#x7531;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#x7684;<strong>&#x8BED;&#x8A00;&#x7ED3;&#x6784;</strong>&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x6784;&#x5EFA;&#x8D77;&#x6765;&#x7684;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x9664;&#x4E86;&#x6700;&#x5E95;&#x5C42;&#x548C;&#x6700;&#x9AD8;&#x5C42;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x7ED3;&#x6784;&#x90FD;&#x7531;&#x66F4;&#x4F4E;&#x5C42;&#x7684;&#x7ED3;&#x6784;&#x6784;&#x5EFA;&#x800C;&#x6210;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x5176;&#x4E0A;&#x5C42;&#x7ED3;&#x6784;&#x7684;&#x6784;&#x5EFA;&#x6750;&#x6599;&#xFF1B;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E7%AA%81%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98">&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x7A81;&#x51FA;&#x7684;&#x95EE;&#x9898;</h3>
+
+<p>&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5728;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;&#x4E0A;&#x7684;&#x95EE;&#x9898;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x4E0D;&#x592A;&#x91CD;&#x89C6;&#x8BCD;&#x7EC4;&#x7ED3;&#x6784;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x4E0D;&#x592A;&#x91CD;&#x89C6;&#x751A;&#x81F3;&#x5FFD;&#x89C6;&#x5206;&#x53E5;&#x7ED3;&#x6784;&#xFF1B;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E5%AF%B9%E8%AF%8D%E7%BB%84%E7%BB%93%E6%9E%84%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8">&#x5BF9;&#x8BCD;&#x7EC4;&#x7ED3;&#x6784;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;</h3>
+
+<ol>
+<li>
+<p>&#x5C24;&#x5176;&#x5BF9;&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;&#x8FDB;&#x884C;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;</p>
+</li>
+<li>
+<p>&#x7B2C;&#x4E00;&#x70B9;&#x5F15;&#x51FA;&#x4E86;&#x9650;&#x5B9A;&#x8BCD;&#x7684;&#x95EE;&#x9898;&#xFF1A;&#x628A;&#x4F20;&#x7EDF;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x67D0;&#x51E0;&#x7C7B;&#x8BCD;&#x8BED;&#x5F52;&#x4E3A;&#x4E00;&#x7C7B;&#x65B0;&#x8BCD;&#x7C7B;&#x5373;&#x9650;&#x5B9A;&#x8BCD;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E5%AF%B9%E5%88%86%E5%8F%A5%E7%BB%93%E6%9E%84%E8%BF%9B%E8%A1%8C%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8">&#x5BF9;&#x5206;&#x53E5;&#x7ED3;&#x6784;&#x8FDB;&#x884C;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;</h3>
+
+<ol>
+<li>
+<p>&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5BF9;&#x4E8E;&#x5206;&#x53E5;&#x548C;&#x53E5;&#x5B50;&#x7684;&#x6982;&#x5FF5;&#x6709;&#x4E9B;&#x7EA0;&#x7F20;&#x4E0D;&#x6E05;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x4F20;&#x7EDF;&#x610F;&#x4E49;&#x4E0A;&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#x7684; &#x201C;&#x53E5;&#x5B50;&#x7ED3;&#x6784;&#x201D; &#x548C; &#x201C;&#x57FA;&#x672C;&#x53E5;&#x578B;&#x201D; &#x4E2D;&#x7684;&#x53E5;&#x5B50;&#x5728;&#x672C;&#x4E66;&#x4F53;&#x7CFB;&#x4E2D;&#x6307;&#x7684;&#x662F;&#x72EC;&#x7ACB;&#x5206;&#x53E5;</p>
+</li>
+</ol>
+<h2 class="mume-header" id="%E8%AF%8D%E6%B3%95%E4%B8%8E%E5%8F%A5%E6%B3%95%E7%9A%84%E5%85%B3%E7%B3%BB">&#x8BCD;&#x6CD5;&#x4E0E;&#x53E5;&#x6CD5;&#x7684;&#x5173;&#x7CFB;</h2>
+
+<ul>
+<li>
+<p><strong>&#x4EE5;&#x53E5;&#x6CD5;&#x4E3A;&#x4E3B;&#x7EBF;&#xFF0C;&#x4EE5;&#x53E5;&#x6CD5;&#x5E26;&#x52A8;&#x8BCD;&#x6CD5;&#xFF0C;&#x5E76;&#x4EE5;&#x8BCD;&#x6CD5;&#x4E30;&#x5BCC;&#x52A0;&#x6DF1;&#x53E5;&#x6CD5;&#x7684;&#x5185;&#x5BB9;</strong></p>
+</li>
+<li>
+<p><strong>&#x53E5;&#x5B50;&#x7ED3;&#x6784;&#x548C;&#x8BCD;&#x6C47;&#x610F;&#x4E49;&#x662F;&#x7D27;&#x5BC6;&#x7ED3;&#x5408;&#x7684;&#xFF0C;&#x7279;&#x5B9A;&#x7684;&#x53E5;&#x5B50;&#x7ED3;&#x6784;&#x5F80;&#x5F80;&#x8981;&#x6C42;&#x67D0;&#x79CD;&#x610F;&#x4E49;&#x7684;&#x8BCD;&#x4E0E;&#x4E4B;&#x642D;&#x914D;</strong></p>
+</li>
+</ul>
+<h2 class="mume-header" id="%E9%99%90%E5%AE%9A%E8%AF%8D%E4%BD%9C%E4%B8%BA%E5%8D%95%E7%8B%AC%E7%9A%84%E8%AF%8D%E7%B1%BB">&#x9650;&#x5B9A;&#x8BCD;&#x4F5C;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x8BCD;&#x7C7B;</h2>
+
+<h3 class="mume-header" id="%E9%99%90%E5%AE%9A%E8%AF%8D%E6%A6%82%E5%BF%B5%E7%9A%84%E5%86%85%E6%B6%B5">&#x9650;&#x5B9A;&#x8BCD;&#x6982;&#x5FF5;&#x7684;&#x5185;&#x6DB5;</h3>
+
+<ul>
+<li>
+<p>&#x4F4D;&#x4E8E;&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;&#x4E2D;&#xFF0C;&#x540D;&#x8BCD;&#x4E2D;&#x5FC3;&#x8BCD;&#x6216;&#x8005;&#x540D;&#x8BCD;&#x4E2D;&#x5FC3;&#x8BCD;&#x524D;&#x7684;&#x524D;&#x7F6E;&#x4FEE;&#x9970;&#x8BED;&#x4E4B;&#x524D;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x5BF9;&#x4E2D;&#x5FC3;&#x8BCD;&#x7684;&#x610F;&#x4E49;&#x8D77;&#x7279;&#x6307;&#x3001;&#x7C7B;&#x6307;&#x3001;&#x5B9A;&#x91CF;&#x3001;&#x4E0D;&#x5B9A;&#x91CF;&#x7B49;&#x9650;&#x5B9A;&#x4F5C;&#x7528;&#xFF1B;</p>
+</li>
+</ul>
+<h3 class="mume-header" id="%E9%99%90%E5%AE%9A%E8%AF%8D%E5%92%8C%E4%BF%AE%E9%A5%B0%E8%AF%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB">&#x9650;&#x5B9A;&#x8BCD;&#x548C;&#x4FEE;&#x9970;&#x8BED;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;</h3>
+
+<ul>
+<li>
+<p>&#x524D;&#x8005;&#x53EA;&#x5173;&#x7CFB;&#x5230;&#x540D;&#x8BCD;&#x4E2D;&#x5FC3;&#x8BCD;&#x7684;&#x5916;&#x90E8;&#x5173;&#x8054;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x540E;&#x8005;&#x5374;&#x63CF;&#x7ED8;&#x540D;&#x8BCD;&#x4E2D;&#x5FC3;&#x8BCD;&#x7684;&#x5185;&#x5728;&#x7279;&#x5F81;&#xFF1B;</p>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%8A%8A%E9%99%90%E5%AE%9A%E8%AF%8D%E4%BD%9C%E4%B8%BA%E4%B8%80%E7%B1%BB%E7%8B%AC%E7%AB%8B%E8%AF%8D%E6%B1%87%E7%9A%84%E7%90%86%E7%94%B1">&#x628A;&#x9650;&#x5B9A;&#x8BCD;&#x4F5C;&#x4E3A;&#x4E00;&#x7C7B;&#x72EC;&#x7ACB;&#x8BCD;&#x6C47;&#x7684;&#x7406;&#x7531;</h3>
+
+<ul>
+<li>
+<p>&#x67D0;&#x4E9B;&#x7406;&#x8BBA;&#x8BED;&#x6CD5;&#x7814;&#x7A76;&#x6D41;&#x6D3E;&#x65E9;&#x5E74;&#x5DF2;&#x7ECF;&#x63D0;&#x51FA;&#x8FD9;&#x4E00;&#x89C2;&#x70B9;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x8BED;&#x6CD5;&#x5DE8;&#x8457;&#x548C;&#x6743;&#x5A01;&#x8BCD;&#x5178;&#x63A5;&#x7EB3;&#x4E86;&#x8FD9;&#x4E00;&#x5206;&#x7C7B;&#x65B9;&#x6CD5;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x51A0;&#x8BCD;&#x3001;&#x5F62;&#x5BB9;&#x6027;&#x7269;&#x4E3B;&#x4EE3;&#x8BCD;&#x7B49;&#x8BB8;&#x591A;&#x8BCD;&#x5728;&#x8BED;&#x6CD5;&#x7ED3;&#x6784;&#x4E0A;&#x662F;&#x7C7B;&#x4F3C;&#x7684;</p>
+</li>
+</ul>
+<h2 class="mume-header" id="%E4%B8%A4%E6%97%B6%E4%B8%A4%E4%BD%93">&#x4E24;&#x201C;&#x65F6;&#x201D;&#x4E24;&#x201C;&#x4F53;&#x201D;</h2>
+
+<h3 class="mume-header" id="%E6%97%B6-%E5%92%8C-%E4%BD%93-%E7%9A%84%E5%8C%BA%E5%88%86">&#x201C;&#x65F6;&#x201D; &#x548C; &#x201C;&#x4F53;&#x201D; &#x7684;&#x533A;&#x5206;</h3>
+
+<ol>
+<li>
+<p>&#x65F6; &#x662F;&#x8868;&#x793A;&#x65F6;&#x95F4;&#x533A;&#x522B;&#x7684;&#x52A8;&#x8BCD;&#x5F62;&#x5F0F;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x4F53; &#x662F;&#x8868;&#x793A;&#x52A8;&#x8BCD;&#x72B6;&#x6001;&#x6216;&#x8005;&#x5176;&#x5B58;&#x5728;&#x65B9;&#x5F0F;&#x7684;&#x52A8;&#x8BCD;&#x5F62;&#x5F0F;&#xFF1B;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B8%AD%E7%9A%84%E8%A7%82%E7%82%B9">&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5B66;&#x4E2D;&#x7684;&#x89C2;&#x70B9;</h3>
+
+<ol>
+<li>
+<p>&#x53D7;&#x62C9;&#x4E01;&#x6587;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x8BA4;&#x4E3A;&#x82F1;&#x6587;&#x7684;&#x65F6;&#x548C;&#x4F53;&#x662F;&#x4E0D;&#x53EF;&#x5206;&#x7684;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x53EA;&#x8BB2; tense &#x4E0D;&#x8BB2; aspect&#xFF0C;&#x800C;&#x4E14;&#x8BA4;&#x4E3A;&#x524D;&#x8005;&#x5305;&#x542B;&#x540E;&#x8005;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x8BA4;&#x4E3A;&#x5B58;&#x5728; &#x201C;&#x5C06;&#x6765;&#x65F6;&#x201D; &#x548C; &#x201C;&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x8FDB;&#x884C;&#x65F6;&#x201D;</p>
+</li>
+<li>
+<p>&#x591A;&#x8FBE; 16 &#x79CD;&#x5206;&#x7C7B;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&#x822C;&#x73B0;&#x5728;&#x65F6;</td>
+<td>&#x4E00;&#x822C;&#x8FC7;&#x53BB;&#x65F6;</td>
+<td>&#x4E00;&#x822C;&#x5C06;&#x6765;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x65F6;</td>
+</tr>
+<tr>
+<td>&#x5728;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x5C06;&#x6765;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x8FDB;&#x884C;&#x65F6;</td>
+</tr>
+<tr>
+<td>&#x53BB;&#x5B8C;&#x6210;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5B8C;&#x6210;&#x65F6;</td>
+<td>&#x5C06;&#x6765;&#x5B8C;&#x6210;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x5B8C;&#x6210;&#x65F6;</td>
+</tr>
+<tr>
+<td>&#x5728;&#x5B8C;&#x6210;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5B8C;&#x6210;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x5C06;&#x6765;&#x5B8C;&#x6210;&#x8FDB;&#x884C;&#x65F6;</td>
+<td>&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x5B8C;&#x6210;&#x8FDB;&#x884C;&#x65F6;</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+<h3 class="mume-header" id="%E6%96%B0%E8%A7%82%E7%82%B9">&#x65B0;&#x89C2;&#x70B9;</h3>
+
+<ol>
+<li>
+<p>&#x65F6;&#x548C;&#x4F53;&#x662F;&#x72EC;&#x7ACB;&#x7684;&#x8BED;&#x6CD5;&#x8303;&#x7574;</p>
+<ul>
+<li>
+<p>&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x5E38;&#x5E38;&#x5728;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x8868;&#x73B0;&#x5F62;&#x5F0F;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF1A;&#x65F6;&#x5E38;&#x7528;<strong>&#x5C48;&#x6298;&#x5F62;&#x5F0F;</strong>&#x8868;&#x793A;&#xFF0C;&#x800C;&#x4F53;&#x5374;&#x7ECF;<strong>&#x5206;&#x6790;&#x5F62;&#x5F0F;</strong>&#x8868;&#x793A;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x8BED;&#x4E49;&#x4E0A;&#x5B83;&#x4EEC;&#x4E5F;&#x5177;&#x6709;&#x9AD8;&#x5EA6;&#x72EC;&#x7ACB;&#x6027;&#xFF1A;</p>
+<blockquote>
+<p>He is writing a letter.</p>
+</blockquote>
+<blockquote>
+<p>He has written a letter.</p>
+</blockquote>
+<p>&#x8FD9;&#x4E24;&#x4E2A;&#x53E5;&#x5B50;&#x90FD;&#x662F;&#x5BF9;&#x73B0;&#x5728;&#x7684;&#x4E8B;&#x60C5;&#x7684;&#x63CF;&#x8FF0;&#xFF1A;&#x524D;&#x8005;&#x662F;&#x73B0;&#x5728;&#x6B63;&#x5728;&#x53D1;&#x751F;&#x3001;&#x8FDB;&#x884C;&#x7684;&#x4E8B;&#x60C5;&#xFF0C;&#x540E;&#x8005;&#x662F;&#x622A;&#x81F3;&#x73B0;&#x5728;&#x5DF2;&#x7ECF;&#x53D1;&#x751F;&#x4E86;&#x7684;&#x4E8B;&#x60C5;&#xFF1B;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x52A8;&#x8BCD;&#x7684;&#x4F53;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x524D;&#x8005;&#x662F;&#x672A;&#x5B8C;&#x6210;&#x72B6;&#x6001;&#xFF0C;&#x540E;&#x8005;&#x662F;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<blockquote>
+<p>He was writing a letter.</p>
+</blockquote>
+<blockquote>
+<p>He had written a letter.</p>
+</blockquote>
+<p>&#x8FD9;&#x4E00;&#x7EC4;&#x53E5;&#x5B50;&#x548C;&#x4E0A;&#x4E00;&#x7EC4;&#x53E5;&#x5B50;&#x7684;&#x5BF9;&#x6BD4;&#x975E;&#x5E38;&#x660E;&#x663E;&#xFF0C;&#x5404;&#x81EA;&#x7684; aspect &#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x65F6;&#x95F4;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#xFF0C;&#x7531; &#x201C;&#x73B0;&#x5728;&#x201D; &#x53D8;&#x6210;&#x4E86; &#x201C;&#x8FC7;&#x53BB;&#x201D;&#x3002;</p>
+</li>
+<li>
+<p>&#x65F6;&#x548C;&#x4F53;&#x7684;&#x7D27;&#x5BC6;&#x8054;&#x7CFB;&#xFF0C;&#x5E76;&#x4E0D;&#x4EE3;&#x8868;&#x5B83;&#x4EEC;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x8FDB;&#x884C;&#x4F53;&#x548C;&#x5B8C;&#x6210;&#x4F53;&#x5728;&#x975E;&#x9650;&#x5B9A;&#x5F62;&#x5F0F;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x548C; &#x201C;&#x65F6;&#x201D; &#x7ED3;&#x5408;&#x800C;&#x5355;&#x72EC;&#x51FA;&#x73B0;&#xFF1B;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>&#x4E0D;&#x5B58;&#x5728;&#x5C06;&#x6765;&#x65F6;&#x548C;&#x8FC7;&#x53BB;&#x5C06;&#x6765;&#x65F6;</p>
+</li>
+</ol>
+<h2 class="mume-header" id="%E5%B0%86%E6%9D%A5%E6%97%B6%E9%97%B4%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%8F%96%E4%BB%A3%E5%B0%86%E6%9D%A5%E6%97%B6">&#x201C;&#x5C06;&#x6765;&#x65F6;&#x95F4;&#x8868;&#x793A;&#x6CD5;&#x201D;&#x53D6;&#x4EE3;&#x201C;&#x5C06;&#x6765;&#x65F6;&#x201D;</h2>
+
+<h3 class="mume-header" id="%E6%97%B6%E9%97%B4%E5%92%8C%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E6%97%B6%E7%9A%84%E8%BE%A8%E6%9E%90">&#x65F6;&#x95F4;&#x548C;&#x8BED;&#x6CD5;&#x4E2D;&#x7684;&#x201C;&#x65F6;&#x201D;&#x7684;&#x8FA8;&#x6790;</h3>
+
+<ol>
+<li>
+<p>&#x65F6;&#x95F4;&#x662F;&#x4E00;&#x4E2A;&#x54F2;&#x5B66;&#x6982;&#x5FF5;&#x548C;&#x7269;&#x7406;&#x5BA2;&#x89C2;&#x5B58;&#x5728;&#xFF1A;&#x5168;&#x4E16;&#x754C;&#x7684;&#x4EBA;&#x7684;&#x65F6;&#x95F4;&#x90FD;&#x662F;&#x76F8;&#x540C;&#x7684;&#xFF0C;&#x90FD;&#x5B58;&#x5728; &#x8FC7;&#x53BB; &#x73B0;&#x5728; &#x5C06;&#x6765; &#x4E4B;&#x5206;&#xFF08;&#x522B;&#x62AC;&#x6760;&#x626F;&#x4EC0;&#x4E48;&#x76F8;&#x5BF9;&#x8BBA;&#xFF09;</p>
+</li>
+<li>
+<p>&#x65F6;(tense) &#x5374;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x6982;&#x5FF5;&#xFF0C;&#x4E14;&#x4E0D;&#x4E00;&#x5B9A;&#x548C;&#x6734;&#x7D20;&#x7684;&#x5BF9;&#x4E8E;&#x65F6;&#x95F4;&#x7684;&#x5370;&#x8C61;&#x5B8C;&#x5168;&#x91CD;&#x5408;</p>
+<ul>
+<li>
+<p>&#x6CD5;&#x8BED;&#x4E2D;&#x6709;&#x8FC7;&#x53BB;&#x65F6;&#xFF0C;&#x73B0;&#x5728;&#x65F6;&#xFF0C;&#x5C06;&#x6765;&#x65F6;</p>
+</li>
+<li>
+<p>&#x73B0;&#x4EE3;&#x6C49;&#x8BED;&#xFF08;&#x4F5C;&#x4E3A;&#x4E00;&#x95E8;&#x5206;&#x6790;&#x8BED;&#xFF09;&#x662F;&#x9760;&#x8BCD;&#x6C47;&#xFF08;&#x5C24;&#x5176;&#x662F;&#x865A;&#x8BCD;&#xFF09;&#x6765;&#x533A;&#x5206;&#x65F6;&#x95F4;&#x6982;&#x5FF5;&#x7684;&#xFF0C;&#x6839;&#x672C;&#x4E0D;&#x5B58;&#x5728; tense &#x8FD9;&#x79CD;&#x4E1C;&#x897F;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x82F1;&#x8BED;&#xFF08;&#x6309;&#x7167;&#x65B0;&#x7684;&#x8BED;&#x6CD5;&#x89C2;&#x70B9;&#xFF09;&#x53EA;&#x6709;&#x73B0;&#x5728;&#x65F6;&#x548C;&#x8FC7;&#x53BB;&#x65F6;</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 class="mume-header" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E4%B8%8D%E5%AD%98%E5%9C%A8-%E5%B0%86%E6%9D%A5%E6%97%B6">&#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;&#x4E0D;&#x5B58;&#x5728; &#x201C;&#x5C06;&#x6765;&#x65F6;&#x201D;</h3>
+
+<ol>
+<li>
+<p>&#x73B0;&#x4EE3;&#x82F1;&#x8BED;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x4E13;&#x95E8;&#x7528;&#x6765;&#x8868;&#x793A;&#x5C06;&#x6765;&#x65F6;&#x7684;&#x52A8;&#x8BCD;&#x5F62;&#x5F0F;</p>
+<p>&#x60F3;&#x60F3;&#x7684;&#x786E;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF0C;&#x8FC7;&#x53BB;&#x65F6;&#x6709; &quot;-ed &#x8FC7;&#x53BB;&#x5F62;&#x5F0F;&quot;&#xFF0C;&#x4F46;&#x662F;&#x5C06;&#x6765;&#x65F6;&#x771F;&#x7684;&#x6CA1;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x5C48;&#x6298;&#x5F62;&#x5F0F;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x4E2D;&#x8868;&#x793A;&#x5C06;&#x6765;&#x65F6;&#x7684;&#x6240;&#x8C13; &#x201C;&#x6807;&#x8BB0;&#x201D;&#xFF1A;will/shall &#x4EE5;&#x53CA; would/should&#xFF0C;&#x672C;&#x8EAB;&#x90FD;&#x662F;&#x60C5;&#x6001;&#x52A9;&#x52A8;&#x8BCD;&#xFF0C;&#x5176;&#x8868;&#x793A;&#x7684;&#x5C06;&#x6765;&#x542B;&#x4E49;&#x4E5F;&#x53EF;&#x4EE5;&#x89C6;&#x4F5C;&#x4E00;&#x79CD;&#x60C5;&#x6001;&#x610F;&#x4E49;&#xFF1B;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E8%8B%B1%E8%AF%AD%E4%B8%AD%E4%BB%8D%E6%9C%89%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E4%BA%8E%E8%A1%A8%E8%BE%BE%E5%B0%86%E6%9D%A5%E6%97%B6%E9%97%B4%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95">&#x82F1;&#x8BED;&#x4E2D;&#x4ECD;&#x6709;&#x4E30;&#x5BCC;&#x7684;&#x7528;&#x4E8E;&#x8868;&#x8FBE;&#x5C06;&#x6765;&#x65F6;&#x95F4;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;</h3>
+
+<ol>
+<li>
+<p>will/shall + &#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>would/should + &#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>be going to + &#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>be to + &#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>be + -ing</p>
+</li>
+<li>
+<p>&#x4E00;&#x822C;&#x73B0;&#x5728;&#x65F6;&#x8868;&#x793A;&#x5C06;&#x6765;</p>
+</li>
+</ol>
+<h2 class="mume-header" id="%E5%81%87%E8%AE%BE%E6%84%8F%E4%B9%89%E8%A1%A8%E7%A4%BA%E6%B3%95-%E5%8F%96%E4%BB%A3%E8%99%9A%E6%8B%9F%E8%AF%AD%E6%B0%94">&#x201C;&#x5047;&#x8BBE;&#x610F;&#x4E49;&#x8868;&#x793A;&#x6CD5;&#x201D; &#x53D6;&#x4EE3;&#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D;</h2>
+
+<h3 class="mume-header" id="%E5%BD%93%E5%88%9D%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E8%99%9A%E6%8B%9F%E8%AF%AD%E6%B0%94%E8%BF%99%E7%A7%8D%E4%B8%9C%E8%A5%BF">&#x5F53;&#x521D;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;</h3>
+
+<p>&#x4E00;&#x8A00;&#x4EE5;&#x853D;&#x4E4B;&#xFF1A;&#x7528;&#x6765;&#x8868;&#x793A;<strong>&#x5047;&#x8BBE;&#x610F;&#x4E49;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x975E;&#x4E8B;&#x5B9E;&#x610F;&#x4E49;</strong></p>
+<p>&#x6BD4;&#x5982;&#xFF1A;</p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x6211;&#x662F;&#x94A2;&#x94C1;&#x4FA0;&#x5C31;&#x597D;&#x4E86;&#xFF0C;&#x90A3;&#x6211;&#x5C31;&#x53EF;&#x4EE5;&#x5929;&#x5929;&#x6CE1;&#x599E;&#x5403;&#x559D;&#x73A9;&#x4E50;&#x4E86;</p>
+</blockquote>
+<blockquote>
+<p>&#x4F60;&#x672C;&#x5C31;&#x4E0D;&#x5E94;&#x8BE5;&#x751F;&#x5B69;&#x5B50;&#xFF0C;&#x8BA9;&#x4ED6;&#x5230;&#x8FD9;&#x4E2A;&#x4E16;&#x754C;&#x4E0A;&#x53D7;&#x82E6;</p>
+</blockquote>
+<blockquote>
+<p>&#x6211;&#x5C31;&#x662F;&#x4ECE;&#x8FD9;&#x91CC;&#x8DF3;&#x4E0B;&#x53BB;&#xFF0C;&#x6B7B;&#x5916;&#x8FB9;&#xFF0C;&#x4E5F;&#x4E0D;&#x5403;&#x4F60;&#x4EEC;&#x4E00;&#x70B9;&#x4E1C;&#x897F;&#xFF08;&#x771F;&#x9999;&#xFF09;</p>
+</blockquote>
+<p>&#x8FD9;&#x4E9B;&#x53E5;&#x5B50;&#x7684;&#x524D;&#x534A;&#x90E8;&#x5206;&#x6240;&#x63CF;&#x53D9;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x90FD;&#x6CA1;&#x6709;&#x771F;&#x5B9E;&#x5730;&#x53D1;&#x751F;&#xFF0C;&#x53EA;&#x662F;&#x5B58;&#x5728;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x5047;&#x8BBE;&#x5F53;&#x4E2D;&#x3002;&#x7136;&#x800C;&#x5728;&#x4E00;&#x95E8;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4ECD;&#x9700;&#x8981;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x8868;&#x8FBE;&#x8FD9;&#x4E9B;&#x201C;&#x8111;&#x6D77;&#x4E16;&#x754C;&#x201D; &#x4E2D;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4E0E;&#x771F;&#x5B9E;&#x4E8B;&#x4EF6;&#x9648;&#x8FF0;&#x76F8;&#x533A;&#x5206;&#xFF0C;&#x8FD9;&#x5C31;&#x6709;&#x4E86;&#x4F20;&#x7EDF;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E5%9C%A8%E8%BF%99%E6%96%B9%E9%9D%A2%E7%9A%84%E8%A7%82%E7%82%B9">&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5728;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x89C2;&#x70B9;</h3>
+
+<ol>
+<li>
+<p>&#x628A;&#x6240;&#x6709;&#x7528;&#x4EE5;&#x8868;&#x8FBE;&#x5047;&#x8BBE;&#x610F;&#x4E49;&#x7684;&#x8BED;&#x6CD5;&#x624B;&#x6BB5;&#x90FD;&#x5F52;&#x7C7B;&#x5230; &#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D; &#x4E2D;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x5BFC;&#x81F4;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x7684;&#x5185;&#x5BB9;&#x975E;&#x5E38;&#x9A73;&#x6742;&#xFF0C;&#x96BE;&#x4EE5;&#x638C;&#x63E1;&#xFF1B;</p>
+</li>
+</ol>
+<h3 class="mume-header" id="%E4%BF%AE%E6%AD%A3%E5%90%8E%E7%9A%84%E8%A7%82%E7%82%B9">&#x4FEE;&#x6B63;&#x540E;&#x7684;&#x89C2;&#x70B9;</h3>
+
+<ol>
+<li>
+<p>&#x539F;&#x6765; &#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D; &#x6240;&#x6307;&#x7684;&#x6982;&#x5FF5;&#x6362;&#x4E2A;&#x540D;&#x5B57;&#xFF0C;&#x7528; &#x201C;&#x5047;&#x8BBE;&#x610F;&#x4E49;&#x8868;&#x793A;&#x6CD5;&#x201D; &#x4EE3;&#x66FF;</p>
+</li>
+<li>
+<p>&#x65B0;&#x7684; &#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D; &#x4E00;&#x8BCD;&#x4E13;&#x95E8;&#x6307;&#x4EE3;&#x4E24;&#x79CD;&#x8BED;&#x6CD5;&#x5F62;&#x5F0F;&#xFF1A;</p>
+<ul>
+<li>were -&#x578B;&#x865A;&#x62DF;&#x8BED;&#x6C14;</li>
+<li>be -&#x578B;&#x865A;&#x62DF;&#x8BED;&#x6C14;</li>
+</ul>
+</li>
+<li>
+<p>&#x5176;&#x4ED6;&#x5F62;&#x5F0F;&#xFF0C;&#x5982;&#x4E00;&#x822C;&#x8FC7;&#x53BB;&#x65F6;&#xFF0C;&#x8FC7;&#x53BB;&#x5B8C;&#x6210;&#x65F6;&#x7B49;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8868;&#x793A;&#x5047;&#x8BBE;&#x610F;&#x4E49;&#xFF0C;&#x4F46;&#x4E0D;&#x518D;&#x79F0;&#x4E3A; &#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D;&#xFF0C;&#x800C;&#x7EDF;&#x79F0;&#x4E3A; &#x5047;&#x8BBE;&#x610F;&#x4E49;&#x8868;&#x793A;&#x6CD5;</p>
+</li>
+</ol>
+<h2 class="mume-header" id="-ing-%E5%88%86%E8%AF%8D-ed-%E5%88%86%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E5%8A%A8%E5%90%8D%E8%AF%8D-%E7%8E%B0%E5%9C%A8%E8%BF%87%E5%8E%BB%E5%88%86%E8%AF%8D">&#x201C;-ing &#x5206;&#x8BCD;&#x201D;&#x3001;&#x201C;-ed &#x5206;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x52A8;&#x540D;&#x8BCD;&#x201C;&#x3001;&#x201C;&#x73B0;&#x5728;/&#x8FC7;&#x53BB;&#x5206;&#x8BCD;&#x201D;</h2>
+
+<h3 class="mume-header" id="%E6%97%A7%E7%A7%B0">&#x65E7;&#x79F0;</h3>
+
+<p>&#x5728;&#x8FC7;&#x53BB;&#xFF0C;&#x975E;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#xFF08;&#x51C6;&#x786E;&#x8BF4;&#x53EB;&#x975E;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#xFF0C;&#x4E0B;&#x9762;&#x4F1A;&#x8BF4;&#x5230;&#xFF09;&#x4E3B;&#x8981;&#x7528;&#x8FD9;&#x51E0;&#x79CD;</p>
+<ul>
+<li>
+<p>&#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>&#x52A8;&#x540D;&#x8BCD;</p>
+</li>
+<li>
+<p>&#x73B0;&#x5728;&#x5206;&#x8BCD;</p>
+</li>
+<li>
+<p>&#x8FC7;&#x53BB;&#x5206;&#x8BCD;</p>
+</li>
+</ul>
+<h3 class="mume-header" id="%E6%96%B0%E8%A7%82%E7%82%B9%E7%9A%84%E4%BF%AE%E6%AD%A3">&#x65B0;&#x89C2;&#x70B9;&#x7684;&#x4FEE;&#x6B63;</h3>
+
+<p>&#x975E;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#x7684;&#x5206;&#x7C7B;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>
+<p>&#x4E0D;&#x5B9A;&#x5F0F;</p>
+</li>
+<li>
+<p>-ing &#x5206;&#x8BCD;</p>
+</li>
+<li>
+<p>-ed &#x5206;&#x8BCD;</p>
+</li>
+</ul>
+<ol start="0">
+<li>
+<p>&#x8FC7;&#x53BB;&#x5206;&#x8BCD; &#x548C; &#x73B0;&#x5728;&#x5206;&#x8BCD; &#x7684;&#x540D;&#x5B57;&#x7684;&#x786E;&#x53EF;&#x80FD;&#x4E0D;&#x592A;&#x6070;&#x5F53;&#xFF0C;&#x56E0;&#x4E3A;<strong>&#x5206;&#x8BCD;&#x662F;&#x52A8;&#x8BCD;&#x7684;&#x975E;&#x9650;&#x5B9A;&#x5F62;&#x5F0F;&#xFF0C;&#x4E0D;&#x5B58;&#x5728; tense &#x7684;&#x533A;&#x522B;</strong></p>
+</li>
+<li>
+<p>-ing &#x5206;&#x8BCD;&#x5305;&#x542B;&#x4E86;&#x4F20;&#x7EDF;&#x610F;&#x4E49;&#x4E0A;&#x7684; &#x201C;&#x52A8;&#x540D;&#x8BCD;&#x201D; &#x548C; &#x201C;&#x73B0;&#x5728;&#x5206;&#x8BCD;&#x201D;&#xFF0C;&#x4ECE;&#x6B64;&#x5728;&#x540D;&#x79F0;&#x4E0A;&#x4E0D;&#x518D;&#x533A;&#x5206;&#x8FD9;&#x4E24;&#x8005;</p>
+</li>
+<li>
+<p>&#x4F46;&#x662F; &#x201C;&#x52A8;&#x540D;&#x8BCD;&#x201D; &#x548C; &#x201C;&#x73B0;&#x5728;&#x5206;&#x8BCD;&#x201D; &#x4E5F;&#x7684;&#x786E;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#x5440;&#xFF01; &#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x4E0D;&#x540C;&#x5C31;&#x88AB;&#x89C6;&#x4F5C;&#x662F; -ing &#x5206;&#x8BCD;&#x7684;&#x4E24;&#x79CD;&#x529F;&#x80FD;</p>
+</li>
+<li>
+<p>&#x503C;&#x5F97;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x4ECE;&#x8BED;&#x8A00;&#x53D1;&#x5C55;&#x7684;&#x5386;&#x53F2;&#x89D2;&#x5EA6;&#x6765;&#x8BB2;&#xFF0C;&#x52A8;&#x540D;&#x8BCD;&#x548C;&#x73B0;&#x5728;&#x5206;&#x8BCD;&#x7684;&#x786E;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x4E1C;&#x897F;&#xFF1A;&#x524D;&#x8005;&#x539F;&#x662F;&#x4EE5; -ing &#x7ED3;&#x5C3E;&#x7684;<strong>&#x9634;&#x6027;&#x540D;&#x8BCD;</strong>&#xFF0C;&#x540E;&#x8005;&#x662F;&#x4EE5; -end &#x7ED3;&#x5C3E;&#x7684;<strong>&#x5F62;&#x5BB9;&#x8BCD;</strong>&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x6700;&#x540E;&#x5728;&#x5F62;&#x5F0F;&#x4E0A;&#x8868;&#x73B0;&#x4E3A;&#x4E00;&#x81F4;&#x4E86;&#xFF08;&#x611F;&#x89C9;&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x7EC8;&#x4E8E;&#x505A;&#x5BF9;&#x4E86;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#xFF09;</p>
+</li>
+<li>
+<p>&#x7B14;&#x8005;&#x89C9;&#x5F97;&#xFF0C;&#x4F5C;&#x8005;&#x8FD9;&#x4E48;&#x5212;&#x5206;&#xFF0C;&#x662F;&#x4E3A;&#x4E86;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x8FDB;&#x884C;&#x7B80;&#x5316;&#xFF0C;&#x867D;&#x7136;&#x662F;&#x5426;&#x771F;&#x7684;&#x80FD;&#x5982;&#x613F;&#x8FD8;&#x4E0D;&#x597D;&#x8BF4;&#x3002;</p>
+</li>
+</ol>
+<h2 class="mume-header" id="%E9%9D%9E%E9%99%90%E5%AE%9A%E5%8A%A8%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E9%9D%9E%E8%B0%93%E8%AF%AD%E5%8A%A8%E8%AF%8D">&#x201C;&#x975E;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x975E;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x201D;</h2>
+
+<p>&#x8FD9;&#x91CC;&#x5E76;&#x6CA1;&#x6709;&#x6D89;&#x53CA;&#x8FC7;&#x591A;&#x7684;&#x6280;&#x672F;&#x4E0A;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x53EA;&#x662F;&#x6362;&#x4E86;&#x4E2A;&#x8BCD;&#x800C;&#x5DF2;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x7B14;&#x8005;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E00;&#x4FEE;&#x6B63;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x7B14;&#x8005;&#x8BD5;&#x8BB2;&#x81EA;&#x5DF1;&#x7684;&#x7406;&#x89E3;&#x5F52;&#x7EB3;&#x5982;&#x4E0B;&#xFF1A;</p>
+<ol>
+<li>
+<p>&#x9996;&#x5148;&#xFF0C;&#x7B14;&#x8005;&#x731C;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x539F;&#x6765;&#x7684;&#x8BED;&#x6CD5;&#x4F53;&#x7CFB;&#x4E2D;&#x8981;&#x5C06;&#x5176;&#x7FFB;&#x8BD1;&#x4E3A; &#x201C;&#x975E;&#x8C13;&#x8BED;&#x201D;&#x52A8;&#x8BCD;&#xFF1A;</p>
+<ul>
+<li>&#x56E0;&#x4E3A;&#xFF0C;non-finite verb &#x7684;&#x786E;&#x4E0D;&#x80FD;&#x4F5C;&#x5176;&#x6240;&#x5728;&#x7684;&#x6574;&#x4E2A;&#x4E3B;&#x53E5;&#x7684;&#x8C13;&#x8BED;&#xFF0C;&#x8FD9;&#x662F;&#x5343;&#x771F;&#x4E07;&#x786E;&#x7684;&#xFF1B;</li>
+</ul>
+</li>
+<li>
+<p>&#x4E3A;&#x4EC0;&#x4E48; &#x201C;&#x975E;&#x8C13;&#x8BED;&#x201D; &#x8FD9;&#x4E2A;&#x672F;&#x8BED;&#x4E0D;&#x597D;&#xFF1B;</p>
+<ul>
+<li>
+<p>&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x6240;&#x8BF4;&#xFF0C;&#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x4E0D;&#x592A;&#x91CD;&#x89C6;&#x5206;&#x53E5;&#x7ED3;&#x6784;&#xFF1B;&#x5C3D;&#x7BA1; non-finite verb &#x6CA1;&#x6CD5;&#x4F5C;&#x4E3A;&#x4E3B;&#x53E5;&#x7684;&#x8C13;&#x8BED;&#xFF1B;&#x53EF;&#x662F;&#x5982;&#x679C;&#x628A;&#x5B83;&#x4EEC;&#x6240;&#x5904;&#x7684;&#x4ECE;&#x5C5E;&#x7ED3;&#x6784;&#x770B;&#x505A;&#x4E00;&#x4E2A;&#x201C;&#x5206;&#x53E5;&#x201D;&#xFF0C;&#x90A3;&#x4E48;<strong>&#x5B83;&#x4EEC;&#x81EA;&#x8EAB;&#x5C31;&#x662F;&#x6240;&#x5728;&#x7684;&#x5206;&#x53E5;&#x7684;&#x8C13;&#x8BED;</strong></p>
+</li>
+<li>
+<p>&#x8FD9;&#x91CC;&#x9690;&#x542B;&#x7684;&#x903B;&#x8F91;&#x53D8;&#x5316;&#x662F;&#xFF1A;&#x539F;&#x6765;&#x53EA;&#x6709;&#x4E3B;&#x53E5;&#x624D;&#x662F;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#xFF0C;&#x4E3B;&#x53E5;&#x7684;&#x8C13;&#x8BED;&#x624D;&#x80FD;&#x53EB;&#x8C13;&#x8BED;&#xFF1B;&#x4F46;&#x662F;&#x4FEE;&#x6B63;&#x540E;&#xFF0C;&#x4E00;&#x4E2A;&#x4ECE;&#x53E5;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x201C;&#x53E5;&#x5B50;&#x201D;&#xFF0C;&#x5176;&#x4E5F;&#x53EF;&#x4EE5;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x201C;&#x8C13;&#x8BED;&#x201D;</p>
+</li>
+<li>
+<p>&#x4F5C;&#x8005;&#x4E5F;&#x63D0;&#x5230;&#x4E86;&#x4E00;&#x70B9;&#xFF08;&#x7B14;&#x8005;&#x81EA;&#x5DF1;&#x672A;&#x60F3;&#x5230;&#xFF09;&#xFF1A;&#x975E;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x5BB9;&#x6613;&#x7ED9;&#x4EBA;&#x4E00;&#x79CD;&#x6697;&#x793A;&#xFF0C;&#x4EFF;&#x4F5B;&#x4E3B;&#x53E5;&#x4E2D;&#x7684;&#x52A8;&#x8BCD;&#x6210;&#x5206;&#x5C31;&#x662F;&#x8C13;&#x8BED;&#xFF0C;&#x4F46;&#x662F;&#xFF08;&#x6839;&#x636E;&#x672C;&#x4E66;&#x8BED;&#x6CD5;&#x4F53;&#x7CFB;&#x7684;&#x5B9A;&#x4E49;&#xFF09;&#xFF0C;&#x8FD9;&#x79CD;&#x5B9A;&#x4E49;&#x662F;&#x5F88;&#x6210;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+</li>
+</ul>
+</li>
+<li>
+<p>&#x4E3A;&#x4EC0;&#x4E48; &#x201C;&#x975E;&#x9650;&#x5B9A;&#x201D; &#x8FD9;&#x4E2A;&#x672F;&#x8BED;&#x597D;&#xFF1A;</p>
+<ul>
+<li>
+<p>&#x9996;&#x5148;&#xFF0C;&#x201C;&#x975E;&#x9650;&#x5B9A;&#x201D; &#x8FD9;&#x4E00;&#x7FFB;&#x8BD1;&#x66F4;&#x52A0;&#x5FE0;&#x5B9E;&#x4E86;&#x82F1;&#x6587;&#x539F;&#x6765;&#x7684;&#x672F;&#x8BED; &quot;non-finite&quot;</p>
+</li>
+<li>
+<p>&#x6240;&#x8C13; &quot;non-finite&quot; &#x5C31;&#x662F;&#x8BF4;&#x5176;&#x4E0D;&#x5E26; tense &#x7684;&#x6807;&#x8BB0;&#xFF0C;&#x4E5F;&#x4E0D;&#x53D7;&#x4E3B;&#x8BED;&#x7684;&#x4EBA;&#x79F0;&#x548C;&#x6570;&#x7684;&#x5F71;&#x54CD;&#x2014;&#x2014;&#x4ED4;&#x7EC6;&#x56DE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x8FD9;&#x624D;&#x662F; &#x201C;&#x975E;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x201D; &#x548C; &#x201C;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x201D; &#x7684;<strong>&#x6700;&#x663E;&#x8457;&#x7684;&#x533A;&#x522B;</strong>&#xFF01;&#xFF01;&#x800C;&#x4E0D;&#x662F; &#x201C;&#x80FD;&#x4E0D;&#x80FD;&#x4F5C;&#x8C13;&#x8BED;&#x201D; &#x8FD9;&#x79CD;&#x6CA1;&#x6709;&#x6293;&#x4F4F;&#x91CD;&#x70B9;&#x7684;&#x65B9;&#x9762;&#xFF1B;</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>&#x539F;&#x4F5C;&#x8FD8;&#x63D0;&#x5230;&#x4E86;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#x548C;&#x975E;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#xFF0C;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#x8BCD;&#x7EC4;&#x548C;&#x975E;&#x9650;&#x5B9A;&#x8BCD;&#x7EC4;&#x5728;&#x5F62;&#x5F0F;&#x4E0A;&#x7684;&#x533A;&#x5206;&#xFF0C;&#x4EE5;&#x540E;&#x8BE6;&#x8FF0;&#x3002;</p>
+<h2 class="mume-header" id="%E6%83%85%E6%80%81%E5%8A%A9%E5%8A%A8%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E6%83%85%E6%80%81%E5%8A%A8%E8%AF%8D">&#x201C;&#x60C5;&#x6001;&#x52A9;&#x52A8;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x60C5;&#x6001;&#x52A8;&#x8BCD;&#x201D;</h2>
+
+<h3 class="mume-header" id="%E4%B8%BA%E4%BD%95%E6%9F%90%E4%BA%9B%E8%AF%AD%E6%B3%95%E4%B9%A6%E4%BD%BF%E7%94%A8-%E6%83%85%E6%80%81%E5%8A%A8%E8%AF%8D">&#x4E3A;&#x4F55;&#x67D0;&#x4E9B;&#x8BED;&#x6CD5;&#x4E66;&#x4F7F;&#x7528; &#x201C;&#x60C5;&#x6001;&#x52A8;&#x8BCD;&#x201D;</h3>
+
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x8BA4;&#x4E3A;&#xFF0C;&#x52A9;&#x52A8;&#x8BCD;&#x4E00;&#x5B9A;&#x662F;&#x65E0;&#x8BCD;&#x6C47;&#x610F;&#x4E49;&#x7684;&#xFF0C;&#x800C;&#x60C5;&#x6001;&#x52A8;&#x8BCD;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x60C5;&#x6001;&#x610F;&#x4E49;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x5E94;&#x8BE5;&#x5F52;&#x4E3A;&#x52A9;&#x52A8;&#x8BCD;&#xFF1B;</p>
+<h3 class="mume-header" id="%E4%BF%AE%E6%AD%A3%E5%90%8E%E7%9A%84%E8%A7%82%E7%82%B9-1">&#x4FEE;&#x6B63;&#x540E;&#x7684;&#x89C2;&#x70B9;</h3>
+
+<ul>
+<li>&#x533A;&#x5206;&#x52A9;&#x52A8;&#x8BCD;&#x548C;&#x4E3B;&#x52A8;&#x8BCD;&#x7684;&#x6838;&#x5FC3;&#x51C6;&#x5219;&#x4E0D;&#x5728;&#x4E8E;&#x6709;&#x6CA1;&#x6709;&#x8BCD;&#x6C47;&#x610F;&#x4E49;&#xFF0C;&#x800C;&#x5728;&#x4E8E;&#x80FD;&#x5426;&#x5355;&#x72EC;&#x4F5C;&#x4E3A;&#x53E5;&#x5B50;&#x7684;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;</li>
+</ul>
+<h2 class="mume-header" id="%E5%85%B3%E7%B3%BB%E5%88%86%E5%8F%A5-%E5%8F%96%E4%BB%A3-%E5%AE%9A%E8%AF%AD%E4%BB%8E%E5%8F%A5">&#x201D;&#x5173;&#x7CFB;&#x5206;&#x53E5;&#x201C; &#x53D6;&#x4EE3; &#x201C;&#x5B9A;&#x8BED;&#x4ECE;&#x53E5;&#x201D;</h2>
+
+<ol>
+<li>
+<p>&#x5B9A;&#x8BED;&#x4ECE;&#x53E5;&#x7684;&#x53EB;&#x6CD5;&#x662F;&#x4F9D;&#x636E;&#x5176; &#x4E3B;&#x8981;&#x53E5;&#x6CD5;&#x529F;&#x80FD; &#x800C;&#x5F97;&#x51FA;&#x7684;&#xFF1B;&#x800C; &#x5173;&#x7CFB;&#x4ECE;&#x53E5; &#x8FD9;&#x4E00;&#x79F0;&#x6CD5;&#x662F;&#x4F9D;&#x636E;&#x5176;&#x7ED3;&#x6784;&#x5F62;&#x5F0F;&#x6765;&#x5B9A;&#x7684;&#x2014;&#x2014;&#x800C;&#x672C;&#x4E66;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x672F;&#x8BED;&#x90FD;&#x662F;&#x4F9D;&#x636E;&#x5176;<strong>&#x7ED3;&#x6784;&#x5F62;&#x5F0F;</strong>&#x6765;&#x547D;&#x540D;&#x7684;&#xFF1B;</p>
+</li>
+<li>
+<p>&#x5173;&#x952E;&#x5728;&#x4E8E;&#xFF0C;&#x540C;&#x4E00;&#x7ED3;&#x6784;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x53E5;&#x6CD5;&#x529F;&#x80FD;&#x2014;&#x2014;&#x6211;&#x4EEC;&#x4F20;&#x7EDF;&#x4E0A;&#x6240;&#x79F0;&#x7684;<strong>&#x5B9A;&#x8BED;&#x4ECE;&#x53E5;</strong>&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;</p>
+</li>
+<li>
+<p>&#x5B9A;&#x8BED;&#x4ECE;&#x53E5;&#xFF08;&#x59D1;&#x4E14;&#x5148;&#x8FD9;&#x4E48;&#x53EB;&#xFF09;&#x7684;&#x9996;&#x8981;&#x529F;&#x80FD;&#x5C31;&#x662F;&#x4F5C;&#x4E3A;&#x540D;&#x8BCD;&#x8BCD;&#x7EC4;&#x7684;&#x4FEE;&#x9970;&#x8BED;&#xFF08;&#x5B9A;&#x8BED;&#xFF09;&#xFF0C;&#x4F46;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x522B;&#x7684;&#x4F5C;&#x7528;&#xFF08;&#x8BED;&#x4E49;&#x4E0A;&#x7684;&#xFF09;</p>
+<ul>
+<li>&#x6CE8;&#xFF1A;&#x4E0D;&#x8FC7;&#x7B14;&#x8005;&#x5012;&#x662F;&#x89C9;&#x5F97;&#xFF0C;&#x5982;&#x679C;&#x5F3A;&#x884C;&#x5C06;&#x5B83;&#x4EEC;&#x7406;&#x89E3;&#x6210;&#x5B9A;&#x8BED;&#x4E5F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x2026;&#x2026;&#x2026;&#x2026;</li>
+</ul>
+</li>
+</ol>
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%AF%AD%E6%B3%95"> &#x4EC0;&#x4E48;&#x662F;&#x8BED;&#x6CD5;
+</a>
+<ul>
+<li><a href="#%E8%AF%AD%E8%A8%80%E7%9A%84%E6%A6%82%E5%BF%B5"> &#x8BED;&#x8A00;&#x7684;&#x6982;&#x5FF5;
+</a></li>
+<li><a href="#%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BD%93%E7%B3%BB%E6%9E%84%E6%88%90"> &#x8BED;&#x8A00;&#x7684;&#x4F53;&#x7CFB;&#x6784;&#x6210;
+</a></li>
+<li><a href="#%E8%AF%AD%E6%B3%95%E7%9A%84%E5%88%86%E7%B1%BB"> &#x8BED;&#x6CD5;&#x7684;&#x5206;&#x7C7B;
+</a>
+<ul>
+<li><a href="#%E5%AE%A2%E8%A7%82%E4%B8%96%E7%95%8C%E7%9A%84%E8%AF%AD%E6%B3%95%E5%92%8C%E8%AF%AD%E8%A8%80%E5%AD%A6%E5%AE%B6%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%AF%AD%E6%B3%95"> &#x5BA2;&#x89C2;&#x4E16;&#x754C;&#x7684;&#x8BED;&#x6CD5;&#x548C;&#x8BED;&#x8A00;&#x5B66;&#x5BB6;&#x773C;&#x4E2D;&#x7684;&#x8BED;&#x6CD5;
+</a></li>
+<li><a href="#%E7%90%86%E8%AE%BA%E8%AF%AD%E6%B3%95%E5%92%8C%E6%95%99%E5%AD%A6%E8%AF%AD%E6%B3%95"> &#x7406;&#x8BBA;&#x8BED;&#x6CD5;&#x548C;&#x6559;&#x5B66;&#x8BED;&#x6CD5;
+</a></li>
+<li><a href="#%E8%A7%84%E8%8C%83%E6%80%A7%E8%AF%AD%E6%B3%95%E5%92%8C%E6%8F%8F%E8%BF%B0%E6%80%A7%E8%AF%AD%E6%B3%95"> &#x89C4;&#x8303;&#x6027;&#x8BED;&#x6CD5;&#x548C;&#x63CF;&#x8FF0;&#x6027;&#x8BED;&#x6CD5;
+</a></li>
+<li><a href="#%E6%80%BB%E7%BB%93"> &#x603B;&#x7ED3;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%AC%E4%B9%A6%E4%B8%AD%E8%AF%AD%E6%B3%95%E7%9A%84%E5%90%AB%E4%B9%89"> &#x672C;&#x4E66;&#x4E2D;&#x8BED;&#x6CD5;&#x7684;&#x542B;&#x4E49;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%AC%E4%B9%A6%E7%89%B9%E7%82%B9"> &#x672C;&#x4E66;&#x7279;&#x70B9;
+</a>
+<ul>
+<li><a href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95%E8%B4%AF%E7%A9%BF%E5%A7%8B%E7%BB%88"> &#x5C42;&#x6B21;&#x5206;&#x6790;&#x6CD5;&#x8D2F;&#x7A7F;&#x59CB;&#x7EC8;
+</a>
+<ul>
+<li><a href="#%E5%B1%82%E6%AC%A1%E5%88%86%E6%9E%90%E6%B3%95"> &#x5C42;&#x6B21;&#x5206;&#x6790;&#x6CD5;
+</a></li>
+<li><a href="#%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E7%AA%81%E5%87%BA%E7%9A%84%E9%97%AE%E9%A2%98"> &#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x7A81;&#x51FA;&#x7684;&#x95EE;&#x9898;
+</a></li>
+<li><a href="#%E5%AF%B9%E8%AF%8D%E7%BB%84%E7%BB%93%E6%9E%84%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8"> &#x5BF9;&#x8BCD;&#x7EC4;&#x7ED3;&#x6784;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;
+</a></li>
+<li><a href="#%E5%AF%B9%E5%88%86%E5%8F%A5%E7%BB%93%E6%9E%84%E8%BF%9B%E8%A1%8C%E6%B7%B1%E5%85%A5%E6%8E%A2%E8%AE%A8"> &#x5BF9;&#x5206;&#x53E5;&#x7ED3;&#x6784;&#x8FDB;&#x884C;&#x6DF1;&#x5165;&#x63A2;&#x8BA8;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%8D%E6%B3%95%E4%B8%8E%E5%8F%A5%E6%B3%95%E7%9A%84%E5%85%B3%E7%B3%BB"> &#x8BCD;&#x6CD5;&#x4E0E;&#x53E5;&#x6CD5;&#x7684;&#x5173;&#x7CFB;
+</a></li>
+<li><a href="#%E9%99%90%E5%AE%9A%E8%AF%8D%E4%BD%9C%E4%B8%BA%E5%8D%95%E7%8B%AC%E7%9A%84%E8%AF%8D%E7%B1%BB"> &#x9650;&#x5B9A;&#x8BCD;&#x4F5C;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x8BCD;&#x7C7B;
+</a>
+<ul>
+<li><a href="#%E9%99%90%E5%AE%9A%E8%AF%8D%E6%A6%82%E5%BF%B5%E7%9A%84%E5%86%85%E6%B6%B5"> &#x9650;&#x5B9A;&#x8BCD;&#x6982;&#x5FF5;&#x7684;&#x5185;&#x6DB5;
+</a></li>
+<li><a href="#%E9%99%90%E5%AE%9A%E8%AF%8D%E5%92%8C%E4%BF%AE%E9%A5%B0%E8%AF%AD%E7%9A%84%E4%B8%BB%E8%A6%81%E5%8C%BA%E5%88%AB"> &#x9650;&#x5B9A;&#x8BCD;&#x548C;&#x4FEE;&#x9970;&#x8BED;&#x7684;&#x4E3B;&#x8981;&#x533A;&#x522B;
+</a></li>
+<li><a href="#%E6%8A%8A%E9%99%90%E5%AE%9A%E8%AF%8D%E4%BD%9C%E4%B8%BA%E4%B8%80%E7%B1%BB%E7%8B%AC%E7%AB%8B%E8%AF%8D%E6%B1%87%E7%9A%84%E7%90%86%E7%94%B1"> &#x628A;&#x9650;&#x5B9A;&#x8BCD;&#x4F5C;&#x4E3A;&#x4E00;&#x7C7B;&#x72EC;&#x7ACB;&#x8BCD;&#x6C47;&#x7684;&#x7406;&#x7531;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E4%B8%A4%E6%97%B6%E4%B8%A4%E4%BD%93"> &#x4E24;&#x201C;&#x65F6;&#x201D;&#x4E24;&#x201C;&#x4F53;&#x201D;
+</a>
+<ul>
+<li><a href="#%E6%97%B6-%E5%92%8C-%E4%BD%93-%E7%9A%84%E5%8C%BA%E5%88%86"> &#x201C;&#x65F6;&#x201D; &#x548C; &#x201C;&#x4F53;&#x201D; &#x7684;&#x533A;&#x5206;
+</a></li>
+<li><a href="#%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E5%AD%A6%E4%B8%AD%E7%9A%84%E8%A7%82%E7%82%B9"> &#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5B66;&#x4E2D;&#x7684;&#x89C2;&#x70B9;
+</a></li>
+<li><a href="#%E6%96%B0%E8%A7%82%E7%82%B9"> &#x65B0;&#x89C2;&#x70B9;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E5%B0%86%E6%9D%A5%E6%97%B6%E9%97%B4%E8%A1%A8%E7%A4%BA%E6%B3%95%E5%8F%96%E4%BB%A3%E5%B0%86%E6%9D%A5%E6%97%B6"> &#x201C;&#x5C06;&#x6765;&#x65F6;&#x95F4;&#x8868;&#x793A;&#x6CD5;&#x201D;&#x53D6;&#x4EE3;&#x201C;&#x5C06;&#x6765;&#x65F6;&#x201D;
+</a>
+<ul>
+<li><a href="#%E6%97%B6%E9%97%B4%E5%92%8C%E8%AF%AD%E6%B3%95%E4%B8%AD%E7%9A%84%E6%97%B6%E7%9A%84%E8%BE%A8%E6%9E%90"> &#x65F6;&#x95F4;&#x548C;&#x8BED;&#x6CD5;&#x4E2D;&#x7684;&#x201C;&#x65F6;&#x201D;&#x7684;&#x8FA8;&#x6790;
+</a></li>
+<li><a href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4%E4%B8%8D%E5%AD%98%E5%9C%A8-%E5%B0%86%E6%9D%A5%E6%97%B6"> &#x4E3A;&#x4EC0;&#x4E48;&#x8BF4;&#x4E0D;&#x5B58;&#x5728; &#x201C;&#x5C06;&#x6765;&#x65F6;&#x201D;
+</a></li>
+<li><a href="#%E8%8B%B1%E8%AF%AD%E4%B8%AD%E4%BB%8D%E6%9C%89%E4%B8%B0%E5%AF%8C%E7%9A%84%E7%94%A8%E4%BA%8E%E8%A1%A8%E8%BE%BE%E5%B0%86%E6%9D%A5%E6%97%B6%E9%97%B4%E7%9A%84%E8%A1%A8%E7%A4%BA%E6%96%B9%E6%B3%95"> &#x82F1;&#x8BED;&#x4E2D;&#x4ECD;&#x6709;&#x4E30;&#x5BCC;&#x7684;&#x7528;&#x4E8E;&#x8868;&#x8FBE;&#x5C06;&#x6765;&#x65F6;&#x95F4;&#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E5%81%87%E8%AE%BE%E6%84%8F%E4%B9%89%E8%A1%A8%E7%A4%BA%E6%B3%95-%E5%8F%96%E4%BB%A3%E8%99%9A%E6%8B%9F%E8%AF%AD%E6%B0%94"> &#x201C;&#x5047;&#x8BBE;&#x610F;&#x4E49;&#x8868;&#x793A;&#x6CD5;&#x201D; &#x53D6;&#x4EE3;&#x201C;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x201D;
+</a>
+<ul>
+<li><a href="#%E5%BD%93%E5%88%9D%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E6%9C%89%E8%99%9A%E6%8B%9F%E8%AF%AD%E6%B0%94%E8%BF%99%E7%A7%8D%E4%B8%9C%E8%A5%BF"> &#x5F53;&#x521D;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x6709;&#x865A;&#x62DF;&#x8BED;&#x6C14;&#x8FD9;&#x79CD;&#x4E1C;&#x897F;
+</a></li>
+<li><a href="#%E4%BC%A0%E7%BB%9F%E8%AF%AD%E6%B3%95%E5%9C%A8%E8%BF%99%E6%96%B9%E9%9D%A2%E7%9A%84%E8%A7%82%E7%82%B9"> &#x4F20;&#x7EDF;&#x8BED;&#x6CD5;&#x5728;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x89C2;&#x70B9;
+</a></li>
+<li><a href="#%E4%BF%AE%E6%AD%A3%E5%90%8E%E7%9A%84%E8%A7%82%E7%82%B9"> &#x4FEE;&#x6B63;&#x540E;&#x7684;&#x89C2;&#x70B9;
+</a></li>
+</ul>
+</li>
+<li><a href="#-ing-%E5%88%86%E8%AF%8D-ed-%E5%88%86%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E5%8A%A8%E5%90%8D%E8%AF%8D-%E7%8E%B0%E5%9C%A8%E8%BF%87%E5%8E%BB%E5%88%86%E8%AF%8D"> &#x201C;-ing &#x5206;&#x8BCD;&#x201D;&#x3001;&#x201C;-ed &#x5206;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x52A8;&#x540D;&#x8BCD;&#x201C;&#x3001;&#x201C;&#x73B0;&#x5728;/&#x8FC7;&#x53BB;&#x5206;&#x8BCD;&#x201D;
+</a>
+<ul>
+<li><a href="#%E6%97%A7%E7%A7%B0"> &#x65E7;&#x79F0;
+</a></li>
+<li><a href="#%E6%96%B0%E8%A7%82%E7%82%B9%E7%9A%84%E4%BF%AE%E6%AD%A3"> &#x65B0;&#x89C2;&#x70B9;&#x7684;&#x4FEE;&#x6B63;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E9%9D%9E%E9%99%90%E5%AE%9A%E5%8A%A8%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E9%9D%9E%E8%B0%93%E8%AF%AD%E5%8A%A8%E8%AF%8D"> &#x201C;&#x975E;&#x9650;&#x5B9A;&#x52A8;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x975E;&#x8C13;&#x8BED;&#x52A8;&#x8BCD;&#x201D;
+</a></li>
+<li><a href="#%E6%83%85%E6%80%81%E5%8A%A9%E5%8A%A8%E8%AF%8D-%E5%8F%96%E4%BB%A3-%E6%83%85%E6%80%81%E5%8A%A8%E8%AF%8D"> &#x201C;&#x60C5;&#x6001;&#x52A9;&#x52A8;&#x8BCD;&#x201D; &#x53D6;&#x4EE3; &#x201C;&#x60C5;&#x6001;&#x52A8;&#x8BCD;&#x201D;
+</a>
+<ul>
+<li><a href="#%E4%B8%BA%E4%BD%95%E6%9F%90%E4%BA%9B%E8%AF%AD%E6%B3%95%E4%B9%A6%E4%BD%BF%E7%94%A8-%E6%83%85%E6%80%81%E5%8A%A8%E8%AF%8D"> &#x4E3A;&#x4F55;&#x67D0;&#x4E9B;&#x8BED;&#x6CD5;&#x4E66;&#x4F7F;&#x7528; &#x201C;&#x60C5;&#x6001;&#x52A8;&#x8BCD;&#x201D;
+</a></li>
+<li><a href="#%E4%BF%AE%E6%AD%A3%E5%90%8E%E7%9A%84%E8%A7%82%E7%82%B9-1"> &#x4FEE;&#x6B63;&#x540E;&#x7684;&#x89C2;&#x70B9;
+</a></li>
+</ul>
+</li>
+<li><a href="#%E5%85%B3%E7%B3%BB%E5%88%86%E5%8F%A5-%E5%8F%96%E4%BB%A3-%E5%AE%9A%E8%AF%AD%E4%BB%8E%E5%8F%A5"> &#x201D;&#x5173;&#x7CFB;&#x5206;&#x53E5;&#x201C; &#x53D6;&#x4EE3; &#x201C;&#x5B9A;&#x8BED;&#x4ECE;&#x53E5;&#x201D;
+</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
