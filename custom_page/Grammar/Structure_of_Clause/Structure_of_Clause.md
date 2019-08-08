@@ -512,29 +512,468 @@ They have put man on the moon.
 
 **分割线以上的部分主要是从语法与形式的角度来考察分局的成分，而接下来主要从语义与功能的形式来对它们进行研究。**
 
+严格来说，前面所述的分句成分，也就是主谓宾状补，是分句的中心成分，因为他们在构成分句时不可或缺。除此之外，还有一些处于分句结构的边缘地位的成分——我们称之为边缘性成分。
+
+需要注意的是，状语由于其形式和功能的灵活性，它相比于主谓宾补处于更加边缘的地位，可以视为从中心到边缘的过渡成分。
+
+另外，状语自身也可以进行分类：
+1. 修饰性状语
+
+2. 评注性状语
+
+3. 连接性状语
+
 # 分句中心成分
 
-## 主语 
+## 主语
+从语义角度对主语进行分类：
+
+1. 施动主语和受动主语：说明谓语表示的动作和行为的**施行者以及承受者**
+
+    ```
+    The farmer killed a snake.
+
+    The farmer was killed by a snake.
+    ```
+
+    值得注意的是，有些情况下，语义上的受动并不需要通过被动语态来表示：
+
+    ```
+    This material feels nice.
+
+    The matches won't strike.
+
+    The zip doesn't close properly.
+    ```
+
+2. 地点主语和时间主语：并不是动作与行为的施动者和承受者，而只是用以表示时间或者地点
+
+    ```
+    The bedroom sleeps six students.
+
+    Tomorrow will be a good day.
+
+    Last night was very cold.
+    ```
+
+
+3. 事件主语：表示某一事件（通常是叙述其发生的时间或者地点）
+
+    ```
+    The meeting is on the next Sunday.
+
+    The exam will take place tomorrow.
+    ```
 
 ## 谓语
 
+略。
+
 ## 宾语
+从语义角度进行分类，宾语可以分为以下几类：
+
+1. 受动宾语：行为或动作的承受者，或者受到行为或者动作的影响
+
+    ```
+    She lowered her head and sai nothing.
+    ```
+
+    这是宾语最常见、最基本的语义。
+
+2. 结果宾语：表示动作产生的结果
+
+    ```
+    He dig a hole.
+
+    We painted a flower on the wall.
+
+    He asked many questions.
+    ```
+
+
+3. 转喻宾语：这种宾语表示的是动作对象有关的事物
+
+    ```
+    He wiped off the table (wiped off something off the table).
+
+    They have hatched chickens. (have hatched eggs).
+    ```
+
+4. 使役宾语：表示动作的使役对象
+
+    ```
+    He stood the little child against the wall.
+
+    She danced the baby on her knees.
+    ```
+
+5. 同源宾语：大多用在不及物动词之后，以名词形式重复动词的动作概念，且其往往具有修饰语
+
+    ```
+    He slept a peaceful sleep.
+
+    He died a heroic death.
+    ```
+
+    若充当这个同源宾语的名词词组的前置修饰语有最高级形容词或者相当于最高级形容词的结构，那么名词中心词可以省略。
+
+    ```
+    He shouted his loudest.
+
+    He breathed his last.
+    ```
+
+6. 其他
 
 ## 补语
 
+### 补语的分类
+
+1. 主语补语：也就是我们平时说的表语
+
+2. 宾语补语
+
+### 补语的语义
+
+从一般的意义上说，主语和主语补语的关系是这样的，后者用于说明前者的：
+
+- 身份
+
+- 属性
+
+- 状态
+
+当然，宾语和宾语补语的关系可能会更加广泛一些：它们更像是 主语与谓语 的关系
+
 ## 状语：修饰性状语
+
+作为分句中心结构的状语指的主要是修饰性状语，**它修饰的对象是谓语动词 + 其他补足成分**，不单单是谓语动词
+
+修饰性状语又称为 **附加状语**
+
+### 时间状语
+
+语义上继续细分类可以分为：
+
+- 表示具体时间的
+
+- 表示时间频度的
+
+- 表示时间长度的
+
+如果这三类同时出现在句尾的时候，排列顺序应该是：
+
+长度 -> 频度 -> 具体时间
+
+```
+He stayed in the country for a day or two / every month / in those years.
+
+I want to see him very often when I was in Shanghai.
+```
+
+### 地点状语
+
+语义上继续细分：
+
+- 表示事情发生的空间位置
+
+- 表示动作行为的方向
+
+关于位置：
+
+1. 地点状语的位置一般不固定，一般位于句首，有时也位于句尾。
+
+2. 两个或以上的地点状语连用，一般小地点在前，大地点在后。
+
+3. 可以把较大地点移到句首，但是不能将小地点状语移到句首
+
+4. 地点状语与时间状语连用时，地点状语一般在前面
+
+### 方式状语
+可充当方式状语的语法单位：
+
+1. 副词词组
+
+2. 介词词组 
+
+3. 名词词组
+
+4. -ing分词分句
+
+5. 限定分句
+
+**注意**：不定式分句不能充当方式状语
+
+**顺序**：方式状语 -> 地点状语 -> 时间状语
+
+### 目的状语
+可以充当目的状语的语法单位：
+
+1. 不定式分句
+
+2. 介词词组
+
+
+### 原因状语
+可以充当原因状语的语法单位：
+
+1. 介词词组
+
+2. 不定式分句
+
+3. -ing分词分句
+
+4. -ed分词分句
+
+5. 由某些连词，如 because、as、since、for 等引导的限定分句
+
+
+### 结果状语
+可以充当结果状语的语法单位：
+
+1. 不定式分句：通常位于句尾，表示发生在谓语动词的行为之后，形成一定的因果关系，可以选择用（或者）不用逗号隔开；
+
+2. -ing 分词分句：
+
+3. 一部分介词词组
+
+
+### 条件状语
+可以充当条件状语的语法单位：
+1. 条件状语从句（最常见的）
+
+2. 介词词组：
+
+3. 非限定分句
+
+### 让步状语
+可以充当让步状语的语法单位：
+1. 限定分句
+
+2. 介词词组
+
+3. 非限定分句
+
+
+
+### 伴随状语
+
+通常由 -ing 分词分句或者 -ed 分词分句充当，经常带有自身的逻辑主语，也时常会加上介词 with；
+
+多数位于句尾（句首也可以），用逗号和主句隔开
+
+用于说明谓语动词发生时伴随的情形和事态。
 
 # 分句外围成分
 
 ## 评注性状语
 
+评注性状语，又称为**分离性状语**或者**外加状语**
+
+可以从两个方面来把握其含义：
+
+1. 它不像修饰性状语那样，仅仅围绕修饰谓语；相反，评注性状语是对其所在的整个句子进行说明或者解释；而且从语义和语气上看，这种说明和解释仿佛是脱离句子其他部分的内容，站在某个 “上帝视角” 来叙述的。
+
+2. 从结构上，它与被评说的句子结合得非常松散，双方常用逗号隔开
+
+可以充当评注性状语的语法单位：
+
+1. 副词词组
+
+2. 介词词组
+
+3. 非限定分句
+
+4. 无动词分句
+
+5. 偶尔也有限定分句
+
 ## 连接性状语
+
+连接状语，又称为 **联加状语**
+
+可以充当连接性状语的语法单位：
+1. 副词词组
+
+2. 介词词组
+
+**联加状语**的含义：
+
+1. 首先它不对句子的内容进行修饰或者评注，所以它不同于修饰性状语，也不同于评注性状语
+
+2. 它引导的分句不能算是从句；从句这个概念是在一个句子内讨论的，而联加状语一般是在**句子之间**引导关联关系；
+
+3. 它也不能算并列连词，因为它本身就可以和后者一起使用
+
+从语义角度，联加状语可以分为
+
+1. 列举和顺序：
+
+    ```
+    firstly, secondly, thirdly， ...
+    one, two, three, ...
+    for one thing...for another
+    for a start
+    to begin with
+    in the first place, in the second place, ...
+    next, then
+    finally, last, lastly
+    ```
+
+2. 意义增补和引申
+
+    ```
+    also, besides, furthermore, moreover, then, in addition, above all, what is more
+    ```
+
+3. 同位关系
+
+    ```
+    namely
+    for example, for instance
+    that is, that is to say
+    ```
+
+4. 结果
+
+    ```
+    consequently, hence, so, therefore, thus, as a result
+    ```
+
+5. 意义等同
+
+    ```
+    equally, likewise, similarly, in the same way
+    ```
+
+6. 推论
+
+    ```
+    or else, otherwise, therefore, then, in that case
+    ```
+
+7. 表示换个说法
+
+    ```
+    alternatively
+    rather
+    in other words
+    ```
+
+8. 意义转折
+
+    ```
+    instead
+    on the contrary
+    in contrast
+    by comparison
+    (on the one hand), on the other hand
+    ```
+
+9. 让步
+
+    ```
+    however
+    anyhow, anyway
+    nevertheless
+    still
+    though
+    yet
+    in any case
+    at any rate
+    in spite of that
+    after all
+    all the same
+    ```
+
+10. 时间过渡
+
+    ```
+    meanwhile
+    in the meanwhile
+    meantime
+    ```
+
+11. 改变话题
+
+    ```
+    by the way
+    incidentally
+    ```
+
+12. 概括或者总结
+
+    ```
+    in conclusion
+    in a word
+    to sum up
+    in all
+    ```
 
 ## 插入语
 
+插入语
+:    与谈论话题没有直接关系的部分，表示语义和话锋的显著转折
+
+插入语一般用逗号和句子分开，也可以使用破折号与句子分开，有时也使用括号分隔。
+
 ## 呼唤语
+
+呼唤语
+:    顾名思义，是用来 “呼唤” 某些对象的，因此一般是事物、人称，甚至是抽象概念的指称，以及专门的称呼
+
+具体对其外延分一下类如下：
+
+1. 家庭成员名称：father, mom, honey, granny etc.
+
+2. 用于称呼的一般性用语：Miss, Mr, Mrs, Ms, Sir, Madame
+
+3. 亲昵称呼：dear, baby, darling
+
+4. 表示职业的称呼：Professor, Doctor, Senatoe
+
+    请注意，某些地位不太高的职业，如driver、waitor等直接称呼职业会略显不礼貌
+
+5. 有时候就是名词词组或者名词性分句
+
+    ```
+    Avengers, assemble!
+
+    Workers of the world, unite!
+
+    Whoever wants to stay here a little longer, please stand up.
+    ```
+
 
 ## 感叹语
 
+感叹语
+:    用于表示各种强烈情感的词语
+
+如何使用？？
+
+1. 可以单独成一个句子，即感叹句，需用感叹号
+
+2. 感叹语依附与一个句子，用逗号和句子隔开，句子末尾使用感叹号；如果要强烈表示语气，则感叹语和句子末尾都加感叹号
+
+3. 感叹语通常由感叹词表示
+
+感叹词的分类
+1. 情感感叹词：只表示说话人情感（大多数感叹词属于此类)
+
+2. 祈使感叹词：促使对方行动，也附带较为强烈的语气
+
+3. 其他词类转换而来的感叹词
+
+    - Why
+    - What
+    - Well
+    - Now
+    - Look
+    - Here
+    - My
+
+
 ## 句首肯定/否定词
 
+无非 Yes / No 及其变体，全世界都知道，写到这里太累不写了。
