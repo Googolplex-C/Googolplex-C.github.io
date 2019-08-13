@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+
+<svg 
+     version="1.1"
+     baseProfile="full"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events"
+     width="10.02cm"
+     height="8.04cm"
+     viewBox="0 0 500 400"
+     >
+<title>
+
+</title>
+<g stroke-linejoin="miter" stroke-dashoffset="0.0000" stroke-dasharray="none" stroke-width="1.0000" stroke-miterlimit="10.000" stroke-linecap="square">
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip76c693bc-ccdd-460b-9b48-7b7b816d4035">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip1)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#ffffff">
+  <path d="M 0.0000 0.0000 L 1145.0 0.0000 L 1145.0 588.00 L 0.0000 588.00 L 0.0000 0.0000 z"/>
+</g> <!-- drawing style -->
+</g> <!-- clip1 -->
+</g> <!-- transform -->
+<g id="misc">
+</g><!-- misc -->
+<g id="layer0">
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip1293fd92-3e11-48f4-b141-406f6806cd16">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip2)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 422.50 294.00 L 497.50 423.90 L 647.50 423.90 L 722.50 294.00 L 647.50 164.10 L 497.50 164.10 z"/>
+<title>Polygon poly2</title>
+<desc>Polygon poly2: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip2 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip6a3f7ef9-3297-4999-a37a-ff091cc4e9b3">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip3)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 722.50 294.00 C 722.50 376.84 655.34 444.00 572.50 444.00 C 489.66 444.00 422.50 376.84 422.50 294.00 C 422.50 211.16 489.66 144.00 572.50 144.00 C 655.34 144.00 722.50 211.16 722.50 294.00 z"/>
+<title>Circle c</title>
+<desc>Circle c: Circle through B with center O</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip3 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip039d3e5c-5856-43e3-b8de-44076d27c1b7">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip4)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#000000">
+  <path d="M 422.50 294.00 L 722.50 294.00"/>
+<title>Segment f</title>
+<desc>Segment f: Segment A, B</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip4 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipd4ef2a86-6b6b-4f62-b95c-bba2ad32c29e">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip5)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 422.50 294.00 L 497.50 423.90"/>
+<title>Segment m</title>
+<desc>Segment m: Segment A, C</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip5 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip5fb5083f-9459-452c-ba80-df84c024284f">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip6)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 497.50 423.90 L 647.50 423.90"/>
+<title>Segment n</title>
+<desc>Segment n: Segment C, D</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip6 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipa98ced30-52a0-493c-9cb7-7dbac26484bc">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip7)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 647.50 423.90 L 722.50 294.00"/>
+<title>Segment p</title>
+<desc>Segment p: Segment D, H</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip7 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip0da9f652-3d1c-4208-9c4f-44b03ee552d7">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip8)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 722.50 294.00 L 647.50 164.10"/>
+<title>Segment q</title>
+<desc>Segment q: Segment H, F</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip8 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip6ebfd899-7bab-4453-b67c-646b715f5a9d">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip9)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 647.50 164.10 L 497.50 164.10"/>
+<title>Segment r</title>
+<desc>Segment r: Segment F, E</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip9 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip99e01e35-5b79-41c9-8c06-92907cad5c3a">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip10)">
+<g stroke-linejoin="round" stroke-width="2.5000" stroke-linecap="round" fill="none" stroke-opacity=".69804" stroke="#330000">
+  <path d="M 497.50 164.10 L 422.50 294.00"/>
+<title>Segment s</title>
+<desc>Segment s: Segment E, A</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip10 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipab4d6dae-c42f-46e0-a240-2113b8a3409e">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip11)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#7d7dff">
+  <path d="M 427.50 294.00 C 427.50 296.76 425.26 299.00 422.50 299.00 C 419.74 299.00 417.50 296.76 417.50 294.00 C 417.50 291.24 419.74 289.00 422.50 289.00 C 425.26 289.00 427.50 291.24 427.50 294.00 z"/>
+<title>Point A</title>
+<desc>Point A: Point on xAxis</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip11 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip8e89fce3-4947-4e06-bec0-c1134d5022dc">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip12)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 427.50 294.00 C 427.50 296.76 425.26 299.00 422.50 299.00 C 419.74 299.00 417.50 296.76 417.50 294.00 C 417.50 291.24 419.74 289.00 422.50 289.00 C 425.26 289.00 427.50 291.24 427.50 294.00 z"/>
+<title>Point A</title>
+<desc>Point A: Point on xAxis</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip12 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip5ca095da-e611-4bf9-9462-768525eee9bb">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip13)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#7d7dff">
+  <path d="M 405.64 291.62 Q 405.91 292.55 406.92 292.55 L 406.92 292.81 L 404.05 292.81 L 404.05 292.55 Q 404.61 292.55 404.81 292.38 Q 404.95 292.19 404.80 291.62 L 404.12 289.25 L 401.20 289.25 L 400.45 291.89 Q 400.34 292.30 400.41 292.41 Q 400.50 292.55 400.98 292.55 L 400.98 292.81 L 399.08 292.81 L 399.08 292.55 Q 399.89 292.55 400.08 291.89 L 402.48 283.56 L 403.22 283.16 L 405.64 291.62 z M 402.67 284.19 L 401.31 288.89 L 404.02 288.89 L 402.67 284.19 z"/>
+<title>Point A</title>
+<desc>Point A: Point on xAxis</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip13 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip3cd6c272-ecee-4109-aa33-741847e1661d">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip14)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#4d4dff">
+  <path d="M 727.50 294.00 C 727.50 296.76 725.26 299.00 722.50 299.00 C 719.74 299.00 717.50 296.76 717.50 294.00 C 717.50 291.24 719.74 289.00 722.50 289.00 C 725.26 289.00 727.50 291.24 727.50 294.00 z"/>
+<title>Point B</title>
+<desc>B = (3, 0)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip14 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip54fd26a4-be3f-45b7-a8e9-1aa0885fbb2e">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip15)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 727.50 294.00 C 727.50 296.76 725.26 299.00 722.50 299.00 C 719.74 299.00 717.50 296.76 717.50 294.00 C 717.50 291.24 719.74 289.00 722.50 289.00 C 725.26 289.00 727.50 291.24 727.50 294.00 z"/>
+<title>Point B</title>
+<desc>B = (3, 0)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip15 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipaba017e6-fd37-4db8-a3a9-ceac2a95ccf5">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip16)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#4d4dff">
+  <path d="M 735.38 298.16 L 739.36 298.16 Q 740.16 298.16 741.02 298.83 Q 741.94 299.52 741.94 300.56 Q 741.94 301.41 741.09 302.06 Q 740.48 302.53 739.86 302.77 Q 740.75 302.95 741.47 303.39 Q 742.62 304.06 742.62 305.28 Q 742.62 306.39 741.73 307.05 Q 740.70 307.81 738.81 307.81 L 735.38 307.81 L 735.38 307.55 Q 736.39 307.55 736.39 306.53 L 736.39 299.44 Q 736.39 298.42 735.38 298.42 L 735.38 298.16 z M 737.20 302.98 L 737.20 306.53 Q 737.20 307.45 738.81 307.45 Q 740.28 307.45 741.11 306.81 Q 741.81 306.27 741.81 305.28 Q 741.81 304.30 740.77 303.59 Q 739.86 302.98 738.44 302.98 L 737.20 302.98 z M 737.20 299.44 L 737.20 302.62 L 738.44 302.62 Q 739.67 302.62 740.39 302.03 Q 741.12 301.42 741.12 300.56 Q 741.12 299.59 740.44 299.05 Q 739.75 298.50 738.52 298.50 Q 737.20 298.50 737.20 299.44 z"/>
+<title>Point B</title>
+<desc>B = (3, 0)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip16 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip7aa50f5c-2913-4c60-a451-e55f8d8949ce">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip17)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#7d7dff">
+  <path d="M 577.50 294.00 C 577.50 296.76 575.26 299.00 572.50 299.00 C 569.74 299.00 567.50 296.76 567.50 294.00 C 567.50 291.24 569.74 289.00 572.50 289.00 C 575.26 289.00 577.50 291.24 577.50 294.00 z"/>
+<title>Point O</title>
+<desc>Point O: Point on f</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip17 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip461a28a6-c2a1-421f-83bb-ae8cf8c80e25">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip18)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 577.50 294.00 C 577.50 296.76 575.26 299.00 572.50 299.00 C 569.74 299.00 567.50 296.76 567.50 294.00 C 567.50 291.24 569.74 289.00 572.50 289.00 C 575.26 289.00 577.50 291.24 577.50 294.00 z"/>
+<title>Point O</title>
+<desc>Point O: Point on f</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip18 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipc8ea038e-6497-4f6a-8566-4d00dfc23895">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip19)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 502.50 423.90 C 502.50 426.67 500.26 428.90 497.50 428.90 C 494.74 428.90 492.50 426.67 492.50 423.90 C 492.50 421.14 494.74 418.90 497.50 418.90 C 500.26 418.90 502.50 421.14 502.50 423.90 z"/>
+<title>Point C</title>
+<desc>Point C: Polygon(B, O, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip19 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip2907bfd0-481b-4d44-9972-2fa0aefa7932">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip20)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 502.50 423.90 C 502.50 426.67 500.26 428.90 497.50 428.90 C 494.74 428.90 492.50 426.67 492.50 423.90 C 492.50 421.14 494.74 418.90 497.50 418.90 C 500.26 418.90 502.50 421.14 502.50 423.90 z"/>
+<title>Point C</title>
+<desc>Point C: Polygon(B, O, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip20 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip62afbe7a-064f-4425-badd-8b3e5c306ac6">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip21)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 487.70 445.73 Q 489.05 444.00 491.02 444.00 Q 492.20 444.00 493.38 444.80 L 493.30 446.28 L 493.05 446.38 Q 492.75 445.50 492.30 445.00 Q 491.78 444.44 491.02 444.44 Q 489.69 444.44 488.56 445.83 Q 487.44 447.23 487.44 449.25 Q 487.44 451.14 488.61 452.42 Q 489.50 453.39 490.78 453.39 Q 491.34 453.39 491.97 453.03 Q 492.55 452.70 493.27 451.53 L 493.52 451.66 Q 492.48 453.97 490.78 453.97 Q 488.88 453.97 487.75 452.56 Q 486.62 451.12 486.62 449.25 Q 486.62 447.16 487.70 445.73 z"/>
+<title>Point C</title>
+<desc>Point C: Polygon(B, O, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip21 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip92329099-4fd9-44d9-888f-70c4e64c1fd6">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip22)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 652.50 423.90 C 652.50 426.67 650.26 428.90 647.50 428.90 C 644.74 428.90 642.50 426.67 642.50 423.90 C 642.50 421.14 644.74 418.90 647.50 418.90 C 650.26 418.90 652.50 421.14 652.50 423.90 z"/>
+<title>Point D</title>
+<desc>Point D: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip22 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip85fb0edc-e021-4807-a3ba-4227f76136d8">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip23)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 652.50 423.90 C 652.50 426.67 650.26 428.90 647.50 428.90 C 644.74 428.90 642.50 426.67 642.50 423.90 C 642.50 421.14 644.74 418.90 647.50 418.90 C 650.26 418.90 652.50 421.14 652.50 423.90 z"/>
+<title>Point D</title>
+<desc>Point D: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip23 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipa51a65ca-e61f-41a3-9de3-1a7234113f36">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip24)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 651.39 440.16 L 654.95 440.16 Q 656.11 440.16 657.25 441.30 Q 658.61 442.59 658.61 445.03 Q 658.59 447.52 657.45 448.73 Q 656.39 449.81 654.41 449.81 L 651.39 449.81 L 651.39 449.55 Q 652.41 449.55 652.41 448.53 L 652.41 441.44 Q 652.41 440.42 651.39 440.42 L 651.39 440.16 z M 653.22 441.44 L 653.22 448.53 Q 653.22 449.45 654.41 449.45 Q 655.69 449.45 656.78 448.38 Q 657.80 447.38 657.80 445.03 Q 657.80 442.61 656.75 441.52 Q 655.78 440.50 654.44 440.50 Q 653.22 440.50 653.22 441.44 z"/>
+<title>Point D</title>
+<desc>Point D: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip24 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipabe7ba16-b113-469c-8569-113b69c544b3">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip25)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 727.50 294.00 C 727.50 296.76 725.26 299.00 722.50 299.00 C 719.74 299.00 717.50 296.76 717.50 294.00 C 717.50 291.24 719.74 289.00 722.50 289.00 C 725.26 289.00 727.50 291.24 727.50 294.00 z"/>
+<title>Point H</title>
+<desc>Point H: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip25 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip8c3dee2b-b9ec-41f7-a664-6b1a7b438356">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip26)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 727.50 294.00 C 727.50 296.76 725.26 299.00 722.50 299.00 C 719.74 299.00 717.50 296.76 717.50 294.00 C 717.50 291.24 719.74 289.00 722.50 289.00 C 725.26 289.00 727.50 291.24 727.50 294.00 z"/>
+<title>Point H</title>
+<desc>Point H: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip26 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clipf8cc635c-be35-478c-b18c-2dfa4dde1861">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip27)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 652.50 164.10 C 652.50 166.86 650.26 169.10 647.50 169.10 C 644.74 169.10 642.50 166.86 642.50 164.10 C 642.50 161.33 644.74 159.10 647.50 159.10 C 650.26 159.10 652.50 161.33 652.50 164.10 z"/>
+<title>Point F</title>
+<desc>Point F: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip27 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip2641e4fd-efa1-4aff-bf04-d5f66d61258f">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip28)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 652.50 164.10 C 652.50 166.86 650.26 169.10 647.50 169.10 C 644.74 169.10 642.50 166.86 642.50 164.10 C 642.50 161.33 644.74 159.10 647.50 159.10 C 650.26 159.10 652.50 161.33 652.50 164.10 z"/>
+<title>Point F</title>
+<desc>Point F: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip28 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip0f03bbae-39b2-4b49-afcd-d4fc8902ea59">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip29)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 657.38 145.53 Q 657.38 146.55 658.39 146.55 L 658.39 146.81 L 655.52 146.81 L 655.52 146.55 Q 656.53 146.55 656.53 145.53 L 656.53 138.44 Q 656.53 137.42 655.52 137.42 L 655.52 137.16 L 662.48 137.16 L 662.34 139.58 L 662.14 139.58 Q 662.05 138.34 661.56 137.92 Q 661.09 137.50 659.91 137.50 Q 659.25 137.50 658.58 137.50 Q 657.38 137.52 657.38 138.47 L 657.38 141.75 L 659.67 141.75 Q 661.12 141.75 661.12 140.45 L 661.39 140.45 L 661.39 143.53 L 661.12 143.53 Q 661.12 142.11 659.67 142.11 L 657.38 142.11 L 657.38 145.53 z"/>
+<title>Point F</title>
+<desc>Point F: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip29 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip33dbee9f-5fc5-4a2d-ae0c-6e09163169a0">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip30)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 502.50 164.10 C 502.50 166.86 500.26 169.10 497.50 169.10 C 494.74 169.10 492.50 166.86 492.50 164.10 C 492.50 161.33 494.74 159.10 497.50 159.10 C 500.26 159.10 502.50 161.33 502.50 164.10 z"/>
+<title>Point E</title>
+<desc>Point E: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip30 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip6f9d2fbc-58bb-43f6-9d87-20905f4957e4">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip31)">
+<g stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-opacity="1.0000" stroke="#000000">
+  <path d="M 502.50 164.10 C 502.50 166.86 500.26 169.10 497.50 169.10 C 494.74 169.10 492.50 166.86 492.50 164.10 C 492.50 161.33 494.74 159.10 497.50 159.10 C 500.26 159.10 502.50 161.33 502.50 164.10 z"/>
+<title>Point E</title>
+<desc>Point E: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip31 -->
+</g> <!-- transform -->
+<g transform="matrix(1.0000, 0.0000, 0.0000, 1.0000, -322.50, -94.000)">
+<clipPath id="clip96ceb616-a7e6-4d59-8394-9630e3677c53">
+  <path d="M 322.50 94.000 L 322.50 496.00 L 823.50 496.00 L 823.50 94.000 z"/>
+</clipPath>
+<g clip-path="url(#clip32)">
+<g fill-opacity="1.0000" fill-rule="nonzero" stroke="none" fill="#444444">
+  <path d="M 491.52 139.16 L 498.27 139.16 L 498.27 141.58 L 498.00 141.58 Q 497.95 140.28 497.28 139.88 Q 496.69 139.52 495.02 139.52 Q 493.34 139.52 493.34 140.44 L 493.34 143.62 L 495.30 143.62 Q 496.61 143.62 496.61 142.34 L 496.88 142.34 L 496.88 145.41 L 496.61 145.41 Q 496.61 143.98 495.30 143.98 L 493.34 143.98 L 493.34 147.53 Q 493.34 148.45 495.02 148.45 Q 496.28 148.45 497.11 148.06 Q 497.72 147.77 498.28 146.39 L 498.48 146.45 L 497.89 148.81 L 491.52 148.81 L 491.52 148.55 Q 492.53 148.55 492.53 147.53 L 492.53 140.44 Q 492.53 139.42 491.52 139.42 L 491.52 139.16 z"/>
+<title>Point E</title>
+<desc>Point E: Polygon(A, C, 6)</desc>
+
+</g> <!-- drawing style -->
+</g> <!-- clip32 -->
+</g> <!-- transform -->
+</g><!-- layer0 -->
+</g> <!-- default stroke -->
+</svg> <!-- bounding box -->
