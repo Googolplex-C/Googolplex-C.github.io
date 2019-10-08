@@ -428,14 +428,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.3k
+                        3.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        14 分
                     </div>
                     
                 
@@ -477,206 +477,312 @@
 <pre><code> {
      &quot;key&quot;: &quot;shift+space&quot;,
      &quot;command&quot;: &quot;editor.action.insertSnippet&quot;
- }</code></pre><p>这个应该才是真正意义上地触发 snippet 的命令；</p>
-</li>
+ }</code></pre></li>
 </ol>
+<p><strong>这个应该才是真正意义上地触发 snippet 的命令；</strong></p>
 <p>其他快捷键保持不变；</p>
 <h4 id="自定义-prefix"><a href="#自定义-prefix" class="headerlink" title="自定义 prefix"></a>自定义 prefix</h4><p>由于笔者最近一段时间几乎只用 VSCode 写博客，因此优先考虑 LaTeX 和 Markdown 的输入。</p>
 <p>同时，考虑到 LaTeX 公式也会在 Markdown 中出现，因此笔者将 LaTeX 命令的 Snippet 放到全局 Snippet 文件中，但是将 scope 关键字设为：LaTeX，Markdown</p>
 <p>具体的设置如下：</p>
-<pre class=" language-JSON"><code class="language-JSON">{
+<p><strong>笔者将所有的 Snippet 设置放在三个文件中，其中两个为全局作用域，一个为 markdown 本身的设置文件</strong></p>
+<ol>
+<li><strong>jackson.code-snippet</strong>：这个文件定义了具体的 LaTeX / MathJax 公式的 Snippet</li>
+<li><strong>WritingBlog.code-snippet</strong>：这个文件定义了写博客时需要的快捷输入，这些 snippet 代表的内容本质上是 markdown 的语法（而非 LaTeX / mathjax 的语法！）</li>
+<li><strong>markdown.json</strong>：这个文件定义了 markdown 的基础语法命令，且即使不是写博客也可能会用上；</li>
+</ol>
+<p>注意，虽然前两个文件本身是全局作用的，但是其中具体每一个的 snippet 的 scope 都严格地设为了 <code>markdown</code> and/or <code>LaTeX</code>，三个文件按照</p>
+<ul>
+<li>数学公式</li>
+<li>写博客专门用到的 markdown 命令</li>
+<li>一般性质的 markdown 命令</li>
+</ul>
+<p>的内在逻辑来分类。</p>
+<ol>
+<li>首先是 jackson.code-snippet 文件：</li>
+</ol>
+<pre><code>```JSON
+{
     // latex 数学环境输入基本要素：定界符
-    "Inline maths formula delimiter": {
-        "scope": "markdown,latex",
-        "prefix": "fi",
-        "body": "$$1$ $0",
-        "description": "the delimiter of inline maths"
+    &quot;Inline maths formula delimiter&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fi&quot;,
+        &quot;body&quot;: &quot;$$1$$0&quot;,
+        &quot;description&quot;: &quot;the delimiter of inline maths&quot;
     },
-    "Display maths formula delimiter": {
-        "scope": "markdown,latex",
-        "prefix": "fd",
-        "body": ["$$",
-            "$1",
-            "$$\n",
-            "$0",
+    &quot;Display maths formula delimiter&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fd&quot;,
+        &quot;body&quot;: [&quot;$$&quot;,
+            &quot;$1&quot;,
+            &quot;$$\n&quot;,
+            &quot;$0&quot;,
         ],
-        "description": "the delimiter of diaplay maths"
+        &quot;description&quot;: &quot;the delimiter of diaplay maths&quot;
     },
 
     // latex 公式环境以及编号、引用等宏
-    "formulas environment": {
-        "scope": "markdown,latex",
-        "prefix": "fev",
-        "body": [
-            "\\begin{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}",
-            "$2",
-            "\\end{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}$0",
+    &quot;formulas environment&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fev&quot;,
+        &quot;body&quot;: [
+            &quot;\\begin{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}&quot;,
+            &quot;$2&quot;,
+            &quot;\\end{${1|equation,equation*,align,align*,gather,gather*,flalign,flalign*|}}$0&quot;,
         ],
-        "description": "the formulas environment"
+        &quot;description&quot;: &quot;the formulas environment&quot;
     },
-    "reference and tags of formulas": {
-        "scope": "markdown,latex",
-        "prefix": "ftr",
-        "body": ["${1|\\ref,\\tag,\\tag*,\\label|}{$2}$0"],
-        "description": "reference and tags of formulas"
+    &quot;reference and tags of formulas&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;ftr&quot;,
+        &quot;body&quot;: [&quot;${1|\\ref,\\tag,\\tag*,\\label|}{$2}$0&quot;],
+        &quot;description&quot;: &quot;reference and tags of formulas&quot;
     },
 
     // latex 内嵌公式环境
-    "formulas inside environment": {
-        "scope": "markdown,latex",
-        "prefix": "fiev",
-        "body": [
-            "\\begin{${1|gathered,split,aligned|}}",
-            "$2",
-            "\\end{${1|gathered,split,aligned|}}$0",
+    &quot;formulas inside environment&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fiev&quot;,
+        &quot;body&quot;: [
+            &quot;\\begin{${1|gathered,split,aligned|}}&quot;,
+            &quot;$2&quot;,
+            &quot;\\end{${1|gathered,split,aligned|}}$0&quot;,
         ],
-        "description": "the formulas inside environment"
+        &quot;description&quot;: &quot;the formulas inside environment&quot;
     },
 
     // latex 矩阵环境
-    "environment of matrix": {
-        "scope": "markdown,latex",
-        "prefix": "fmt",
-        "body": [
-            "\\begin{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}",
-            "$2",
-            "\\end{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}$0",
+    &quot;environment of matrix&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fmt&quot;,
+        &quot;body&quot;: [
+            &quot;\\begin{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}&quot;,
+            &quot;$2&quot;,
+            &quot;\\end{${1|matrix,pmatrix,bmatrix,vmatrix,Vmatrix,Bmatrix|}}$0&quot;,
         ],
-        "description": "environment of matrix"
+        &quot;description&quot;: &quot;environment of matrix&quot;
     },
 
     // latex 基本宏命令快捷输入
-    "Slash1": {
-        "scope": "markdown,latex",
-        "prefix": "jj",
-        "body": "\\\\$1{$2}$0",
-        "description": "Slash1",
+    &quot;Slash1&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;jj&quot;,
+        &quot;body&quot;: &quot;\\\\$1{$2}$0&quot;,
+        &quot;description&quot;: &quot;Slash1&quot;,
     },
-    "Slash2": {
-        "scope": "markdown,latex",
-        "prefix": "jk",
-        "body": "\\\\$1{$2}{$3}$0",
-        "description": "Slash2",
+    &quot;Slash2&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;jk&quot;,
+        &quot;body&quot;: &quot;\\\\$1{$2}{$3}$0&quot;,
+        &quot;description&quot;: &quot;Slash2&quot;,
     },
-    "Slash3": {
-        "scope": "markdown,latex",
-        "prefix": "jl",
-        "body": "\\\\$1{$2}{$3}{$4}$0",
-        "description": "Slash3",
+    &quot;Slash3&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;jl&quot;,
+        &quot;body&quot;: &quot;\\\\$1{$2}{$3}{$4}$0&quot;,
+        &quot;description&quot;: &quot;Slash3&quot;,
     },
 
     // latex 公式基本结构：上下标
-    "superscript and subscript": {
-        "scope": "markdown,latex",
-        "prefix": "gg",
-        "body": "$1_{$2}^{$3}$0",
-        "description": "superscript and subscript"
+    &quot;superscript and subscript&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;gg&quot;,
+        &quot;body&quot;: &quot;_{$1}^{$2}$0&quot;,
+        &quot;description&quot;: &quot;superscript and subscript&quot;
     },
 
     // latex 括号快捷输入
-    "parenthesis": {
-        "scope": "markdown,latex",
-        "prefix": "ff",
-        "body": "($1)$0",
-        "description": "parenthesis"
+    &quot;parenthesis&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;ff&quot;,
+        &quot;body&quot;: &quot;($1)$0&quot;,
+        &quot;description&quot;: &quot;parenthesis&quot;
     },
-    "brace": {
-        "scope": "markdown,latex",
-        "prefix": "dd",
-        "body": "\\{$1\\\\}$0",
-        "description": "brace"
+    &quot;brace&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;dd&quot;,
+        &quot;body&quot;: &quot;\\{$1\\\\}$0&quot;,
+        &quot;description&quot;: &quot;brace&quot;
     },
-    "bracket": {
-        "scope": "markdown,latex",
-        "prefix": "ss",
-        "body": "[$1]$0",
-        "description": "bracket"
+    &quot;bracket&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;ss&quot;,
+        &quot;body&quot;: &quot;[$1]$0&quot;,
+        &quot;description&quot;: &quot;bracket&quot;
     },
 
     // latex 常用函数,公式或表达式
-    "sqrt formulas": {
-        "scope": "markdown,latex",
-        "prefix": "fsq",
-        "body": "\\sqrt[$1]{$2}$0",
-        "description": "sqrt formulas"
+    &quot;sqrt formulas&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fsq&quot;,
+        &quot;body&quot;: &quot;\\sqrt[$1]{$2}$0&quot;,
+        &quot;description&quot;: &quot;sqrt formulas&quot;
     },
 
-    "general fraction": {
-        "scope": "markdown,latex",
-        "prefix": "fgfr",
-        "body": "\\genfrac{$1}{$2}{$3}{$4}{$5}{$6}$0",
-        "description": "general fraction"
+    &quot;general fraction&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fgfr&quot;,
+        &quot;body&quot;: &quot;\\genfrac{$1}{$2}{$3}{$4}{$5}{$6}$0&quot;,
+        &quot;description&quot;: &quot;general fraction&quot;
     },
-    "fraction": {
-        "scope": "markdown,latex",
-        "prefix": "ffr",
-        "body": "\\frac{$1}{$2}$0",
-        "description": "fraction"
+    &quot;fraction&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;ffr&quot;,
+        &quot;body&quot;: &quot;\\frac{$1}{$2}$0&quot;,
+        &quot;description&quot;: &quot;fraction&quot;
     },
-    "binomial coefficient": {
-        "scope": "markdown,latex",
-        "prefix": "fbi",
-        "body": "\\binom{$1}{$2}$0",
-        "description": "binomial coefficient"
+    &quot;binomial coefficient&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;fbi&quot;,
+        &quot;body&quot;: &quot;\\binom{$1}{$2}$0&quot;,
+        &quot;description&quot;: &quot;binomial coefficient&quot;
     },
-    "lists": {
-        "scope": "markdown,latex",
-        "prefix": "flt",
-        "body": "$$1$, $$2$, $$3$, $\\ldots$, $$4$$0",
-        "description": "binomial coefficient"
+    &quot;lists&quot;: {
+        &quot;scope&quot;: &quot;markdown,latex&quot;,
+        &quot;prefix&quot;: &quot;flt&quot;,
+        &quot;body&quot;: &quot;$$1$, $$2$, $$3$, $\\ldots$, $$4$$0&quot;,
+        &quot;description&quot;: &quot;binomial coefficient&quot;
     },
 }
-</code></pre>
-<p>以及专门面向 Markdown 的 prefix：</p>
-<pre class=" language-JSON"><code class="language-JSON">{
-    // 数学证明结束语
-    "End of proof": {
-        "prefix": "qed",
-        "body": [
-            "<p align=\"right\">Q.E.D.</p>",
-            "$0"
-        ],
-        "description": "End of proof",
-    },
+```</code></pre><ol start="2">
+<li><p>然后是 WritingBlog.code-snippet ：</p>
+<pre class=" language-JSON"><code class="language-JSON"> {
+     // 插入博客专用页面排版
+     "front-matter": {
+         "scope": "markdown",
+         "body": [
+             "---",
+             "title: $1",
+             "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+             "author: Googolplex-C",
+             "url: ",
+             "img: ",
+             "top: ",
+             "cover: ",
+             "coverImg: ",
+             "password: ",
+             "toc: ",
+             "  depth_from: 2",
+             "  depth_to: 5",
+             "mathjax: ",
+             "summary: <!--TODO-->",
+             "categories: ",
+             "tags:",
+             "export_on_save:",
+             "  html: ${2|false,true|}",
+             "html:",
+             "  embed_local_images: false",
+             "  embed_svg: true",
+             "  offline: false",
+             "  toc: true",
+             "---\n",
+             "<center><font size=7><b>$1</b></font></center>\n",
+             "# \n$$\\begin{aligned}Author&: \\mathsf{Googolplex\\ C} \\\\\\\\ Originality&: \\mathsf{Level\\ 0}\\end{aligned}$$\n",
+             "# \n<center><font size=5><b>Abstract</font></b></center>\n",
+             "# \n\n\n",
+             "---\n",
+             "$0\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+             "# \n---\n",
+             "<center><font size=5><b>原创性与版权声明</font></b></center>\n",
+             "# \n- **Level 0**：核心内容完全原创，没有借鉴或参考其他文献和材料，但有可能不是第一次提出；",
+             "- **Level 1**：核心内容基本原创，借鉴或参考了其他的文献和材料；",
+             "- **Level 2**：核心内容部分原创，原创部分与非原创部分相互糅合；",
+             "- **Level 3**：对已有文献和材料的整理归纳或者重新组织，可能具有少量原创内容",
+             "- **Level 4**：转载 / 搬运，基本不改变已有材料的组织架构与具体内容，但可能附带极少量原创内容\n",
+             "\n注：Level 0 多见于由笔者独立解决的习题或者开放性问题；Level 1 多见于多种解法的习题或者前人已有一定结论的问题；Level 3 多见于笔记。\n",
+             "\n# \n<center><font color=red><b>本站所有文章，不论其原创性等级高低，一律不允许转载引用</b></font></center>\n",
+             "# \n---",
+             "<center><b>如果您觉得这篇文章有帮助，不妨为我打赏，谢谢！</b></center>\n", 
+             "# \n<center>\n<img src=\"../../../../themes/hexo-theme-matery-master/source/medias/reward/alipay.jpg\" width=\"20%\" height=\"20%\">\n</center>\n",
+             "# \n# \n# ", 
+         ],
+         "prefix": "pg"
+     },
 
-    // 插入图片（针对Hexo）
-    "Insert image": {
-        "prefix": "iimg",
-        "body": [
-            "{% asset_image $1.$2 %}",
-            "$0"
-        ],
-        "description": "Insert image",
-    },
+     // 插入图片（针对Hexo）
+     "Insert image": {
+         "prefix": "iimg",
+         "body": [
+             "{% asset_image $1.$2 %}",
+             "$0"
+         ],
+         "description": "Insert image",
+     },
 
-    // 注释
-    "Comments": {
-        "prefix": "cmt",
-        "body": [
-            "<!--...-->",
-            "$0",
-        ],
-        "description": "Comments",
-    },
+     // 数学证明结束语
+     "End of proof": {
+         "prefix": "qed",
+         "body": [
+             "<p align=\"right\">Q.E.D.</p>",
+             "$0"
+         ],
+         "description": "End of proof",
+     },
 
-    // html 标签字体颜色
-    "Fonts style": {
-        "prefix": "sty",
-        "body": [
-            "<font color=\"$1\" size=\"$2\"> $3 </font>$0",
-        ],
-        "description": "Comments",
-    },
+     // 数学证明结束语2
+     "End of proof 2": {
+         "prefix": "qqed",
+         "body": [
+             "<p align=\"right\">□</p>",
+             "$0"
+         ],
+         "description": "End of proof: version 2",
+     },
 
-    // 居中
-    "Center": {
-        "prefix": "ctr",
-        "body": [
-            "<center> $1 </center>$0",
-        ],
-        "description": "Center",
-    },
-}</code></pre>
+     // 插入 Graphviz
+     "insertGraphviz": {
+         "prefix": "isrtviz",
+         "body": [
+             "```viz{align=center}",
+             "$1 ${2|graph, digraph|} G{",
+             "//attribute_statement:",
+             "//    (\"graph\" | \"node\" | \"edge\") *attribute_list*",
+             "    $3",
+             "//node_statement:",
+             "//    *node_id* *[attribute_list]*",
+             "    $4",
+             "//subgraph",
+             "    $5",
+             "//edge_statement:",
+             "//    (*node_id* | *subgraph*) *edgeRHS* *[attribute_list]*",
+             "    $6",
+             "}",
+             "```"
+         ]
+     }
+ }</code></pre>
+</li>
+<li><p>最后是 markdown.json:</p>
+<pre class=" language-json"><code class="language-json"><span class="token punctuation">{</span>
+ // 注释
+ <span class="token property">"Comments"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token string">"cmt"</span><span class="token punctuation">,</span>
+     <span class="token property">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+         <span class="token string">"&lt;!--...-->"</span><span class="token punctuation">,</span>
+         <span class="token string">"$0"</span><span class="token punctuation">,</span>
+     <span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Comments"</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+ // html 标签字体颜色
+ <span class="token property">"Fonts style"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token string">"sty"</span><span class="token punctuation">,</span>
+     <span class="token property">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+         <span class="token string">"&lt;font color=\"$1\" size=\"$2\"> $3 &lt;/font>$0"</span><span class="token punctuation">,</span>
+     <span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Comments"</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+
+ // 居中
+ <span class="token property">"Center"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+     <span class="token property">"prefix"</span><span class="token operator">:</span> <span class="token string">"ctr"</span><span class="token punctuation">,</span>
+     <span class="token property">"body"</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+         <span class="token string">"&lt;center> $1 &lt;/center>$0"</span><span class="token punctuation">,</span>
+     <span class="token punctuation">]</span><span class="token punctuation">,</span>
+     <span class="token property">"description"</span><span class="token operator">:</span> <span class="token string">"Center"</span><span class="token punctuation">,</span>
+ <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span></code></pre>
+</li>
+</ol>
 <p><strong>需要注意的是：如果需要定义一个 <code>\[content]</code> 的内容，即<code>\\</code> 后面接的是符号 <code>$</code>，那么在JSON 中不能写成 <code>\\$1</code>，笔者专门在网上搜查过，JSON 会经过两次转义（其实笔者自己也不太清楚内部的原理），因此，必须写成 <code>\\\\$1</code> 的形式。</strong></p>
 <h4 id="定义方向键快捷键"><a href="#定义方向键快捷键" class="headerlink" title="定义方向键快捷键"></a>定义方向键快捷键</h4><p>方向键也是非常常用的键位，但是它们离主键区实在太远了，笔者将 <code>ctrl+;</code> 设为 Rightarrow 和 Downarrow，<code>ctrl+‘</code>设为 Leftarrow 和 Uparrow；其中当编辑器处于文本聚焦（也就是光标在闪可以输入文字的状态）时，它们相当于左右箭头，其他情形下相当于上下箭头。</p>
 <pre class=" language-JSON"><code class="language-JSON">[
@@ -807,7 +913,8 @@
 </li>
 <li><p>笔者还发现 <code>insertSnippet</code> 这一命令好像是不起作用的，设置什么快捷键都不会触发其效果</p>
 <p>中途笔者使用了一段时间的 <code>shift+space</code> 触发建议小窗口后（原快捷家是 <code>ctrl+space</code>） 使用 <code>tab</code> 选中的方式，但是这方法除了比较麻烦之外，还必须要求 prefix 是单独的单词，不能和前后的内容连在一起，否则不会触发；</p>
-<p>最后笔者将 命令<code>editor.action.insertSnippet</code>（这个才能真正其作用，但依然是弹出一个窗口）的快捷键设为 <code>shift+space</code>，输入 prefix 后 <code>enter</code>选中，；而建议小窗口的快捷键换回 <code>ctrl+space</code>，虽然也要两步，但是可以在任何时候插入 snippet。</p>
+<p>最后的方案是：</p>
+<p>笔者将 命令<code>editor.action.insertSnippet</code>（这个才能真正其作用，但依然是弹出一个窗口）的快捷键设为 <code>shift+space</code>，输入 prefix 后 <code>enter</code>选中，；而建议小窗口的快捷键换回 <code>ctrl+space</code>，虽然也要两步，但是可以在 <strong>任何时候（包括在嵌套的snippet中）</strong> 插入 snippet。</p>
 </li>
 </ol>
 </li>
@@ -824,8 +931,6 @@
 </ol>
 <h4 id="不完善的地方"><a href="#不完善的地方" class="headerlink" title="不完善的地方"></a>不完善的地方</h4><ol>
 <li>prefix 本身必须是固定的，不能支持正则表达式等</li>
-<li>snippet 嵌套问题</li>
-<li></li>
 </ol>
 
             </div>
@@ -1250,7 +1355,7 @@
 
             
                 &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
-                <span class="white-color">22.3k</span>
+                <span class="white-color">23.4k</span>
             
 
             

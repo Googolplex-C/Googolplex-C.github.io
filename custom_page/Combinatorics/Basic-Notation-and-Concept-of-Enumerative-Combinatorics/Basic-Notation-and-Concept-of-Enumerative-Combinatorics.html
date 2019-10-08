@@ -1,0 +1,1473 @@
+<!DOCTYPE html><html><head>
+      <title>&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x5B66;&#x7684;&#x8BB0;&#x53F7;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({"extensions":["tex2jax.js"],"jax":["input/TeX","output/HTML-CSS"],"messageStyle":"none","tex2jax":{"processEnvironments":false,"processEscapes":true,"inlineMath":[["$","$"],["\\(","\\)"]],"displayMath":[["$$","$$"],["\\[","\\]"]]},"TeX":{"extensions":["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]},"HTML-CSS":{"availableFonts":["TeX"]}});
+        </script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js"></script>
+        
+      
+      
+
+      
+      
+      
+      
+      
+      
+
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <center><font size="7"><b>&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x5B66;&#x7684;&#x8BB0;&#x53F7;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</b></font></center>
+<h1 class="mume-header" id></h1>
+
+<p></p><div class="mathjax-exps">$$\begin{aligned}Author&amp;: \mathsf{Googolplex\ C} \\ Originality&amp;: \mathsf{Level\quad 3}\end{aligned}$$</div><p></p>
+<h1 class="mume-header" id="-1"></h1>
+
+<center><font size="5"><b>Abstract</b></font></center>
+<h1 class="mume-header" id="-2"></h1>
+
+<p>&#x672C;&#x6587;&#x662F;&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x5B66;&#x7684;&#x5165;&#x95E8;&#x5185;&#x5BB9;&#x7684;&#x4ECB;&#x7ECD;&#x6027;&#x6587;&#x7AE0;&#x3002;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x4E3B;&#x8981;&#x662F;&#x8F83;&#x4E3A;&#x7A7A;&#x6CDB;&#x7684;&#x603B;&#x7ED3;&#xFF1A;&#x9996;&#x5148;&#x5927;&#x81F4;&#x4ECB;&#x7ECD;&#x4E86;&#x7EC4;&#x5408;&#x5B66;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x54EA;&#x4E9B;&#x5206;&#x652F;&#x3002;&#x5176;&#x6B21;&#x4ECB;&#x7ECD;&#x4E86;&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x5B66;&#x2014;&#x2014;&#x4F5C;&#x4E3A;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#x53EF;&#x80FD;&#x662F;&#x6700;&#x5177;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x4E3B;&#x8981;&#x5173;&#x6CE8;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;&#x3002;&#x4E4B;&#x540E;&#x662F;&#x7B14;&#x8005;&#x5BF9;&#x4E8E;&#x81EA;&#x5DF1;&#x6240;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x7EC4;&#x5408;&#x5B66;&#x7684;&#x5DE5;&#x5177;&#x548C;&#x65B9;&#x6CD5;&#x7B80;&#x8981;&#x5730;&#x8FDB;&#x884C;&#x6982;&#x8FF0;&#x3002;&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x5F00;&#x59CB;&#x5177;&#x4F53;&#x5730;&#x68B3;&#x7406;&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x4E2D;&#x7684;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x4ECE;&#x96C6;&#x5408;&#x51FA;&#x53D1;&#xFF0C;&#x8FDB;&#x800C;&#x4EE5;&#x4EE3;&#x6570;&#x7684;&#x65B9;&#x5F0F;&#xFF08;&#x5373;&#x6682;&#x4E0D;&#x6D89;&#x53CA;&#x5B83;&#x4EEC;&#x7684;&#x7EC4;&#x5408;&#x542B;&#x4E49;&#xFF09;&#x5B9A;&#x4E49;&#x4E00;&#x7CFB;&#x5217;&#x5728;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#x8BB0;&#x53F7;&#x548C;&#x6982;&#x5FF5;&#x3002;</p>
+<hr>
+<h2 class="mume-header" id="%E4%BB%8E%E9%9B%86%E5%90%88%E8%AF%B4%E8%B5%B7">&#x4ECE;&#x96C6;&#x5408;&#x8BF4;&#x8D77;</h2>
+
+<h3 class="mume-header" id="%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AE%B0%E5%8F%B7%E4%B8%8E%E5%AE%9A%E4%B9%89">&#x57FA;&#x672C;&#x7684;&#x8BB0;&#x53F7;&#x4E0E;&#x5B9A;&#x4E49;</h3>
+
+<h6 class="mume-header" id="%E9%9B%86%E5%90%88">&#x96C6;&#x5408;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 1&#xFF1A;&#x96C6;&#x5408;</dt>
+<dd>&#x53C2;&#x89C1;&#x516C;&#x7406;&#x96C6;&#x5408;&#x8BBA;&#x4E2D;&#x7684; ZF &#x516C;&#x7406;&#xFF1B;&#x67D0;&#x79CD;&#x7A0B;&#x5EA6;&#x4E0A;&#xFF0C;&#x96C6;&#x5408;&#x7684;&#x6982;&#x5FF5;&#x662F;&#x81EA;&#x660E;&#x7684;&#x3002;</dd>
+</dl>
+<h6 class="mume-header" id="%E6%9F%90%E4%BA%9B%E7%89%B9%E5%AE%9A%E7%9A%84%E9%9B%86%E5%90%88%E8%AE%B0%E5%8F%B7">&#x67D0;&#x4E9B;&#x7279;&#x5B9A;&#x7684;&#x96C6;&#x5408;&#x8BB0;&#x53F7;</h6>
+
+<ul>
+<li><span class="mathjax-exps">$\mathbb{N}$</span>&#xFF1A;&#x5168;&#x4F53;&#x81EA;&#x7136;&#x6570;&#xFF08;&#x5305;&#x542B; 0&#xFF09;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+<li><span class="mathjax-exps">$\mathbb{Z}$</span>&#xFF1A;&#x5168;&#x4F53;&#x6574;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+<li><span class="mathjax-exps">$\mathbb{Q}$</span>&#xFF1A;&#x5168;&#x4F53;&#x6709;&#x7406;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+<li><span class="mathjax-exps">$\mathbb{R}$</span>&#xFF1A;&#x5168;&#x4F53;&#x5B9E;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+<li><span class="mathjax-exps">$\mathbb{C}$</span>&#xFF1A;&#x5168;&#x4F53;&#x590D;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+</ul>
+<p>&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x8868;&#x793A;&#x6570;&#x7CFB;&#x7684;&#x5B57;&#x6BCD;&#x5B57;&#x4F53;&#x4E0D;&#x662F;&#x4E00;&#x822C;&#x7684; LaTeX &#x5B57;&#x4F53;&#x3002;&#x5BF9;&#x4E8E;&#x4EE5;&#x4E0A;&#x7684;&#x6570;&#x7CFB;&#x96C6;&#x5408;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5176;&#x53F3;&#x4E0A;&#x89D2;&#x6DFB;&#x52A0;&#x4E0A;&#x4E00;&#x4E9B;&#x4E0A;&#x6807;&#x4FEE;&#x6B63;&#x5176;&#x542B;&#x4E49;&#xFF1A;</p>
+<ul>
+<li>&#x4E0A;&#x6807; <span class="mathjax-exps">$*$</span>&#xFF1A;&#x8868;&#x793A;&#x539F;&#x96C6;&#x5408;&#x5220;&#x53BB; 0 &#x5F97;&#x5230;&#x7684;&#x65B0;&#x96C6;&#x5408;&#xFF1B;</li>
+<li>&#x4E0A;&#x6807; <span class="mathjax-exps">$+$</span>&#xFF1A;&#x8868;&#x793A;&#x9009;&#x53D6;&#x539F;&#x96C6;&#x5408;&#x4E2D;&#x7684;&#x6B63;&#x6570;&#x5F97;&#x5230;&#x7684;&#x65B0;&#x96C6;&#x5408;&#xFF1B;</li>
+</ul>
+<dl>
+<dt>&#x793A;&#x4F8B;</dt>
+<dd>
+<ul>
+<li><span class="mathjax-exps">$\mathbb{N}^*$</span> &#x548C; <span class="mathjax-exps">$\mathbb{N}^+$</span> &#x90FD;&#x8868;&#x793A;&#x6B63;&#x6574;&#x6570;&#x96C6;&#x5408;&#xFF1B;</li>
+<li><span class="mathjax-exps">$\mathbb{Q}^*$</span> &#x8868;&#x793A;&#x9664;&#x4E86; 0 &#x4E4B;&#x5916;&#x7684;&#x6240;&#x6709;&#x6709;&#x7406;&#x6570;&#x7684;&#x96C6;&#x5408;&#xFF1B;</li>
+</ul>
+</dd>
+</dl>
+<p>&#x53E6;&#x5916;&#x5728;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#xFF0C;&#x8FD8;&#x4F1A;&#x7ECF;&#x5E38;&#x6027;&#x5730;&#x51FA;&#x73B0;&#x4EE5;&#x4E0B;&#x96C6;&#x5408;&#x8BB0;&#x53F7;&#xFF1A;</p>
+<ul>
+<li><span class="mathjax-exps">$[n]$</span>&#xFF1A;&#x8868;&#x793A;&#x524D; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x6B63;&#x6574;&#x6570;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x5373; <span class="mathjax-exps">$[n]:=\{1, 2, \dots, n\}$</span></li>
+</ul>
+<h6 class="mume-header" id="%E5%85%B3%E4%BA%8E%E9%9B%86%E5%90%88%E7%9A%84%E8%BF%90%E7%AE%97%E5%92%8C%E6%8C%87%E6%A0%87">&#x5173;&#x4E8E;&#x96C6;&#x5408;&#x7684;&#x8FD0;&#x7B97;&#x548C;&#x6307;&#x6807;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 2&#xFF1A;&#x96C6;&#x5408;&#x7684;&#x52BF;&#xFF08;&#x57FA;&#x6570;&#xFF09;</dt>
+<dd>&#x8868;&#x793A;&#x96C6;&#x5408;&#x5143;&#x7D20;&#x591A;&#x5BE1;&#x7684;&#x6307;&#x6807;&#x3002;</dd>
+<dd>&#x5BF9;&#x4E8E;&#x6709;&#x9650;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x57FA;&#x6570;&#x5C31;&#x662F;&#x5143;&#x7D20;&#x7684;&#x4E2A;&#x6570;&#xFF08;&#x4EE5;&#x67D0;&#x4E2A;&#x81EA;&#x7136;&#x6570;&#x8868;&#x793A;&#xFF09;&#xFF1B;&#x5BF9;&#x4E8E;&#x65E0;&#x9650;&#x96C6;&#x5408;&#xFF0C;&#x5176;&#x57FA;&#x6570;&#x4E0E;&#x4E4B;&#x5F62;&#x6210;&#x4E00;&#x4E00;&#x6620;&#x5C04;&#x7684;&#x96C6;&#x5408;&#x7684;&#x76F8;&#x7B49;&#x3002;</dd>
+<dd><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x7684;&#x57FA;&#x6570;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$\lvert A \rvert$</span>&#xFF0C;&#x6216;&#x8005;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$\operatorname{card}A$</span>&#xFF0C;&#x6216;&#x8005;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$\#A$</span></dd>
+<dt>&#x5B9A;&#x4E49; 3&#xFF1A;&#x96C6;&#x5408;&#x7684;&#x57FA;&#x672C;&#x8FD0;&#x7B97;</dt>
+<dd>
+<ol>
+<li>&#x5E76;&#xFF1A; <span class="mathjax-exps">$A \cup B := \{x \mid x \in A \text{ or } x \in B\}$</span>
+<ul>
+<li>&#x6CE8;&#xFF1A;&#x6B64;&#x5904;&#x7684; or &#x662F; inclusive or.</li>
+</ul>
+</li>
+</ol>
+</dd>
+<dd>
+<ol start="2">
+<li>&#x4EA4;&#xFF1A; <span class="mathjax-exps">$A \cap B := \{x \mid x \in A \text{ and } x \in B\}$</span></li>
+</ol>
+</dd>
+<dd>
+<ol start="3">
+<li>&#x5DEE;&#xFF1A; <span class="mathjax-exps">$A \setminus B := \{x \mid x \in A \text{ and } x \notin B\}$</span></li>
+</ol>
+</dd>
+<dd>
+<ol start="4">
+<li>&#x8865;&#xFF1A;&#x82E5; <span class="mathjax-exps">$B \subseteq A$</span>&#xFF0C;&#x5219;&#x6709; <span class="mathjax-exps">$\complement_A B := A \setminus B$</span>
+<ul>
+<li>&#x6CE8;&#xFF1A;&#x8865;&#x8FD0;&#x7B97;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5DEE;&#x8FD0;&#x7B97;&#x7684;&#x7279;&#x4F8B;</li>
+<li>&#x6CE8;&#xFF1A;&#x5728; <span class="mathjax-exps">$A$</span> &#x660E;&#x786E;&#x7684;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x8865;&#x96C6; <span class="mathjax-exps">$\complement_A B$</span> &#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E3A; <span class="mathjax-exps">$\overline{B}$</span>&#xFF0C; &#x6216;&#x8005; <span class="mathjax-exps">$B^{\complement}$</span>&#xFF0C;&#x6216;&#x8005; <span class="mathjax-exps">$\complement B$</span></li>
+</ul>
+</li>
+</ol>
+</dd>
+<dt>&#x5B9A;&#x4E49; 4&#xFF1A;&#x96C6;&#x65CF;</dt>
+<dd>&#x5143;&#x7D20;&#x4E3A;&#x96C6;&#x5408;&#x7684;&#x96C6;&#x5408;&#x53EF;&#x4EE5;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x96C6;&#x65CF;&#x3002;</dd>
+</dl>
+<p>&#x5173;&#x4E8E; &#x201C;&#x65CF;&#x201D;&#xFF0C;&#x201C;&#x7CFB;&#x201D; &#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5B58;&#x5728;&#x7740;&#x4E00;&#x4E9B;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x6709;&#x7684;&#x548C;&#x7C7B;&#x578B;&#x8BBA;&#x91CC;&#x7684;&#x7528;&#x6CD5;&#x6DF7;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x53EB;&#x4EBA;&#x96BE;&#x4EE5;&#x5206;&#x8FA8;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x59D1;&#x4E14;&#x628A;&#x5B83;&#x5B9A;&#x4E49;&#x5982;&#x4E0A;&#x3002;&#x6309;&#x7167;&#x4E0A;&#x9762;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;<strong>&#x96C6;&#x65CF;&#x672C;&#x8EAB;&#x5176;&#x5B9E;&#x4ECD;&#x662F;&#x4E2A;&#x96C6;&#x5408;</strong>&#x3002;</p>
+<dl>
+<dt>&#x5B9A;&#x4E49; 5&#xFF1A;&#x5E42;&#x96C6;</dt>
+<dd>&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x6240;&#x6709;&#x7684;&#x5B50;&#x96C6;&#xFF08;&#x5305;&#x62EC;&#x7A7A;&#x96C6;&#x5728;&#x5185;&#xFF09;&#x6240;&#x6784;&#x6210;&#x7684;&#x96C6;&#x65CF;&#x6210;&#x4E3A;&#x5E42;&#x96C6;&#x3002;</dd>
+<dd><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x7684;&#x5E42;&#x96C6;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$\mathcal{P}(A)$</span> &#x6216;&#x8005; <span class="mathjax-exps">$\mathfrak{P}(A)$</span>&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$2^A$</span></dd>
+<dt>&#x5B9A;&#x4E49; 6&#xFF1A;&#x7B1B;&#x5361;&#x5C14;&#x79EF;</dt>
+<dd>&#x7ED9;&#x5B9A; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x96C6;&#x5408; <span class="mathjax-exps">$A_1$</span>, <span class="mathjax-exps">$A_2$</span>, <span class="mathjax-exps">$\cdots$</span>, <span class="mathjax-exps">$A_n$</span>&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x7B1B;&#x5361;&#x5C14;&#x79EF;&#x662F;&#x7531;&#x6240;&#x6709;&#x5982;&#x4E0B;&#x5B9A;&#x4E49;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4;
+<div class="mathjax-exps">$$(a_1, a_2, \cdots, a_n), \quad\quad \text{where}\quad \forall i \in [n], a_i \in A_i$$</div>
+&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#x3002;</dd>
+<dd><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;<span class="mathjax-exps">$n$</span> &#x4E2A;&#x96C6;&#x5408; <span class="mathjax-exps">$A_1$</span>, <span class="mathjax-exps">$A_2$</span>, <span class="mathjax-exps">$\cdots$</span>, <span class="mathjax-exps">$A_n$</span> &#x7684;&#x7B1B;&#x5361;&#x5C14;&#x79EF;&#x8BB0;&#x4E3A;&#xFF1A;<span class="mathjax-exps">$A_1 \times A_2 \times \cdots \times A_n$</span>&#xFF0C; &#x6216;&#x8005;&#x7B80;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$A_1A_2\cdots A_n$</span></dd>
+<dt>&#x5B9A;&#x4E49; 7&#xFF1A;&#x5143;&#x7EC4;&#x7684;&#x6295;&#x5F71;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4; <span class="mathjax-exps">$(a_1, a_2, \cdots, a_n) \in A_1A_2\cdots A_n$</span> ,&#x79F0;&#x5176;&#x7B2C; <span class="mathjax-exps">$i$</span> &#x4E2A;&#x5206;&#x91CF; <span class="mathjax-exps">$a_i$</span> &#x662F;&#x8BE5; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4;&#x5728; <span class="mathjax-exps">$A_i$</span> &#x4E0A;&#x7684;&#x6295;&#x5F71;</dd>
+<dd><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;&#x5BF9;&#x4E8E; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4; <span class="mathjax-exps">$a\in A_1A_2\cdots A_n$</span>&#xFF0C;&#x5176;&#x5728; <span class="mathjax-exps">$A_i$</span> &#x4E0A;&#x7684;&#x6295;&#x5F71;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$\operatorname{pr}_i(a)$</span></dd>
+<dt>&#x5B9A;&#x4E49; 8&#xFF1A;&#x96C6;&#x5408;&#x7684;&#x5E42;</dt>
+<dd>&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x7684; <span class="mathjax-exps">$n$</span> &#x6B21;&#x5E42;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$A^n := \underbrace{A \times A \times \cdots \times A}_{n\cdot A}$</span></dd>
+<dt>&#x5B9A;&#x4E49; 9&#xFF1A;&#x5E42;&#x7684;&#x5BF9;&#x89D2;&#x7EBF;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x96C6;&#x5408;&#x5E42; <span class="mathjax-exps">$A^n$</span>&#xFF0C;&#x5176;&#x5BF9;&#x89D2;&#x7EBF; <span class="mathjax-exps">$\Delta$</span> &#x662F;&#x7531;&#x5404;&#x5206;&#x91CF;&#x90FD;&#x76F8;&#x540C;&#x6240;&#x6709;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4;&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;</dd>
+<dt>&#x793A;&#x4F8B;</dt>
+<dd>&#x8BBE; <span class="mathjax-exps">$A=\{1, 2, 3\}$</span>&#xFF0C;&#x90A3;&#x4E48; <span class="mathjax-exps">$A^3$</span> &#x7684;&#x5BF9;&#x89D2;&#x7EBF;&#x5C31;&#x662F; <span class="mathjax-exps">$\{(1,1,1),(2,2,2),(3,3,3)\}$</span></dd>
+</dl>
+<h3 class="mume-header" id="%E7%9B%B8%E5%85%B3%E5%AE%9A%E7%90%86%E4%B8%8E%E5%91%BD%E9%A2%98">&#x76F8;&#x5173;&#x5B9A;&#x7406;&#x4E0E;&#x547D;&#x9898;</h3>
+
+<h6 class="mume-header" id="%E7%AC%9B%E5%8D%A1%E5%B0%94%E7%A7%AF%E7%9A%84%E5%9F%BA%E6%95%B0">&#x7B1B;&#x5361;&#x5C14;&#x79EF;&#x7684;&#x57FA;&#x6570;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x7406; 1</dt>
+<dd>&#x5BF9;&#x4E8E;&#x82E5;&#x5E72;&#x4E2A;&#x6709;&#x9650;&#x96C6;&#x5408;&#x7684;&#x7B1B;&#x5361;&#x5C14;&#x79EF; <span class="mathjax-exps">$A_1A_2\cdots A_n$</span>&#xFF0C;&#x5176;&#x57FA;&#x6570;&#x4E3A; <span class="mathjax-exps">$\lvert A_1 \rvert \lvert A_2 \rvert \cdots \lvert A_n \rvert$</span></dd>
+<dt>&#x8BBA;&#x8BC1;</dt>
+<dd>&#x7B1B;&#x5361;&#x5C14;&#x79EF;&#x7684;&#x57FA;&#x6570;&#x5B9E;&#x9645;&#x4E0A;&#x5C31;&#x662F; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4;&#x7684;&#x4E2A;&#x6570;&#x3002;&#x6CE8;&#x610F;&#x5230;&#x6BCF;&#x4E2A;&#x5143;&#x7EC4;&#x7684;&#x5404;&#x4E2A;&#x5206;&#x91CF;&#x90FD;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x91CF;&#x6709; <span class="mathjax-exps">$\lvert A_1 \rvert$</span> &#x79CD;&#x9009;&#x62E9;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x5206;&#x91CF;&#x6709; <span class="mathjax-exps">$A_2$</span> &#x79CD;&#x9009;&#x62E9;&#x2026;&#x2026;&#x4EE5;&#x6B64;&#x7C7B;&#x63A8;&#xFF0C;&#x5176;&#x57FA;&#x6570;&#x4E3A; <span class="mathjax-exps">$\lvert A_1 \rvert \lvert A_2 \rvert \cdots \lvert A_n \rvert$</span>&#x3002;</dd>
+</dl>
+<p align="right">Q.E.D.</p>
+<p>&#x6CE8;&#xFF1A;&#x5176;&#x5B9E;&#x7B1B;&#x5361;&#x5C14;&#x79EF;&#x7684;&#x57FA;&#x6570;&#x516C;&#x5F0F;&#x6B63;&#x662F;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#x4E58;&#x6CD5;&#x539F;&#x7406;&#x7684;&#x4F53;&#x73B0;&#x53CA;&#x5F62;&#x5F0F;&#x5316;&#x8868;&#x8FF0;&#x3002;</p>
+<h6 class="mume-header" id="%E5%B9%82%E9%9B%86%E7%9A%84%E5%9F%BA%E6%95%B0">&#x5E42;&#x96C6;&#x7684;&#x57FA;&#x6570;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x7406; 2</dt>
+<dd>&#x8BBE;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x7684;&#x57FA;&#x6570;&#x4E3A; <span class="mathjax-exps">$\lvert A \rvert = n$</span>&#xFF0C;&#x5219; <span class="mathjax-exps">$A$</span> &#x7684;&#x5E42;&#x96C6;&#x7684;&#x57FA;&#x6570;&#x4E3A; <span class="mathjax-exps">$2^n$</span></dd>
+<dt>&#x8BBA;&#x8BC1;</dt>
+<dd>&#x8003;&#x8651; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x5143;&#x7D20;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#xFF0C;&#x5176;&#x5728;&#x4E00;&#x4E2A;&#x5B50;&#x96C6;&#x4E2D;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x4E0D;&#x51FA;&#x73B0;&#xFF1B;&#x6240;&#x6709;&#x7684; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x5143;&#x7D20;&#x662F;&#x5426;&#x51FA;&#x73B0;&#x5728;&#x67D0;&#x4E2A;&#x5B50;&#x96C6;&#x4E2D;&#x662F;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x7531;&#x4E58;&#x6CD5;&#x539F;&#x7406;&#x53EF;&#x77E5;&#xFF0C;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x5B50;&#x96C6;&#x7684;&#x6570;&#x76EE;&#x4E3A; <span class="mathjax-exps">$2^n$</span>.</dd>
+</dl>
+<p align="right">Q.E.D.</p>
+<h2 class="mume-header" id="%E6%98%A0%E5%B0%84%E4%B8%8E%E5%85%B3%E7%B3%BB">&#x6620;&#x5C04;&#x4E0E;&#x5173;&#x7CFB;</h2>
+
+<h3 class="mume-header" id="%E6%98%A0%E5%B0%84">&#x6620;&#x5C04;</h3>
+
+<h6 class="mume-header" id="%E6%98%A0%E5%B0%84%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">&#x6620;&#x5C04;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 10&#xFF1A;&#x6620;&#x5C04;</dt>
+<dd>
+<p>&#x8FD9;&#x91CC;&#x4E0D;&#x5177;&#x4F53;&#x5730;&#x5199;&#x51FA;&#x6620;&#x5C04;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x53EA;&#x4E3E;&#x51FA;&#x5173;&#x4E8E;&#x6620;&#x5C04;&#x5B9A;&#x4E49;&#x7684;&#x4E00;&#x4E9B;&#x8981;&#x70B9;</p>
+</dd>
+<dd>
+<ol>
+<li>&#x6620;&#x5C04;&#x662F;&#x4ECE;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x7684;<em>&#x6570;&#x5B66;&#x5B9E;&#x4F53;</em>&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x96C6;&#x5408;<strong>&#x53EF;&#x4EE5;&#x76F8;&#x7B49;</strong>&#xFF1B;</li>
+<li><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;&#x4ECE;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x5230;&#x96C6;&#x5408; <span class="mathjax-exps">$B$</span> &#x7684;&#x6620;&#x5C04;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$f:A \mapsto B$</span>&#xFF1B;&#x524D;&#x8005;&#x79F0;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x57DF;&#xFF0C;&#x540E;&#x8005;&#x79F0;&#x4E3A;&#x51FD;&#x6570;&#x7684;&#x966A;&#x57DF;&#xFF0C;&#x6216;&#x8005;&#x79F0;&#x4E3A;&#x5230;&#x8FBE;&#x57DF;&#x3001;&#x4E0A;&#x57DF;&#x3001;&#x76EE;&#x6807;&#x96C6;&#xFF1B;</li>
+<li>&#x5BF9;&#x4E8E;&#x5B9A;&#x4E49;&#x57DF;&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x5728;&#x966A;&#x57DF;&#x4E2D;<strong>&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;</strong>&#x5143;&#x7D20;&#xFF0C;&#x7531;&#x6620;&#x5C04;&#x9009;&#x5B9A;&#x4E0E;&#x524D;&#x8005;&#x5BF9;&#x5E94;</li>
+<li>&#x5BF9;&#x4E8E;&#x5B9A;&#x4E49;&#x57DF;&#x4E2D;&#x7684;<strong>&#x6BCF;&#x4E00;&#x4E2A;</strong>&#x5143;&#x7D20;&#xFF0C;&#x5728;&#x966A;&#x57DF;&#x4E2D;&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x7531;&#x6620;&#x5C04;&#x9009;&#x5B9A;&#x4E0E;&#x524D;&#x8005;&#x5BF9;&#x5E94;
+<ul>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x7B2C; 3&#x3001;4 &#x70B9;&#x7684;&#x8BED;&#x4E49;&#x7126;&#x70B9;&#x6240;&#x5F3A;&#x8C03;&#x7684;&#x91CD;&#x70B9;&#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x4E24;&#x65B9;&#x9762;&#x90FD;&#x8981;&#x6CE8;&#x610F;&#x5230;</li>
+</ul>
+</li>
+<li>&#x6620;&#x5C04; <span class="mathjax-exps">$f:A \mapsto B$</span> &#x7684;&#x503C;&#x57DF;&#x5B9A;&#x4E49;&#x4E3A; <span class="mathjax-exps">$f(A):= \{y\in B \mid \exists\ x \in A, \mathrm{s.t.}\ y = f(x)\}$</span></li>
+<li>&#x56E0;&#x6B64;&#xFF0C;&#x503C;&#x57DF;&#x4E0E;&#x50CF;&#x96C6;&#x7684;&#x5173;&#x7CFB;&#x662F; <span class="mathjax-exps">$f(A) \subseteq B$</span>&#xFF1B;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x5728; <span class="mathjax-exps">$f$</span> &#x662F;&#x6EE1;&#x5C04;&#x7684;&#x65F6;&#x5019;&#xFF0C;<span class="mathjax-exps">$f(A)=B$</span> &#x624D;&#x6210;&#x7ACB;</li>
+</ol>
+</dd>
+<dt>&#x6982;&#x5FF5; 11&#xFF1A;&#x6620;&#x5C04;&#x7684;&#x5206;&#x7C7B;</dt>
+<dd>
+<ol>
+<li>&#x5355;&#x5C04;</li>
+<li>&#x6EE1;&#x5C04;</li>
+<li>&#x975E;&#x5355;&#x5C04;&#x4E5F;&#x975E;&#x6EE1;&#x5C04;
+<ul>
+<li>&#x6620;&#x5C04;&#x53EF;&#x4EE5;&#x65E2;&#x662F;&#x5355;&#x5C04;&#xFF0C;&#x4E5F;&#x662F;&#x6EE1;&#x5C04;&#xFF0C;&#x6B64;&#x65F6;&#x79F0;&#x4E4B;&#x4E3A;&#x53CC;&#x5C04;</li>
+</ul>
+</li>
+</ol>
+</dd>
+<dd>
+<p>&#x4E3A;&#x4E86;&#x540E;&#x6587;&#x7684;&#x53D9;&#x8FF0;&#x65B9;&#x4FBF;&#xFF0C;&#x7B14;&#x8005;&#x5B9A;&#x4E49;&#x4E00;&#x4E9B;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6982;&#x5FF5;</p>
+<ul>
+<li><strong>&#x7EAF;&#x5355;&#x5C04;</strong>&#xFF1A;&#x662F;&#x5355;&#x5C04;&#x4F46;&#x4E0D;&#x662F;&#x6EE1;&#x5C04;&#x7684;&#x6620;&#x5C04;</li>
+<li><strong>&#x7EAF;&#x6EE1;&#x5C04;</strong>&#xFF1A;&#x662F;&#x6EE1;&#x5C04;&#x4F46;&#x4E0D;&#x662F;&#x5355;&#x5C04;&#x7684;&#x6620;&#x5C04;</li>
+</ul>
+</dd>
+</dl>
+<p>&#x5173;&#x4E8E;&#x6620;&#x5C04;&#x7684;&#x5206;&#x7C7B;&#xFF0C;&#x8001;&#x751F;&#x5E38;&#x8C08;&#x4E86;&#xFF0C;&#x6B64;&#x5904;&#x4E0D;&#x4E88;&#x8D58;&#x8FF0;</p>
+<dl>
+<dt>&#x6982;&#x5FF5; 12&#xFF1A;&#x6620;&#x5C04;&#x7684;&#x590D;&#x5408;</dt>
+<dd>&#x540C;&#x6837;&#x5730;&#xFF0C;&#x7B14;&#x8005;&#x4E0D;&#x60F3;&#x518D;&#x7167;&#x672C;&#x5BA3;&#x79D1;&#x5730;&#x91CD;&#x65B0;&#x5199;&#x4E00;&#x904D;&#x590D;&#x5408;&#x6620;&#x5C04;&#x7684;&#x5B9A;&#x4E49;&#xFF0C;&#x53EA;&#x5217;&#x51FA;&#x4E00;&#x4E9B;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x8981;&#x70B9;&#xFF1B;</dd>
+<dd>
+<ol>
+<li>
+<p><strong>&#x590D;&#x5408;&#x6620;&#x5C04;&#x672C;&#x8D28;&#x4E0A;&#x4ECD;&#x7136;&#x662F;&#x6620;&#x5C04;</strong>&#xFF0C;&#x91CD;&#x8981;&#x7684;&#x4E8B;&#x60C5;&#x8BF4;&#x4E09;&#x904D;</p>
+</li>
+<li>
+<p>&#x5728;&#x6982;&#x5FF5;&#x7684;&#x5B9A;&#x4E49;&#x4E0A;&#x9EBB;&#x70E6;&#x7684;&#x5730;&#x65B9;&#x5728;&#x4E8E;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x6559;&#x6750;&#x6216;&#x8005;&#x8D44;&#x6599;&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x7EC6;&#x8282;&#x7684;&#x53D9;&#x8FF0;&#x4E0D;&#x592A;&#x4E00;&#x81F4;&#xFF08;&#x6570;&#x5B66;&#x754C;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#x7684;&#x4E00;&#x70B9;&#xFF09;</p>
+<ul>
+<li>&#x6709;&#x7684;&#x8D44;&#x6599;&#x5BF9;&#x4E8E;&#x590D;&#x5408;&#x6620;&#x5C04; <span class="mathjax-exps">$g\,\circ\,f$</span> &#x7684; &#x201C;&#x4E2D;&#x95F4;&#x96C6;&#x5408;&#x201D; &#x662F;&#x8FD9;&#x6837;&#x8981;&#x6C42;&#x7684;&#xFF1A;&#x6620;&#x5C04; <span class="mathjax-exps">$g$</span> &#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x5FC5;&#x987B;&#x7B49;&#x4E8E; <span class="mathjax-exps">$f$</span> &#x7684;&#x966A;&#x57DF;</li>
+</ul>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="534pt" height="393pt" viewBox="0.00 0.00 533.75 392.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 388.8)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-388.8 529.7465,-388.8 529.7465,4 -4,4"/>
+<text text-anchor="middle" x="262.8733" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4E24;&#x4E2A;&#x51FD;&#x6570; f &#x548C; g &#x5404;&#x81EA;&#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x548C;&#x966A;&#x57DF;</text>
+<g id="clust1" class="cluster">
+<title>cluster</title>
+<polygon fill="none" stroke="#000000" points="0,-88.8 0,-323.8 101.0725,-323.8 101.0725,-88.8 0,-88.8"/>
+<text text-anchor="middle" x="50.5362" y="-307.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="121.0725,-35.8 121.0725,-323.8 235.145,-323.8 235.145,-35.8 121.0725,-35.8"/>
+<text text-anchor="middle" x="178.1087" y="-307.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="none" stroke="#000000" points="285.645,-35.8 285.645,-323.8 388.7175,-323.8 388.7175,-35.8 285.645,-35.8"/>
+<text text-anchor="middle" x="337.1812" y="-307.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; g &apos;</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="none" stroke="#000000" points="409.7175,-32.8 409.7175,-376.8 525.7465,-376.8 525.7465,-32.8 409.7175,-32.8"/>
+<text text-anchor="middle" x="467.732" y="-360.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; g &apos;</text>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- a&#45;&gt;e -->
+<g id="edge1" class="edge">
+<title>a-&gt;e</title>
+<path fill="none" stroke="#000000" d="M68.2051,-273.8C89.2344,-273.8 124.6178,-273.8 149.4368,-273.8"/>
+<polygon fill="#000000" stroke="#000000" points="149.6803,-277.3001 159.6803,-273.8 149.6802,-270.3001 149.6803,-277.3001"/>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- b&#45;&gt;g -->
+<g id="edge2" class="edge">
+<title>b-&gt;g</title>
+<path fill="none" stroke="#000000" d="M66.8886,-213.9797C88.4288,-204.9956 126.5448,-189.098 151.9448,-178.504"/>
+<polygon fill="#000000" stroke="#000000" points="153.4371,-181.6739 161.3191,-174.5941 150.7424,-175.2134 153.4371,-181.6739"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- h -->
+<g id="node8" class="node">
+<title>h</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- c&#45;&gt;h -->
+<g id="edge3" class="edge">
+<title>c-&gt;h</title>
+<path fill="none" stroke="#000000" d="M68.2051,-114.8C89.2344,-114.8 124.6178,-114.8 149.4368,-114.8"/>
+<polygon fill="#000000" stroke="#000000" points="149.6803,-118.3001 159.6803,-114.8 149.6802,-111.3001 149.6803,-118.3001"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- d&#45;&gt;g -->
+<g id="edge4" class="edge">
+<title>d-&gt;g</title>
+<path fill="none" stroke="#000000" d="M68.2051,-167.8C89.2344,-167.8 124.6178,-167.8 149.4368,-167.8"/>
+<polygon fill="#000000" stroke="#000000" points="149.6803,-171.3001 159.6803,-167.8 149.6802,-164.3001 149.6803,-171.3001"/>
+</g>
+<!-- e2 -->
+<g id="node10" class="node">
+<title>e2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- e&#45;&gt;e2 -->
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- f2 -->
+<g id="node11" class="node">
+<title>f2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- f&#45;&gt;f2 -->
+<!-- g2 -->
+<g id="node12" class="node">
+<title>g2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- g&#45;&gt;g2 -->
+<!-- h2 -->
+<g id="node13" class="node">
+<title>h2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- h&#45;&gt;h2 -->
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-61.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-57.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- i2 -->
+<g id="node14" class="node">
+<title>i2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-61.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-57.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- i&#45;&gt;i2 -->
+<!-- j -->
+<g id="node15" class="node">
+<title>j</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-326.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-322.6" font-family="Times,serif" font-size="14.00" fill="#000000">j</text>
+</g>
+<!-- e2&#45;&gt;j -->
+<g id="edge5" class="edge">
+<title>e2-&gt;j</title>
+<path fill="none" stroke="#000000" d="M353.4516,-280.4053C375.6347,-289.411 415.6118,-305.6406 441.912,-316.3178"/>
+<polygon fill="#000000" stroke="#000000" points="440.6744,-319.5928 451.2566,-320.1114 443.3076,-313.1069 440.6744,-319.5928"/>
+</g>
+<!-- l -->
+<g id="node17" class="node">
+<title>l</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">l</text>
+</g>
+<!-- f2&#45;&gt;l -->
+<g id="edge6" class="edge">
+<title>f2-&gt;l</title>
+<path fill="none" stroke="#000000" d="M354.7879,-220.8C376.5898,-220.8 413.9914,-220.8 439.7434,-220.8"/>
+<polygon fill="#000000" stroke="#000000" points="439.9874,-224.3001 449.9874,-220.8 439.9873,-217.3001 439.9874,-224.3001"/>
+</g>
+<!-- p -->
+<g id="node20" class="node">
+<title>p</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">p</text>
+</g>
+<!-- g2&#45;&gt;p -->
+<g id="edge7" class="edge">
+<title>g2-&gt;p</title>
+<path fill="none" stroke="#000000" d="M354.7879,-167.8C376.5898,-167.8 413.9914,-167.8 439.7434,-167.8"/>
+<polygon fill="#000000" stroke="#000000" points="439.9874,-171.3001 449.9874,-167.8 439.9873,-164.3001 439.9874,-171.3001"/>
+</g>
+<!-- h2&#45;&gt;p -->
+<g id="edge8" class="edge">
+<title>h2-&gt;p</title>
+<path fill="none" stroke="#000000" d="M353.4516,-121.4053C375.6347,-130.411 415.6118,-146.6406 441.912,-157.3178"/>
+<polygon fill="#000000" stroke="#000000" points="440.6744,-160.5928 451.2566,-161.1114 443.3076,-154.1069 440.6744,-160.5928"/>
+</g>
+<!-- m -->
+<g id="node18" class="node">
+<title>m</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-59.8" rx="19.0291" ry="19.0291"/>
+<text text-anchor="middle" x="467.732" y="-55.6" font-family="Times,serif" font-size="14.00" fill="#000000">m</text>
+</g>
+<!-- i2&#45;&gt;m -->
+<g id="edge9" class="edge">
+<title>i2-&gt;m</title>
+<path fill="none" stroke="#000000" d="M354.7879,-61.5303C376.2244,-61.2019 412.7421,-60.6424 438.439,-60.2488"/>
+<polygon fill="#000000" stroke="#000000" points="438.7687,-63.7442 448.7139,-60.0914 438.6614,-56.745 438.7687,-63.7442"/>
+</g>
+<!-- k -->
+<g id="node16" class="node">
+<title>k</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">k</text>
+</g>
+<!-- o -->
+<g id="node19" class="node">
+<title>o</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">o</text>
+</g>
+</g>
+</svg>
+</p><p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="382pt" height="393pt" viewBox="0.00 0.00 382.17 392.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 388.8)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-388.8 378.174,-388.8 378.174,4 -4,4"/>
+<text text-anchor="middle" x="187.087" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4E24;&#x4E2A;&#x51FD;&#x6570; f &#x548C; g &#x590D;&#x5408;&#x540E;</text>
+<g id="clust1" class="cluster">
+<title>cluster</title>
+<polygon fill="none" stroke="#000000" points="0,-61.8 0,-296.8 101.0725,-296.8 101.0725,-61.8 0,-61.8"/>
+<text text-anchor="middle" x="50.5362" y="-280.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="121.0725,-35.8 121.0725,-357.8 238.145,-357.8 238.145,-35.8 121.0725,-35.8"/>
+<text text-anchor="middle" x="179.6087" y="-341.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; f &apos; </text>
+<text text-anchor="middle" x="179.6087" y="-324.4" font-family="Times,serif" font-size="14.00" fill="#000000">as well as</text>
+<text text-anchor="middle" x="179.6087" y="-307.6" font-family="Times,serif" font-size="14.00" fill="#000000"> domain of &#xA0;&apos; g &apos;</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_4</title>
+<polygon fill="none" stroke="#000000" points="258.145,-32.8 258.145,-376.8 374.174,-376.8 374.174,-32.8 258.145,-32.8"/>
+<text text-anchor="middle" x="316.1595" y="-360.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; g &apos;</text>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-246.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-242.6" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- a&#45;&gt;e -->
+<g id="edge1" class="edge">
+<title>a-&gt;e</title>
+<path fill="none" stroke="#000000" d="M67.9435,-250.4413C89.4986,-254.9503 126.4766,-262.6856 151.9371,-268.0115"/>
+<polygon fill="#000000" stroke="#000000" points="151.5602,-271.5084 162.065,-270.1301 152.9935,-264.6567 151.5602,-271.5084"/>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-140.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-136.6" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- b&#45;&gt;g -->
+<g id="edge2" class="edge">
+<title>b-&gt;g</title>
+<path fill="none" stroke="#000000" d="M67.9435,-137.2935C89.4986,-132.9515 126.4766,-125.5028 151.9371,-120.3741"/>
+<polygon fill="#000000" stroke="#000000" points="152.9531,-123.7398 162.065,-118.334 151.5708,-116.8777 152.9531,-123.7398"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-193.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-189.6" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- h -->
+<g id="node8" class="node">
+<title>h</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- c&#45;&gt;h -->
+<g id="edge3" class="edge">
+<title>c-&gt;h</title>
+<path fill="none" stroke="#000000" d="M67.9435,-190.2935C89.4986,-185.9515 126.4766,-178.5028 151.9371,-173.3741"/>
+<polygon fill="#000000" stroke="#000000" points="152.9531,-176.7398 162.065,-171.334 151.5708,-169.8777 152.9531,-176.7398"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-87.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-83.6" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- d&#45;&gt;g -->
+<g id="edge4" class="edge">
+<title>d-&gt;g</title>
+<path fill="none" stroke="#000000" d="M67.9435,-91.4413C89.4986,-95.9503 126.4766,-103.6856 151.9371,-109.0115"/>
+<polygon fill="#000000" stroke="#000000" points="151.5602,-112.5084 162.065,-111.1301 152.9935,-105.6567 151.5602,-112.5084"/>
+</g>
+<!-- j -->
+<g id="node10" class="node">
+<title>j</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-326.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-322.6" font-family="Times,serif" font-size="14.00" fill="#000000">j</text>
+</g>
+<!-- e&#45;&gt;j -->
+<g id="edge5" class="edge">
+<title>e-&gt;j</title>
+<path fill="none" stroke="#000000" d="M196.08,-280.193C219.455,-289.2657 262.4829,-305.9663 290.1829,-316.7176"/>
+<polygon fill="#000000" stroke="#000000" points="289.041,-320.0287 299.6299,-320.3843 291.5739,-313.503 289.041,-320.0287"/>
+</g>
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- l -->
+<g id="node12" class="node">
+<title>l</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">l</text>
+</g>
+<!-- f&#45;&gt;l -->
+<g id="edge6" class="edge">
+<title>f-&gt;l</title>
+<path fill="none" stroke="#000000" d="M197.1808,-220.8C220.2006,-220.8 260.8371,-220.8 288.1302,-220.8"/>
+<polygon fill="#000000" stroke="#000000" points="288.2213,-224.3001 298.2213,-220.8 288.2212,-217.3001 288.2213,-224.3001"/>
+</g>
+<!-- p -->
+<g id="node15" class="node">
+<title>p</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">p</text>
+</g>
+<!-- g&#45;&gt;p -->
+<g id="edge7" class="edge">
+<title>g-&gt;p</title>
+<path fill="none" stroke="#000000" d="M196.08,-121.193C219.455,-130.2657 262.4829,-146.9663 290.1829,-157.7176"/>
+<polygon fill="#000000" stroke="#000000" points="289.041,-161.0287 299.6299,-161.3843 291.5739,-154.503 289.041,-161.0287"/>
+</g>
+<!-- h&#45;&gt;p -->
+<g id="edge8" class="edge">
+<title>h-&gt;p</title>
+<path fill="none" stroke="#000000" d="M197.1808,-167.8C220.2006,-167.8 260.8371,-167.8 288.1302,-167.8"/>
+<polygon fill="#000000" stroke="#000000" points="288.2213,-171.3001 298.2213,-167.8 288.2212,-164.3001 288.2213,-171.3001"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-61.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-57.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- m -->
+<g id="node13" class="node">
+<title>m</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-59.8" rx="19.0291" ry="19.0291"/>
+<text text-anchor="middle" x="316.1595" y="-55.6" font-family="Times,serif" font-size="14.00" fill="#000000">m</text>
+</g>
+<!-- i&#45;&gt;m -->
+<g id="edge9" class="edge">
+<title>i-&gt;m</title>
+<path fill="none" stroke="#000000" d="M197.1808,-61.5426C219.819,-61.2111 259.4949,-60.6299 286.7622,-60.2306"/>
+<polygon fill="#000000" stroke="#000000" points="286.9484,-63.7283 296.896,-60.0821 286.8458,-56.7291 286.9484,-63.7283"/>
+</g>
+<!-- k -->
+<g id="node11" class="node">
+<title>k</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">k</text>
+</g>
+<!-- o -->
+<g id="node14" class="node">
+<title>o</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">o</text>
+</g>
+</g>
+</svg>
+</p><ul>
+<li>&#x6709;&#x7684;&#x8D44;&#x6599;&#x7684;&#x8981;&#x6C42;&#x7A0D;&#x5FAE;&#x5BBD;&#x677E;&#x4E00;&#x4E9B;&#xFF1A;&#x6620;&#x5C04; <span class="mathjax-exps">$g$</span> &#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x53EA;&#x987B;&#x5305;&#x542B;&#x4E8E; <span class="mathjax-exps">$f$</span> &#x7684;&#x966A;&#x57DF;</li>
+</ul>
+<p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="534pt" height="393pt" viewBox="0.00 0.00 533.75 392.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 388.8)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-388.8 529.7465,-388.8 529.7465,4 -4,4"/>
+<text text-anchor="middle" x="262.8733" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4E24;&#x4E2A;&#x51FD;&#x6570; f &#x548C; g &#x5404;&#x81EA;&#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x548C;&#x966A;&#x57DF;</text>
+<g id="clust1" class="cluster">
+<title>cluster</title>
+<polygon fill="none" stroke="#000000" points="0,-68.8 0,-303.8 101.0725,-303.8 101.0725,-68.8 0,-68.8"/>
+<text text-anchor="middle" x="50.5362" y="-287.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="121.0725,-56.8 121.0725,-344.8 235.145,-344.8 235.145,-56.8 121.0725,-56.8"/>
+<text text-anchor="middle" x="178.1087" y="-328.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_3</title>
+<polygon fill="none" stroke="#000000" points="285.645,-88.8 285.645,-323.8 388.7175,-323.8 388.7175,-88.8 285.645,-88.8"/>
+<text text-anchor="middle" x="337.1812" y="-307.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; g &apos;</text>
+</g>
+<g id="clust4" class="cluster">
+<title>cluster_4</title>
+<polygon fill="none" stroke="#000000" points="409.7175,-32.8 409.7175,-376.8 525.7465,-376.8 525.7465,-32.8 409.7175,-32.8"/>
+<text text-anchor="middle" x="467.732" y="-360.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; g &apos;</text>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-253.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-249.6" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-294.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-290.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- a&#45;&gt;e -->
+<g id="edge1" class="edge">
+<title>a-&gt;e</title>
+<path fill="none" stroke="#000000" d="M67.4105,-259.2445C88.7718,-266.1367 125.8161,-278.0891 151.0019,-286.2153"/>
+<polygon fill="#000000" stroke="#000000" points="150.0731,-289.5932 160.6647,-289.333 152.2226,-282.9314 150.0731,-289.5932"/>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-94.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-90.6" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-135.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-131.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- b&#45;&gt;g -->
+<g id="edge2" class="edge">
+<title>b-&gt;g</title>
+<path fill="none" stroke="#000000" d="M67.4105,-100.2445C88.7718,-107.1367 125.8161,-119.0891 151.0019,-127.2153"/>
+<polygon fill="#000000" stroke="#000000" points="150.0731,-130.5932 160.6647,-130.333 152.2226,-123.9314 150.0731,-130.5932"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-200.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-196.6" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- h -->
+<g id="node8" class="node">
+<title>h</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-188.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-184.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- c&#45;&gt;h -->
+<g id="edge3" class="edge">
+<title>c-&gt;h</title>
+<path fill="none" stroke="#000000" d="M68.2051,-199.1315C89.3532,-197.1344 125.0181,-193.7664 149.8564,-191.4208"/>
+<polygon fill="#000000" stroke="#000000" points="150.4633,-194.8791 160.0899,-190.4544 149.8051,-187.9101 150.4633,-194.8791"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-147.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-143.6" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- d&#45;&gt;g -->
+<g id="edge4" class="edge">
+<title>d-&gt;g</title>
+<path fill="none" stroke="#000000" d="M68.2051,-146.1315C89.3532,-144.1344 125.0181,-140.7664 149.8564,-138.4208"/>
+<polygon fill="#000000" stroke="#000000" points="150.4633,-141.8791 160.0899,-137.4544 149.8051,-134.9101 150.4633,-141.8791"/>
+</g>
+<!-- e2 -->
+<g id="node10" class="node">
+<title>e2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- e&#45;&gt;e2 -->
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-241.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-237.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- f2 -->
+<g id="node11" class="node">
+<title>f2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- f&#45;&gt;f2 -->
+<!-- g2 -->
+<g id="node12" class="node">
+<title>g2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- g&#45;&gt;g2 -->
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<ellipse fill="none" stroke="#000000" cx="177.6087" cy="-82.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="177.6087" y="-78.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- i2 -->
+<g id="node13" class="node">
+<title>i2</title>
+<ellipse fill="none" stroke="#000000" cx="337.1812" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="337.1812" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- i&#45;&gt;i2 -->
+<!-- j -->
+<g id="node14" class="node">
+<title>j</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-326.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-322.6" font-family="Times,serif" font-size="14.00" fill="#000000">j</text>
+</g>
+<!-- e2&#45;&gt;j -->
+<g id="edge5" class="edge">
+<title>e2-&gt;j</title>
+<path fill="none" stroke="#000000" d="M353.4516,-280.4053C375.6347,-289.411 415.6118,-305.6406 441.912,-316.3178"/>
+<polygon fill="#000000" stroke="#000000" points="440.6744,-319.5928 451.2566,-320.1114 443.3076,-313.1069 440.6744,-319.5928"/>
+</g>
+<!-- l -->
+<g id="node16" class="node">
+<title>l</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-220.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-216.6" font-family="Times,serif" font-size="14.00" fill="#000000">l</text>
+</g>
+<!-- f2&#45;&gt;l -->
+<g id="edge6" class="edge">
+<title>f2-&gt;l</title>
+<path fill="none" stroke="#000000" d="M354.7879,-220.8C376.5898,-220.8 413.9914,-220.8 439.7434,-220.8"/>
+<polygon fill="#000000" stroke="#000000" points="439.9874,-224.3001 449.9874,-220.8 439.9873,-217.3001 439.9874,-224.3001"/>
+</g>
+<!-- p -->
+<g id="node19" class="node">
+<title>p</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-167.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-163.6" font-family="Times,serif" font-size="14.00" fill="#000000">p</text>
+</g>
+<!-- g2&#45;&gt;p -->
+<g id="edge7" class="edge">
+<title>g2-&gt;p</title>
+<path fill="none" stroke="#000000" d="M354.7879,-167.8C376.5898,-167.8 413.9914,-167.8 439.7434,-167.8"/>
+<polygon fill="#000000" stroke="#000000" points="439.9874,-171.3001 449.9874,-167.8 439.9873,-164.3001 439.9874,-171.3001"/>
+</g>
+<!-- m -->
+<g id="node17" class="node">
+<title>m</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-59.8" rx="19.0291" ry="19.0291"/>
+<text text-anchor="middle" x="467.732" y="-55.6" font-family="Times,serif" font-size="14.00" fill="#000000">m</text>
+</g>
+<!-- i2&#45;&gt;m -->
+<g id="edge8" class="edge">
+<title>i2-&gt;m</title>
+<path fill="none" stroke="#000000" d="M353.4516,-107.9454C375.271,-98.7531 414.3058,-82.308 440.6077,-71.2273"/>
+<polygon fill="#000000" stroke="#000000" points="442.1455,-74.3774 450.0022,-67.2694 439.4278,-67.9265 442.1455,-74.3774"/>
+</g>
+<!-- k -->
+<g id="node15" class="node">
+<title>k</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-273.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-269.6" font-family="Times,serif" font-size="14.00" fill="#000000">k</text>
+</g>
+<!-- o -->
+<g id="node18" class="node">
+<title>o</title>
+<ellipse fill="none" stroke="#000000" cx="467.732" cy="-114.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="467.732" y="-110.6" font-family="Times,serif" font-size="14.00" fill="#000000">o</text>
+</g>
+</g>
+</svg>
+</p><p align="center"><!--?xml version="1.0" encoding="UTF-8" standalone="no"?-->
+
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: G Pages: 1 -->
+<svg width="382pt" height="446pt" viewBox="0.00 0.00 382.17 445.80" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 441.8)">
+<title>G</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-441.8 378.174,-441.8 378.174,4 -4,4"/>
+<text text-anchor="middle" x="187.087" y="-8.2" font-family="Times,serif" font-size="14.00" fill="#000000">&#x4E24;&#x4E2A;&#x51FD;&#x6570; f &#x548C; g &#x590D;&#x5408;&#x540E;</text>
+<g id="clust1" class="cluster">
+<title>cluster</title>
+<polygon fill="none" stroke="#000000" points="0,-32.8 0,-267.8 101.0725,-267.8 101.0725,-32.8 0,-32.8"/>
+<text text-anchor="middle" x="50.5362" y="-251.2" font-family="Times,serif" font-size="14.00" fill="#000000">domain of &#xA0;&apos; f &apos;</text>
+</g>
+<g id="clust2" class="cluster">
+<title>cluster_2</title>
+<polygon fill="none" stroke="#000000" points="121.0725,-85.8 121.0725,-407.8 238.145,-407.8 238.145,-85.8 121.0725,-85.8"/>
+<text text-anchor="middle" x="179.6087" y="-391.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; f &apos; </text>
+<text text-anchor="middle" x="179.6087" y="-374.4" font-family="Times,serif" font-size="14.00" fill="#000000">as well as</text>
+<text text-anchor="middle" x="179.6087" y="-357.6" font-family="Times,serif" font-size="14.00" fill="#000000"> domain of &#xA0;&apos; g &apos;</text>
+</g>
+<g id="clust3" class="cluster">
+<title>cluster_4</title>
+<polygon fill="none" stroke="#000000" points="258.145,-84.8 258.145,-429.8 374.174,-429.8 374.174,-84.8 258.145,-84.8"/>
+<text text-anchor="middle" x="316.1595" y="-413.2" font-family="Times,serif" font-size="14.00" fill="#000000">codomain of &#xA0;&apos; g &apos;</text>
+</g>
+<!-- a -->
+<g id="node1" class="node">
+<title>a</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-217.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-213.6" font-family="Times,serif" font-size="14.00" fill="#000000">a</text>
+</g>
+<!-- e -->
+<g id="node5" class="node">
+<title>e</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-217.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-213.6" font-family="Times,serif" font-size="14.00" fill="#000000">e</text>
+</g>
+<!-- a&#45;&gt;e -->
+<g id="edge1" class="edge">
+<title>a-&gt;e</title>
+<path fill="none" stroke="#000000" d="M68.2126,-217.8C89.7193,-217.8 126.2899,-217.8 151.6339,-217.8"/>
+<polygon fill="#000000" stroke="#000000" points="151.7317,-221.3001 161.7317,-217.8 151.7317,-214.3001 151.7317,-221.3001"/>
+</g>
+<!-- b -->
+<g id="node2" class="node">
+<title>b</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-111.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-107.6" font-family="Times,serif" font-size="14.00" fill="#000000">b</text>
+</g>
+<!-- g -->
+<g id="node7" class="node">
+<title>g</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-111.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-107.6" font-family="Times,serif" font-size="14.00" fill="#000000">g</text>
+</g>
+<!-- b&#45;&gt;g -->
+<g id="edge2" class="edge">
+<title>b-&gt;g</title>
+<path fill="none" stroke="#000000" d="M68.2126,-111.8C89.7193,-111.8 126.2899,-111.8 151.6339,-111.8"/>
+<polygon fill="#000000" stroke="#000000" points="151.7317,-115.3001 161.7317,-111.8 151.7317,-108.3001 151.7317,-115.3001"/>
+</g>
+<!-- c -->
+<g id="node3" class="node">
+<title>c</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-164.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-160.6" font-family="Times,serif" font-size="14.00" fill="#000000">c</text>
+</g>
+<!-- h -->
+<g id="node8" class="node">
+<title>h</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-164.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-160.6" font-family="Times,serif" font-size="14.00" fill="#000000">h</text>
+</g>
+<!-- c&#45;&gt;h -->
+<g id="edge3" class="edge">
+<title>c-&gt;h</title>
+<path fill="none" stroke="#000000" d="M68.2126,-164.8C89.7193,-164.8 126.2899,-164.8 151.6339,-164.8"/>
+<polygon fill="#000000" stroke="#000000" points="151.7317,-168.3001 161.7317,-164.8 151.7317,-161.3001 151.7317,-168.3001"/>
+</g>
+<!-- d -->
+<g id="node4" class="node">
+<title>d</title>
+<ellipse fill="none" stroke="#000000" cx="50.5362" cy="-58.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="50.5362" y="-54.6" font-family="Times,serif" font-size="14.00" fill="#000000">d</text>
+</g>
+<!-- d&#45;&gt;g -->
+<g id="edge4" class="edge">
+<title>d-&gt;g</title>
+<path fill="none" stroke="#000000" d="M66.8834,-65.5125C88.6818,-74.4634 127.5217,-90.4119 153.4251,-101.0484"/>
+<polygon fill="#000000" stroke="#000000" points="152.4067,-104.4138 162.9867,-104.9746 155.0656,-97.9384 152.4067,-104.4138"/>
+</g>
+<!-- j -->
+<g id="node10" class="node">
+<title>j</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-216.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-212.6" font-family="Times,serif" font-size="14.00" fill="#000000">j</text>
+</g>
+<!-- e&#45;&gt;j -->
+<g id="edge5" class="edge">
+<title>e-&gt;j</title>
+<path fill="none" stroke="#000000" d="M197.1808,-217.6713C220.2006,-217.5027 260.8371,-217.2051 288.1302,-217.0053"/>
+<polygon fill="#000000" stroke="#000000" points="288.2472,-220.5046 298.2213,-216.9314 288.1959,-213.5048 288.2472,-220.5046"/>
+</g>
+<!-- f -->
+<g id="node6" class="node">
+<title>f</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-323.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-319.6" font-family="Times,serif" font-size="14.00" fill="#000000">f</text>
+</g>
+<!-- l -->
+<g id="node12" class="node">
+<title>l</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-379.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-375.6" font-family="Times,serif" font-size="14.00" fill="#000000">l</text>
+</g>
+<!-- f&#45;&gt;l -->
+<g id="edge6" class="edge">
+<title>f-&gt;l</title>
+<path fill="none" stroke="#000000" d="M196.08,-330.5549C219.455,-340.1411 262.4829,-357.787 290.1829,-369.1469"/>
+<polygon fill="#000000" stroke="#000000" points="289.0497,-372.465 299.6299,-373.0211 291.7057,-365.9885 289.0497,-372.465"/>
+</g>
+<!-- p -->
+<g id="node15" class="node">
+<title>p</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-110.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-106.6" font-family="Times,serif" font-size="14.00" fill="#000000">p</text>
+</g>
+<!-- g&#45;&gt;p -->
+<g id="edge7" class="edge">
+<title>g-&gt;p</title>
+<path fill="none" stroke="#000000" d="M197.1808,-111.6713C220.2006,-111.5027 260.8371,-111.2051 288.1302,-111.0053"/>
+<polygon fill="#000000" stroke="#000000" points="288.2472,-114.5046 298.2213,-110.9314 288.1959,-107.5048 288.2472,-114.5046"/>
+</g>
+<!-- i -->
+<g id="node9" class="node">
+<title>i</title>
+<ellipse fill="none" stroke="#000000" cx="179.6087" cy="-270.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="179.6087" y="-266.6" font-family="Times,serif" font-size="14.00" fill="#000000">i</text>
+</g>
+<!-- m -->
+<g id="node13" class="node">
+<title>m</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-271.8" rx="19.0291" ry="19.0291"/>
+<text text-anchor="middle" x="316.1595" y="-267.6" font-family="Times,serif" font-size="14.00" fill="#000000">m</text>
+</g>
+<!-- i&#45;&gt;m -->
+<g id="edge8" class="edge">
+<title>i-&gt;m</title>
+<path fill="none" stroke="#000000" d="M197.1808,-270.9287C219.819,-271.0945 259.4949,-271.385 286.7622,-271.5847"/>
+<polygon fill="#000000" stroke="#000000" points="286.8706,-275.0855 296.896,-271.6589 286.922,-268.0857 286.8706,-275.0855"/>
+</g>
+<!-- k -->
+<g id="node11" class="node">
+<title>k</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-326.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-322.6" font-family="Times,serif" font-size="14.00" fill="#000000">k</text>
+</g>
+<!-- o -->
+<g id="node14" class="node">
+<title>o</title>
+<ellipse fill="none" stroke="#000000" cx="316.1595" cy="-163.8" rx="17.5726" ry="17.5726"/>
+<text text-anchor="middle" x="316.1595" y="-159.6" font-family="Times,serif" font-size="14.00" fill="#000000">o</text>
+</g>
+</g>
+</svg>
+</p><ul>
+<li>&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x53CD;&#x8FC7;&#x6765;&#x8FD9;&#x6837;&#x8981;&#x6C42;&#xFF1A;&#x53EA;&#x9700;&#x4EE4;&#x6620;&#x5C04; <span class="mathjax-exps">$f$</span> &#x7684;&#x966A;&#x57DF;&#x53EA;&#x987B;&#x5305;&#x542B;&#x4E8E; <span class="mathjax-exps">$g$</span> &#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x5373;&#x53EF;&#xFF1B;&#x90A3;&#x4E48;&#x590D;&#x5408;&#x64CD;&#x4F5C;&#x5C31;&#x4E0D;&#x662F; well-defined &#x7684;&#x4E86;&#x3002;&#xFF08;&#x6B64;&#x5904;&#x4E0D;&#x5C55;&#x793A;&#x793A;&#x610F;&#x56FE;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x8BF7;&#x8BFB;&#x8005;&#x81EA;&#x8BC1;&#xFF09;</li>
+<li>&#x5173;&#x4E8E;&#x4E2D;&#x95F4;&#x96C6;&#x5408;&#x7684;&#x5E95;&#x7EBF;&#x7EA6;&#x675F;&#x662F;&#xFF1A;<strong><span class="mathjax-exps">$f$</span> &#x7684;&#x503C;&#x57DF;&#x8D77;&#x7801;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x4E8E; <span class="mathjax-exps">$g$</span> &#x7684;&#x5B9A;&#x4E49;&#x57DF;&#x4E2D;</strong></li>
+</ul>
+</li>
+</ol>
+</dd>
+</dl>
+<h6 class="mume-header" id="%E6%98%A0%E5%B0%84%E4%B8%8E%E5%9F%BA%E6%95%B0-%E6%98%A0%E5%B0%84%E7%9A%84%E9%80%86">&#x6620;&#x5C04;&#x4E0E;&#x57FA;&#x6570;&#x3001;&#x6620;&#x5C04;&#x7684;&#x9006;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 13&#xFF1A;&#x96C6;&#x5408;&#x4E4B;&#x7B49;&#x52BF;</dt>
+<dd>&#x79F0;&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#xFF08;&#x4E0D;&#x7BA1;&#x662F;&#x4E0D;&#x662F;&#x6709;&#x9650;&#x96C6;&#x5408;&#xFF09;&#x662F;&#x7B49;&#x52BF;&#x7684;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;<strong>&#x5B58;&#x5728;</strong>&#x4E00;&#x4E2A;&#x53CC;&#x5C04;</dd>
+<dt>Note</dt>
+<dd>&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;<em>&#x5B9A;&#x4E49; 13</em> &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x8868;&#x8FF0;&#x662F; &#x201C;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x53CC;&#x5C04;&#x201D;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x5C0F;&#x5C0F;&#x7684;&#x95EE;&#x9898;&#xFF1A;</dd>
+<dd>&#x5BF9;&#x4E8E;&#x4E24;&#x4E2A;&#x6709;&#x9650;&#x96C6;&#x5408;&#x800C;&#x8A00;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x53CC;&#x5C04;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x5C31;&#x4E0D;&#x5B58;&#x5728;&#x7EAF;&#x5355;&#x5C04;&#x6216;&#x8005;&#x7EAF;&#x6EE1;&#x5C04;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x8FD9;&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x6620;&#x5C04;&#x8981;&#x4E48;&#x662F;&#x53CC;&#x5C04;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x975E;&#x5355;&#x975E;&#x6EE1;&#x6620;&#x5C04;</dd>
+<dd>&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x4E24;&#x4E2A;&#x65E0;&#x9650;&#x96C6;&#x5408;&#x800C;&#x8A00;&#xFF0C;&#x4E8B;&#x60C5;&#x5C31;&#x4E0D;&#x4E00;&#x6837;&#x4E86;&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x5728;&#x5B58;&#x5728;&#x53CC;&#x5C04;&#x7684;&#x524D;&#x63D0;&#x4E4B;&#x4E0B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B58;&#x5728;&#x7EAF;&#x5355;&#x5C04;&#x6216;&#x8005;&#x7EAF;&#x6EE1;&#x5C04;</dd>
+<dd>&#x90A3;&#x4E48;&#x5728;&#x65E0;&#x9650;&#x96C6;&#x5408;&#x548C;&#x6709;&#x9650;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x60C5;&#x51B5;&#x53C8;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#xFF1F;&#x5982;&#x679C;&#x4F60;&#x601D;&#x8003;&#x4E86;&#x5F88;&#x4E45;&#x6CA1;&#x6709;&#x60F3;&#x51FA;&#x7B54;&#x6848;&#xFF0C;&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x70B9;&#x51FB;&#x53F3;&#x4E0A;&#x89D2;&#x5173;&#x95ED;&#x672C;&#x9875;&#x9762;&#xFF0C;&#x5148;&#x53BB;&#x5B66;&#x4E60;&#x4E00;&#x4E0B;&#x66F4;&#x57FA;&#x7840;&#x7684;&#x77E5;&#x8BC6;&#x6216;&#x8005;&#x653E;&#x677E;&#x4E00;&#x4E0B;&#x8EAB;&#x5FC3;</dd>
+<dt>&#x5B9A;&#x4E49; 14&#xFF1A;&#x5D4C;&#x5165;&#x6620;&#x5C04;</dt>
+<dd>&#x8BBE; <span class="mathjax-exps">$A_0$</span> &#x662F; <span class="mathjax-exps">$A$</span> &#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x5B9A;&#x4E49; <span class="mathjax-exps">$A_0$</span> &#x5230; <span class="mathjax-exps">$A$</span> &#x7684;&#x6620;&#x5C04; <span class="mathjax-exps">$i:A_0\mapsto A$</span> &#x4F7F;&#x5F97; <div class="mathjax-exps">$$\forall\, x \in A_0,\quad i(x)=x$$</div> &#x79F0; <span class="mathjax-exps">$i$</span> &#x4E3A; <span class="mathjax-exps">$A_0$</span> &#x5230; <span class="mathjax-exps">$A$</span> &#x7684;&#x5D4C;&#x5165;&#x6620;&#x5C04;</dd>
+<dt>&#x5B9A;&#x4E49; 15&#xFF1A;&#x6052;&#x7B49;&#x6620;&#x5C04;</dt>
+<dd>&#x4ECE;&#x67D0;&#x4E2A;&#x96C6;&#x5408;&#x81EA;&#x8EAB;&#x51FA;&#x53D1;&#x6620;&#x5C04;&#x5230;&#x81EA;&#x8EAB;&#x7684;&#x5D4C;&#x5165;&#x6620;&#x5C04;&#x79F0;&#x4E4B;&#x4E3A;&#x8BE5;&#x96C6;&#x5408;&#x4E0A;&#x7684;&#x6052;&#x7B49;&#x6620;&#x5C04;</dd>
+<dt>Note</dt>
+<dd>&#x8BF4;&#x767D;&#x4E86;&#xFF0C;&#x6052;&#x7B49;&#x6620;&#x5C04;&#x5C31;&#x662F;&#x5143;&#x7D20;&#x6620;&#x5C04;&#x5230;&#x81EA;&#x5DF1;&#x7684;&#x6620;&#x5C04;&#xFF0C;&#x4E14;&#x5B83;&#x663E;&#x7136;&#x662F;&#x4E2A;&#x53CC;&#x5C04;&#x3002;</dd>
+<dt>&#x5B9A;&#x4E49; 16&#xFF1A;&#x9006;&#x6620;&#x5C04;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x4E00;&#x4E2A;&#x6620;&#x5C04; <span class="mathjax-exps">$f:A\mapsto B$</span>&#xFF0C;&#x82E5;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x6620;&#x5C04; <span class="mathjax-exps">$g:B \mapsto A$</span>&#xFF0C;&#x4F7F;&#x5F97; <span class="mathjax-exps">$g \circ f$</span> &#x4E3A; <span class="mathjax-exps">$f$</span> &#x4E0A;&#x7684;&#x6052;&#x7B49;&#x6620;&#x5C04;&#xFF0C;&#x90A3;&#x4E48;&#x79F0; <span class="mathjax-exps">$g$</span> &#x662F; <span class="mathjax-exps">$f$</span> &#x7684;&#x9006;&#x6620;&#x5C04;</dd>
+<dd><strong>&#x8BB0;&#x6CD5;</strong>&#xFF1A;&#x6620;&#x5C04; <span class="mathjax-exps">$f$</span> &#x7684;&#x9006;&#x6620;&#x5C04;&#x8BB0;&#x4E3A; <span class="mathjax-exps">$f^{-1}$</span></dd>
+<dt>&#x5B9A;&#x7406; 3&#xFF1A;&#x9006;&#x6620;&#x5C04;&#x4E0E;&#x53CC;&#x5C04;</dt>
+<dd>&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x5B58;&#x5728;&#x9006;&#x6620;&#x5C04;&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53;&#x8FD9;&#x4E2A;&#x6620;&#x5C04;&#x662F;&#x53CC;&#x5C04;</dd>
+<dt>Note</dt>
+<dd>&#x4E0A;&#x9762;&#x7684;&#x5B9A;&#x7406;&#x8BC1;&#x660E;&#x5C31;&#x7565;&#x8FC7;&#x5427;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7E41;&#x800C;&#x4E0D;&#x96BE;&#x3002;&#x4F46;&#x662F;&#x7B14;&#x8005;&#x8FD8;&#x662F;&#x60F3;&#x63D0;&#x4F9B;&#x4E00;&#x4E9B;&#x76F4;&#x89C2;&#x4E0A;&#x7684;&#x8BBA;&#x8FF0;&#xFF08;&#x753B;&#x4E2A;&#x8349;&#x56FE;&#x5C31;&#x7406;&#x89E3;&#x4E86;&#xFF09;&#xFF1A;</dd>
+<dd>
+<ol>
+<li>&#x82E5;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x7EAF;&#x5355;&#x5C04;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5F3A;&#x884C;&#x5B9A;&#x4E49;&#x51FA;&#x6765;&#x7684;&#x5B83;&#x7684; &#x201C;&#x9006;&#x6620;&#x5C04;&#x201D; &#x5C31;&#x4E0D;&#x6EE1;&#x8DB3;<em>&#x5B9A;&#x4E49; 10</em> &#x4E2D;&#x7684;&#x8981;&#x70B9;4&#xFF1B;</li>
+<li>&#x82E5;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x7EAF;&#x6EE1;&#x5C04;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5F3A;&#x884C;&#x5B9A;&#x4E49;&#x51FA;&#x6765;&#x7684;&#x5B83;&#x7684; &#x201C;&#x9006;&#x6620;&#x5C04;&#x201D; &#x5C31;&#x4E0D;&#x6EE1;&#x8DB3;<em>&#x5B9A;&#x4E49; 10</em> &#x4E2D;&#x7684;&#x8981;&#x70B9;3&#xFF1B;</li>
+<li>&#x82E5;&#x67D0;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x975E;&#x5355;&#x975E;&#x6EE1;&#x6620;&#x5C04;&#xFF0C;&#x90A3;&#x4E48;&#x5F3A;&#x884C;&#x5B9A;&#x4E49;&#x51FA;&#x6765;&#x7684;&#x5B83;&#x7684; &#x201C;&#x9006;&#x6620;&#x5C04;&#x201D; &#x5C06;&#x540C;&#x65F6;&#x4E0D;&#x6EE1;&#x8DB3;&#x8981;&#x70B9;3 &#x548C;&#x8981;&#x70B9; 4&#xFF1B;</li>
+</ol>
+</dd>
+</dl>
+<p>&#x9006;&#x6620;&#x5C04;&#x3001;&#x590D;&#x5408;&#x6620;&#x5C04;&#x4E0E;&#x5355;&#x6EE1;&#x53CC;&#x5C04;&#x8FD9;&#x4E9B;&#x6982;&#x5FF5;&#x4E4B;&#x95F4;&#xFF0C;&#x5B58;&#x5728;&#x6709;&#x76F8;&#x5F53;&#x591A;&#x65F6;&#x4E0D;&#x65F6;&#x4F1A;&#x7528;&#x4E0A;&#x7684;&#x547D;&#x9898;&#x548C;&#x5B9A;&#x7406;&#xFF0C;&#x5C3D;&#x7BA1;&#x8981;&#x8BC1;&#x660E;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x7ED5;&#x4E00;&#x4E9B;&#x5F2F;&#xFF0C;&#x4F46;&#x662F;&#x5927;&#x591A;&#x6570;&#x90FD;&#x662F;&#x7E41;&#x800C;&#x4E0D;&#x96BE;&#x7684;&#x8BC1;&#x660E;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x7B14;&#x8005;&#x5C31;&#x76F4;&#x63A5;&#x7701;&#x7565;&#x8FD9;&#x4E9B;&#x547D;&#x9898;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x7684;&#x8BC1;&#x660E;&#x5427;&#x3002;</p>
+<h3 class="mume-header" id="%E5%85%B3%E7%B3%BB">&#x5173;&#x7CFB;</h3>
+
+<h6 class="mume-header" id="%E5%85%B3%E7%B3%BB%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">&#x5173;&#x7CFB;&#x7684;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 17&#xFF1A;&#x5173;&#x7CFB;</dt>
+<dd>&#x5B9A;&#x4E49;&#x5728; <span class="mathjax-exps">$n$</span> &#x4E2A;&#x96C6;&#x5408; <span class="mathjax-exps">$A_1$</span>, <span class="mathjax-exps">$A_2$</span>, <span class="mathjax-exps">$\cdots$</span>, <span class="mathjax-exps">$A_n$</span> &#x4E4B;&#x95F4;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x5173;&#x7CFB;&#x662F;&#x5B83;&#x4EEC;&#x7684;&#x7B1B;&#x5361;&#x5C14;&#x79EF; <span class="mathjax-exps">$A_1 \times A_2 \times \cdots \times A_n$</span> &#x4E0A;&#x7684;&#x5B50;&#x96C6;&#x3002;</dd>
+<dd>&#x79F0; <span class="mathjax-exps">$n$</span> &#x5143;&#x7EC4; <span class="mathjax-exps">$(a_1, a_2, \cdots, a_n)$</span> &#x6EE1;&#x8DB3;&#x5173;&#x7CFB; <span class="mathjax-exps">$R$</span>&#xFF0C;&#x5F53;&#x4E14;&#x4EC5;&#x5F53; <span class="mathjax-exps">$(a_1,a_2,\cdots,a_n) \in R \subseteq A_1 \times A_2 \times \cdots \times A_n$</span></dd>
+<dt>Note</dt>
+<dd>&#x201C;&#x5173;&#x7CFB;&#x201D; &#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x7684;&#x5B9A;&#x4E49;&#x770B;&#x4E0A;&#x53BB;&#x597D;&#x50CF;&#x6709;&#x70B9;&#x964C;&#x751F;&#xFF0C;&#x5176;&#x5B9E;&#x4ECE;&#x53E6;&#x4E00;&#x4E2A;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x6210;&#xFF08;&#x5F62;&#x5F0F;&#x903B;&#x8F91;&#xFF09;&#x4E2D; &#x201C;&#x8C13;&#x8BCD;&#x201D; &#x8FD9;&#x4E00;&#x6982;&#x5FF5;&#x7684;&#x63A8;&#x5E7F;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x53E6;&#x4E00;&#x79CD;&#x89E3;&#x8BFB;&#x65B9;&#x5F0F;&#x3002;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x524D;&#x8005;&#x5C31;&#x5BB9;&#x6613;&#x7406;&#x89E3;&#x591A;&#x4E86;&#xFF0C;&#x8C13;&#x8BCD;&#xFF08;&#x4E0D;&#x7BA1;&#x662F;&#x4E00;&#x5143;&#x8FD8;&#x662F;&#x591A;&#x5143;&#xFF09;&#x5BF9;&#x4E8E;&#x5176;&#x8C13;&#x8BCD;&#x53D8;&#x91CF;&#x8F93;&#x5165;&#x7ED9;&#x51FA;&#x7684;&#x8981;&#x4E48;&#x662F;&#x771F;&#xFF0C;&#x8981;&#x4E48;&#x662F;&#x5047;&#xFF1B;&#x800C;&#x5728;&#x5173;&#x7CFB;&#x4E2D;&#xFF0C;&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x5143;&#x7D20;&#x8981;&#x4E48;&#x6EE1;&#x8DB3;&#x7ED9;&#x5B9A;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x5173;&#x7CFB;&#xFF0C;&#x8981;&#x4E48;&#x4E0D;&#x6EE1;&#x8DB3;&#x6B64;&#x5173;&#x7CFB;&#xFF1B;</dd>
+<dd>&#x5173;&#x7CFB;&#x8FD9;&#x4E2A;&#x5B9A;&#x4E49;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#xFF0C;&#x5B83;&#x7528;&#x96C6;&#x5408;&#x8BBA;&#x7684;&#x8BED;&#x8A00;&#x5B9A;&#x4E49;&#x4E86; &#x201C;&#x8C13;&#x8BCD;&#x201D; &#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x2014;&#x2014;&#x540E;&#x8005;&#x5728;&#x6734;&#x7D20;&#x96C6;&#x5408;&#x8BBA;&#x6216;&#x8005;&#x9762;&#x5411;&#x4E2D;&#x5B66;&#x751F;&#x7684;&#x6734;&#x7D20;&#x7684;&#x5F62;&#x5F0F;&#x903B;&#x8F91;&#x5B66;&#x4E2D;&#x5F80;&#x5F80;&#x88AB;&#x8868;&#x8FF0;&#x4E3A; &#x201C;&#x5177;&#x6709;&#x67D0;&#x79CD;&#x6027;&#x8D28;&#x201D;&#x2014;&#x2014;&#x8FD9;&#x4E48;&#x8868;&#x8FF0;&#x5F80;&#x5F80;&#x662F;&#x5E26;&#x6709;&#x6A21;&#x7CCA;&#x6027;&#x7684;</dd>
+</dl>
+<p>&#x5F53;&#x6709; <span class="mathjax-exps">$A_1 = A_2 = \cdots = A_n = A$</span> &#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x5173;&#x7CFB;&#x4E3A;&#xFF1A;<span class="mathjax-exps">$A$</span> &#x4E0A;&#x7684; <span class="mathjax-exps">$n$</span> &#x5143;&#x5173;&#x7CFB;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6700;&#x5173;&#x5FC3;&#x7684;&#x662F; <span class="mathjax-exps">$A$</span> &#x4E0A;&#x7684;&#x4E8C;&#x5143;&#x5173;&#x7CFB;&#xFF01;</p>
+<dl>
+<dt>&#x6982;&#x5FF5; 18&#xFF1A;&#x7279;&#x5B9A;&#x7684;&#x4E8C;&#x5143;&#x5173;&#x7CFB;&#x6027;&#x8D28;</dt>
+<dd><strong>&#x81EA;&#x53CD;&#x6027;</strong></dd>
+<dd><strong>&#x5BF9;&#x79F0;&#x6027;</strong></dd>
+<dd><strong>&#x4F20;&#x9012;&#x6027;</strong></dd>
+<dd><strong>&#x5B8C;&#x5168;&#x6027;</strong></dd>
+<dd>&#x5B83;&#x4EEC;&#x7684;&#x542B;&#x4E49;&#x4E5F;&#x662F;&#x8001;&#x751F;&#x5E38;&#x8C08;&#x4E86;&#xFF0C;&#x6B64;&#x5904;&#x7565;</dd>
+<dt>&#x5B9A;&#x4E49; 19&#xFF1A;&#x9006;&#x5173;&#x7CFB;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x5DF2;&#x6709;&#x7684;&#x5173;&#x7CFB; <span class="mathjax-exps">$R$</span>&#xFF0C;&#x5B9A;&#x4E49;&#x5176;&#x9006;&#x5173;&#x7CFB; <span class="mathjax-exps">$R^{-1}$</span> &#x5982;&#x4E0B;
+<div class="mathjax-exps">$$x\,R\,y \Leftrightarrow y\,R^{-1}\,x$$</div></dd>
+<dt>&#x5B9A;&#x4E49; 20&#xFF1A;&#x5173;&#x8054;&#x77E9;&#x9635;&#xFF08; 0-1 &#x77E9;&#x9635;&#xFF09;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x67D0;&#x4E2A;&#x975E;&#x7A7A;&#x6709;&#x9650;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x4E0A;&#x7684;&#x4E8C;&#x5143;&#x5173;&#x7CFB;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x77E9;&#x9635; <span class="mathjax-exps">$[r_{ij}]$</span> &#x6765;&#x76F4;&#x89C2;&#x5730;&#x63CF;&#x8FF0;&#x6B64;&#x4E8C;&#x5143;&#x5173;&#x7CFB;
+<div class="mathjax-exps">$$r_{ij}=\begin{cases}    1 \qquad \text{if } a_i\,R\,a_j \\    0 \qquad \text{if } a_i\,\not R\,a_j \\    \end{cases}$$</div></dd>
+<dt>&#x5B9A;&#x4E49; 21&#xFF1A;&#x622A;&#x7EBF;</dt>
+<dd>&#x8BBE;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span> &#x4E0A;&#x5B9A;&#x4E49;&#x4E86;&#x4E8C;&#x5143;&#x5173;&#x7CFB; <span class="mathjax-exps">$R$</span>&#xFF0C;&#x5E76;&#x6709; <span class="mathjax-exps">$x \in A$</span></dd>
+<dd>&#x6CBF;&#x5143;&#x7D20; <span class="mathjax-exps">$x$</span> &#x7684; <span class="mathjax-exps">$R$</span> &#x7684;&#x7B2C;&#x4E00;&#x622A;&#x7EBF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;<span class="mathjax-exps">$\langle x\mid R\rangle:=\{y\mid x\,R\,y\}$</span><br>
+&#x6CBF;&#x5143;&#x7D20; <span class="mathjax-exps">$x$</span> &#x7684; <span class="mathjax-exps">$R$</span> &#x7684;&#x7B2C;&#x4E8C;&#x622A;&#x7EBF;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;<span class="mathjax-exps">$\langle R\mid x\rangle:=\{y\mid y\,R\,x\}$</span></dd>
+</dl>
+<h2 class="mume-header" id="%E7%BB%84%E5%90%88%E5%AD%A6%E7%9A%84%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">&#x7EC4;&#x5408;&#x5B66;&#x7684;&#x7B26;&#x53F7;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</h2>
+
+<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5F00;&#x59CB;&#x6B63;&#x5F0F;&#x5730;&#x5F15;&#x5165;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x7B26;&#x53F7;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;&#x3002;<br>
+&#x8BF7;&#x6CE8;&#x610F;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x7B26;&#x53F7;&#x7684;&#x5B9A;&#x4E49;&#x662F;&#x5728; algebraic sense &#x5C42;&#x9762;&#x4E0A;&#x7684;&#xFF0C;&#x800C;<strong>&#x6682;&#x65F6;&#x4E0D;&#x6D89;&#x53CA;&#x5176;&#x5177;&#x4F53;&#x7684;&#x7EC4;&#x5408;&#x610F;&#x4E49;</strong>&#x3002;&#x5BF9;&#x4E8E;&#x6D89;&#x53CA;&#x5230;&#x8FD9;&#x4E9B;&#x57FA;&#x672C;&#x8BB0;&#x53F7;&#x7684;&#x67D0;&#x4E9B;&#x547D;&#x9898;&#xFF0C;&#x91C7;&#x7528;&#x6700;&#x521D;&#x7B49;&#x7684;&#x3001;&#x6700;&#x76F4;&#x89C2;&#x53EF;&#x4FE1;&#x7684;&#x4EE3;&#x6570;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x8BBA;&#x8BC1;&#x3002;</p>
+<h3 class="mume-header" id="%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E8%AE%B0%E5%8F%B7">&#xFF08;&#x5F62;&#x5F0F;&#x7684;&#xFF09;&#x5404;&#x79CD;&#x8BB0;&#x53F7;</h3>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 22&#xFF1A;&#x964D;&#x9636;&#x4E58;</dt>
+<dd><div class="mathjax-exps">$$(x)_k:=\prod^{k}_{i=1}\,(x-i+1) \qquad \text{where }\ x \in \mathbb{C},\ k \in \mathbb{N}$$</div> &#x79F0;&#x4E3A; <span class="mathjax-exps">$x$</span> &#x7684; <span class="mathjax-exps">$k$</span> &#x6B21;&#x964D;&#x9636;&#x4E58;</dd>
+<dt>Note</dt>
+<dd><strong>&#x5176;&#x4ED6;&#x8BB0;&#x6CD5;</strong>&#xFF1A;<div class="mathjax-exps">$$x^{\underline{k}}$$</div></dd>
+<dd>
+<ol>
+<li>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x628A;&#x964D;&#x9636;&#x4E58;&#x770B;&#x505A;&#x662F; <span class="mathjax-exps">$x$</span> &#x548C; <span class="mathjax-exps">$k$</span> &#x7684;&#x4E8C;&#x5143;&#x51FD;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x4E0D;&#x59A8;&#x6CE8;&#x610F;&#x964D;&#x9636;&#x4E58;&#x7684;&#x5B9A;&#x4E49;&#x8303;&#x56F4;&#xFF01;<br>
+<strong><span class="mathjax-exps">$x$</span> &#x53EF;&#x4EE5;&#x662F;&#x4E2A;&#x590D;&#x6570;&#xFF08;&#x8FD9;&#x4E2A;&#x5B9A;&#x4E49;&#x8303;&#x56F4;&#x591F;&#x5927;&#x4E86;&#x5427;&#xFF09;&#xFF0C;&#x4F46; <span class="mathjax-exps">$k$</span> &#x5FC5;&#x987B;&#x662F;&#x4E2A;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF01;</strong></li>
+</ol>
+</dd>
+<dd>
+<ol start="2">
+<li>&#x201C;&#x9636;&#x4E58;&#x201D; &#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#x548C; <span class="mathjax-exps">$\Gamma$</span> &#x51FD;&#x6570;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x4F46;&#x662F;&#x7B14;&#x8005;&#x5206;&#x6790;&#x5B66;&#x771F;&#x7684;&#x5B66;&#x5F97;&#x5F88;&#x6D45;&#x5F88;&#x5DEE;&#xFF0C;&#x56E0;&#x6B64;&#x6B64;&#x5904;&#x7A0D;&#x63D0;&#x53CA;&#x4E00;&#x4E0B;&#xFF1B;</li>
+</ol>
+</dd>
+<dd>
+<ol start="3">
+<li>&#x6CE8;&#x610F;&#xFF1A;<span class="mathjax-exps">$i$</span> &#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x662F;&#x4ECE; <span class="mathjax-exps">$1$</span> &#x5F00;&#x59CB;&#x7684;&#xFF1B;&#x4ECE;&#x800C;&#x6211;&#x4EEC;&#x6709;&#xFF1A;<strong><span class="mathjax-exps">$(n)_0 = 1$</span></strong>&#xFF0C;&#x66F4;&#x8FDB;&#x4E00;&#x6B65;&#x5730;&#x6709; <span class="mathjax-exps">$(0)_0 =1$</span></li>
+</ol>
+</dd>
+<dd>
+<ol start="4">
+<li>&#x5C3D;&#x7BA1; <span class="mathjax-exps">$x$</span> &#x7684;&#x8303;&#x56F4;&#x53EF;&#x4EE5;&#x662F;&#x590D;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#xFF0C;<span class="mathjax-exps">$x$</span> &#x5728;&#x5B9E;&#x9645;&#x4E0A;<strong>&#x5E38;&#x5E38;&#x53D6;&#x975E;&#x8D1F;&#x6574;&#x6570;</strong>&#xFF1B;&#x6B64;&#x65F6;&#x5B57;&#x6BCD;&#x4E60;&#x60EF;&#x4E0A;&#x6362;&#x6210; <span class="mathjax-exps">$n$</span>&#xFF0C;&#x4E5F;&#x5373;&#x6709;&#xFF1A;
+<div class="mathjax-exps">$$(n)_k:=\prod^{k}_{i=1}\,(n-i+1) \qquad \text{where }\ n,\ k \in \mathbb{N}$$</div></li>
+</ol>
+</dd>
+<dd>
+<ol start="5">
+<li>&#x5F53; <span class="mathjax-exps">$n$</span>, <span class="mathjax-exps">$k$</span> &#x90FD;&#x662F;&#x975E;&#x8D1F;&#x6574;&#x6570;&#x65F6;&#xFF0C;&#x82E5; <span class="mathjax-exps">$n &lt; k$</span>&#xFF0C;&#x5219;&#x6709; <span class="mathjax-exps">$(n)_k = 0$</span></li>
+</ol>
+</dd>
+<dt>&#x5B9A;&#x4E49; 23&#xFF1A;&#x9636;&#x4E58;</dt>
+<dd><div class="mathjax-exps">$$n!:=(n)_n$$</div></dd>
+<dt>&#x5B9A;&#x4E49; 24&#xFF1A;&#x5347;&#x9636;&#x4E58;</dt>
+<dd><div class="mathjax-exps">$$x^{(k)}:=\prod^{k}_{i=1}\,(x+i-1) \qquad \text{where }\ x \in \mathbb{C},\ k \in \mathbb{N}$$</div> &#x79F0;&#x4E3A; <span class="mathjax-exps">$x$</span> &#x7684; <span class="mathjax-exps">$k$</span> &#x6B21;&#x5347;&#x9636;&#x4E58;</dd>
+<dt>Note</dt>
+<dd><strong>&#x5176;&#x4ED6;&#x8BB0;&#x6CD5;</strong>&#xFF1A;<div class="mathjax-exps">$$x^{\overline{k}}$$</div></dd>
+<dd>
+<ol>
+<li>&#x540C;&#x6837;&#x5730;&#xFF0C;&#x6CE8;&#x610F;&#x964D;&#x9636;&#x4E58;&#x7684;&#x5B9A;&#x4E49;&#x8303;&#x56F4;&#xFF01;<br>
+<strong><span class="mathjax-exps">$x$</span> &#x53EF;&#x4EE5;&#x662F;&#x4E2A;&#x590D;&#x6570;&#xFF0C;&#x4F46; <span class="mathjax-exps">$k$</span> &#x5FC5;&#x987B;&#x662F;&#x4E2A;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF01;</strong></li>
+</ol>
+</dd>
+<dd>
+<ol start="2">
+<li>&#x6CE8;&#x610F;&#xFF1A;<span class="mathjax-exps">$i$</span> &#x4F5C;&#x4E3A;&#x4E0B;&#x6807;&#x662F;&#x4ECE; <span class="mathjax-exps">$1$</span> &#x5F00;&#x59CB;&#x7684;&#xFF1B;&#x4ECE;&#x800C;&#x6211;&#x4EEC;&#x6709;&#xFF1A;<strong><span class="mathjax-exps">$x^{\overline{0}}= 1$</span></strong></li>
+</ol>
+</dd>
+<dd>
+<ol start="3">
+<li>&#x5C3D;&#x7BA1; <span class="mathjax-exps">$x$</span> &#x7684;&#x8303;&#x56F4;&#x53EF;&#x4EE5;&#x662F;&#x590D;&#x6570;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x7EC4;&#x5408;&#x5B66;&#x4E2D;&#xFF0C;<span class="mathjax-exps">$x$</span> &#x5728;&#x5B9E;&#x9645;&#x4E0A;<strong>&#x5E38;&#x5E38;&#x53D6;&#x975E;&#x8D1F;&#x6574;&#x6570;</strong>&#xFF1B;&#x6B64;&#x65F6;&#x5B57;&#x6BCD;&#x4E60;&#x60EF;&#x4E0A;&#x6362;&#x6210; <span class="mathjax-exps">$n$</span>&#xFF0C;&#x4E5F;&#x5373;&#x6709;&#xFF1A;
+<div class="mathjax-exps">$$n^{(k)}:=\prod^{k}_{i=1}\,(n+i-1) \qquad \text{where }\ n,\ k \in \mathbb{N}$$</div></li>
+</ol>
+</dd>
+<dt>&#x8BB0;&#x53F7; 25</dt>
+<dd><div class="mathjax-exps">$$\binom{x}{y}:=\begin{cases} \frac{(x)_y}{y!} \qquad \text{if }\,x \in \mathbb{C},y \in \mathbb{N} \\ 0 \qquad \text{if }\,x \in \mathbb{C},y \notin \mathbb{N}\end{cases}$$</div></dd>
+<dt>Note</dt>
+<dd><strong>&#x5176;&#x4ED6;&#x8BB0;&#x6CD5;</strong>&#xFF1A;<em>&#x8BB0;&#x53F7; 25</em> &#x6709;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x8BB0;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;
+<div class="mathjax-exps">$$C^{y}_{x}, \quad C(n,k), \quad C^{x}_{y}$$</div></dd>
+<dd>&#x8BF7;&#x6CE8;&#x610F;&#x6211;&#x4EEC;&#x7528;&#x4E86;&#x964D;&#x9636;&#x4E58;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4E86;&#x5B9A;&#x4E49;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6309;&#x7167;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9A;&#x4E49;&#xFF1A;<span class="mathjax-exps">$\binom{x}{y}:=\frac{x!}{y!(x-y)!}$</span>&#x3002;&#x540E;&#x8005;&#x5728; <span class="mathjax-exps">$y &gt; x$</span> &#x65F6;&#x4E0D;&#x518D;&#x662F;&#x826F;&#x5B9A;&#x4E49;&#x7684;&#x3002;</dd>
+<dt>&#x8BB0;&#x53F7; 26</dt>
+<dd><div class="mathjax-exps">$$\left(\!\!\!\binom{x}{y}\!\!\!\right):=\begin{cases} \frac{x^{(y)}}{y!} \qquad \text{if }\,x \in \mathbb{C},y \in \mathbb{N} \\ 0 \qquad \text{if }\,x \in \mathbb{C},y \notin \mathbb{N}\end{cases}$$</div></dd>
+<dt>&#x8BB0;&#x53F7; 27</dt>
+<dd><div class="mathjax-exps">$$\binom{x}{y_1\ y_2\ \cdots\ y_k}:=\begin{cases} \frac{(x)_{y_1+y_2+\cdots+y_k}}{y_1!\,y_2!\,\cdots\,y_k!} \qquad \text{if }\,x \in \mathbb{C},y \in \mathbb{N} \\ 0 \qquad \text{if }\,x \in \mathbb{C},y \notin \mathbb{N}\end{cases}$$</div></dd>
+<dt>Note</dt>
+<dd>
+<ol>
+<li>&#x4E0D;&#x96BE;&#x770B;&#x51FA;&#xFF0C;<em>&#x8BB0;&#x53F7; 27</em> &#x662F;<em>&#x8BB0;&#x53F7; 25</em> &#x7684;&#x63A8;&#x5E7F;&#xFF1B;</li>
+</ol>
+</dd>
+<dd>
+<ol start="2">
+<li>&#x5F53; <span class="mathjax-exps">$x$</span> &#x4E3A;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF0C;&#x4E14; <span class="mathjax-exps">$y_1+y_2+\cdots+y_k=x$</span> &#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x6709;
+<div class="mathjax-exps">$$\binom{x}{y_1\ y_2\ \cdots\ y_k} = \frac{x!}{y_1!\,y_2!\,\cdots\,y_k!}$$</div></li>
+</ol>
+</dd>
+<dt>&#x8BB0;&#x53F7; 28 (version 1)</dt>
+<dd><div class="mathjax-exps">$$\binom{x}{y}_q:=    \begin{cases}    1 \qquad \text{if } k=0 \\    0 \qquad \text{if } k&gt;n \\    \frac{(q^n-1)(q^n-q)\cdots(q^n-q^{k-1})}{(q^k-1)(q^k-q)\cdots(q^k-q^{k-1})} \qquad \text{if } 0&lt;k\leq n    \end{cases}    \qquad \text{where } \quad n,k \in \mathbb{N},\ q \neq 1$$</div></dd>
+<dt>&#x8BB0;&#x53F7; 28 (version 2)</dt>
+<dd><div class="mathjax-exps">$$\binom{x}{y}_q:=    \begin{cases}    1 \qquad \text{if } k=0 \\    0 \qquad \text{if } k&gt;n \\    \frac{\prod_{j=1}^{k}\sum_{i=0}^{n-j}q^i}{\prod_{j=0}^{k-1}\sum_{i=0}^{j}q^i} \qquad \text{if } 0&lt;k\leq n    \end{cases}    \qquad \text{where } \quad n,k \in \mathbb{N}$$</div></dd>
+<dt>Note</dt>
+<dd>&#x8FD9;&#x4E24;&#x4E2A;&#x8BB0;&#x53F7;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#x5B9A;&#x4E49;&#x3002;&#x524D;&#x8005;&#x7684;&#x5206;&#x5B50;&#x5206;&#x6BCD;&#x540C;&#x65F6;&#x901A;&#x8FC7; <span class="mathjax-exps">$n$</span> &#x6B21;&#x65B9;&#x5DEE;&#x516C;&#x5F0F;&#x53EF;&#x4EE5;&#x8F6C;&#x5316;&#x4E3A;&#x540E;&#x8005;&#x7684;&#x5F62;&#x5F0F;&#x3002;</dd>
+<dd>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x8BB0;&#x53F7;&#xFF08;&#x82E5;&#x628A;&#x5B83;&#x4EEC;&#x89C6;&#x4E3A;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x5B9A;&#x4E49;&#x57DF;&#x6709;&#x4E9B;&#x4E0D;&#x4E00;&#x6837;&#xFF1A;&#x524D;&#x8005;&#x8981;&#x6C42; <span class="mathjax-exps">$q \neq 1$</span>&#xFF0C;&#x540E;&#x8005;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#xFF1B;</dd>
+<dd><em>&#x8BB0;&#x53F7; 28</em> &#x4E5F;&#x662F;<em>&#x8BB0;&#x53F7; 25</em> &#x7684;&#x63A8;&#x5E7F;&#xFF1A;
+<ul>
+<li>version 1 &#x4E2D;&#x4EE4; <span class="mathjax-exps">$q \rightarrow 1$</span> &#x53EF;&#x5F97;&#x5230;<em>&#x8BB0;&#x53F7; 25</em> &#x7684;&#x5F62;&#x5F0F;&#xFF1B;</li>
+<li>version 2 &#x4E2D;&#x4EE4; <span class="mathjax-exps">$q = 1$</span> &#x53EF;&#x76F4;&#x63A5;&#x5F97;&#x5230;<em>&#x8BB0;&#x53F7; 25</em> &#x7684;&#x5F62;&#x5F0F;&#xFF1B;</li>
+</ul>
+</dd>
+</dl>
+<h3 class="mume-header" id="%E8%AE%A1%E6%95%B0%E7%BB%84%E5%90%88%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85">&#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x6982;&#x5FF5;&#x8865;&#x5145;</h3>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 29&#xFF1A;&#x7F6E;&#x6362;</dt>
+<dd>&#x975E;&#x7A7A;&#x96C6;&#x5408;&#x5230;&#x81EA;&#x8EAB;&#x7684;&#x53CC;&#x5C04;&#x53C8;&#x79F0;&#x4E3A;<strong>&#x7F6E;&#x6362;</strong></dd>
+</dl>
+<h6 class="mume-header" id="%E9%87%8D%E9%9B%86%E7%9A%84%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5">&#x91CD;&#x96C6;&#x7684;&#x76F8;&#x5173;&#x6982;&#x5FF5;</h6>
+
+<dl>
+<dt>&#x5B9A;&#x4E49; 30&#xFF1A;&#x91CD;&#x96C6;</dt>
+<dd>&#x5BF9;&#x4E8E;&#x67D0;&#x4E2A;&#x96C6;&#x5408; <span class="mathjax-exps">$A$</span>&#xFF0C;&#x5F62;&#x5F0F;&#x5730;&#x5B9A;&#x4E49;&#x5176;&#x91CD;&#x96C6;&#x4E3A; <span class="mathjax-exps">$(A, m)$</span>&#xFF0C;&#x5176;&#x4E2D; <span class="mathjax-exps">$m:A \mapsto \mathbb{N}^+\cup\{\infty\}$</span> &#x662F;&#x4E2A;&#x6620;&#x5C04;&#x5230;&#x6B63;&#x6574;&#x6570;&#x96C6;&#x7684;&#x51FD;&#x6570;&#x3002;</dd>
+<dd>&#x82E5; <span class="mathjax-exps">$A$</span> &#x662F;&#x6709;&#x9650;&#x96C6;&#xFF0C;&#x5E76;&#x53EF;&#x4EE5;&#x8868;&#x793A;&#x4E3A; <span class="mathjax-exps">$A = \{a_1, a_2, \cdots, a_n\}$</span>&#xFF0C;&#x5219;&#x91CD;&#x96C6; <span class="mathjax-exps">$(A,m)$</span> &#x53EF;&#x8868;&#x793A;&#x4E3A; <span class="mathjax-exps">$\{a_1^{m(a_1)}, a_2^{m(a_2)}, \cdots, a_n^{m(a_n)}\}$</span></dd>
+<dd>&#x79F0; <span class="mathjax-exps">$A$</span> &#x662F; <span class="mathjax-exps">$(A,m)$</span> &#x7684;&#x57FA;&#x7840;&#x96C6;&#xFF08;underlying set&#xFF09;</dd>
+<dt>Note</dt>
+<dd>&#x5982;&#x679C;&#x6620;&#x5C04;&#x5C06;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x6620;&#x5C04;&#x5230;&#x81EA;&#x7136;&#x6570; <span class="mathjax-exps">$1$</span>&#xFF0C;&#x90A3;&#x4E48;&#x91CD;&#x96C6;&#x5C31;&#x9000;&#x5316;&#x4E3A;&#x666E;&#x901A;&#x7684;&#x96C6;&#x5408;</dd>
+</dl>
+<h1 class="mume-header" id="-3"></h1>
+
+<hr>
+<center><font size="5"><b>&#x539F;&#x521B;&#x6027;&#x4E0E;&#x7248;&#x6743;&#x58F0;&#x660E;</b></font></center>
+<h1 class="mume-header" id="-4"></h1>
+
+<ul>
+<li><strong>Level 0</strong>&#xFF1A;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x5B8C;&#x5168;&#x539F;&#x521B;&#xFF0C;&#x6CA1;&#x6709;&#x501F;&#x9274;&#x6216;&#x53C2;&#x8003;&#x5176;&#x4ED6;&#x6587;&#x732E;&#x548C;&#x6750;&#x6599;&#xFF0C;&#x4F46;&#x6709;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x7B2C;&#x4E00;&#x6B21;&#x63D0;&#x51FA;&#xFF1B;</li>
+<li><strong>Level 1</strong>&#xFF1A;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x57FA;&#x672C;&#x539F;&#x521B;&#xFF0C;&#x501F;&#x9274;&#x6216;&#x53C2;&#x8003;&#x4E86;&#x5176;&#x4ED6;&#x7684;&#x6587;&#x732E;&#x548C;&#x6750;&#x6599;&#xFF1B;</li>
+<li><strong>Level 2</strong>&#xFF1A;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x90E8;&#x5206;&#x539F;&#x521B;&#xFF0C;&#x539F;&#x521B;&#x90E8;&#x5206;&#x4E0E;&#x975E;&#x539F;&#x521B;&#x90E8;&#x5206;&#x76F8;&#x4E92;&#x7CC5;&#x5408;&#xFF1B;</li>
+<li><strong>Level 3</strong>&#xFF1A;&#x5BF9;&#x5DF2;&#x6709;&#x6587;&#x732E;&#x548C;&#x6750;&#x6599;&#x7684;&#x6574;&#x7406;&#x5F52;&#x7EB3;&#x6216;&#x8005;&#x91CD;&#x65B0;&#x7EC4;&#x7EC7;&#xFF0C;&#x53EF;&#x80FD;&#x5177;&#x6709;&#x5C11;&#x91CF;&#x539F;&#x521B;&#x5185;&#x5BB9;</li>
+<li><strong>Level 4</strong>&#xFF1A;&#x8F6C;&#x8F7D; / &#x642C;&#x8FD0;&#xFF0C;&#x57FA;&#x672C;&#x4E0D;&#x6539;&#x53D8;&#x5DF2;&#x6709;&#x6750;&#x6599;&#x7684;&#x7EC4;&#x7EC7;&#x67B6;&#x6784;&#x4E0E;&#x5177;&#x4F53;&#x5185;&#x5BB9;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x9644;&#x5E26;&#x6781;&#x5C11;&#x91CF;&#x539F;&#x521B;&#x5185;&#x5BB9;</li>
+</ul>
+<p>&#x6CE8;&#xFF1A;Level 0 &#x591A;&#x89C1;&#x4E8E;&#x7531;&#x7B14;&#x8005;&#x72EC;&#x7ACB;&#x89E3;&#x51B3;&#x7684;&#x4E60;&#x9898;&#x6216;&#x8005;&#x5F00;&#x653E;&#x6027;&#x95EE;&#x9898;&#xFF1B;Level 1 &#x591A;&#x89C1;&#x4E8E;&#x591A;&#x79CD;&#x89E3;&#x6CD5;&#x7684;&#x4E60;&#x9898;&#x6216;&#x8005;&#x524D;&#x4EBA;&#x5DF2;&#x6709;&#x4E00;&#x5B9A;&#x7ED3;&#x8BBA;&#x7684;&#x95EE;&#x9898;&#xFF1B;Level 3 &#x591A;&#x89C1;&#x4E8E;&#x7B14;&#x8BB0;&#x3002;</p>
+<h1 class="mume-header" id="-5"></h1>
+
+<center><font color="red"><b>&#x672C;&#x7AD9;&#x6240;&#x6709;&#x6587;&#x7AE0;&#xFF0C;&#x4E0D;&#x8BBA;&#x5176;&#x539F;&#x521B;&#x6027;&#x7B49;&#x7EA7;&#x9AD8;&#x4F4E;&#xFF0C;&#x4E00;&#x5F8B;&#x4E0D;&#x5141;&#x8BB8;&#x8F6C;&#x8F7D;&#x5F15;&#x7528;</b></font></center>
+<h1 class="mume-header" id="-6"></h1>
+
+<hr>
+<center><b>&#x5982;&#x679C;&#x60A8;&#x89C9;&#x5F97;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6709;&#x5E2E;&#x52A9;&#xFF0C;&#x4E0D;&#x59A8;&#x4E3A;&#x6211;&#x6253;&#x8D4F;&#xFF0C;&#x8C22;&#x8C22;&#xFF01;</b></center>
+<h1 class="mume-header" id="-7"></h1>
+
+<center>
+<img src="../../../../themes/hexo-theme-matery-master/source/medias/reward/alipay.jpg" width="20%" height="20%">
+</center>
+<h1 class="mume-header" id="-8"></h1>
+
+<h1 class="mume-header" id="-9"></h1>
+
+<h1 class="mume-header" id="-10"></h1>
+
+
+      </div>
+      <div class="md-sidebar-toc"><ul>
+<li><a href="#%E4%BB%8E%E9%9B%86%E5%90%88%E8%AF%B4%E8%B5%B7"> &#x4ECE;&#x96C6;&#x5408;&#x8BF4;&#x8D77;</a>
+<ul>
+<li><a href="#%E5%9F%BA%E6%9C%AC%E7%9A%84%E8%AE%B0%E5%8F%B7%E4%B8%8E%E5%AE%9A%E4%B9%89"> &#x57FA;&#x672C;&#x7684;&#x8BB0;&#x53F7;&#x4E0E;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E5%AE%9A%E7%90%86%E4%B8%8E%E5%91%BD%E9%A2%98"> &#x76F8;&#x5173;&#x5B9A;&#x7406;&#x4E0E;&#x547D;&#x9898;</a></li>
+</ul>
+</li>
+<li><a href="#%E6%98%A0%E5%B0%84%E4%B8%8E%E5%85%B3%E7%B3%BB"> &#x6620;&#x5C04;&#x4E0E;&#x5173;&#x7CFB;</a>
+<ul>
+<li><a href="#%E6%98%A0%E5%B0%84"> &#x6620;&#x5C04;</a></li>
+<li><a href="#%E5%85%B3%E7%B3%BB"> &#x5173;&#x7CFB;</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BB%84%E5%90%88%E5%AD%A6%E7%9A%84%E7%AC%A6%E5%8F%B7%E5%92%8C%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"> &#x7EC4;&#x5408;&#x5B66;&#x7684;&#x7B26;&#x53F7;&#x548C;&#x57FA;&#x672C;&#x6982;&#x5FF5;</a>
+<ul>
+<li><a href="#%E5%BD%A2%E5%BC%8F%E7%9A%84%E5%90%84%E7%A7%8D%E8%AE%B0%E5%8F%B7"> &#xFF08;&#x5F62;&#x5F0F;&#x7684;&#xFF09;&#x5404;&#x79CD;&#x8BB0;&#x53F7;</a></li>
+<li><a href="#%E8%AE%A1%E6%95%B0%E7%BB%84%E5%90%88%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E6%A6%82%E5%BF%B5%E8%A1%A5%E5%85%85"> &#x8BA1;&#x6570;&#x7EC4;&#x5408;&#x4E2D;&#x5E38;&#x89C1;&#x7684;&#x6982;&#x5FF5;&#x8865;&#x5145;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+      <a id="sidebar-toc-btn">&#x2261;</a>
+    
+    
+    
+    
+    
+    
+    
+    
+<script>
+document.body.setAttribute('html-show-sidebar-toc', true)
+var sidebarTOCBtn = document.getElementById('sidebar-toc-btn')
+sidebarTOCBtn.addEventListener('click', function(event) {
+  event.stopPropagation()
+  if (document.body.hasAttribute('html-show-sidebar-toc')) {
+    document.body.removeAttribute('html-show-sidebar-toc')
+  } else {
+    document.body.setAttribute('html-show-sidebar-toc', true)
+  }
+})
+</script>
+      
+  
+    </body></html>
